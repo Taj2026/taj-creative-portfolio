@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# Editor / OS cruft
+Thumbs.db
+*~
+.idea/
+.vscode/
+
+# Local Claude Code tooling config
+.claude/settings.local.json
