@@ -200,9 +200,8 @@
     }
     .section-line { flex: 1; height: 2px; background: var(--border); }
 
-    /* Two-column case study grid */
-    .case-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem 3rem; }
-    @media (max-width: 720px) { .case-stack { grid-template-columns: 1fr; gap: 3rem; } }
+    /* Single full-width column — every thumbnail (spanning two columns) stacked vertically */
+    .case-stack { display: grid; grid-template-columns: 1fr; gap: 5rem; }
     .case-item { cursor: pointer; padding-bottom: 0; }
     .case-image-wrap {
       width: 100%; aspect-ratio: 1080 / 480; height: auto; overflow: hidden;
