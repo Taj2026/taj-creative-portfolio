@@ -161,6 +161,23 @@
     }
     @media (max-width: 720px) { .hero-byline { grid-template-columns: 1fr; } .hero-byline-vrule { display: none; } }
     .hero-byline-vrule { width: 1px; height: 100%; min-height: 80px; background: rgba(244,241,234,0.25); }
+    .hero-previously {
+      display: flex; flex-direction: column; gap: 1.15rem;
+      margin-top: 2rem; padding-top: 1.75rem;
+      border-top: 1px solid rgba(244,241,234,0.12);
+    }
+    .hero-previously-label {
+      font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.2em;
+      text-transform: uppercase; color: rgba(244,241,234,0.5);
+    }
+    .hero-logos { display: flex; align-items: center; gap: 2.75rem; flex-wrap: wrap; }
+    .hero-logo {
+      height: 30px; width: auto;
+      color: rgba(244,241,234,0.4);
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    .hero-logo:hover { color: rgba(244,241,234,0.82); transform: translateY(-2px); }
+    @media (max-width: 720px) { .hero-logos { gap: 2rem; } .hero-logo { height: 26px; } }
     .hero-byline-name {
       font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em;
       color: var(--fg); white-space: nowrap;
@@ -782,17 +799,19 @@ function HomePage({ view, setView, tweaks }) {
             }}>
               Design leader. Systems builder. <em style={{ fontStyle: 'italic', color: '#E8635A' }}>AI strategist.</em> Taj crafts human-centered experiences that leverage AI to solve complex user problems.
             </div>
-            <div className="hero-byline">
-              <div className="hero-byline-desc">
-                I am a builder that leverages a deep understanding of enterprise problems to create clear, scalable solutions. Pairing systems thinking with AI as a collaborator, I move quickly from ambiguity to shipped product.
+            <div className="hero-previously">
+              <span className="hero-previously-label">Previously at</span>
+              <div className="hero-logos">
+                <svg className="hero-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Atlassian">
+                  <path fill="currentColor" d="M7.12 11.084a.683.683 0 00-1.16.126L.075 22.974a.703.703 0 00.63 1.018h8.19a.678.678 0 00.63-.39c1.767-3.65.696-9.203-2.406-12.52zM11.434.386a15.515 15.515 0 00-.906 15.317l3.95 7.9a.703.703 0 00.628.388h8.19a.703.703 0 00.63-1.017L12.63.38a.664.664 0 00-1.196.006z" />
+                </svg>
+                <svg className="hero-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Autodesk">
+                  <path fill="currentColor" d="m.129 20.202 14.7-9.136h7.625c.235 0 .445.188.445.445 0 .21-.092.305-.21.375l-7.222 4.323c-.47.283-.633.845-.633 1.265l-.008 2.725H24V4.362a.561.561 0 0 0-.585-.562h-8.752L0 12.893V20.2h.129z" />
+                </svg>
+                <svg className="hero-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Adobe">
+                  <path fill="currentColor" d="M13.966 22.624l-1.69-4.281H8.122l3.892-9.144 5.662 13.425zM8.884 1.376H0v21.248zm15.116 0h-8.884L24 22.624Z" />
+                </svg>
               </div>
-              <div className="hero-byline-vrule" />
-              {tweaks.showStats && (
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
-                  <div style={{ fontFamily: "var(--font-sans, 'Space Grotesk', sans-serif)", fontSize: '3.25rem', fontWeight: 300, lineHeight: 1, color: '#E8635A' }}>6</div>
-                  <div style={{ fontSize: '0.6875rem', color: '#f4f1ea', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 700 }}>Case studies</div>
-                </div>
-              )}
             </div>
           </div>
         </div>
