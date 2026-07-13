@@ -163,8 +163,7 @@
     .hero-byline-vrule { width: 1px; height: 100%; min-height: 80px; background: rgba(244,241,234,0.25); }
     .hero-previously {
       display: flex; flex-direction: column; gap: 1.15rem;
-      margin-top: 2rem; padding-top: 1.75rem;
-      border-top: 1px solid rgba(244,241,234,0.12);
+      margin-top: 2rem; padding-top: 0.5rem;
     }
     .hero-previously-label {
       font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.2em;
@@ -177,10 +176,7 @@
       transition: opacity 0.3s ease, transform 0.3s ease;
     }
     .hero-logo:hover { opacity: 0.85; transform: translateY(-2px); }
-    .hero-logo[alt="Adobe"] { height: 23px; }
-    .hero-logo[alt="Autodesk"] { height: 15px; }
-    .hero-logo[alt="GoPro"] { height: 26px; }
-    @media (max-width: 720px) { .hero-logos { gap: 1.9rem; } .hero-logo { height: 19px; } .hero-logo[alt="Adobe"] { height: 20px; } .hero-logo[alt="Autodesk"] { height: 13px; } .hero-logo[alt="GoPro"] { height: 22px; } }
+    @media (max-width: 720px) { .hero-logos { gap: 1.9rem; } .hero-logo { height: 18px; } }
     .hero-byline-name {
       font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em;
       color: var(--fg); white-space: nowrap;
@@ -815,6 +811,7 @@ function HomePage({ view, setView, tweaks }) {
                 <img className="hero-logo" src="uploads/autodesk-wordmark.svg" alt="Autodesk" />
                 <img className="hero-logo" src="uploads/gopro-wordmark.svg" alt="GoPro" />
                 <img className="hero-logo" src="uploads/adobe-wordmark.svg" alt="Adobe" />
+                <img className="hero-logo" src="uploads/yahoo-wordmark.svg" alt="Yahoo" />
               </div>
             </div>
           </div>
