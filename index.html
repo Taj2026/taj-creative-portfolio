@@ -176,7 +176,8 @@
       transition: opacity 0.3s ease, transform 0.3s ease;
     }
     .hero-logo:hover { opacity: 0.85; transform: translateY(-2px); }
-    @media (max-width: 720px) { .hero-logos { justify-content: flex-start; gap: 1.5rem; } .hero-logo { height: 15px; } }
+    .hero-logo[alt="Atlassian"], .hero-logo[alt="Autodesk"] { height: 13.6px; }
+    @media (max-width: 720px) { .hero-logos { justify-content: flex-start; gap: 1.5rem; } .hero-logo { height: 15px; } .hero-logo[alt="Atlassian"], .hero-logo[alt="Autodesk"] { height: 12px; } }
 
     /* Cursor glow — a soft accent-colored halo trailing the pointer */
     .cursor-glow {
