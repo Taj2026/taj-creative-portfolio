@@ -466,6 +466,17 @@
     .skill-list li { font-size: 0.9375rem; color: var(--fg2); font-weight: 300; display: flex; align-items: center; gap: 0.6rem; }
     .skill-list li::before { content: ''; width: 3px; height: 3px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
 
+    /* About page on dark band */
+    .band-dark .about-name { color: #f4f1ea; }
+    .band-dark .about-bio { color: #c8c4ba; }
+    .band-dark .about-philosophy { background: rgba(244,241,234,0.04); }
+    .band-dark .about-philosophy p { color: #f4f1ea; }
+    .band-dark .about-philosophy cite { color: #8a877f; }
+    .band-dark .about-placeholder { --bg2: #141414; --border: rgba(244,241,234,0.10); }
+    .band-dark .about-placeholder-label { color: #8a877f; }
+    .band-dark .skills-section { border-top-color: rgba(244,241,234,0.18); }
+    .band-dark .skill-list li { color: #c8c4ba; }
+
     /* === CAPABILITIES === */
     .capabilities { padding-bottom: 1.25rem; margin-top: 0; }
     .capabilities-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2.5rem 2.5rem; }
@@ -798,7 +809,6 @@ function PageHeader({ view, setView }) {
       <div className="page-header-nav">
         <button className={`page-header-link ${view.page === 'home' ? 'active' : ''}`} onClick={() => setView({ page: 'home' })}>Work</button>
         <button className={`page-header-link ${view.page === 'about' ? 'active' : ''}`} onClick={() => setView({ page: 'about' })}>About</button>
-        <a className="page-header-link" href="uploads/Taj_Palchaudhuri_Resume.pdf" target="_blank" rel="noreferrer">Resume</a>
       </div>
     </div>
   );
@@ -1194,6 +1204,7 @@ function AboutPage({ view, setView }) {
           <PageHeader view={view} setView={setView} />
         </div>
       </div>
+      <div className="band band-dark">
       <div className="container">
         <div className="about-grid">
           <div className="about-content">
@@ -1249,6 +1260,7 @@ function AboutPage({ view, setView }) {
           <div className="footer-name">Taj Palchaudhuri</div>
           <div className="footer-note">Available for senior UX roles — 2026</div>
         </div>
+      </div>
       </div>
     </div>
   );
