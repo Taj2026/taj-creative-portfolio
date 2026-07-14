@@ -232,24 +232,24 @@
     /* Single full-width column — every thumbnail (spanning two columns) stacked vertically */
     .case-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem 2.5rem; }
     @media (max-width: 720px) { .case-stack { grid-template-columns: 1fr; gap: 4rem; } }
-    .case-item {
-      cursor: pointer; padding-bottom: 0;
-      transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
-    }
-    .case-item:hover { transform: translateY(-6px); }
+    .case-item { cursor: pointer; padding-bottom: 0; }
+    /* Cursor-following 3D tilt — vars set by JS on mousemove, eased back on leave */
     .case-image-wrap {
       width: 100%; aspect-ratio: 1080 / 480; height: auto; overflow: hidden;
       position: relative; background: var(--bg2); margin-bottom: 1.75rem;
       border-radius: 14px;
-      transition: box-shadow 0.5s ease;
+      --tilt-x: 0deg; --tilt-y: 0deg; --tilt-scale: 1;
+      transform: perspective(900px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) scale(var(--tilt-scale));
+      transform-style: preserve-3d;
+      will-change: transform;
+      transition: transform 0.2s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.4s ease;
     }
     .case-item:hover .case-image-wrap { box-shadow: 0 22px 45px -24px rgba(0,0,0,0.5); }
+    @media (prefers-reduced-motion: reduce) { .case-image-wrap { transform: none; } }
     .case-image-inner {
       width: 100%; height: 100%;
       transform-origin: center;
-      transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
     }
-    .case-item:hover .case-image-inner { transform: scale(1.03); }
     .case-image-inner svg { width: 100%; height: 100%; display: block; }
     .case-image-label {
       position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
@@ -703,6 +703,25 @@ function StripedPlaceholder({ label, height = 420 }) {
   );
 }
 
+// Cursor-following 3D tilt for the case-study tiles (see .case-image-wrap CSS)
+const CARD_TILT_MAX = 7; // degrees
+function handleCardTilt(e) {
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const el = e.currentTarget;
+  const r = el.getBoundingClientRect();
+  const px = (e.clientX - r.left) / r.width;   // 0..1 across
+  const py = (e.clientY - r.top) / r.height;   // 0..1 down
+  el.style.setProperty('--tilt-y', ((px - 0.5) * 2 * CARD_TILT_MAX).toFixed(2) + 'deg');
+  el.style.setProperty('--tilt-x', (-(py - 0.5) * 2 * CARD_TILT_MAX).toFixed(2) + 'deg');
+  el.style.setProperty('--tilt-scale', '1.03');
+}
+function resetCardTilt(e) {
+  const el = e.currentTarget;
+  el.style.setProperty('--tilt-x', '0deg');
+  el.style.setProperty('--tilt-y', '0deg');
+  el.style.setProperty('--tilt-scale', '1');
+}
+
 function CaseImagePlaceholder({ id, image, title }) {
   if (image) {
     return (
@@ -838,7 +857,7 @@ function HomePage({ view, setView, tweaks }) {
                 className="case-item"
                 onClick={() => setView({ page: 'case', id: cs.id })}
               >
-                <div className="case-image-wrap">
+                <div className="case-image-wrap" onMouseMove={handleCardTilt} onMouseLeave={resetCardTilt}>
                   <div className="case-image-inner">
                     <CaseImagePlaceholder id={cs.id} image={cs.image} title={cs.title} />
                   </div>
