@@ -243,14 +243,6 @@
       transition: box-shadow 0.5s ease;
     }
     .case-item:hover .case-image-wrap { box-shadow: 0 22px 45px -24px rgba(0,0,0,0.5); }
-    /* Shimmer sweep on hover */
-    .case-image-wrap::after {
-      content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
-      background: linear-gradient(105deg, transparent 38%, rgba(255,255,255,0.28) 50%, transparent 62%);
-      transform: translateX(-130%);
-      transition: transform 0.85s cubic-bezier(0.22, 0.61, 0.36, 1);
-    }
-    .case-item:hover .case-image-wrap::after { transform: translateX(130%); }
     .case-image-inner {
       width: 100%; height: 100%;
       transform-origin: center;
