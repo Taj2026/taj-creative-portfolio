@@ -240,6 +240,7 @@
     .case-image-wrap {
       width: 100%; aspect-ratio: 1080 / 480; height: auto; overflow: hidden;
       position: relative; background: var(--bg2); margin-bottom: 1.75rem;
+      border-radius: 14px;
       transition: box-shadow 0.5s ease;
     }
     .case-item:hover .case-image-wrap { box-shadow: 0 22px 45px -24px rgba(0,0,0,0.5); }
@@ -705,7 +706,7 @@ function StripedPlaceholder({ label, height = 420 }) {
 function CaseImagePlaceholder({ id, image, title }) {
   if (image) {
     return (
-      <img src={image} alt={title ? `${title} case study preview` : ''} style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block', background: 'var(--bg2)', transform: id === 'dc-performance' ? 'scale(1.2)' : undefined }} />
+      <img src={image} alt={title ? `${title} case study preview` : ''} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', background: 'var(--bg2)' }} />
     );
   }
   const patId = `cip-${id}`;
