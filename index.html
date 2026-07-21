@@ -1,1575 +1,231 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Taj Palchaudhuri — UX Design Manager</title>
-  <meta name="description" content="Portfolio of Taj Palchaudhuri, UX Design Manager. Case studies in enterprise SaaS, data visualization, design systems, and accessibility." />
-  <meta name="author" content="Taj Palchaudhuri" />
-  <link rel="canonical" href="https://tajcreative.com/" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Taj Palchaudhuri — Creative Director & Designer</title>
+<meta name="description" content="Taj — a creative director and multidisciplinary designer building brands, campaigns, and digital products with clarity and craft." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0A0A0A; --fg:#EBEBE5; --muted:#9CA3AF; --dim:#CDCDC6;
+    --line:#212121; --accent:#F0605A;
+    --display:"Bebas Neue",sans-serif; --sans:"DM Sans",sans-serif; --mono:"DM Mono",ui-monospace,monospace;
+    --maxw:1312px; --pad:64px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--fg);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+  .mono{font-family:var(--mono);text-transform:uppercase}
+  .accent{color:var(--accent)}
+  .display{font-family:var(--display);text-transform:uppercase;line-height:.9;letter-spacing:.01em}
 
-  <!-- Open Graph / Facebook / LinkedIn -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://tajcreative.com/" />
-  <meta property="og:title" content="Taj Palchaudhuri — UX Design Manager" />
-  <meta property="og:description" content="Portfolio of Taj Palchaudhuri, UX Design Manager. Case studies in enterprise SaaS, data visualization, design systems, and accessibility." />
-  <meta property="og:image" content="https://tajcreative.com/uploads/SH_thumb%20copy-478897e7.jpg" />
+  /* NAV */
+  nav{position:absolute;top:0;left:0;right:0;z-index:20}
+  .nav-in{max-width:var(--maxw);margin:0 auto;padding:34px var(--pad);display:flex;align-items:center;justify-content:space-between}
+  .wordmark{font-family:var(--display);font-size:30px;letter-spacing:.08em}
+  .nav-links{display:flex;gap:34px}
+  .nav-links a{font-family:var(--display);font-size:15px;letter-spacing:.08em;color:var(--dim);text-transform:uppercase;transition:color .2s}
+  .nav-links a:hover{color:var(--fg)}
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Taj Palchaudhuri — UX Design Manager" />
-  <meta name="twitter:description" content="Portfolio of Taj Palchaudhuri, UX Design Manager. Case studies in enterprise SaaS, data visualization, design systems, and accessibility." />
-  <meta name="twitter:image" content="https://tajcreative.com/uploads/SH_thumb%20copy-478897e7.jpg" />
+  /* HERO */
+  .hero{position:relative;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;isolation:isolate}
+  .hero::before{ /* soft neutral glow */
+    content:"";position:absolute;inset:0;z-index:-1;
+    background:radial-gradient(38% 42% at 26% 52%, rgba(255,255,255,.09), transparent 70%),
+               radial-gradient(30% 34% at 20% 70%, rgba(255,255,255,.05), transparent 72%);
+  }
+  .hero-col{padding:120px var(--pad) 60px;display:flex;flex-direction:column;justify-content:center}
+  .hero-left{max-width:calc(var(--maxw)/2)}
+  .hero-right{border-left:1px solid var(--line)}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--accent);text-transform:uppercase;margin-bottom:26px}
+  .headline{font-family:var(--display);text-transform:uppercase;font-size:clamp(64px,9vw,144px);line-height:.86;letter-spacing:.02em}
+  .headline .l1{display:flex;align-items:center;gap:.16em}
+  .bird{width:.72em;height:.62em;flex:0 0 auto}
+  .subline{font-size:18px;line-height:1.55;color:var(--dim);max-width:34ch;margin-top:28px}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Space+Grotesk:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Outfit:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
-  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: 16px; scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--fg); font-family: var(--font-sans, 'Space Grotesk', sans-serif); --font-sans: 'Space Grotesk', sans-serif; --font-serif: 'Cormorant Garamond', serif; min-height: 100vh; transition: background 0.4s, color 0.4s; }
-    #root { min-height: 100vh; }
+  .prev{margin-top:56px}
+  .prev-label{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:#6B6B64;text-transform:uppercase;margin-bottom:18px}
+  .prev-logos{display:flex;align-items:center;gap:26px}
+  .prev-logos img{height:15px;width:auto;opacity:1;filter:brightness(0) saturate(100%) invert(43%) sepia(6%) saturate(280%) hue-rotate(20deg) brightness(92%) contrast(88%)}
+  .prev-logos .adobe{height:13px}
+  .prev-logos .gopro{height:17px}
 
-    /* === THEMES === */
-    [data-theme="warm"] {
-      --bg: oklch(97% 0.008 75);
-      --bg2: oklch(93% 0.01 75);
-      --bg3: oklch(89% 0.012 75);
-      --fg: oklch(13% 0.012 75);
-      --fg2: oklch(38% 0.01 75);
-      --fg3: oklch(55% 0.008 75);
-      --accent: #E8635A;
-      --accent-light: oklch(88% 0.06 30);
-      --border: oklch(85% 0.01 75);
-      --border-strong: oklch(75% 0.015 75);
-      --nav-bg: oklch(97% 0.008 75 / 0.92);
-    }
-    [data-theme="slate"] {
-      --bg: oklch(96% 0.006 230);
-      --bg2: oklch(91% 0.008 230);
-      --bg3: oklch(86% 0.01 230);
-      --fg: oklch(14% 0.015 240);
-      --fg2: oklch(35% 0.015 240);
-      --fg3: oklch(52% 0.01 240);
-      --accent: #E8635A;
-      --accent-light: oklch(88% 0.06 30);
-      --border: oklch(84% 0.01 230);
-      --border-strong: oklch(72% 0.015 230);
-      --nav-bg: oklch(96% 0.006 230 / 0.92);
-    }
-    [data-theme="dark"] {
-      --bg: oklch(13% 0.01 280);
-      --bg2: oklch(18% 0.012 280);
-      --bg3: oklch(23% 0.015 280);
-      --fg: oklch(92% 0.005 280);
-      --fg2: oklch(68% 0.01 280);
-      --fg3: oklch(50% 0.01 280);
-      --accent: #E8635A;
-      --accent-light: oklch(35% 0.08 30);
-      --border: oklch(22% 0.015 280);
-      --border-strong: oklch(32% 0.015 280);
-      --nav-bg: oklch(13% 0.01 280 / 0.92);
-    }
+  .stats{display:flex;flex-direction:column;justify-content:center;height:100%}
+  .stat{display:grid;grid-template-columns:110px 1fr;gap:24px;align-items:center;padding:26px 0;border-bottom:1px solid var(--line)}
+  .stat:first-child{border-top:1px solid var(--line)}
+  .stat .num{font-family:var(--display);font-size:48px;line-height:.9;color:var(--accent)}
+  .stat .desc{font-family:var(--mono);font-size:12px;letter-spacing:.1em;line-height:1.55;color:var(--dim);text-transform:uppercase}
+  .avail{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--dim);text-transform:uppercase;margin-top:28px;display:flex;align-items:center;gap:9px}
+  .avail::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
 
-    /* === NAV === */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: var(--nav-bg);
-      backdrop-filter: blur(12px);
-      border-bottom: 2px solid var(--border);
-    }
-    .nav-bird { height: 28px; width: auto; opacity: 0.85; display: block; }
-    .nav-name-wrap { display: flex; align-items: center; gap: 0.65rem; cursor: pointer; }
-    .nav-name {
-      font-family: var(--font-title, 'Cormorant Garamond', serif);
-      font-size: 1.25rem; font-weight: 600; letter-spacing: -0.01em;
-      color: var(--fg); cursor: pointer;
-    }
-    .nav-links { display: flex; gap: 2.5rem; align-items: center; }
-    .nav-link {
-      font-size: 0.8125rem; font-weight: 400; letter-spacing: 0.06em;
-      text-transform: uppercase; color: var(--fg2);
-      background: none; border: none; cursor: pointer;
-      padding: 0; transition: color 0.2s;
-    }
-    .nav-link:hover, .nav-link.active { color: var(--fg); }
-    .nav-link.active { color: var(--accent); }
+  /* SECTIONS */
+  section.block{border-top:1px solid var(--line);padding:110px 0}
+  .sec-eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.22em;color:var(--accent);text-transform:uppercase}
+  .sec-title{font-family:var(--display);text-transform:uppercase;font-size:clamp(44px,6vw,66px);line-height:.9;margin-top:16px}
 
-    /* === PAGE TRANSITIONS === */
-    .page-enter { animation: pageIn 0.35s ease forwards; }
-    @keyframes pageIn {
-      from { opacity: 0; transform: translateY(14px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+  /* CASE STUDIES */
+  .cases{display:flex;flex-direction:column;gap:100px;margin-top:80px}
+  .case{display:grid;grid-template-columns:490px 1fr;gap:64px;align-items:center}
+  .case.rev .case-text{order:2}
+  .case-label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase}
+  .case-title{font-family:var(--display);text-transform:uppercase;font-size:clamp(40px,5vw,52px);line-height:.9;letter-spacing:.02em;margin:16px 0 18px}
+  .case-desc{font-size:15px;line-height:1.55;color:var(--dim);max-width:44ch}
+  .tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+  .tag{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--dim);text-transform:uppercase;border:1px solid var(--line);border-radius:4px;padding:6px 11px}
+  .case-link{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--fg);text-transform:uppercase;display:inline-flex;gap:8px;margin-top:26px;transition:color .2s}
+  .case-link:hover{color:var(--accent)}
+  .visual{position:relative;height:380px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+  .glow{background:
+      radial-gradient(60% 82% at 12% 18%, rgba(255,129,99,.22), transparent 60%),
+      radial-gradient(58% 78% at 88% 14%, rgba(255,145,66,.17), transparent 60%),
+      radial-gradient(58% 74% at 88% 86%, rgba(239,78,134,.16), transparent 60%),
+      radial-gradient(52% 72% at 10% 88%, rgba(142,90,224,.13), transparent 60%),
+      linear-gradient(120deg,#151517,#0b0b0d);}
+  .visual{align-items:flex-start}
+  .visual .shot{position:relative;width:calc(100% - 84px);border-radius:12px;box-shadow:0 24px 55px rgba(0,0,0,.5);margin:42px auto 0}
 
-    /* === LAYOUT === */
-    .page { padding-top: 0; min-height: 100vh; }
-    .page-header { display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 2rem; padding: 1.75rem 0 1.25rem; }
-    .page-header-id { display: flex; align-items: center; gap: 0.25rem; cursor: pointer; }
-    .page-header-id img { height: 40px; width: auto; }
-    .page-header-name { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.01em; color: #f4f1ea; font-family: var(--font-sans, 'Space Grotesk', sans-serif); }
-    .page-header-nav { display: flex; gap: 2rem; }
-    .page-header-link { background: none; border: 0; padding: 0; cursor: pointer; font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,241,234,0.6); transition: color 0.2s; text-decoration: none; }
-    .page-header-link:hover, .page-header-link.active { color: #E8635A; }
-    .container { max-width: 1080px; margin: 0 auto; padding: 0 3rem; }
+  /* EXPERIMENTS */
+  .thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+  .thumb{aspect-ratio:3/2;overflow:hidden;background:linear-gradient(120deg,#141417,#0b0b0d);position:relative}
+  .thumb img{width:100%;height:100%;object-fit:cover}
+  .thumb.empty{background:
+      radial-gradient(70% 90% at 20% 20%, rgba(240,96,90,.16), transparent 60%),
+      radial-gradient(70% 90% at 85% 85%, rgba(239,78,134,.12), transparent 60%),
+      linear-gradient(120deg,#141417,#0b0b0d);}
 
-    .page-home { background: #0a0a0a; }
-    /* === BANDS === */
-    .band { box-shadow: 0 0 0 100vmax var(--band-bg); clip-path: inset(-1px -100vmax); background: var(--band-bg); }
-    .band-dark { --band-bg: #0a0a0a; color: #f4f1ea; padding-top: 0.5rem; padding-bottom: 0.5rem; }
-    .band-light { --band-bg: #ececea; color: var(--fg); padding-top: 0.5rem; padding-bottom: 0.5rem; }
-    .band-cases { padding-bottom: calc(0.5rem + 30px); }
-    .band-dark .section-label { color: #E8635A; }
-    .band-dark .section-line { background: rgba(244,241,234,0.25); }
-    .band-dark .capability { border-top-color: rgba(244,241,234,0.18); }
-    .band-dark .hero-byline-name { color: #f4f1ea; }
-    .band-dark .hero-byline-desc { color: #c8c4ba; }
-    .band-dark .hero-byline-rule { background: rgba(244,241,234,0.25); }
-    .band-dark .hero-declaration { color: #f4f1ea; }
-    .band-dark .hero-declaration em { color: #E8635A; }
+  /* FOOTER */
+  footer{border-top:1px solid var(--line);padding:70px 0}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
+  .foot .mono{font-size:11px;letter-spacing:.12em;color:var(--dim)}
+  .foot a.mail{font-family:var(--display);font-size:28px;letter-spacing:.03em;text-transform:uppercase}
+  .foot a.mail:hover{color:var(--accent)}
 
-    .band + .band > .container { position: relative; }
-    .band + .band > .container::before {
-      content: ""; display: block; height: 2px; background: rgba(244,241,234,0.25);
-      margin: 0 0 0 0;
-      position: absolute; top: 0; left: 3rem; right: 3rem;
-    }
-    .band-light + .band-dark > .container::before,
-    .band-dark + .band-light > .container::before { background: rgba(244,241,234,0.25); }
-
-    /* === HERO === */
-    .hero { padding: 2rem 0 0.5rem; }
-    .hero-row { display: grid; grid-template-columns: auto 1px 1fr; gap: 2.5rem; align-items: center; }
-    @media (max-width: 720px) { .hero-row { grid-template-columns: 1fr; gap: 1.5rem; } .hero-vrule { display: none; } }
-    .hero-id { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.6rem; }
-    .hero-id img { height: 96px; width: auto; }
-    .hero-id-name { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.015em; white-space: nowrap; color: #f4f1ea; font-family: var(--font-sans, 'Space Grotesk', sans-serif); }
-    .hero-vrule { width: 1px; height: 70%; min-height: 180px; background: rgba(244,241,234,0.25); align-self: center; }
-    .hero-declaration {
-      font-family: var(--font-title, 'DM Sans', sans-serif);
-      font-size: clamp(2.4rem, 4.6vw, 4.8rem);
-      font-weight: 400; line-height: 0.92;
-      letter-spacing: -0.015em; color: var(--fg);
-      margin-bottom: 2rem;
-    }
-    .hero-declaration em { font-family: var(--font-serif, 'Cormorant Garamond', serif); font-style: italic; color: var(--fg); font-weight: 300; font-size: 0.72em; }
-    .hero-byline {
-      display: grid; grid-template-columns: 1fr 1px auto; gap: 2.5rem; align-items: center;
-      margin-top: 2rem; padding-top: 1.5rem;
-    }
-    @media (max-width: 720px) { .hero-byline { grid-template-columns: 1fr; } .hero-byline-vrule { display: none; } }
-    .hero-byline-vrule { width: 1px; height: 100%; min-height: 80px; background: rgba(244,241,234,0.25); }
-    .hero-previously {
-      display: flex; flex-direction: column; gap: 1.15rem;
-      margin-top: 2rem; padding-top: 0.5rem;
-    }
-    .hero-previously-label {
-      font-size: 0.95rem; font-weight: 600; letter-spacing: 0.14em;
-      text-transform: uppercase; color: rgba(244,241,234,0.5);
-    }
-    .hero-logos { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem 2rem; flex-wrap: wrap; width: 100%; }
-    .hero-logo {
-      height: 17px; width: auto;
-      opacity: 0.45;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-    .hero-logo:hover { opacity: 0.85; transform: translateY(-2px); }
-    .hero-logo[alt="Atlassian"], .hero-logo[alt="Autodesk"] { height: 13.6px; }
-    @media (max-width: 720px) { .hero-logos { justify-content: flex-start; gap: 1.5rem; } .hero-logo { height: 15px; } .hero-logo[alt="Atlassian"], .hero-logo[alt="Autodesk"] { height: 12px; } }
-
-    /* Cursor glow — a soft accent-colored halo trailing the pointer */
-    .cursor-glow {
-      position: fixed; top: 0; left: 0; z-index: 4;
-      width: 160px; height: 160px; border-radius: 50%;
-      pointer-events: none;
-      background: radial-gradient(circle, rgba(255,255,255,0.42) 0%, rgba(255,255,255,0.20) 28%, rgba(255,255,255,0.07) 50%, rgba(255,255,255,0) 72%);
-      opacity: 0; transition: opacity 0.5s ease;
-      will-change: transform;
-      mix-blend-mode: screen;
-    }
-    @media (hover: none), (prefers-reduced-motion: reduce) { .cursor-glow { display: none; } }
-    .hero-byline-name {
-      font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em;
-      color: var(--fg); white-space: nowrap;
-    }
-    .hero-byline-rule { width: 1px; height: 2.5rem; background: var(--border-strong); }
-    .hero-byline-desc {
-      font-size: 0.9375rem; line-height: 1.7; color: var(--fg2);
-      font-weight: 300; text-wrap: pretty;
-    }
-    .hero-byline-stats { display: flex; gap: 2rem; flex-shrink: 0; }
-    .hero-stat { text-align: center; }
-    .hero-stat-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem; font-weight: 600; line-height: 1; color: var(--fg);
-    }
-    .hero-stat-label {
-      font-size: 0.6875rem; color: var(--fg3); letter-spacing: 0.06em;
-      text-transform: uppercase; margin-top: 0.15rem;
-    }
-
-    .band-dark .case-title { color: #f4f1ea; }
-    .band-dark .case-desc { color: #c8c4ba; }
-    .band-dark .case-item { border-color: rgba(244,241,234,0.18); }
-    .band-dark .case-num-spacer { color: transparent; }
-    .band-dark .tag { color: #c8c4ba; border-color: rgba(244,241,234,0.22); background: transparent; }
-    .band-dark .case-arrow { color: #f4f1ea; }
-
-    /* === CASE STUDY INDEX === */
-    .section-header { padding: 3.125rem 0 1rem; display: flex; align-items: baseline; gap: 1.5rem; }
-    .section-line { display: none; }
-    .section-label {
-      font-size: 0.95rem; font-weight: 600; letter-spacing: 0.14em;
-      text-transform: uppercase; color: #E8635A; font-style: normal;
-      font-family: var(--font-sans, 'Space Grotesk', sans-serif);
-    }
-    .band-light .section-label { color: var(--accent); }
-    }
-    .section-line { flex: 1; height: 2px; background: var(--border); }
-
-    /* Single full-width column — every thumbnail (spanning two columns) stacked vertically */
-    .case-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem 2.5rem; }
-    @media (max-width: 720px) { .case-stack { grid-template-columns: 1fr; gap: 4rem; } }
-    .case-item { cursor: pointer; padding-bottom: 0; }
-    /* Cursor-following 3D tilt — vars set by JS on mousemove, eased back on leave */
-    .case-image-wrap {
-      width: 100%; aspect-ratio: 1080 / 480; height: auto; overflow: hidden;
-      position: relative; background: var(--bg2); margin-bottom: 1.75rem;
-      border-radius: 14px;
-      --tilt-x: 0deg; --tilt-y: 0deg; --tilt-scale: 1;
-      transform: perspective(900px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) scale(var(--tilt-scale));
-      transform-style: preserve-3d;
-      will-change: transform;
-      transition: transform 0.2s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.4s ease;
-    }
-    .case-item:hover .case-image-wrap { box-shadow: 0 22px 45px -24px rgba(0,0,0,0.5); }
-    @media (prefers-reduced-motion: reduce) { .case-image-wrap { transform: none; } }
-    .case-image-inner {
-      width: 100%; height: 100%;
-      transform-origin: center;
-    }
-    .case-image-inner svg { width: 100%; height: 100%; display: block; }
-    .case-image-label {
-      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-      font-family: monospace; font-size: 0.8125rem; color: var(--fg3); letter-spacing: 0.04em;
-      pointer-events: none;
-    }
-    .case-info-row {
-      display: flex; align-items: baseline; justify-content: space-between; gap: 2rem;
-      margin-bottom: 0.65rem;
-    }
-    .case-info-left { display: flex; align-items: baseline; gap: 1.25rem; }
-    .case-num {
-      font-family: var(--font-title, 'DM Sans', sans-serif);
-      font-size: clamp(1.375rem, 2vw, 1.75rem); color: #ffffff; font-weight: 500;
-      flex-shrink: 0;
-    }
-    .case-title {
-      font-family: var(--font-title, 'Cormorant Garamond', serif);
-      font-size: clamp(1.375rem, 2vw, 1.75rem);
-      font-weight: 400; color: var(--fg); line-height: 1.1;
-      letter-spacing: -0.02em;
-      transition: color 0.25s;
-    }
-    .case-item:hover .case-title { color: var(--accent); }
-    .case-info-right { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
-    .case-tag-row { display: flex; align-items: center; gap: 1.25rem; margin-top: 0.85rem; }
-    .case-num-spacer {
-      font-family: var(--font-title, 'DM Sans', sans-serif);
-      font-size: clamp(1.375rem, 2vw, 1.75rem); font-weight: 500;
-      visibility: hidden;
-    }
-    .case-tags { display: flex; gap: 0.6rem; flex-wrap: wrap; }
-    .tag {
-      font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.07em;
-      text-transform: uppercase; padding: 0.3rem 0.65rem;
-      border: 1px solid var(--border-strong); border-radius: 2px;
-      color: var(--fg3); white-space: nowrap;
-    }
-    .case-arrow {
-      font-size: 1.125rem; color: var(--fg3);
-      transition: transform 0.25s, color 0.25s;
-    }
-    .case-item:hover .case-arrow { transform: translateX(5px); color: var(--accent); }
-    .case-desc {
-      font-size: 0.9375rem; color: var(--fg2); font-weight: 300;
-      line-height: 1.65; max-width: 640px; text-wrap: pretty;
-      margin-top: 0.75rem;
-    }
-
-    /* === CASE STUDY PAGE === */
-    .cs-back {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      font-size: 0.8125rem; color: var(--fg3); cursor: pointer;
-      background: none; border: none;
-      padding: 2.5rem 0 0;
-      transition: color 0.2s; letter-spacing: 0.04em; text-transform: uppercase;
-    }
-    .cs-back:hover { color: var(--accent); }
-    .cs-header { padding: 2rem 0 3.5rem; border-bottom: 2px solid var(--border); }
-    .cs-eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
-    .cs-title {
-      font-family: var(--font-title, 'Cormorant Garamond', serif);
-      font-size: clamp(2.75rem, 5vw, 4.5rem);
-      font-weight: 400; line-height: 1.0; letter-spacing: -0.03em;
-      color: var(--fg); margin-bottom: 1.5rem; max-width: 800px;
-    }
-    .cs-subtitle {
-      font-size: 1.0625rem; color: var(--fg2); line-height: 1.7;
-      max-width: 640px; font-weight: 300; text-wrap: pretty;
-    }
-    .cs-meta-row {
-      display: flex; gap: 3rem; padding: 2.5rem 0; border-bottom: 2px solid var(--border);
-    }
-    .cs-meta-item { }
-    .cs-meta-label { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg3); margin-bottom: 0.4rem; }
-    .cs-meta-value { font-size: 0.9375rem; color: var(--fg); font-weight: 400; }
-
-    .cs-placeholder {
-      width: 100%; height: 420px; margin: 3rem 0;
-      border-radius: 4px; overflow: hidden;
-      position: relative; background: var(--bg2);
-    }
-    .cs-placeholder svg { width: 100%; height: 100%; }
-    .cs-challenge-row .cs-placeholder { margin: 0; }
-    .cs-placeholder-label {
-      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-      font-family: monospace; font-size: 0.8125rem; color: var(--fg3); letter-spacing: 0.05em;
-    }
-
-    .cs-body { padding: 3rem 0; }
-    .cs-section { margin-bottom: 3rem; }
-    .cs-section-title {
-      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--accent);
-      margin-bottom: 1rem;
-    }
-    .cs-text {
-      font-size: 1rem; line-height: 1.8; color: var(--fg2);
-      max-width: 680px; font-weight: 300; text-wrap: pretty;
-    }
-
-    /* Full-width "The Solution" section */
-    .cs-solution { padding: calc(4rem - 45px) 0 4.5rem; }
-    .cs-solution .section-header { padding-top: 0; }
-    .cs-solution-media {
-      display: grid; grid-template-columns: 1fr; gap: 2rem;
-      width: 100%;
-    }
-    .cs-solution-image {
-      width: 100%; aspect-ratio: 16 / 9;
-      display: block; cursor: zoom-in; overflow: hidden;
-      border-radius: 4px;
-      background: #f4f3ee;
-    }
-    .cs-solution-image img {
-      width: 100%; height: 100%; display: block;
-      object-fit: contain; object-position: center;
-      transition: opacity 0.2s;
-    }
-    .cs-solution-image.is-crop img {
-      object-fit: cover; object-position: top center;
-    }
-    .cs-solution-image:hover img { opacity: 0.85; }
-
-    .cs-zoom { transition: opacity 0.2s; }
-    .cs-zoom:hover { opacity: 0.88; }
-
-    /* Lightbox overlay */
-    .cs-lightbox {
-      position: fixed; inset: 0; z-index: 1000;
-      background: rgba(10,10,10,0.92); backdrop-filter: blur(8px);
-      display: flex; align-items: center; justify-content: center;
-      padding: 3rem; cursor: zoom-out;
-      animation: lb-fade 0.18s ease-out;
-    }
-    @keyframes lb-fade { from { opacity: 0; } to { opacity: 1; } }
-    .cs-lightbox img {
-      max-width: 100%; max-height: 100%;
-      width: auto; height: auto; display: block;
-      border-radius: 4px; box-shadow: 0 30px 80px rgba(0,0,0,0.5);
-    }
-    .cs-lightbox-close {
-      position: absolute; top: 1.5rem; right: 1.5rem;
-      background: none; border: 0; color: #f4f1ea; cursor: pointer;
-      font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
-      font-family: var(--font-sans, 'Space Grotesk', sans-serif);
-      padding: 0.5rem 0.75rem;
-    }
-    .cs-lightbox-close:hover { color: #E8635A; }
-
-    .cs-outcomes {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem; margin-top: 1.5rem;
-    }
-    .cs-outcome {
-      padding: 1.5rem; background: var(--bg2);
-      border-left: 2px solid var(--accent); border-radius: 2px;
-    }
-    .cs-outcome-num {
-      font-family: var(--font-serif, 'Cormorant Garamond', serif);
-      font-size: 2.25rem; font-weight: 600; color: var(--fg);
-      line-height: 1;
-    }
-    .cs-outcome-label { font-size: 0.84375rem; color: var(--fg2); margin-top: 0.35rem; font-weight: 300; }
-
-    .page-case { background: #0a0a0a; color: #f4f1ea; }
-    .page-case .cs-back { color: #c8c4ba; }
-    .page-case .cs-back:hover { color: var(--accent); }
-    .page-case .cs-header { border-bottom-color: rgba(244,241,234,0.18); }
-    .page-case .cs-eyebrow { color: var(--accent); }
-    .page-case .cs-title { color: #f4f1ea; }
-    .page-case .cs-summary { color: #c8c4ba; }
-    .page-case .cs-subtitle { color: #f4f1ea; }
-    .cs-impact-lead { margin: 2.5rem 0 1rem; }
-    .page-case .cs-meta-row { border-bottom-color: rgba(244,241,234,0.18); }
-    .page-case .cs-meta-label { color: #8a877f; }
-    .page-case .cs-meta-value { color: #f4f1ea; }
-    .page-case .cs-section-title { color: var(--accent); }
-    .page-case .cs-text { color: #c8c4ba; }
-    .page-case .cs-outcome { background: #ececea; color: var(--fg); border-left: none; border-radius: 4px; padding: 1.75rem 1.5rem; }
-    .page-case .cs-outcome-num { color: #0a0a0a; font-family: var(--font-sans, 'Space Grotesk', sans-serif); font-weight: 600; font-size: 2.5rem; letter-spacing: -0.02em; }
-    .page-case .cs-outcome-label { color: var(--fg2); }
-    .page-case .footer { background: transparent; }
-
-    /* === ABOUT PAGE === */
-    .about-grid { display: grid; grid-template-columns: 1fr 380px; gap: 6rem; padding: 5rem 0; }
-    .about-placeholder {
-      width: 100%; aspect-ratio: 3/4; border-radius: 4px;
-      overflow: hidden; position: relative; background: var(--bg2);
-    }
-    .about-placeholder svg { width: 100%; height: 100%; }
-    .about-placeholder-label {
-      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-      font-family: monospace; font-size: 0.75rem; color: var(--fg3); text-align: center;
-    }
-    .about-content { }
-    .about-name {
-      font-family: 'Playfair Display', 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: clamp(3rem, 5vw, 5rem); font-weight: 400;
-      line-height: 1.08; letter-spacing: -0.015em; color: var(--fg);
-      margin-bottom: 0.5rem;
-    }
-    .about-role { font-size: 0.875rem; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; margin-bottom: 2rem; }
-    .about-bio { font-size: 1.0625rem; line-height: 1.8; color: var(--fg2); font-weight: 300; text-wrap: pretty; margin-bottom: 2.5rem; }
-    .about-philosophy { padding: 2rem; border-left: 2px solid var(--accent); background: var(--bg2); border-radius: 2px; margin-bottom: 2.5rem; }
-    .about-philosophy p { font-family: var(--font-serif, 'Cormorant Garamond', serif); font-size: 1.375rem; font-style: italic; line-height: 1.6; color: var(--fg); font-weight: 400; }
-    .about-philosophy cite { display: block; font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: var(--fg3); margin-top: 0.75rem; font-style: normal; letter-spacing: 0.06em; text-transform: uppercase; }
-
-    .skills-section { border-top: 2px solid var(--border); padding-top: 4rem; padding-bottom: 5rem; }
-    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; margin-top: 2rem; }
-    .skill-group { }
-    .skill-group-title { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
-    .skill-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-    .skill-list li { font-size: 0.9375rem; color: var(--fg2); font-weight: 300; display: flex; align-items: center; gap: 0.6rem; }
-    .skill-list li::before { content: ''; width: 3px; height: 3px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
-
-    /* About page on dark band */
-    .band-dark .about-name { color: #f4f1ea; }
-    .band-dark .about-bio { color: #c8c4ba; }
-    .band-dark .about-philosophy { background: rgba(244,241,234,0.04); }
-    .band-dark .about-philosophy p { color: #f4f1ea; }
-    .band-dark .about-philosophy cite { color: #8a877f; }
-    .band-dark .about-placeholder { --bg2: #141414; --border: rgba(244,241,234,0.10); }
-    .band-dark .about-placeholder-label { color: #8a877f; }
-    .band-dark .skills-section { border-top-color: rgba(244,241,234,0.18); }
-    .band-dark .skill-list li { color: #c8c4ba; }
-
-    /* === ABOUT RESUME CARD === */
-    .resume-card {
-      border: 1px solid rgba(244,241,234,0.09); border-radius: 16px;
-      padding: 2.5rem 2.5rem 0; margin-top: 1rem;
-      background: rgba(255,255,255,0.015);
-      font-family: var(--font-sans, 'Space Grotesk', sans-serif);
-    }
-    .resume-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 2.5rem; padding-bottom: 2rem; }
-    .resume-head-id { display: flex; align-items: center; gap: 1.25rem; }
-    .resume-photo {
-      width: 78px; height: 78px; border-radius: 14px; overflow: hidden;
-      position: relative; background: #17171a; flex-shrink: 0;
-      border: 1px solid rgba(244,241,234,0.1);
-    }
-    .resume-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; display: block; }
-    .resume-photo-fallback {
-      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-      font-weight: 600; font-size: 1.5rem; color: rgba(244,241,234,0.35); letter-spacing: 0.05em; z-index: 0;
-    }
-    .resume-eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(244,241,234,0.4); margin-bottom: 0.55rem; }
-    .resume-name { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -0.025em; line-height: 1; color: #f4f1ea; margin: 0; }
-    .resume-lede { max-width: 340px; text-align: right; font-size: 0.95rem; line-height: 1.5; color: rgba(244,241,234,0.5); font-weight: 300; }
-
-    .resume-stats { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid rgba(244,241,234,0.09); }
-    .resume-stat { padding: 2rem 1.75rem 2rem 0; }
-    .resume-stat + .resume-stat { padding-left: 1.75rem; border-left: 1px solid rgba(244,241,234,0.09); }
-    .resume-stat-num { font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 600; color: #f4f1ea; line-height: 1; letter-spacing: -0.02em; }
-    .resume-stat-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(244,241,234,0.4); margin: 0.85rem 0 0.6rem; }
-    .resume-stat-desc { font-size: 0.85rem; line-height: 1.5; color: rgba(244,241,234,0.5); font-weight: 300; }
-
-    .resume-cols { display: grid; grid-template-columns: 1.7fr 1fr; gap: 3rem; border-top: 1px solid rgba(244,241,234,0.09); padding: 2.25rem 0; }
-    .resume-colhead { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(244,241,234,0.4); margin-bottom: 1rem; }
-    .resume-colhead-sub { margin-top: 2rem; }
-    .resume-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1.5rem; padding: 0.6rem 0; }
-    .resume-row-main { display: flex; flex-direction: column; gap: 0.15rem; }
-    .resume-row-role { font-size: 1rem; color: #f4f1ea; font-weight: 400; }
-    .resume-row-org { font-size: 0.85rem; color: rgba(244,241,234,0.45); }
-    .resume-row-dates { font-size: 0.85rem; color: rgba(244,241,234,0.45); white-space: nowrap; flex-shrink: 0; font-variant-numeric: tabular-nums; }
-    .resume-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .resume-pill { font-size: 0.8125rem; color: rgba(244,241,234,0.7); border: 1px solid rgba(244,241,234,0.16); border-radius: 100px; padding: 0.4rem 0.9rem; }
-
-    .resume-edu { border-top: 1px solid rgba(244,241,234,0.09); padding: 2.25rem 0; }
-
-    .resume-foot { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; flex-wrap: wrap; border-top: 1px solid rgba(244,241,234,0.09); padding: 1.75rem 0 2rem; }
-    .resume-foot-meta { font-size: 0.85rem; color: rgba(244,241,234,0.45); }
-    .resume-foot-btn { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.875rem; color: #f4f1ea; border: 1px solid rgba(244,241,234,0.22); border-radius: 100px; padding: 0.6rem 1.25rem; text-decoration: none; transition: background 0.2s, border-color 0.2s; }
-    .resume-foot-btn:hover { background: rgba(244,241,234,0.08); border-color: rgba(244,241,234,0.4); }
-
-    @media (max-width: 820px) {
-      .resume-card { padding: 1.75rem 1.5rem 0; }
-      .resume-head { flex-direction: column; gap: 1.5rem; }
-      .resume-lede { text-align: left; max-width: 100%; }
-      .resume-stats { grid-template-columns: repeat(2, 1fr); }
-      .resume-stat, .resume-stat + .resume-stat { padding: 1.5rem 1.25rem 1.5rem 0; border-left: none; }
-      .resume-cols { grid-template-columns: 1fr; gap: 2rem; }
-    }
-
-    /* === CAPABILITIES === */
-    .capabilities { padding-bottom: 1.25rem; margin-top: 0; }
-    .capabilities-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2.5rem 2.5rem; }
-    .capability { display: flex; flex-direction: column; gap: 0.875rem; padding-top: 0; border-top: none; }
-    .capability-icon { width: 28px; height: 28px; color: #ffffff; }
-    .capability-icon svg { width: 100%; height: 100%; display: block; stroke-width: 1.75; }
-    .capability-label { font-size: 0.9375rem; line-height: 1.35; color: #ffffff; font-weight: 400; }
-    .band-light .capability { border-top-color: var(--border); }
-    .band-light .capability-label { color: var(--fg2); }
-    /* Below the case studies: white text, no coral accents */
-    .band-dark .capabilities .section-label { color: #ffffff; }
-
-    /* === CONTACT === */
-    .contact { padding: 4rem 0 2.5rem; max-width: 780px; }
-    .contact-title { font-family: 'Playfair Display', 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(1.75rem, 3.2vw, 2.5rem); font-weight: 400; letter-spacing: -0.015em; line-height: 1.15; color: #ffffff; margin: 0 0 1rem; }
-    .contact-body { font-family: var(--font-sans, 'Space Grotesk', sans-serif); font-size: clamp(1.0625rem, 1.4vw, 1.25rem); font-weight: 300; line-height: 1.55; color: #ffffff; margin: 0; }
-    .contact-body a { color: #ffffff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.45); transition: border-color 0.2s; }
-    .contact-body a:hover { border-bottom-color: #ffffff; }
-
-    /* === FOOTER === */
-    .site-footer {
-      padding: 3.5rem 0 3rem; display: flex; flex-direction: column; gap: 1.5rem;
-      background: #0a0a0a;
-      font-family: var(--font-sans, 'Space Grotesk', sans-serif);
-    }
-    .site-footer-copy { font-size: 1rem; color: #ffffff; font-weight: 400; letter-spacing: -0.01em; }
-    .site-footer-rights { font-size: 0.9375rem; color: #8a877f; line-height: 1.65; }
-    .site-footer-tools { display: flex; align-items: center; flex-wrap: wrap; gap: 0.55rem; font-size: 0.9375rem; color: #8a877f; }
-    .site-footer-tools .sft-label { margin-right: 0.2rem; }
-    .site-footer-tools .sft-tool { display: inline-flex; align-items: center; gap: 0.4rem; color: #d8d4cc; }
-    .site-footer-tools .sft-tool svg { height: 15px; width: auto; display: block; }
-    .site-footer-tools .sft-sep { color: #55524c; }
-  </style>
+  /* RESPONSIVE */
+  @media(max-width:900px){
+    :root{--pad:28px}
+    .hero{grid-template-columns:1fr;min-height:auto}
+    .hero-col{padding:130px var(--pad) 60px}
+    .hero-right{border-left:none;border-top:1px solid var(--line);padding-top:50px}
+    .hero-left{max-width:none}
+    .headline{font-size:clamp(56px,16vw,96px)}
+    .case,.case.rev .case-text{grid-template-columns:1fr;order:0;gap:32px}
+    .visual{height:280px}
+    .thumbs{grid-template-columns:1fr}
+    .nav-links{gap:20px}
+    section.block{padding:80px 0}
+  }
+</style>
 </head>
-<body data-theme="warm">
+<body>
 
-<div id="root"></div>
-
-<script type="text/babel" src="tweaks-panel.jsx"></script>
-<script type="text/babel">
-
-const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "theme": "slate",
-  "showStats": true,
-  "typePairing": "mixed",
-  "sansFont": "plus-jakarta",
-  "serifFont": "playfair"
-}/*EDITMODE-END*/;
-
-// ─── DATA ────────────────────────────────────────────────────────────────────
-
-const CASE_STUDIES = [
-  {
-    id: "portfolio-insights",
-    num: "01",
-    title: "Portfolio Insights",
-    shortDesc: "Design for an analytics and insights platform enabling admins to gain absolute visibility into their Atlassian footprint.",
-    tags: ["Strategy", "Analytics"],
-    role: "UX Manager · Design Lead",
-    timeline: "2025–2026",
-    team: "3 Designers, 5 Engineers, 3 PMs",
-    company: "Enterprise SaaS",
-    image: "uploads/PI_thumb-04745289.jpg",
-    solutionImages: ["uploads/pasted-1778753321571-0.png", "uploads/pasted-1778753418473-0.png", { src: "uploads/pasted-1778753645702-0.png", crop: true }],
-    challengeImage: "uploads/pasted-1778597551290-0.png",
-    explorationImage: "uploads/exploration-portfolio-insights.png",
-    exploration: "To move fast, our design team facilitated an intense, collaborative exploration phase alongside engineers and product managers. We intentionally broke down traditional silos. Using AI to rapidly synthesize ideas, generate divergent UI layouts, and visualize complex data structures, we cut through the usual weeks of alignment.",
-    solution: "To turn our vision into reality, our design team embedded deeply with engineers to rapidly build and iterate on working prototypes, stress-testing them in rigorous design critiques. I took the lead on driving alignment across multiple, historically siloed stakeholders from both the Data Center and Cloud organizations. By using our live prototypes as a common language, we bridged organizational divides and co-created an elegant final experience—translating a complex, hybrid data-shaping and migration process into an intuitive, unified control plane for enterprise admins.",
-    approachSteps: [
-      "Designed user research",
-      "Defined goals and PRD with product management",
-      "Rapid sketching and prototyping",
-      "Visual designs",
-      "Engineering and work on the build"
-    ],
-    intro: "Portfolio Insights transforms the experience for enterprise admins managing Atlassian tools. It enables them to gain absolute visibility and total control over their entire Atlassian footprint, turning the daunting task of cloud migration into a streamlined, strategic move.",
-    challenge: "Atlassian had a clear business goal to move all customers from old on-premise tools to modern cloud offerings. Historically, this migration required months of manual work to understand company footprint, fragmented data, and shadow IT. Without a centralized view, admins were forced into weeks of auditing only to discover something new after the migration had already failed. This lack of visibility turned what should have been a strategic transition into a costly process with many unforeseen technical roadblocks.",
-    process: "Led a team of 4-5 designers to craft designs across multiple surfaces within this admin tool. Worked with product management and engineering to define goals and PRDs, led brainstorming on concepts, and worked with designers to refine designs. Ran critique sessions and gave feedback on developing work. Also supported designers in crafting questioning guides, and running user research.",
-    _process_original: "Led discovery sprints to map stakeholder reporting needs. Defined a data model for design KPIs. Worked closely with engineering to instrument existing tools, and collaborated with data teams to surface pattern-level insights rather than vanity metrics.",
-    outcomes: [
-      { num: "↓33%", label: "Time reduction in migration planning" },
-      { num: "5×", label: "Increase in self-serve migration assessments" },
-      { num: "1,400", label: "Instances connected within 6 months of initial launch" }
-    ],
-    placeholder: "Portfolio analytics dashboard UI"
-  },
-  {
-    id: "system-health",
-    num: "02",
-    title: "System Health",
-    shortDesc: "Application design empowering admins to proactively manage service availability and minimize downtime.",
-    tags: ["Data Viz", "Systems"],
-    role: "Lead Designer",
-    timeline: "2025–2026",
-    team: "2 Designers, 4 Engineers, 1 Product Manager",
-    company: "Enterprise SaaS",
-    image: "uploads/SH_thumb copy-478897e7.jpg",
-    intro: "System Health is a personalized dashboard that provides Atlassian organization administrators with real-time, site-level visibility into incident impacts across their cloud environment. By surfacing active incidents and allowing for tailored notifications, it empowers admins to proactively manage service reliability and minimize downtime for their teams.",
-    solutionImages: [{ src: "uploads/pasted-1778785619327-0.png", crop: true }, { src: "uploads/pasted-1778785695553-0.png", crop: true }, { src: "uploads/pasted-1778793657552-0.png", crop: true }],
-    challengeImage: "uploads/pasted-1779885443130-0.png",
-    approachSteps: [
-      "Collaboration with PM to craft PRD/goals",
-      "Sense-making artifacts",
-      "AI powered sketching",
-      "Prototyping",
-      "SEQ testing",
-      "Coding collaboratively w/Eng"
-    ],
-    challenge: "The absence of a centralized health interface previously forced administrators to manually cross-reference generic status pages with internal reports, hindering the ability to distinguish between localized configuration issues and broader service disruptions. This lack of visibility forced administrators to work through a long process to understand where and why problems had occurred. Ultimately, this led to a large loss of productivity.",
-    process: "Focused efforts on synthesizing all the various tools/surfaces admins monitored to understand outages and incidents. Leveraged this knowledge to work with PM on an informed PRD and goals for the project. Created sense making artifacts alongside senior designer to understand information hierarchy and interrelationships. Led design thinking and guided senior designer in sketching, prototyping, SEQ testing, as well as final refined visual designs.",
-    solution: "Atlassian's System Health is not just another monitoring tool; it is a personalized reliability command center. Integrated directly into the Atlassian Administration hub, it provides a tailored view of the operational status and incident history specific to your organization's apps and sites.",
-    outcomes: [
-      { num: "80%", label: "Alert noise reduction" },
-      { num: "6.0+", label: "Average SEQ scores" },
-      { num: "75%", label: "Reduction in time to awareness" }
-    ],
-    placeholder: "Design system health dashboard"
-  },
-  {
-    id: "dc-a11y",
-    num: "03",
-    title: "Accessibility Project",
-    shortDesc: "Org-wide accessibility uplift across a legacy enterprise platform—from audit to embedded practice.",
-    tags: ["A11y", "Individual Contributor"],
-    role: "Senior Designer · A11y Lead",
-    timeline: "2022–2023",
-    team: "2 Designers, 5 Engineers, 1 Product Manager",
-    company: "DC Platform",
-    image: "uploads/A11y_thumb.jpg",
-    challengeImage: "uploads/pasted-1778880753771-0.png",
-    approachImage: "uploads/pasted-1779026789316-0.png",
-    explorationImage: "uploads/pasted-1779885931350-0.png",
-    solutionImages: ["uploads/pasted-1779027030542-0.png", "uploads/a11y-personas-composite.png?v=4", "uploads/a11y-storyboard-composite.png?v=8", "uploads/a11y-onboarding-composite.png"],
-    challenge: "To truly make Atlassian Data Center products \"enterprise-grade,\" we had to ensure they were accessible to every user, which sparked a massive compliance and accessibility (A11y) audit. Retrofitting these standards into a highly customized, legacy codebase presented a steep technical and organizational hurdle. To unblock vital public-sector and enterprise sales, we needed to deliver transparent VPAT documentation, remediate critical bugs and also imagine a more sustainable accessibility process for the future.",
-    process: "Conducted an org-wide accessibility audit across 40 core flows. Built a remediation roadmap with product and engineering. Worked through fixes with engineers to close the vast majority of critical errors. Drew a vision for how A11y could be integrated into all our processes moving forward. This vision then guided the setup of our A11y design/eng/and product management team.",
-    exploration: "Lead designer for the exploration into how we might better integrate a11y thinking into all Atlassian processes, people, and projects moving forward. Worked with one other designer, PM, and engineering to brainstorm ideas, storyboard, and ultimately build a full presentation around this vision. Presented at an Atlassian enterprise town hall. Ultimately, this vision guided the setup of the a11y team and processes moving forward.",
-    solution: "The final vision mapped out a cross-functional A11y team structure—pairing dedicated designers, engineers, and a product manager—and proposed shared rituals, tooling, and acceptance criteria so that A11y was no longer a late-stage audit, but a first-class input into discovery, design reviews, engineering implementation, and QA.",
-    outcomes: [
-      { num: "78%", label: "Of critical errors remediated" },
-      { num: "WCAG 2.1 AA", label: "Compliance achieved" },
-      { num: "24+", label: "Person team structure created for future" }
-    ],
-    placeholder: "Accessibility audit dashboard & flow coverage"
-  },
-  {
-    id: "the-big-arc",
-    num: "04",
-    title: "The Big Arc",
-    shortDesc: "A design vision to explore the idea of a holistic footprint planner for admins.",
-    tags: ["Vision", "Strategy"],
-    role: "Design Lead · Vision",
-    timeline: "2023–2024",
-    team: "4 Designers, Brand, Product",
-    company: "Enterprise SaaS",
-    image: "uploads/Bigarc_thumb-e9b5f598.jpg",
-    solutionImages: ["uploads/pasted-1779383994519-0.png", "uploads/atlassian-admin-home_4.png", "uploads/big-arc-solution-3.png"],
-    challengeImage: "uploads/big-arc-pyramid.png",
-    approachImage: "uploads/Screenshot 2026-05-12 at 16.45.33.png",
-    explorationSketches: [
-      "uploads/big-arc-sketch-1.png",
-      "uploads/big-arc-sketch-2.png",
-      "uploads/big-arc-sketch-3.png"
-    ],
-    solution: "After quick rough sketches and prototypes, we further refined some of the designs for this footprint planner concept. I explored a tactile 'bubble-like' explorer, a more traditional dashboard with AI assistance, as well as a drag and drop planner experience to assist admins with migration planning.",
-    challenge: "Enterprise admins were facing a multi-layered problem, not a single pain point. They needed visibility into what they had, insights to understand it, the ability to act on what they learned, and a clear path to grow with Atlassian—but each of these jobs was scattered across disconnected tools and surfaces. The Big Arc vision answered that by proposing a single holistic surface planner that progressively leads admins through visibility, insights, utility… allowing them to confidently champion growth with Atlassian tools.",
-    process: "We anchored the project in a high-velocity, collaborative approach, bringing designers, engineers, and product managers into the same room for intense, rapid brainstorming sessions. Instead of working in isolated silos, the cross-functional team co-created in real time, using generative AI to instantly visualize layout variants and map out complex data flows. This fast-paced, inclusive environment allowed us to break down technical biases early, challenge assumptions on the fly, and align on a unified strategic direction in days rather than weeks.",
-    outcomes: [
-      { num: "1", label: "North star" },
-      { num: "5", label: "Teams aligned to the vision" },
-      { num: "3yr", label: "Horizon roadmap" }
-    ],
-    placeholder: "The Big Arc — vision storyboard"
-  },
-  {
-    id: "post-office",
-    num: "05",
-    title: "Post Office",
-    shortDesc: "Onboarding flow that turns first-time setup into momentum—getting users from sign-up to first project in under 90 seconds.",
-    tags: ["Onboarding", "Product"],
-    role: "UX Lead",
-    timeline: "2024",
-    team: "2 Designers, 4 Engineers, 1 PM",
-    company: "Productivity SaaS",
-    image: "uploads/PostOffice-e117fe16.jpg",
-    solutionImages: ["uploads/Screenshot 2026-05-22 at 13.53.50.png", "uploads/pasted-1779395108620-0.png", "uploads/pasted-1779395136429-0.png", { src: "uploads/pasted-1779395232806-0.png", crop: true }],
-    approachImage: "uploads/pasted-1779394974929-0.png",
-    challenge: "The core challenge driving the design of Post Office was the need to overcome fragmented messaging, which often leads to user fatigue and missed engagement opportunities across diverse channels. To address this, we developed a unified platform that integrates email, in-product notifications, and chat, creating a centralized ecosystem designed to drive engagement and support sustainable business growth.",
-    process: "The approach we took was to map all possible paths to creating different types of messages. The exploration into the user journeys helped us explore the right information architecture to give message makers one simple, standardized, clear path to create all of their messages. The ideas was to consolidate varying mental models in building messages with one tool to rule them all.",
-    solution: "The final concept for Post Office leveraged a modular component system so every user could send the right message to the right people at the right time from this one central tool. We also explored baking in best practices and our design system so all messages were on brand and of high quality.",
-    outcomes: [
-      { num: "↑62%", label: "Activation rate" },
-      { num: "↓54s", label: "Time to first project" },
-      { num: "↑3.1×", label: "Day-7 retention" }
-    ],
-    placeholder: "Onboarding flow screens"
-  },
-  {
-    id: "dc-performance",
-    num: "06",
-    title: "DC Performance & Scale",
-    shortDesc: "UX-led performance initiative that bridged design, engineering, and data science to reduce perceived latency.",
-    tags: ["Performance", "Cross-functional"],
-    role: "UX Lead",
-    timeline: "2022 - 2023",
-    team: "3 Designers, 4 Engineers, 1 PM",
-    company: "DC Platform",
-    image: "uploads/PErfScale_recolor.jpg",
-    solutionImages: ["uploads/pasted-1779893150041-0.png", "uploads/pasted-1779893401662-0.png", "uploads/dc-perf-solution-4.png", "uploads/dc-perf-solution-3.png", "uploads/dc-perf-solution-5.png"],
-    approachImage: "uploads/pasted-1779892534482-0.png",
-    challengeImage: "uploads/pasted-1779888233617-0.png",
-    challenge: "Atlassian admins must look across many areas to manage performance and scale issues. The time to awareness, diagnosis, and resolution was long. This led to frustrated admins, frustrated end users, and a reduction of trust in Atlassian.",
-    solution: "Providing proactive guidance across hardware, software, and apps.",
-    process: "Led two other UX designers in geographically distributed locations to brainstorm, collaborate, and drive this project to completion. Met with many subject matter experts to gain deep understanding of the problems creating performance and scale issues. Delved into data archiving, hardware setup, as well as app performance. Synthesized all of these insights to drive thinking.",
-    exploration: "Led rapid sketching and twice weekly standups to create momentum and generate design ideas. Delegated work so each designer had both an area of ownership as well as a responsibility to the larger story as a whole. Brought all sketches together and crafted the entire story end to end.",
-    explorationSketches: [
-      "uploads/pasted-1779892731651-0.png",
-      "uploads/pasted-1779892762506-0.png",
-      "uploads/pasted-1779893037146-0.png"
-    ],
-    outcomes: [
-      { num: "1", label: "North star" },
-      { num: "3", label: "Disparate areas united" },
-      { num: "3 yr", label: "Horizon roadmap" }
-    ],
-    placeholder: "Performance metrics & skeleton state design"
-  }
-];
-
-// ─── PLACEHOLDER ─────────────────────────────────────────────────────────────
-
-function StripedPlaceholder({ label, height = 420 }) {
-  const id = React.useId().replace(/:/g, '');
-  return (
-    <div className="cs-placeholder" style={{ height }}>
-      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-        <defs>
-          <pattern id={`stripe-${id}`} patternUnits="userSpaceOnUse" width="24" height="24" patternTransform="rotate(45)">
-            <rect width="24" height="24" fill="var(--bg2)" />
-            <rect width="1" height="24" fill="var(--border)" />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill={`url(#stripe-${id})`} />
-      </svg>
-      <div className="cs-placeholder-label">{label}</div>
+<nav>
+  <div class="nav-in">
+    <a href="/" class="wordmark">TAJ</a>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </div>
-  );
-}
+  </div>
+</nav>
 
-// Cursor-following 3D tilt for the case-study tiles (see .case-image-wrap CSS)
-const CARD_TILT_MAX = 7; // degrees
-function handleCardTilt(e) {
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const el = e.currentTarget;
-  const r = el.getBoundingClientRect();
-  const px = (e.clientX - r.left) / r.width;   // 0..1 across
-  const py = (e.clientY - r.top) / r.height;   // 0..1 down
-  el.style.setProperty('--tilt-y', ((px - 0.5) * 2 * CARD_TILT_MAX).toFixed(2) + 'deg');
-  el.style.setProperty('--tilt-x', (-(py - 0.5) * 2 * CARD_TILT_MAX).toFixed(2) + 'deg');
-  el.style.setProperty('--tilt-scale', '1.03');
-}
-function resetCardTilt(e) {
-  const el = e.currentTarget;
-  el.style.setProperty('--tilt-x', '0deg');
-  el.style.setProperty('--tilt-y', '0deg');
-  el.style.setProperty('--tilt-scale', '1');
-}
-
-function CaseImagePlaceholder({ id, image, title }) {
-  if (image) {
-    return (
-      <img src={image} alt={title ? `${title} case study preview` : ''} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', background: 'var(--bg2)' }} />
-    );
-  }
-  const patId = `cip-${id}`;
-  // Each case gets a subtly different stripe angle/density for visual variety
-  const configs = {
-    'portfolio-insights': { angle: 30, gap: 28 },
-    'system-health':      { angle: 50, gap: 20 },
-    'post-office':        { angle: 10, gap: 36 },
-    'the-big-arc':          { angle: 70, gap: 16 },
-    'dc-a11y':            { angle: 45, gap: 24 },
-    'dc-performance':     { angle: 135, gap: 22 },
-  };
-  const { angle, gap } = configs[id] || { angle: 45, gap: 24 };
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
-      <defs>
-        <pattern id={patId} patternUnits="userSpaceOnUse" width={gap} height={gap} patternTransform={`rotate(${angle})`}>
-          <rect width={gap} height={gap} fill="var(--bg2)" />
-          <rect width="1" height={gap} fill="var(--border)" />
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill={`url(#${patId})`} />
-    </svg>
-  );
-}
-
-function ThumbPlaceholder({ label }) {
-  const id = React.useId().replace(/:/g, '');
-  return (
-    <div className="case-thumb">
-      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-        <defs>
-          <pattern id={`th-${id}`} patternUnits="userSpaceOnUse" width="16" height="16" patternTransform="rotate(45)">
-            <rect width="16" height="16" fill="var(--bg2)" />
-            <rect width="1" height="16" fill="var(--border)" />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill={`url(#th-${id})`} />
-      </svg>
-      <div className="case-thumb-label">{label}</div>
-    </div>
-  );
-}
-
-// ─── NAV ─────────────────────────────────────────────────────────────────────
-
-function Nav({ view, setView }) {
-  return (
-    <nav className="nav">
-      <div className="nav-name-wrap" onClick={() => setView({ page: 'home' })}>
-        <span className="nav-name">Taj Palchaudhuri</span>
-      </div>
-      <div className="nav-links">
-        <button className={`nav-link ${view.page === 'home' ? 'active' : ''}`} onClick={() => setView({ page: 'home' })}>Work</button>
-        <button className={`nav-link ${view.page === 'about' ? 'active' : ''}`} onClick={() => setView({ page: 'about' })}>About</button>
-      </div>
-    </nav>
-  );
-}
-
-// ─── PAGE HEADER ─────────────────────────────────────────────────────────
-
-function PageHeader({ view, setView }) {
-  return (
-    <div className="page-header">
-      <div className="page-header-id" onClick={() => setView({ page: 'home' })}>
-        <img src="uploads/bird copy.png" alt="Taj origami bird" />
-        <div className="page-header-name">Taj Palchaudhuri</div>
-      </div>
-      <div className="page-header-nav">
-        <button className={`page-header-link ${view.page === 'home' ? 'active' : ''}`} onClick={() => setView({ page: 'home' })}>Work</button>
-        <button className={`page-header-link ${view.page === 'about' ? 'active' : ''}`} onClick={() => setView({ page: 'about' })}>About</button>
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-col hero-left">
+    <p class="eyebrow">UX Design · Leadership · AI</p>
+    <h1 class="headline">
+      <span class="l1">HI,
+        <svg class="bird" viewBox="0 0 330 290" aria-hidden="true">
+          <path d="M5 3 L152 10 L135 113 Z" fill="#EA4E4E"/>
+          <path d="M152 10 L250 92 L135 113 Z" fill="#F0685F"/>
+          <path d="M250 92 L322 82 L272 116 Z" fill="#EA4E4E"/>
+          <path d="M135 113 L272 116 L178 192 Z" fill="#CE4040"/>
+          <path d="M135 113 L178 192 L98 276 Z" fill="#F0685F"/>
+          <path d="M135 113 L98 276 L126 206 Z" fill="#CE4040"/>
+        </svg>
+      </span>
+      <span class="l2">I'M <span class="accent">TAJ</span></span>
+    </h1>
+    <p class="subline">I design and lead product experiences — blending strategy, craft, and AI to ship work that matters.</p>
+    <div class="prev">
+      <p class="prev-label">Previously at</p>
+      <div class="prev-logos">
+        <img class="atlassian" src="assets/img/atlassian.svg" alt="Atlassian" />
+        <img class="gopro" src="assets/img/gopro.svg" alt="GoPro" />
+        <img class="adobe" src="assets/img/adobe.svg" alt="Adobe" />
       </div>
     </div>
-  );
-}
+  </div>
 
-// ─── HOME PAGE ────────────────────────────────────────────────────────────────
-
-function HomePage({ view, setView, tweaks }) {
-  return (
-    <div className="page page-home page-enter">
-
-      <div className="band band-dark">
-        <div className="container">
-          <PageHeader view={view} setView={setView} />
-          <div className="hero">
-            <div className="hero-statement" style={{
-              fontFamily: "'Playfair Display', 'Cormorant Garamond', serif",
-              fontWeight: 400,
-              fontStyle: 'italic',
-              fontSize: 'clamp(1.5rem, 3.6vw, 3.27rem)',
-              lineHeight: 1.12,
-              letterSpacing: '-0.015em',
-              color: '#f4f1ea',
-              textWrap: 'balance',
-              maxWidth: '100%',
-              paddingTop: '2rem',
-              paddingBottom: '1rem',
-            }}>
-              Design leader. Systems builder. <em style={{ fontStyle: 'italic', color: '#E8635A' }}>AI strategist.</em> Taj crafts human-centered experiences that leverage AI to solve complex user problems.
-            </div>
-            <div className="hero-previously">
-              <span className="hero-previously-label">Previously at</span>
-              <div className="hero-logos">
-                <img className="hero-logo" src="uploads/atlassian-wordmark.svg" alt="Atlassian" />
-                <img className="hero-logo" src="uploads/autodesk-wordmark.svg" alt="Autodesk" />
-                <img className="hero-logo" src="uploads/gopro-wordmark.svg" alt="GoPro" />
-                <img className="hero-logo" src="uploads/adobe-wordmark.svg" alt="Adobe" />
-                <img className="hero-logo" src="uploads/yahoo-wordmark.svg" alt="Yahoo" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="band band-dark band-cases">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-label">Selected Work</span>
-            <div className="section-line" />
-          </div>
-
-          <div className="case-stack">
-            {CASE_STUDIES.map((cs) => (
-              <div
-                key={cs.id}
-                className="case-item"
-                onClick={() => setView({ page: 'case', id: cs.id })}
-              >
-                <div className="case-image-wrap" onMouseMove={handleCardTilt} onMouseLeave={resetCardTilt}>
-                  <div className="case-image-inner">
-                    <CaseImagePlaceholder id={cs.id} image={cs.image} title={cs.title} />
-                  </div>
-                </div>
-                <div className="case-info-row">
-                  <div className="case-info-left">
-                    <span className="case-num">{cs.num}</span>
-                    <span className="case-title">{cs.title}</span>
-                  </div>
-                  <div className="case-info-right">
-                    <span className="case-arrow">→</span>
-                  </div>
-                </div>
-                <p className="case-desc">{cs.shortDesc}</p>
-                <div className="case-tag-row">
-                  <div className="case-tags">
-                    {cs.tags.map(t => <span key={t} className="tag">{t}</span>)}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="band band-dark">
-        <div className="container">
-          <div className="capabilities">
-            <div className="section-header">
-              <span className="section-label">Capabilities</span>
-              <div className="section-line" />
-            </div>
-            <div className="capabilities-grid">
-              {[
-                { label: 'UX strategy & research',         icon: <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.25"><circle cx="14" cy="14" r="8"/><path d="M20 20 L27 27"/></svg> },
-                { label: 'Design systems & governance',   icon: <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.25"><rect x="5" y="5" width="9" height="9"/><rect x="18" y="5" width="9" height="9"/><rect x="5" y="18" width="9" height="9"/><rect x="18" y="18" width="9" height="9"/></svg> },
-                { label: 'Information architecture',      icon: <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.25"><circle cx="16" cy="6" r="2.5"/><circle cx="7" cy="22" r="2.5"/><circle cx="16" cy="22" r="2.5"/><circle cx="25" cy="22" r="2.5"/><path d="M16 8.5 V14 M7 19.5 V16 H25 V19.5 M16 14 V19.5"/></svg> },
-                { label: 'Interaction & interface design',icon: <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.25"><rect x="4" y="6" width="24" height="16" rx="1"/><path d="M4 11 H28"/><circle cx="7" cy="8.5" r="0.6" fill="currentColor"/><circle cx="9.5" cy="8.5" r="0.6" fill="currentColor"/><path d="M12 28 H20"/></svg> },
-                { label: 'Prototyping & usability testing', icon: <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.25"><path d="M6 16 L14 22 L26 8"/><circle cx="6" cy="16" r="2"/></svg> },
-                { label: 'DesignOps & workflow optimization', icon: <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.25"><circle cx="16" cy="16" r="3"/><path d="M16 4 V8 M16 24 V28 M4 16 H8 M24 16 H28 M7.5 7.5 L10.3 10.3 M21.7 21.7 L24.5 24.5 M7.5 24.5 L10.3 21.7 M21.7 10.3 L24.5 7.5"/></svg> },
-                { label: 'Stakeholder facilitation',      icon: <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.25"><circle cx="10" cy="12" r="3"/><circle cx="22" cy="12" r="3"/><path d="M5 24 C5 20, 7.5 18, 10 18 C12.5 18, 15 20, 15 24 M17 24 C17 20, 19.5 18, 22 18 C24.5 18, 27 20, 27 24"/></svg> },
-                { label: 'Analytics & UX measurement',    icon: <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.25"><path d="M5 27 V5 M5 27 H27"/><path d="M10 22 V18 M15 22 V14 M20 22 V10 M25 22 V6"/></svg> },
-                { label: 'AI-driven design & insights',   icon: <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.25"><path d="M16 4 L16 28 M4 16 L28 16" strokeDasharray="2 3"/><circle cx="16" cy="16" r="5"/></svg> },
-                { label: 'Visual & brand integration',    icon: <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.25"><circle cx="16" cy="16" r="11"/><circle cx="16" cy="9" r="2"/><circle cx="9.5" cy="14" r="2"/><circle cx="22.5" cy="14" r="2"/><circle cx="12.5" cy="22" r="2"/></svg> },
-              ].map((c) => (
-                <div key={c.label} className="capability">
-                  <div className="capability-icon">{c.icon}</div>
-                  <div className="capability-label">{c.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="band band-dark">
-        <div className="container">
-          <div className="contact">
-            <h2 className="contact-title">Let's build something cool together</h2>
-            <p className="contact-body">If you have an interesting opportunity, or would like to chat, shoot me an email at <a href="mailto:solotaj@gmail.com">solotaj@gmail.com</a>. I'd love to hear from you.</p>
-          </div>
-
-          <SiteFooter />
-        </div>
-      </div>
+  <div class="hero-col hero-right">
+    <div class="stats">
+      <div class="stat"><span class="num">15+</span><span class="desc">Designing across SaaS companies and complex tooling</span></div>
+      <div class="stat"><span class="num">AI in</span><span class="desc">Experimenting, building, and uncovering efficiencies</span></div>
+      <div class="stat"><span class="num">Any</span><span class="desc">Experience in small feature launches to leading large-scale tool reinventions</span></div>
     </div>
-  );
-}
+    <p class="avail">Based in Europe · Open to opportunities</p>
+  </div>
+</header>
 
-// ─── CASE STUDY PAGE ─────────────────────────────────────────────────────────
+<!-- CASE STUDIES -->
+<section class="block" id="work">
+  <div class="wrap">
+    <p class="sec-eyebrow">Selected Work</p>
+    <h2 class="sec-title">Case Studies</h2>
+    <div class="cases">
 
-function CaseStudyPage({ id, view, setView }) {
-  const cs = CASE_STUDIES.find(c => c.id === id);
-  const idx = CASE_STUDIES.findIndex(c => c.id === id);
-  const [lightbox, setLightbox] = React.useState(null);
-  React.useEffect(() => {
-    if (!lightbox) return;
-    const onKey = (e) => { if (e.key === 'Escape') setLightbox(null); };
-    window.addEventListener('keydown', onKey);
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    return () => { window.removeEventListener('keydown', onKey); document.body.style.overflow = prevOverflow; };
-  }, [lightbox]);
-  if (!cs) return null;
-  const prev = CASE_STUDIES[idx - 1];
-  const next = CASE_STUDIES[idx + 1];
-
-  return (
-    <div className="page page-case page-enter">
-      <div className="container">
-        <PageHeader view={view} setView={setView} />
-        <button className="cs-back" onClick={() => setView({ page: 'home' })}>← All Work</button>
-        <div className="cs-header">
-          <div className="cs-eyebrow">{cs.tags.join(' · ')}</div>
-          <div className="cs-title">{cs.title}</div>
-          <div className="cs-subtitle">{cs.intro || cs.shortDesc}</div>
+      <a class="case" href="portfolio-insights.html">
+        <div class="case-text">
+          <p class="case-label">Atlassian · Design Lead</p>
+          <h3 class="case-title">AI Assisted<br><span class="accent">Admin Dashboard</span></h3>
+          <p class="case-desc">A powerful dashboard giving admins total visibility into their entire Atlassian footprint, translating complex system data into clear, actionable insights.</p>
+          <div class="tags"><span class="tag">AI</span><span class="tag">Admin</span><span class="tag">UX/UI</span></div>
+          <span class="case-link">Open case study ↗</span>
         </div>
+        <div class="visual glow"><img class="shot" src="assets/img/dashboard.png" alt="Portfolio Insights dashboard" /></div>
+      </a>
 
-        <div className="cs-meta-row">
-          <div className="cs-meta-item">
-            <div className="cs-meta-label">Role</div>
-            <div className="cs-meta-value">{cs.role}</div>
-          </div>
-          <div className="cs-meta-item">
-            <div className="cs-meta-label">Timeline</div>
-            <div className="cs-meta-value">{cs.timeline}</div>
-          </div>
-          <div className="cs-meta-item">
-            <div className="cs-meta-label">Team</div>
-            <div className="cs-meta-value">{cs.team}</div>
-          </div>
-          <div className="cs-meta-item">
-            <div className="cs-meta-label">Context</div>
-            <div className="cs-meta-value">{cs.company}</div>
-          </div>
+      <div class="case rev">
+        <div class="case-text">
+          <p class="case-label">Atlassian · Design Lead</p>
+          <h3 class="case-title">Cloud Apps<br><span class="accent">Incident Monitoring</span></h3>
+          <p class="case-desc">Personalized dashboard that provides users with real-time, site-level visibility into incident impacts across their cloud environment.</p>
+          <div class="tags"><span class="tag">Cloud</span><span class="tag">Enterprise</span><span class="tag">UX/UI</span></div>
         </div>
-
-        <div className="cs-section cs-impact-lead">
-          <div className="section-header" style={{ padding: '0 0 1rem' }}>
-            <span className="section-label">Impact</span>
-            <div className="section-line" />
-          </div>
-          <div className="cs-outcomes">
-            {cs.outcomes.map((o, i) => (
-              <div key={i} className="cs-outcome">
-                <div className="cs-outcome-num">{o.num}</div>
-                <div className="cs-outcome-label">{o.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div style={{ padding: '3rem 0 0' }}>
-          {cs.id === 'the-big-arc' || cs.id === 'post-office' ? (
-            <div className="cs-challenge-row" style={{ display: 'grid', gridTemplateColumns: cs.id === 'the-big-arc' ? '0.7fr 1.3fr' : '1fr 1fr', gap: '3rem', alignItems: 'start' }}>
-              <div className="cs-section" style={{ marginBottom: 0 }}>
-                <div className="section-header" style={{ padding: '0 0 1rem' }}>
-                  <span className="section-label">The Challenge</span>
-                  <div className="section-line" />
-                </div>
-                <p className="cs-text">{cs.challenge}</p>
-              </div>
-              {cs.challengeImage
-                ? <div className="cs-placeholder cs-zoom" onClick={() => setLightbox(cs.challengeImage)} style={{ background: cs.id === 'the-big-arc' ? '#ffffff' : 'transparent', cursor: 'zoom-in', width: '100%', height: 'auto', padding: cs.id === 'the-big-arc' ? '2rem' : 0, boxSizing: 'border-box', display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
-                    <img src={cs.challengeImage} alt={cs.title} style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '4px' }} />
-                  </div>
-                : cs.image
-                  ? <div className="cs-placeholder cs-zoom" onClick={() => setLightbox(cs.image)} style={{ aspectRatio: '1080 / 480', height: 'auto', cursor: 'zoom-in' }}><img src={cs.image} alt={cs.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', borderRadius: '4px' }} /></div>
-                  : <StripedPlaceholder label={cs.placeholder} height={300} />
-              }
-            </div>
-          ) : (
-            <React.Fragment>
-              <div className="section-header" style={{ padding: '0 0 1rem' }}>
-                <span className="section-label">The Challenge</span>
-                <div className="section-line" />
-              </div>
-              <div className="cs-challenge-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'start' }}>
-                <div className="cs-section" style={{ marginBottom: 0 }}>
-                  <p className="cs-text">{cs.challenge}</p>
-                </div>
-                {cs.challengeImage
-                  ? <div className="cs-placeholder cs-zoom" onClick={() => setLightbox(cs.challengeImage)} style={{ background: cs.id === 'portfolio-insights' ? '#ffffff' : 'transparent', cursor: 'zoom-in', width: '100%', height: 'auto', padding: cs.id === 'portfolio-insights' ? '2rem' : 0, boxSizing: 'border-box', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><img src={cs.challengeImage} alt={cs.title} style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '4px' }} /></div>
-                  : cs.image
-                    ? <div className="cs-placeholder cs-zoom" onClick={() => setLightbox(cs.image)} style={{ aspectRatio: '1080 / 480', height: 'auto', cursor: 'zoom-in' }}><img src={cs.image} alt={cs.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', borderRadius: '4px' }} /></div>
-                    : <StripedPlaceholder label={cs.placeholder} height={300} />
-                }
-              </div>
-            </React.Fragment>
-          )}
-        </div>
-
-        <div className="cs-body">
-          <div className="section-header" style={{ padding: '0 0 1rem' }}>
-            <span className="section-label">{cs.id === 'post-office' ? 'Approach & Exploration' : 'Approach'}</span>
-            <div className="section-line" />
-          </div>
-          {cs.approachImage ? (
-          <div className="cs-approach-row" style={{ display: 'grid', gridTemplateColumns: cs.id === 'the-big-arc' ? '0.55fr 1.45fr' : '0.8fr 1.2fr', gap: '3rem', alignItems: 'center' }}>
-            <div className="cs-placeholder cs-zoom" onClick={() => setLightbox(cs.approachImage)} style={{ height: 'auto', background: cs.id === 'dc-a11y' ? '#ffffff' : 'transparent', padding: cs.id === 'dc-a11y' ? '2rem' : 0, borderRadius: '4px', margin: 0, cursor: 'zoom-in', overflow: 'hidden' }}>
-              <img src={cs.approachImage} alt={`${cs.title} approach`} style={{ width: '100%', height: 'auto', display: 'block' }} />
-            </div>
-            <div className="cs-section" style={{ marginBottom: 0 }}>
-              <p className="cs-text">{cs.process}</p>
-            </div>
-          </div>
-          ) : cs.approachSteps && cs.approachSteps.length ? (
-          <div className="cs-approach-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'start' }}>
-            <div className="cs-placeholder" style={{ aspectRatio: '1080 / 600', height: 'auto', background: '#ffffff', padding: '2.5rem 2.25rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', borderRadius: '4px', margin: 0 }}>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                {cs.approachSteps.map((item, i) => (
-                  <li key={item} style={{ display: 'flex', alignItems: 'baseline', gap: '1rem', color: '#1c1c1a', fontSize: '1rem', fontWeight: 400, lineHeight: 1.4 }}>
-                    <span style={{ fontFamily: 'var(--font-sans, "Plus Jakarta Sans", sans-serif)', fontSize: '0.78rem', color: '#E8635A', fontWeight: 600, letterSpacing: '0.04em', minWidth: '1.5rem' }}>{String(i + 1).padStart(2, '0')}</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="cs-section" style={{ marginBottom: 0 }}>
-              <p className="cs-text">{cs.process}</p>
-            </div>
-          </div>
-          ) : (
-          <div className="cs-section" style={{ marginBottom: 0, maxWidth: '52rem' }}>
-            <p className="cs-text">{cs.process}</p>
-          </div>
-          )}
-        </div>
-
-        {/* TEMP: Exploration hidden for system-health — restore by removing the cs.id !== 'system-health' guard below */}
-        {cs.id !== 'post-office' && cs.id !== 'system-health' && (
-        <div className="cs-body" style={{ paddingTop: 0, marginTop: cs.id === 'the-big-arc' ? '5px' : undefined }}>
-          {cs.id !== 'the-big-arc' && (
-          <div className="section-header" style={{ padding: '0 0 0.5rem' }}>
-            <span className="section-label">Exploration</span>
-            <div className="section-line" />
-          </div>
-          )}
-          {cs.explorationSketches && cs.explorationSketches.length ? (
-            <React.Fragment>
-              {cs.exploration && (
-                <p className="cs-text" style={{ maxWidth: '52rem', marginBottom: '1.25rem' }}>{cs.exploration}</p>
-              )}
-              <div className="cs-exploration-sketches" style={{ display: 'grid', gridTemplateColumns: `repeat(${cs.explorationSketches.length}, 1fr)`, gap: '1.25rem', alignItems: 'stretch', marginTop: cs.id === 'the-big-arc' ? '-25px' : cs.id === 'dc-performance' ? 'calc(0.5rem - 20px)' : '0.5rem', marginBottom: cs.id === 'the-big-arc' ? '20px' : cs.id === 'dc-performance' ? '20px' : 0 }}>
-                {cs.explorationSketches.map((src, i) => (
-                  <div key={i} className="cs-placeholder cs-zoom" onClick={() => setLightbox(src)} style={{ background: '#f4f3ee', borderRadius: '4px', cursor: 'zoom-in', overflow: 'hidden', height: '100%', width: '100%', aspectRatio: cs.id === 'the-big-arc' ? '1247 / 680' : '1024 / 640' }}>
-                    <img src={src} alt={`${cs.title} sketch ${i + 1}`} style={{ width: '100%', height: '100%', objectFit: cs.id === 'the-big-arc' ? 'contain' : 'cover', objectPosition: cs.id === 'the-big-arc' ? 'center' : 'top center', display: 'block' }} />
-                  </div>
-                ))}
-              </div>
-            </React.Fragment>
-          ) : cs.explorationImage ? (
-            <div className="cs-exploration-row" style={{ display: 'grid', gridTemplateColumns: cs.id === 'dc-a11y' ? '1.2fr 0.8fr' : '1fr 1fr', gap: '3rem', alignItems: 'start' }}>
-              <div className="cs-section" style={{ marginBottom: 0 }}>
-                <p className="cs-text">{cs.exploration || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'}</p>
-              </div>
-              <div className="cs-placeholder cs-zoom" onClick={() => setLightbox(cs.explorationImage)} style={{ aspectRatio: cs.id === 'dc-a11y' ? '1080 / 755' : '1080 / 600', height: 'auto', background: '#ffffff', borderRadius: '4px', cursor: 'zoom-in', margin: 0, marginTop: cs.id === 'dc-a11y' ? '25px' : 0, width: cs.id === 'dc-a11y' ? 'calc(100% - 75px)' : '100%', justifySelf: cs.id === 'dc-a11y' ? 'end' : 'stretch', overflow: cs.id === 'dc-a11y' ? 'visible' : 'hidden', position: cs.id === 'dc-a11y' ? 'relative' : 'static' }}>
-                <img src={cs.explorationImage} alt={`${cs.title} exploration`} style={cs.id === 'dc-a11y' ? { width: 'calc(100% + 10px)', height: 'calc(100% + 10px)', objectFit: 'cover', display: 'block', borderRadius: '4px', position: 'absolute', top: 0, left: '10px' } : { width: '100%', height: '100%', objectFit: 'contain', display: 'block', borderRadius: '4px' }} />
-              </div>
-            </div>
-          ) : (
-            <div className="cs-section" style={{ marginBottom: 0, maxWidth: '52rem' }}>
-              <p className="cs-text">{cs.exploration || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'}</p>
-            </div>
-          )}
-        </div>
-        )}
-
+        <div class="visual glow"></div>
       </div>
 
-      {/* === THE SOLUTION === */}
-      <div className="cs-solution" style={cs.id === 'the-big-arc' ? { paddingTop: 'calc(4rem - 45px + 15px)' } : undefined}>
-        <div className="container">
-          <div className="section-header">
-            <span className="section-label">The Solution</span>
-            <div className="section-line" />
-          </div>
-          <p className="cs-text" style={{ maxWidth: '52rem', marginBottom: '2.5rem' }}>
-            {cs.solution || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'}
-          </p>
-          <div className="cs-solution-media">
-            {(() => {
-              const imgs = cs.solutionImages && cs.solutionImages.length ? cs.solutionImages : [];
-              const slots = imgs.length >= 3 ? imgs : [imgs[0] || null, imgs[1] || null, imgs[2] || null];
-              return slots.map((entry, i) => {
-                const src = entry && typeof entry === 'object' ? entry.src : entry;
-                const crop = !!(entry && typeof entry === 'object' && entry.crop);
-                return (
-                <div key={i} className={`cs-solution-image${crop ? ' is-crop' : ''}`} onClick={src ? () => setLightbox(src) : undefined} style={src ? {} : { cursor: 'default' }}>
-                  {src
-                    ? <img src={src} alt={`${cs.title} solution ${i + 1}`} />
-                    : <StripedPlaceholder label={`Solution image ${i + 1}`} height="100%" />
-                  }
-                </div>
-                );
-              });
-            })()}
-          </div>
-        </div>
-      </div>
-
-      <div className="container">
-        <div style={{ borderTop: '1px solid var(--border)', paddingTop: '2rem', paddingBottom: '3rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          {prev ? (
-            <button onClick={() => setView({ page: 'case', id: prev.id })} style={{ background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left' }}>
-              <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--fg3)', marginBottom: '0.35rem' }}>← Previous</div>
-              <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.25rem', color: 'var(--fg)' }}>{prev.title}</div>
-            </button>
-          ) : <div />}
-          {next ? (
-            <button onClick={() => setView({ page: 'case', id: next.id })} style={{ background: 'none', border: 'none', cursor: 'pointer', textAlign: 'right' }}>
-              <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--fg3)', marginBottom: '0.35rem' }}>Next →</div>
-              <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.25rem', color: 'var(--fg)' }}>{next.title}</div>
-            </button>
-          ) : <div />}
-        </div>
-      </div>
-      {lightbox && ReactDOM.createPortal(
-        <div className="cs-lightbox" onClick={() => setLightbox(null)}>
-          <button className="cs-lightbox-close" onClick={(e) => { e.stopPropagation(); setLightbox(null); }}>Close ✕</button>
-          <img src={lightbox} alt="Enlarged case study image" onClick={(e) => e.stopPropagation()} />
-        </div>,
-        document.body
-      )}
     </div>
-  );
-}
+  </div>
+</section>
 
-// ─── ABOUT PAGE ───────────────────────────────────────────────────────────────
-
-function AboutPage({ view, setView }) {
-  const stats = [
-    { num: "20+", label: "Years designing", desc: "Two decades shaping iconic creative and technical tools — 15+ years hands-on before leadership." },
-    { num: "6", label: "Years in management", desc: "Building and coaching UX teams across enterprise SaaS and consumer products." },
-    { num: "8", label: "Designers led", desc: "Current team spanning cloud migration and performance tooling at Atlassian." },
-    { num: "5", label: "World-class brands", desc: "Adobe, Autodesk, Atlassian, GoPro and Yahoo across a 20-year career." },
-  ];
-  const experience = [
-    { role: "UX Design Manager", org: "Atlassian", dates: "2023 – 2026" },
-    { role: "UX Design Lead", org: "Atlassian", dates: "2021 – 2023" },
-    { role: "UX Design Manager", org: "Autodesk", dates: "2016 – 2019" },
-    { role: "Lead Designer, Marketing & Apps", org: "GoPro", dates: "2015 – 2016" },
-    { role: "Senior Experience Designer", org: "Adobe", dates: "2010 – 2015" },
-    { role: "Senior Visual Designer", org: "Yahoo", dates: "2008 – 2010" },
-  ];
-  const earlier = [
-    { role: "Senior Designer", org: "FINE", dates: "2006 – 2008" },
-    { role: "Web Designer / Developer", org: "Matrix Group Intl.", dates: "2003 – 2006" },
-  ];
-  const disciplines = ["UX Strategy", "Design Systems", "Interaction Design", "Visual Design", "User Research", "Information Architecture", "Accessibility", "Prototyping", "Leadership", "Cross-Craft Collaboration", "AI Workflows", "DesignOps"];
-  const education = [
-    { school: "University of Michigan", detail: "BFA · Industrial Design", dates: "1995 – 1999" },
-    { school: "Academy of Art University", detail: "Graduate-level design coursework", dates: "2000 – 2002" },
-  ];
-
-  const eduExpRow = (r, key) => (
-    <div key={key} className="resume-row">
-      <div className="resume-row-main">
-        <span className="resume-row-role">{r.role || r.school}</span>
-        <span className="resume-row-org">{r.org || r.detail}</span>
-      </div>
-      <span className="resume-row-dates">{r.dates}</span>
+<!-- EXPERIMENTS -->
+<section class="block" id="experiments">
+  <div class="wrap">
+    <p class="sec-eyebrow">Experiments</p>
+    <h2 class="sec-title">Vibe Coding</h2>
+    <div class="thumbs">
+      <div class="thumb"><img src="assets/img/forage.png" alt="Forage — prepared foods brand concept" /></div>
+      <div class="thumb empty"></div>
+      <div class="thumb empty"></div>
     </div>
-  );
+  </div>
+</section>
 
-  return (
-    <div className="page page-enter">
-      <div className="band band-dark">
-        <div className="container">
-          <PageHeader view={view} setView={setView} />
-        </div>
-      </div>
-      <div className="band band-dark">
-        <div className="container">
-          <div className="resume-card">
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="wrap foot">
+    <span class="mono">© 2026 Taj Palchaudhuri</span>
+    <a class="mail" href="mailto:hello@tajcreative.com">Say hello ↗</a>
+    <span class="mono">Based in Europe</span>
+  </div>
+</footer>
 
-            <div className="resume-head">
-              <div className="resume-head-id">
-                <div className="resume-photo">
-                  <span className="resume-photo-fallback">TP</span>
-                  <img src="uploads/headshot.jpg" alt="Taj Palchaudhuri" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
-                </div>
-                <div>
-                  <div className="resume-eyebrow">UX Design Manager · Atlassian</div>
-                  <h1 className="resume-name">Taj Palchaudhuri</h1>
-                </div>
-              </div>
-              <p className="resume-lede">20+ years shaping the world's most iconic creative and technical tools — at Adobe, Autodesk, Atlassian, GoPro and Yahoo.</p>
-            </div>
-
-            <div className="resume-stats">
-              {stats.map(s => (
-                <div key={s.label} className="resume-stat">
-                  <div className="resume-stat-num">{s.num}</div>
-                  <div className="resume-stat-label">{s.label}</div>
-                  <div className="resume-stat-desc">{s.desc}</div>
-                </div>
-              ))}
-            </div>
-
-            <div className="resume-cols">
-              <div className="resume-exp">
-                <div className="resume-colhead">Experience</div>
-                {experience.map((e, i) => eduExpRow(e, 'e' + i))}
-                <div className="resume-colhead resume-colhead-sub">Earlier</div>
-                {earlier.map((e, i) => eduExpRow(e, 'x' + i))}
-              </div>
-              <div className="resume-disc">
-                <div className="resume-colhead">Disciplines</div>
-                <div className="resume-pills">
-                  {disciplines.map(d => <span key={d} className="resume-pill">{d}</span>)}
-                </div>
-              </div>
-            </div>
-
-            <div className="resume-edu">
-              <div className="resume-colhead">Education</div>
-              {education.map((ed, i) => eduExpRow(ed, 'd' + i))}
-            </div>
-
-            <div className="resume-foot">
-              <div className="resume-foot-meta">Frankfurt, Germany · solotaj@gmail.com · tajcreative.com</div>
-              <a className="resume-foot-btn" href="uploads/TP_resume.pdf" target="_blank" rel="noreferrer">View Full Resume ↗</a>
-            </div>
-
-          </div>
-
-          <div className="contact">
-            <h2 className="contact-title">Let's build something cool together</h2>
-            <p className="contact-body">If you have an interesting opportunity, or would like to chat, shoot me an email at <a href="mailto:solotaj@gmail.com">solotaj@gmail.com</a>. I'd love to hear from you.</p>
-          </div>
-
-          <SiteFooter />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// ─── APP ──────────────────────────────────────────────────────────────────────
-
-// ─── SITE FOOTER ──────────────────────────────────────────────────────────────
-
-function ClaudeMark() {
-  return (
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path fill="#D97757" d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z" />
-    </svg>
-  );
-}
-
-function GeminiMark() {
-  return (
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs>
-        <linearGradient id="gemGrad" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="#4285F4" />
-          <stop offset="0.52" stopColor="#9B72CB" />
-          <stop offset="1" stopColor="#D96570" />
-        </linearGradient>
-      </defs>
-      <path fill="url(#gemGrad)" d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81" />
-    </svg>
-  );
-}
-
-function FigmaMark() {
-  return (
-    <svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path fill="#0acf83" d="M50 300c27.6 0 50-22.4 50-50v-50H50c-27.6 0-50 22.4-50 50s22.4 50 50 50z" />
-      <path fill="#a259ff" d="M0 150c0-27.6 22.4-50 50-50h50v100H50c-27.6 0-50-22.4-50-50z" />
-      <path fill="#f24e1e" d="M0 50C0 22.4 22.4 0 50 0h50v100H50C22.4 100 0 77.6 0 50z" />
-      <path fill="#ff7262" d="M100 0h50c27.6 0 50 22.4 50 50s-22.4 50-50 50h-50V0z" />
-      <path fill="#1abcfe" d="M200 150c0 27.6-22.4 50-50 50s-50-22.4-50-50 22.4-50 50-50 50 22.4 50 50z" />
-    </svg>
-  );
-}
-
-function SiteFooter() {
-  return (
-    <footer className="site-footer">
-      <div className="site-footer-copy">© 2026 Taj Palchaudhuri</div>
-      <div className="site-footer-rights">
-        All content and images on this site are copyrighted.<br />
-        Reproduction or use for AI model training is prohibited.
-      </div>
-      <div className="site-footer-tools">
-        <span className="sft-label">Designed and built with</span>
-        <span className="sft-tool"><ClaudeMark /> Claude</span>
-        <span className="sft-sep">·</span>
-        <span className="sft-tool"><GeminiMark /> Gemini</span>
-        <span className="sft-sep">·</span>
-        <span className="sft-tool"><FigmaMark /> Figma</span>
-      </div>
-    </footer>
-  );
-}
-
-// ─── CURSOR GLOW ──────────────────────────────────────────────────────────────
-
-function CursorGlow() {
-  const ref = React.useRef(null);
-  React.useEffect(() => {
-    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const noHover = window.matchMedia && window.matchMedia('(hover: none)').matches;
-    if (reduce || noHover) return;
-    const el = ref.current;
-    if (!el) return;
-    let tx = window.innerWidth / 2, ty = window.innerHeight / 2;
-    let cx = tx, cy = ty;
-    let raf = 0;
-    const onMove = (e) => { tx = e.clientX; ty = e.clientY; el.style.opacity = '1'; };
-    const onLeave = () => { el.style.opacity = '0'; };
-    const tick = () => {
-      cx += (tx - cx) * 0.14;
-      cy += (ty - cy) * 0.14;
-      el.style.transform = `translate3d(${cx}px, ${cy}px, 0) translate(-50%, -50%)`;
-      raf = requestAnimationFrame(tick);
-    };
-    window.addEventListener('mousemove', onMove, { passive: true });
-    document.addEventListener('mouseleave', onLeave);
-    raf = requestAnimationFrame(tick);
-    return () => {
-      window.removeEventListener('mousemove', onMove);
-      document.removeEventListener('mouseleave', onLeave);
-      cancelAnimationFrame(raf);
-    };
-  }, []);
-  return <div ref={ref} className="cursor-glow" aria-hidden="true" />;
-}
-
-function App() {
-  const { TweaksPanel, TweakSection, TweakRadio, TweakToggle, TweakSelect, useTweaks } = window;
-  const [tweaks, setTweak] = useTweaks(TWEAK_DEFAULTS);
-  const [view, setViewRaw] = React.useState({ page: 'home' });
-  const [key, setKey] = React.useState(0);
-
-  React.useEffect(() => {
-    document.body.setAttribute('data-theme', tweaks.theme);
-  }, [tweaks.theme]);
-
-  const sansFonts = {
-    'dm-sans':          "'DM Sans', sans-serif",
-    'space-grotesk':    "'Space Grotesk', sans-serif",
-    'plus-jakarta':     "'Plus Jakarta Sans', sans-serif",
-    'outfit':           "'Outfit', sans-serif",
-  };
-
-  const serifFonts = {
-    'cormorant':  "'Cormorant Garamond', serif",
-    'fraunces':   "'Fraunces', serif",
-    'playfair':   "'Playfair Display', serif",
-    'dm-serif':   "'DM Serif Display', serif",
-  };
-
-  React.useEffect(() => {
-    const f = sansFonts[tweaks.sansFont] || sansFonts['space-grotesk'];
-    document.body.style.setProperty('--font-sans', f);
-    document.body.style.fontFamily = f;
-  }, [tweaks.sansFont]);
-
-  React.useEffect(() => {
-    const f = serifFonts[tweaks.serifFont] || serifFonts['cormorant'];
-    document.body.style.setProperty('--font-serif', f);
-  }, [tweaks.serifFont]);
-
-  const pairingFonts = {
-    classic: { display: "var(--font-serif, 'Cormorant Garamond', serif)", title: "var(--font-serif, 'Cormorant Garamond', serif)" },
-    mixed:   { display: "var(--font-serif, 'Cormorant Garamond', serif)", title: "var(--font-sans, 'Space Grotesk', sans-serif)" },
-    modern:  { display: "var(--font-sans, 'Space Grotesk', sans-serif)",  title: "var(--font-sans, 'Space Grotesk', sans-serif)" },
-  };
-
-  React.useEffect(() => {
-    const p = pairingFonts[tweaks.typePairing] || pairingFonts.mixed;
-    document.body.style.setProperty('--font-display', p.display);
-    document.body.style.setProperty('--font-title', p.title);
-    // modern: italic accent uses serif, else same as display
-    const accentFont = tweaks.typePairing === 'modern' ? "'Cormorant Garamond', serif" : p.display;
-    document.body.style.setProperty('--font-accent', accentFont);
-  }, [tweaks.typePairing]);
-
-  function setView(v) {
-    setViewRaw(v);
-    setKey(k => k + 1);
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  }
-
-  return (
-    <>
-      <CursorGlow />
-
-      <div key={key}>
-        {view.page === 'home' && <HomePage view={view} setView={setView} tweaks={tweaks} />}
-        {view.page === 'case' && <CaseStudyPage id={view.id} view={view} setView={setView} />}
-        {view.page === 'about' && <AboutPage view={view} setView={setView} />}
-      </div>
-
-      <TweaksPanel>
-        <TweakSection title="Type">
-          <TweakRadio
-            label="Pairing"
-            value={tweaks.typePairing}
-            options={[
-              { label: 'Classic', value: 'classic' },
-              { label: 'Mixed', value: 'mixed' },
-              { label: 'Modern', value: 'modern' }
-            ]}
-            onChange={v => setTweak('typePairing', v)}
-          />
-          <TweakSelect
-            label="Serif font"
-            value={tweaks.serifFont}
-            options={[
-              { label: 'Cormorant Garamond', value: 'cormorant' },
-              { label: 'Fraunces', value: 'fraunces' },
-              { label: 'Playfair Display', value: 'playfair' },
-              { label: 'DM Serif Display', value: 'dm-serif' },
-            ]}
-            onChange={v => setTweak('serifFont', v)}
-          />
-          <TweakSelect
-            label="Sans font"
-            value={tweaks.sansFont}
-            options={[
-              { label: 'DM Sans', value: 'dm-sans' },
-              { label: 'Space Grotesk', value: 'space-grotesk' },
-              { label: 'Plus Jakarta Sans', value: 'plus-jakarta' },
-              { label: 'Outfit', value: 'outfit' },
-            ]}
-            onChange={v => setTweak('sansFont', v)}
-          />
-        </TweakSection>
-        <TweakSection title="Theme">
-          <TweakRadio
-            label="Color theme"
-            value={tweaks.theme}
-            options={[
-              { label: 'Warm', value: 'warm' },
-              { label: 'Slate', value: 'slate' },
-              { label: 'Dark', value: 'dark' }
-            ]}
-            onChange={v => setTweak('theme', v)}
-          />
-        </TweakSection>
-        <TweakSection title="Content">
-          <TweakToggle label="Show hero stats" value={tweaks.showStats} onChange={v => setTweak('showStats', v)} />
-        </TweakSection>
-      </TweaksPanel>
-    </>
-  );
-}
-
-ReactDOM.createRoot(document.getElementById('root')).render(<App />);
-</script>
 </body>
 </html>
