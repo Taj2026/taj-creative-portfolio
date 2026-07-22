@@ -100,7 +100,7 @@
   /* FEATURES */
   .features{border-top:1px solid var(--line);padding:120px 0;display:flex;flex-direction:column;gap:130px}
   .feat{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
-  .feat.rev .feat-text{order:2}
+  /* alternation comes from DOM order per feature (image-first vs text-first), matching the Pencil design */
   .feat-label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase}
   .feat-title{font-family:var(--display);text-transform:uppercase;font-size:clamp(34px,3.4vw,42px);line-height:1.02;letter-spacing:.03em;margin:14px 0 18px}
   .feat-body{font-size:16px;line-height:1.6;color:var(--dim);max-width:46ch}
