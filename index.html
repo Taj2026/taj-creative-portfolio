@@ -50,7 +50,7 @@
   .headline{font-family:var(--display);text-transform:uppercase;font-size:clamp(64px,9vw,144px);line-height:.882;letter-spacing:.03em}
   .headline .l1{display:flex;align-items:center;gap:.18em}
   .headline .l2{display:block;margin-top:5px}
-  .bird{width:.778em;height:.681em;flex:0 0 auto}
+  .bird{width:.817em;height:.715em;flex:0 0 auto}
   .subline{font-size:16px;line-height:1.5625;color:var(--dim);max-width:34ch;margin-top:28px}
 
   .prev{margin-top:56px}
@@ -294,8 +294,18 @@
     var inner=document.querySelector('.hero-left-inner');
     var nav=document.querySelector('.nav-in');
     if(!inner||!nav) return;
-    if(window.matchMedia('(max-width:900px)').matches){ nav.style.paddingLeft=''; return; }
+    if(window.matchMedia('(max-width:900px)').matches){ nav.style.paddingLeft=''; nav.style.paddingRight=''; return; }
+    // TP tracks the left edge of the headline block
     nav.style.paddingLeft = Math.round(inner.getBoundingClientRect().left) + 'px';
+    // CONTACT tracks the right edge of the stat description text
+    var desc=document.querySelector('.stat .desc');
+    var links=document.querySelectorAll('.nav-links a');
+    if(desc && links.length){
+      var contact=links[links.length-1];
+      var curPR=parseFloat(getComputedStyle(nav).paddingRight)||0;
+      var delta=desc.getBoundingClientRect().right - contact.getBoundingClientRect().right;
+      nav.style.paddingRight = Math.round(curPR - delta) + 'px';
+    }
   }
   window.addEventListener('load', alignLogo);
   window.addEventListener('resize', alignLogo);

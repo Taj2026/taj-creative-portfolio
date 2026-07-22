@@ -32,7 +32,7 @@
 
   /* NAV */
   .dnav{border-bottom:1px solid var(--line)}
-  .dnav-in{max-width:var(--maxw);margin:0 auto;padding:30px var(--pad);display:flex;align-items:center;justify-content:space-between}
+  .dnav-in{padding:30px var(--pad);display:flex;align-items:center;justify-content:space-between}
   .back{font-family:var(--mono);font-size:13px;letter-spacing:.14em;color:var(--dim);text-transform:uppercase;display:inline-flex;gap:10px;transition:color .2s}
   .back:hover{color:var(--fg)}
   .crumb{font-family:var(--mono);font-size:13px;letter-spacing:.14em;color:var(--dim);text-transform:uppercase}
@@ -218,6 +218,28 @@
   window.addEventListener('load',fitEmbeds);
   window.addEventListener('resize',fitEmbeds);
   document.addEventListener('DOMContentLoaded',fitEmbeds);
+
+  // Align the "Portfolio" back button to the same left edge the home headline uses.
+  // Mirrors the home page's split-layout geometry: the left content block is 570px
+  // (capped to the half-width minus 48px) centered in the left half of the viewport.
+  function homeLeftEdge(){
+    var vw=document.documentElement.clientWidth||window.innerWidth;
+    if(vw<=900) return 28;                 // matches home mobile --pad
+    var innerW=Math.min(570, vw/2-48);
+    return Math.round((vw/2-innerW)/2);
+  }
+  function alignBack(){
+    var nav=document.querySelector('.dnav-in');
+    if(!nav) return;
+    if(window.matchMedia('(max-width:900px)').matches){ nav.style.paddingLeft=''; nav.style.paddingRight=''; return; }
+    var e=homeLeftEdge();
+    nav.style.paddingLeft=e+'px';
+    nav.style.paddingRight=e+'px';
+  }
+  window.addEventListener('load',alignBack);
+  window.addEventListener('resize',alignBack);
+  document.addEventListener('DOMContentLoaded',alignBack);
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(alignBack); }
 </script>
 </body>
 </html>
