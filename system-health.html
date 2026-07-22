@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>System Health — Taj Palchaudhuri</title>
+<meta name="description" content="System Health — a real-time monitoring application that unifies status, alerting, and incident context so teams catch problems early and resolve them faster." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0A0A0A; --fg:#EBEBE5; --muted:#9CA3AF; --dim:#CDCDC6;
+    --line:#212121; --accent:#F0605A; --gray:#DEDFE2;
+    --display:"Bebas Neue",sans-serif; --sans:"DM Sans",sans-serif; --mono:"DM Mono",ui-monospace,monospace;
+    --maxw:1312px; --pad:64px;
+    /* vivid coral glow over black — for thumbnails / feature panels */
+    --coral-glow:
+      radial-gradient(60% 75% at 14% 86%, rgba(255,110,88,.60), transparent 55%),
+      radial-gradient(56% 70% at 90% 12%, rgba(255,128,92,.50), transparent 55%),
+      radial-gradient(54% 66% at 88% 90%, rgba(255,96,82,.50), transparent 55%),
+      radial-gradient(48% 62% at 10% 12%, rgba(240,96,90,.32), transparent 58%),
+      #0a0a0c;
+    --coral-glow-2: /* mirrored + pinker */
+      radial-gradient(60% 75% at 86% 84%, rgba(255,100,112,.58), transparent 55%),
+      radial-gradient(56% 70% at 10% 14%, rgba(255,118,112,.50), transparent 55%),
+      radial-gradient(54% 66% at 12% 88%, rgba(240,92,112,.48), transparent 55%),
+      radial-gradient(48% 62% at 90% 14%, rgba(255,112,96,.30), transparent 58%),
+      #0a0a0c;
+    --coral-glow-3: /* bottom bloom, warm-to-pink */
+      radial-gradient(78% 62% at 50% 104%, rgba(255,112,88,.55), transparent 60%),
+      radial-gradient(60% 56% at 86% 16%, rgba(255,94,104,.46), transparent 58%),
+      radial-gradient(58% 54% at 14% 24%, rgba(255,132,96,.40), transparent 58%),
+      #0a0a0c;
+    /* softer coral glow — for the hero visual */
+    --coral-glow-soft:
+      radial-gradient(58% 72% at 12% 85%, rgba(255,110,88,.40), transparent 58%),
+      radial-gradient(54% 68% at 90% 10%, rgba(255,128,92,.34), transparent 58%),
+      radial-gradient(52% 64% at 90% 92%, rgba(255,96,82,.30), transparent 60%),
+      radial-gradient(46% 60% at 8% 10%, rgba(240,96,90,.20), transparent 60%),
+      #0a0a0c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  h1,h2,h3,h4,h5,h6{font-weight:400}  /* Bebas Neue ships one weight (400); match Paulo — no faux-bold */
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--fg);font-family:var(--sans);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+  .accent{color:var(--accent)}
+  .mono{font-family:var(--mono);text-transform:uppercase}
+  .label{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--accent);text-transform:uppercase}
+  .sec-title{font-family:var(--display);text-transform:uppercase;line-height:.9;letter-spacing:.03em}
+
+  /* scaled animation embed */
+  .embed{position:relative;width:100%;overflow:hidden;background:var(--gray)}
+  .embed iframe{position:absolute;top:0;left:0;width:1440px;height:900px;border:0;transform-origin:top left}
+
+  /* NAV */
+  .dnav{border-bottom:1px solid var(--line)}
+  .dnav-in{padding:30px var(--pad);display:flex;align-items:center;justify-content:space-between}
+  .back{font-family:var(--mono);font-size:13px;letter-spacing:.14em;color:var(--dim);text-transform:uppercase;display:inline-flex;gap:10px;transition:color .2s}
+  .back:hover{color:var(--fg)}
+  .crumb{font-family:var(--mono);font-size:13px;letter-spacing:.14em;color:var(--dim);text-transform:uppercase}
+
+  /* HERO */
+  .dhero{display:grid;grid-template-columns:1fr 1fr}
+  .dhero-l{padding:96px 0;display:flex;flex-direction:column;justify-content:center}
+  /* content block centered in the left half, matching the home hero */
+  .dhero-l-inner{width:570px;max-width:calc(100% - 48px);margin:0 auto;display:flex;flex-direction:column;gap:26px}
+  .dhero-r{border-left:1px solid var(--line);padding:60px var(--pad);display:flex;flex-direction:column;justify-content:center;gap:30px;background:var(--coral-glow-soft)}
+  .dtitle{font-family:var(--display);text-transform:uppercase;font-size:clamp(56px,7vw,90px);line-height:.9;letter-spacing:.03em}
+  .dintro{font-size:17px;line-height:1.6;color:var(--dim);max-width:44ch}
+  .dvisual{position:relative;padding:0 6% ;display:flex;align-items:center;justify-content:center;min-height:300px;background:transparent}
+  .dvisual img{width:85%;border-radius:12px;box-shadow:0 26px 60px rgba(0,0,0,.5)}
+  .sbands{background:#0C0C0F}
+  .sband{display:grid;grid-template-columns:100px 1fr;gap:24px;align-items:center;padding:20px;position:relative}
+  .sband:not(:last-child)::after{content:"";position:absolute;left:20px;right:20px;bottom:0;height:1px;background:var(--line)}
+  .sband .num{font-family:var(--display);font-size:40px;line-height:.9;color:var(--accent)}
+  .sband .desc{font-family:var(--mono);font-size:12px;letter-spacing:.09em;line-height:1.55;color:var(--dim);text-transform:uppercase}
+
+  /* SECTIONS */
+  .sec{border-top:1px solid var(--line);padding:104px 0}
+  .heading2{font-family:var(--display);text-transform:uppercase;font-size:clamp(52px,6.5vw,76px);line-height:.9;letter-spacing:.03em;margin-top:18px}
+  .body-lg{font-size:18px;line-height:1.6;color:var(--dim);max-width:52ch;margin-top:20px}
+
+  /* CONTEXT video (large, flat gray) */
+  .video-lg{margin-top:50px}
+
+  .cols2{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:26px}
+  .col h4{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase;margin-bottom:16px}
+  .col p{font-size:17px;line-height:1.6;color:var(--dim)}
+
+  /* QUOTE */
+  .quote{border-top:1px solid var(--line);padding:120px 0}
+  .qmark{font-family:var(--display);font-size:100px;line-height:.5;color:var(--accent)}
+  .qtext{font-family:var(--display);text-transform:uppercase;font-size:clamp(34px,4.4vw,50px);line-height:1.04;letter-spacing:.03em;margin-top:20px}
+  .qattr{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--dim);text-transform:uppercase;margin-top:22px}
+
+  /* FEATURES */
+  .features{border-top:1px solid var(--line);padding:120px 0;display:flex;flex-direction:column;gap:130px}
+  .feat{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+  /* alternation comes from DOM order per feature (image-first vs text-first), matching the Pencil design */
+  .feat-label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase}
+  .feat-title{font-family:var(--display);text-transform:uppercase;font-size:clamp(34px,3.4vw,42px);line-height:1.02;letter-spacing:.03em;margin:14px 0 18px}
+  .feat-body{font-size:16px;line-height:1.6;color:var(--dim);max-width:46ch}
+  .fpanel{background:var(--coral-glow);padding:40px}
+  .fpanel.v2{background:var(--coral-glow-2)}
+  .fpanel.v3{background:var(--coral-glow-3)}
+  .fpanel .embed{border-radius:12px;box-shadow:0 22px 50px rgba(0,0,0,.45)}
+
+  /* MIGRATION */
+  .heading-split .l2{color:var(--accent)}
+
+  /* NEXT */
+  .next{border-top:1px solid var(--line);padding:90px 0 120px}
+  .next .k{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--dim);text-transform:uppercase}
+  .next .t{font-family:var(--display);text-transform:uppercase;font-size:clamp(48px,6vw,72px);line-height:.9;letter-spacing:.03em;margin:16px 0}
+  .next a.lnk{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--accent);text-transform:uppercase}
+
+  @media(max-width:900px){
+    :root{--pad:28px}
+    .dhero{grid-template-columns:1fr}
+    .dhero-l{padding:70px var(--pad)}
+    .dhero-l-inner{width:100%;max-width:none;margin:0}
+    .dhero-r{border-left:none;border-top:1px solid var(--line)}
+    .cols2{grid-template-columns:1fr;gap:36px}
+    .feat,.feat.rev .feat-text{grid-template-columns:1fr;order:0;gap:28px}
+    .sec,.features,.quote,.next{padding:70px 0}
+    .fpanel{padding:24px}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="dnav">
+  <div class="dnav-in">
+    <a class="back" href="index.html">← Portfolio</a>
+    <span class="crumb">System Health · Atlassian · 2026</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="dhero">
+  <div class="dhero-l">
+    <div class="dhero-l-inner">
+      <p class="label">Atlassian · Design Lead</p>
+      <h1 class="dtitle">System<br><span class="accent">Health</span></h1>
+      <p class="dintro">How we gave teams a single, real-time view of system health — turning scattered signals into clear status, early warnings, and faster incident response.</p>
+    </div>
+  </div>
+  <div class="dhero-r">
+    <div class="dvisual"><img src="assets/img/dashboard.png" alt="System Health dashboard" /></div>
+    <div class="sbands">
+      <div class="sband"><span class="num">40%</span><span class="desc">Faster mean time to detect incidents</span></div>
+      <div class="sband"><span class="num">3×</span><span class="desc">More issues caught before customer impact</span></div>
+      <div class="sband"><span class="num">99.9%</span><span class="desc">Uptime visibility across connected systems</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- CONTEXT -->
+<section class="sec">
+  <div class="wrap">
+    <p class="label">Context</p>
+    <h2 class="heading2 heading-split">What is <span class="l2">System Health</span></h2>
+    <p class="body-lg">System Health brings monitoring, alerting, and incident context into one place — giving teams a live picture of how their systems are performing. Instead of piecing together signals from disconnected dashboards, teams can see what's healthy, what's degrading, and what needs attention, and act before small issues become outages.</p>
+    <div class="video-lg"><div class="embed" data-fit><iframe src="assets/anim/context.html" loading="lazy" scrolling="no" title="System Health dashboard animation"></iframe></div></div>
+    <div class="cols2">
+      <div class="col"><h4>The Challenge</h4><p>Teams were watching their systems through a patchwork of disconnected dashboards, logs, and alerts. Critical signals were easy to miss, context lived in different tools, and by the time an issue surfaced it had often already reached customers.</p></div>
+      <div class="col"><h4>The Opportunity</h4><p>By unifying health signals into one clear, real-time surface — with alerting that prioritizes what matters and context that travels with every incident — we gave teams the confidence to catch problems early and resolve them faster, together.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote">
+  <div class="wrap">
+    <div class="qmark">“</div>
+    <p class="qtext">Reliability isn't about more dashboards —<br><span class="accent">it's knowing what to look at first</span></p>
+    <p class="qattr">— [Add name, role, team]</p>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="wrap" style="display:flex;flex-direction:column;gap:130px">
+
+    <div class="feat">
+      <div class="fpanel"><div class="embed" data-fit><iframe src="assets/anim/feature1.html" loading="lazy" scrolling="no" title="Real-time monitoring animation"></iframe></div></div>
+      <div class="feat-text">
+        <p class="feat-label">Real-Time Monitoring</p>
+        <h3 class="feat-title">See every system's health at a glance</h3>
+        <p class="feat-body">Live status across services turns a wall of raw metrics into a clear, scannable picture — so teams can immediately see what's healthy, what's trending the wrong way, and where to focus.</p>
+      </div>
+    </div>
+
+    <div class="feat rev">
+      <div class="feat-text">
+        <p class="feat-label">Smart Alerting</p>
+        <h3 class="feat-title">Alerts that cut through the noise</h3>
+        <p class="feat-body">Alerting prioritizes what actually matters and groups related signals together, so teams are notified about real problems early — without the fatigue of constant false alarms.</p>
+      </div>
+      <div class="fpanel v2"><div class="embed" data-fit><iframe src="assets/anim/feature2.html" loading="lazy" scrolling="no" title="Smart alerting animation"></iframe></div></div>
+    </div>
+
+    <div class="feat">
+      <div class="fpanel v3"><div class="embed" data-fit><iframe src="assets/anim/feature3.html" loading="lazy" scrolling="no" title="Incident context animation"></iframe></div></div>
+      <div class="feat-text">
+        <p class="feat-label">Incident Context</p>
+        <h3 class="feat-title">Every incident, with full context</h3>
+        <p class="feat-body">When something breaks, the timeline, affected systems, and recent changes are already gathered in one place — so teams can move from detection to resolution without hunting for information.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MIGRATION -->
+<section class="sec">
+  <div class="wrap">
+    <p class="label">Proactive Reliability</p>
+    <h2 class="heading2 heading-split">Staying ahead <span class="l2">of failures</span></h2>
+    <p class="body-lg">With health trends and early signals in view, teams can shift from reacting to outages toward preventing them — spotting the slow degradations and recurring patterns that lead to incidents, and acting before they escalate.</p>
+    <div class="video-lg"><div class="embed" data-fit><iframe src="assets/anim/migration.html" loading="lazy" scrolling="no" title="Proactive reliability animation"></iframe></div></div>
+  </div>
+</section>
+
+<!-- NEXT -->
+<section class="next">
+  <div class="wrap">
+    <p class="k">Next case study</p>
+    <p class="t">Portfolio<br><span class="accent">Insights</span></p>
+    <a class="lnk" href="portfolio-insights.html">Open case study →</a>
+  </div>
+</section>
+
+<script>
+  function fitEmbeds(){
+    document.querySelectorAll('.embed[data-fit]').forEach(function(el){
+      var w=el.clientWidth, s=w/1440;
+      el.style.height=(900*s)+'px';
+      var f=el.querySelector('iframe'); if(f) f.style.transform='scale('+s+')';
+    });
+  }
+  window.addEventListener('load',fitEmbeds);
+  window.addEventListener('resize',fitEmbeds);
+  document.addEventListener('DOMContentLoaded',fitEmbeds);
+
+  // Align the "Portfolio" back button to the same left edge the home headline uses.
+  // Mirrors the home page's split-layout geometry: the left content block is 570px
+  // (capped to the half-width minus 48px) centered in the left half of the viewport.
+  function homeLeftEdge(){
+    var vw=document.documentElement.clientWidth||window.innerWidth;
+    if(vw<=900) return 28;                 // matches home mobile --pad
+    var innerW=Math.min(570, vw/2-48);
+    return Math.round((vw/2-innerW)/2);
+  }
+  function alignBack(){
+    var nav=document.querySelector('.dnav-in');
+    if(!nav) return;
+    if(window.matchMedia('(max-width:900px)').matches){ nav.style.paddingLeft=''; nav.style.paddingRight=''; return; }
+    var e=homeLeftEdge();
+    nav.style.paddingLeft=e+'px';
+    nav.style.paddingRight=e+'px';
+  }
+  window.addEventListener('load',alignBack);
+  window.addEventListener('resize',alignBack);
+  document.addEventListener('DOMContentLoaded',alignBack);
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(alignBack); }
+</script>
+</body>
+</html>
