@@ -14,12 +14,23 @@
     --line:#212121; --accent:#F0605A;
     --display:"Bebas Neue",sans-serif; --sans:"DM Sans",sans-serif; --mono:"DM Mono",ui-monospace,monospace;
     --maxw:1312px; --pad:64px;
-    /* vivid coral glow over black — fills corner to corner */
+    /* vivid coral glow over black — fills corner to corner. 3 variants for variety */
     --coral-glow:
       radial-gradient(60% 75% at 14% 86%, rgba(255,110,88,.60), transparent 55%),
       radial-gradient(56% 70% at 90% 12%, rgba(255,128,92,.50), transparent 55%),
       radial-gradient(54% 66% at 88% 90%, rgba(255,96,82,.50), transparent 55%),
       radial-gradient(48% 62% at 10% 12%, rgba(240,96,90,.32), transparent 58%),
+      #0a0a0c;
+    --coral-glow-2: /* mirrored + pinker */
+      radial-gradient(60% 75% at 86% 84%, rgba(255,100,112,.58), transparent 55%),
+      radial-gradient(56% 70% at 10% 14%, rgba(255,118,112,.50), transparent 55%),
+      radial-gradient(54% 66% at 12% 88%, rgba(240,92,112,.48), transparent 55%),
+      radial-gradient(48% 62% at 90% 14%, rgba(255,112,96,.30), transparent 58%),
+      #0a0a0c;
+    --coral-glow-3: /* bottom bloom, warm-to-pink */
+      radial-gradient(78% 62% at 50% 104%, rgba(255,112,88,.55), transparent 60%),
+      radial-gradient(60% 56% at 86% 16%, rgba(255,94,104,.46), transparent 58%),
+      radial-gradient(58% 54% at 14% 24%, rgba(255,132,96,.40), transparent 58%),
       #0a0a0c;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -89,6 +100,7 @@
   @media(max-width:1324px){ #work .wrap{padding-left:24px;padding-right:24px} }
   .cases{display:flex;flex-direction:column;gap:100px;margin-top:80px}
   .case{display:grid;grid-template-columns:490px 1fr;gap:64px;align-items:center}
+  .case.rev{grid-template-columns:1fr 490px}
   .case.rev .case-text{order:2}
   .case-label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase}
   .case-title{font-family:var(--display);text-transform:uppercase;font-size:clamp(40px,5vw,52px);line-height:.9;letter-spacing:.03em;margin:16px 0 18px}
@@ -99,6 +111,8 @@
   .case-link:hover{color:var(--accent)}
   .visual{position:relative;height:380px;overflow:hidden;display:flex;align-items:center;justify-content:center}
   .glow{background:var(--coral-glow)}
+  .glow.v2{background:var(--coral-glow-2)}
+  .glow.v3{background:var(--coral-glow-3)}
   .visual{align-items:flex-start}
   .visual .shot{position:relative;width:calc(100% - 84px);border-radius:12px;box-shadow:0 24px 55px rgba(0,0,0,.5);margin:42px auto 0}
 
@@ -107,6 +121,8 @@
   .thumb{aspect-ratio:3/2;overflow:hidden;background:linear-gradient(120deg,#141417,#0b0b0d);position:relative}
   .thumb img{width:100%;height:100%;object-fit:cover}
   .thumb.empty{background:var(--coral-glow)}
+  .thumb.empty.v2{background:var(--coral-glow-2)}
+  .thumb.empty.v3{background:var(--coral-glow-3)}
 
   /* FOOTER */
   footer{border-top:1px solid var(--line);padding:70px 0}
@@ -255,6 +271,26 @@
           <p class="case-desc">Personalized dashboard that provides users with real-time, site-level visibility into incident impacts across their cloud environment.</p>
           <div class="tags"><span class="tag">Cloud</span><span class="tag">Enterprise</span><span class="tag">UX/UI</span></div>
         </div>
+        <div class="visual glow v2"></div>
+      </div>
+
+      <div class="case">
+        <div class="case-text">
+          <p class="case-label">Atlassian · Design Lead</p>
+          <h3 class="case-title">Project<br><span class="accent">Title</span></h3>
+          <p class="case-desc">A one-to-two sentence summary of the project — the problem, your role, and the outcome you drove.</p>
+          <div class="tags"><span class="tag">Design</span><span class="tag">Product</span><span class="tag">UX/UI</span></div>
+        </div>
+        <div class="visual glow v3"></div>
+      </div>
+
+      <div class="case rev">
+        <div class="case-text">
+          <p class="case-label">Atlassian · Design Lead</p>
+          <h3 class="case-title">Project<br><span class="accent">Title</span></h3>
+          <p class="case-desc">A one-to-two sentence summary of the project — the problem, your role, and the outcome you drove.</p>
+          <div class="tags"><span class="tag">Design</span><span class="tag">Research</span><span class="tag">UX/UI</span></div>
+        </div>
         <div class="visual glow"></div>
       </div>
 
@@ -269,8 +305,8 @@
     <h2 class="sec-title">Vibe Coding</h2>
     <div class="thumbs">
       <div class="thumb"><img src="assets/img/forage.png" alt="Forage — prepared foods brand concept" /></div>
-      <div class="thumb empty"></div>
-      <div class="thumb empty"></div>
+      <div class="thumb empty v2"></div>
+      <div class="thumb empty v3"></div>
     </div>
   </div>
 </section>

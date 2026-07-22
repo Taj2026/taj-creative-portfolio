@@ -21,6 +21,17 @@
       radial-gradient(54% 66% at 88% 90%, rgba(255,96,82,.50), transparent 55%),
       radial-gradient(48% 62% at 10% 12%, rgba(240,96,90,.32), transparent 58%),
       #0a0a0c;
+    --coral-glow-2: /* mirrored + pinker */
+      radial-gradient(60% 75% at 86% 84%, rgba(255,100,112,.58), transparent 55%),
+      radial-gradient(56% 70% at 10% 14%, rgba(255,118,112,.50), transparent 55%),
+      radial-gradient(54% 66% at 12% 88%, rgba(240,92,112,.48), transparent 55%),
+      radial-gradient(48% 62% at 90% 14%, rgba(255,112,96,.30), transparent 58%),
+      #0a0a0c;
+    --coral-glow-3: /* bottom bloom, warm-to-pink */
+      radial-gradient(78% 62% at 50% 104%, rgba(255,112,88,.55), transparent 60%),
+      radial-gradient(60% 56% at 86% 16%, rgba(255,94,104,.46), transparent 58%),
+      radial-gradient(58% 54% at 14% 24%, rgba(255,132,96,.40), transparent 58%),
+      #0a0a0c;
     /* softer coral glow — for the hero visual */
     --coral-glow-soft:
       radial-gradient(58% 72% at 12% 85%, rgba(255,110,88,.40), transparent 58%),
@@ -94,6 +105,8 @@
   .feat-title{font-family:var(--display);text-transform:uppercase;font-size:clamp(34px,3.4vw,42px);line-height:1.02;letter-spacing:.03em;margin:14px 0 18px}
   .feat-body{font-size:16px;line-height:1.6;color:var(--dim);max-width:46ch}
   .fpanel{background:var(--coral-glow);padding:40px}
+  .fpanel.v2{background:var(--coral-glow-2)}
+  .fpanel.v3{background:var(--coral-glow-3)}
   .fpanel .embed{border-radius:12px;box-shadow:0 22px 50px rgba(0,0,0,.45)}
 
   /* MIGRATION */
@@ -189,11 +202,11 @@
         <h3 class="feat-title">An always-on AI co-pilot</h3>
         <p class="feat-body">An AI assistant sits right alongside the data — ready to summarize what's happening, flag what needs attention, and suggest the next move, so admins always have a knowledgeable second set of eyes.</p>
       </div>
-      <div class="fpanel"><div class="embed" data-fit><iframe src="assets/anim/feature2.html" loading="lazy" scrolling="no" title="AI co-pilot animation"></iframe></div></div>
+      <div class="fpanel v2"><div class="embed" data-fit><iframe src="assets/anim/feature2.html" loading="lazy" scrolling="no" title="AI co-pilot animation"></iframe></div></div>
     </div>
 
     <div class="feat">
-      <div class="fpanel"><div class="embed" data-fit><iframe src="assets/anim/feature3.html" loading="lazy" scrolling="no" title="Intelligent optimization animation"></iframe></div></div>
+      <div class="fpanel v3"><div class="embed" data-fit><iframe src="assets/anim/feature3.html" loading="lazy" scrolling="no" title="Intelligent optimization animation"></iframe></div></div>
       <div class="feat-text">
         <p class="feat-label">Intelligent Optimization</p>
         <h3 class="feat-title">AI-powered intelligent optimization</h3>
