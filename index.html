@@ -147,36 +147,31 @@
   .stats .stat:nth-child(3){animation-delay:.7s}
   .avail{animation-delay:.85s}
 
-  /* Origami bird: drifts down in one gentle sweep, then swings up and over in a
-     semicircular arc before floating back down to settle. Densely sampled points
-     traversed at constant speed (linear) so the path reads as a smooth curve. */
+  /* Origami bird: floats down in an arc, pauses to hover, then slowly drops into place.
+     Descent only — no upward motion. Densely sampled and traversed at constant speed
+     (linear) so the curved path reads smoothly; spacing encodes the hover and slow drop. */
   @keyframes bird-fly{
-    0%  {opacity:0;transform:translate(-120px,-230px) rotate(-5deg) scale(.62);animation-timing-function:cubic-bezier(.2,.55,.4,1)}
-    5%  {opacity:1;transform:translate(-112px,-200px) rotate(-3deg) scale(.65)}
-    13% {transform:translate(-98px,-158px)  rotate(-2deg) scale(.70)}
-    20% {transform:translate(-86px,-122px)  rotate(-1deg) scale(.74)}
-    27% {transform:translate(-74px,-90px)   rotate(0deg)  scale(.78)}
-    34% {transform:translate(-63px,-60px)   rotate(1deg)  scale(.83)}
-    40% {transform:translate(-55px,-38px)   rotate(2deg)  scale(.87)}
-    44% {transform:translate(-50px,-26px)   rotate(2deg)  scale(.90)}
-    49% {transform:translate(-47px,-57px)   rotate(3deg)  scale(.92)}
-    54% {transform:translate(-40px,-85px)   rotate(3deg)  scale(.93)}
-    60% {transform:translate(-28px,-104px)  rotate(1deg)  scale(.94)}
-    65% {transform:translate(-15px,-110px)  rotate(0deg)  scale(.95)}
-    70% {transform:translate(-2px,-104px)   rotate(-1deg) scale(.96)}
-    75% {transform:translate(10px,-85px)    rotate(-3deg) scale(.97)}
-    81% {transform:translate(17px,-57px)    rotate(-3deg) scale(.98)}
-    86% {transform:translate(20px,-26px)    rotate(-2deg) scale(.99)}
-    92% {transform:translate(12px,-10px)    rotate(-1deg) scale(1);animation-timing-function:cubic-bezier(.3,.6,.4,1)}
-    96% {transform:translate(5px,-3px)      rotate(0deg)  scale(1);animation-timing-function:cubic-bezier(.3,.6,.4,1)}
+    0%  {opacity:0;transform:translate(-110px,-230px) rotate(-6deg) scale(.62);animation-timing-function:cubic-bezier(.2,.55,.4,1)}
+    5%  {opacity:1;transform:translate(-104px,-198px) rotate(-4deg) scale(.66)}
+    12% {transform:translate(-94px,-164px)  rotate(-3deg) scale(.70)}
+    19% {transform:translate(-82px,-132px)  rotate(-2deg) scale(.74)}
+    27% {transform:translate(-68px,-102px)  rotate(-1deg) scale(.79)}
+    35% {transform:translate(-52px,-76px)   rotate(0deg)  scale(.84)}
+    43% {transform:translate(-34px,-58px)   rotate(1deg)  scale(.89);animation-timing-function:cubic-bezier(.3,.5,.45,1)}
+    50% {transform:translate(-18px,-48px)   rotate(1deg)  scale(.92)}
+    56% {transform:translate(-14px,-46px)   rotate(1deg)  scale(.93)}
+    63% {transform:translate(-13px,-45px)   rotate(1deg)  scale(.94);animation-timing-function:cubic-bezier(.4,.1,.5,1)}
+    72% {transform:translate(-9px,-34px)    rotate(1deg)  scale(.96)}
+    81% {transform:translate(-6px,-22px)    rotate(0deg)  scale(.98)}
+    90% {transform:translate(-3px,-11px)    rotate(0deg)  scale(1);animation-timing-function:cubic-bezier(.3,.5,.4,1)}
     100%{opacity:1;transform:translate(0,0) rotate(0deg)  scale(1)}
   }
-  .bird{animation:bird-fly 4.2s linear .3s both}
+  .bird{animation:bird-fly 4.4s linear .3s both}
   /* Each wing hinges at the body joint and beats: strong flaps on the way down, subtle idle once landed */
   @keyframes flapfast{0%,100%{transform:rotate(0deg)}50%{transform:rotate(-18deg)}}
   @keyframes flap{0%,100%{transform:rotate(0deg)}50%{transform:rotate(-10deg)}}
-  .wing-main{transform-box:view-box;transform-origin:136px 111px;animation:flapfast .46s ease-in-out .3s 9 both,flap 1.05s ease-in-out 4.44s infinite}
-  .wing-tip{transform-box:view-box;transform-origin:261px 104px;animation:flapfast .46s ease-in-out .3s 9 both,flap 1.05s ease-in-out 4.44s infinite}
+  .wing-main{transform-box:view-box;transform-origin:136px 111px;animation:flapfast .46s ease-in-out .3s 6 both,flap 1.05s ease-in-out 3.06s infinite}
+  .wing-tip{transform-box:view-box;transform-origin:261px 104px;animation:flapfast .46s ease-in-out .3s 6 both,flap 1.05s ease-in-out 3.06s infinite}
 
   @media(prefers-reduced-motion:reduce){.wordmark,.nav-links a,.eyebrow,.headline .hi-text,.headline .l2,.subline,.prev,.stats .stat,.avail,.bird,.wing-main,.wing-tip{animation:none}}
 </style>

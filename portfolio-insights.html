@@ -40,7 +40,9 @@
 
   /* HERO */
   .dhero{display:grid;grid-template-columns:1fr 1fr}
-  .dhero-l{padding:96px var(--pad);display:flex;flex-direction:column;justify-content:center;gap:26px}
+  .dhero-l{padding:96px 0;display:flex;flex-direction:column;justify-content:center}
+  /* content block centered in the left half, matching the home hero */
+  .dhero-l-inner{width:570px;max-width:calc(100% - 48px);margin:0 auto;display:flex;flex-direction:column;gap:26px}
   .dhero-r{border-left:1px solid var(--line);padding:60px var(--pad);display:flex;flex-direction:column;justify-content:center;gap:30px}
   .dtitle{font-family:var(--display);text-transform:uppercase;font-size:clamp(56px,7vw,90px);line-height:.9;letter-spacing:.03em}
   .dintro{font-size:17px;line-height:1.6;color:var(--dim);max-width:44ch}
@@ -97,6 +99,8 @@
   @media(max-width:900px){
     :root{--pad:28px}
     .dhero{grid-template-columns:1fr}
+    .dhero-l{padding:70px var(--pad)}
+    .dhero-l-inner{width:100%;max-width:none;margin:0}
     .dhero-r{border-left:none;border-top:1px solid var(--line)}
     .cols2{grid-template-columns:1fr;gap:36px}
     .feat,.feat.rev .feat-text{grid-template-columns:1fr;order:0;gap:28px}
@@ -118,9 +122,11 @@
 <!-- HERO -->
 <header class="dhero">
   <div class="dhero-l">
-    <p class="label">Atlassian · Design Lead</p>
-    <h1 class="dtitle">Portfolio<br><span class="accent">Insights</span></h1>
-    <p class="dintro">How we turned fragmented data into something an admin could quickly scan, understand, and act on by combining business vision, data visualization, and product craft.</p>
+    <div class="dhero-l-inner">
+      <p class="label">Atlassian · Design Lead</p>
+      <h1 class="dtitle">Portfolio<br><span class="accent">Insights</span></h1>
+      <p class="dintro">How we turned fragmented data into something an admin could quickly scan, understand, and act on by combining business vision, data visualization, and product craft.</p>
+    </div>
   </div>
   <div class="dhero-r">
     <div class="dvisual"><img src="assets/img/dashboard.png" alt="Portfolio Insights dashboard" /></div>
