@@ -42,7 +42,8 @@
   }
   .hero-col{padding:120px var(--pad) 60px;display:flex;flex-direction:column;justify-content:center}
   .hero-left{max-width:calc(var(--maxw)/2)}
-  .hero-right{border-left:1px solid var(--line)}
+  .hero-right{border-left:1px solid var(--line);padding-left:0;padding-right:0;align-items:center}
+  .hero-right-inner{width:570px;max-width:calc(100% - 56px)}
   .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--accent);text-transform:uppercase;margin-bottom:26px}
   .headline{font-family:var(--display);text-transform:uppercase;font-size:clamp(64px,9vw,144px);line-height:.86;letter-spacing:.02em}
   .headline .l1{display:flex;align-items:center;gap:.16em}
@@ -69,7 +70,9 @@
   .sec-eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.22em;color:var(--accent);text-transform:uppercase}
   .sec-title{font-family:var(--display);text-transform:uppercase;font-size:clamp(44px,6vw,66px);line-height:.9;margin-top:16px}
 
-  /* CASE STUDIES */
+  /* CASE STUDIES — 1325px container, fluid below 1325 */
+  #work .wrap{width:1325px;max-width:100%;padding:0;margin:0 auto}
+  @media(max-width:1324px){ #work .wrap{padding-left:24px;padding-right:24px} }
   .cases{display:flex;flex-direction:column;gap:100px;margin-top:80px}
   .case{display:grid;grid-template-columns:490px 1fr;gap:64px;align-items:center}
   .case.rev .case-text{order:2}
@@ -164,12 +167,14 @@
   </div>
 
   <div class="hero-col hero-right">
-    <div class="stats">
-      <div class="stat"><span class="num">15+</span><span class="desc">Designing across SaaS companies and complex tooling</span></div>
-      <div class="stat"><span class="num">AI in</span><span class="desc">Experimenting, building, and uncovering efficiencies</span></div>
-      <div class="stat"><span class="num">Any</span><span class="desc">Experience in small feature launches to leading large-scale tool reinventions</span></div>
+    <div class="hero-right-inner">
+      <div class="stats">
+        <div class="stat"><span class="num">15+</span><span class="desc">Designing across SaaS companies and complex tooling</span></div>
+        <div class="stat"><span class="num">AI in</span><span class="desc">Experimenting, building, and uncovering efficiencies</span></div>
+        <div class="stat"><span class="num">Any</span><span class="desc">Experience in small feature launches to leading large-scale tool reinventions</span></div>
+      </div>
+      <p class="avail">Based in Europe · Open to opportunities</p>
     </div>
-    <p class="avail">Based in Europe · Open to opportunities</p>
   </div>
 </header>
 
