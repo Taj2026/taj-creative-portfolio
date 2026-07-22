@@ -14,6 +14,20 @@
     --line:#212121; --accent:#F0605A; --gray:#DEDFE2;
     --display:"Bebas Neue",sans-serif; --sans:"DM Sans",sans-serif; --mono:"DM Mono",ui-monospace,monospace;
     --maxw:1312px; --pad:64px;
+    /* vivid coral glow over black — for thumbnails / feature panels */
+    --coral-glow:
+      radial-gradient(60% 75% at 14% 86%, rgba(255,110,88,.60), transparent 55%),
+      radial-gradient(56% 70% at 90% 12%, rgba(255,128,92,.50), transparent 55%),
+      radial-gradient(54% 66% at 88% 90%, rgba(255,96,82,.50), transparent 55%),
+      radial-gradient(48% 62% at 10% 12%, rgba(240,96,90,.32), transparent 58%),
+      #0a0a0c;
+    /* softer coral glow — for the hero visual */
+    --coral-glow-soft:
+      radial-gradient(58% 72% at 12% 85%, rgba(255,110,88,.40), transparent 58%),
+      radial-gradient(54% 68% at 90% 10%, rgba(255,128,92,.34), transparent 58%),
+      radial-gradient(52% 64% at 90% 92%, rgba(255,96,82,.30), transparent 60%),
+      radial-gradient(46% 60% at 8% 10%, rgba(240,96,90,.20), transparent 60%),
+      #0a0a0c;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   h1,h2,h3,h4,h5,h6{font-weight:400}  /* Bebas Neue ships one weight (400); match Paulo — no faux-bold */
@@ -47,11 +61,7 @@
   .dtitle{font-family:var(--display);text-transform:uppercase;font-size:clamp(56px,7vw,90px);line-height:.9;letter-spacing:.03em}
   .dintro{font-size:17px;line-height:1.6;color:var(--dim);max-width:44ch}
   .dvisual{position:relative;overflow:hidden;padding:0 6% ;display:flex;align-items:center;justify-content:center;min-height:300px;
-    background:
-      radial-gradient(50% 60% at 12% 22%, rgba(255,129,99,.20), transparent 60%),
-      radial-gradient(55% 65% at 88% 12%, rgba(255,145,66,.16), transparent 60%),
-      radial-gradient(55% 60% at 88% 88%, rgba(239,78,134,.15), transparent 60%),
-      radial-gradient(48% 62% at 10% 90%, rgba(142,90,224,.13), transparent 60%);}
+    background:var(--coral-glow-soft);}
   .dvisual img{width:85%;border-radius:12px;box-shadow:0 26px 60px rgba(0,0,0,.5)}
   .sbands{background:#0C0C0F}
   .sband{display:grid;grid-template-columns:100px 1fr;gap:24px;align-items:center;padding:20px;position:relative}
@@ -84,7 +94,7 @@
   .feat-label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase}
   .feat-title{font-family:var(--display);text-transform:uppercase;font-size:clamp(34px,3.4vw,42px);line-height:1.02;letter-spacing:.03em;margin:14px 0 18px}
   .feat-body{font-size:16px;line-height:1.6;color:var(--dim);max-width:46ch}
-  .fpanel{background:linear-gradient(120deg,#101014,#0a0a0c);padding:40px}
+  .fpanel{background:var(--coral-glow);padding:40px}
   .fpanel .embed{border-radius:12px;box-shadow:0 22px 50px rgba(0,0,0,.45)}
 
   /* MIGRATION */
