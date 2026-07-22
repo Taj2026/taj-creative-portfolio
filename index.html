@@ -176,10 +176,10 @@
     43% {transform:translate(-34px,-58px)   rotate(1deg)  scale(.89);animation-timing-function:cubic-bezier(.3,.5,.45,1)}
     50% {transform:translate(-18px,-48px)   rotate(1deg)  scale(.92)}
     56% {transform:translate(-14px,-46px)   rotate(1deg)  scale(.93)}
-    63% {transform:translate(-13px,-45px)   rotate(1deg)  scale(.94);animation-timing-function:cubic-bezier(.4,.1,.5,1)}
-    72% {transform:translate(-9px,-34px)    rotate(1deg)  scale(.96)}
-    81% {transform:translate(-6px,-22px)    rotate(0deg)  scale(.98)}
-    90% {transform:translate(-3px,-11px)    rotate(0deg)  scale(1);animation-timing-function:cubic-bezier(.3,.5,.4,1)}
+    65% {transform:translate(-13px,-45px)   rotate(1deg)  scale(.94);animation-timing-function:cubic-bezier(.4,.1,.5,1)}
+    73% {transform:translate(-9px,-34px)    rotate(1deg)  scale(.96)}
+    82% {transform:translate(-6px,-22px)    rotate(0deg)  scale(.98)}
+    91% {transform:translate(-3px,-11px)    rotate(0deg)  scale(1);animation-timing-function:cubic-bezier(.3,.5,.4,1)}
     100%{opacity:1;transform:translate(0,0) rotate(0deg)  scale(1)}
   }
   .bird{animation:bird-fly 4.4s linear .3s both}
@@ -344,6 +344,22 @@
   window.addEventListener('resize', alignLogo);
   document.addEventListener('DOMContentLoaded', alignLogo);
   if(document.fonts && document.fonts.ready){ document.fonts.ready.then(alignLogo); }
+
+  // If the visitor hasn't scrolled/interacted after 7s, gently scroll to the case studies.
+  (function(){
+    var cancelled=false;
+    function cancel(){ cancelled=true; }
+    ['wheel','touchmove','scroll','keydown','pointerdown'].forEach(function(ev){
+      window.addEventListener(ev, cancel, {passive:true, once:true});
+    });
+    setTimeout(function(){
+      if(cancelled || window.scrollY > 10) return;
+      var work=document.getElementById('work');
+      if(!work) return;
+      var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+      work.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'start'});
+    }, 7000);
+  })();
 </script>
 </body>
 </html>
