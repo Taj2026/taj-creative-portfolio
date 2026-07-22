@@ -30,7 +30,7 @@
   .nav-in{padding:34px var(--pad);display:flex;align-items:center;justify-content:space-between}
   .wordmark{font-family:var(--display);font-size:30px;letter-spacing:.08em}
   .nav-links{display:flex;gap:34px}
-  .nav-links a{font-family:var(--display);font-size:15px;letter-spacing:.08em;color:var(--dim);text-transform:uppercase;transition:color .2s}
+  .nav-links a{font-family:var(--display);font-size:14px;letter-spacing:.08em;color:var(--dim);text-transform:uppercase;transition:color .2s}
   .nav-links a:hover{color:var(--fg)}
 
   /* HERO */
@@ -43,17 +43,17 @@
   .hero-col{padding:120px var(--pad) 60px;display:flex;flex-direction:column;justify-content:center}
   .hero-left{padding-left:0;padding-right:0}
   /* content block centered in the left half; logo tracks its left edge via JS */
-  .hero-left-inner{width:fit-content;max-width:calc(100% - 48px);margin:0 auto}
+  .hero-left-inner{width:570px;max-width:calc(100% - 48px);margin:0 auto}
   .hero-right{border-left:1px solid var(--line);padding-left:0;padding-right:0;align-items:center}
   .hero-right-inner{width:570px;max-width:calc(100% - 56px)}
-  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--accent);text-transform:uppercase;margin-bottom:26px}
-  .headline{font-family:var(--display);text-transform:uppercase;font-size:clamp(64px,9vw,144px);line-height:.88;letter-spacing:.03em}
-  .headline .l1{display:flex;align-items:center;gap:.16em}
-  .bird{width:.72em;height:.62em;flex:0 0 auto}
-  .subline{font-size:18px;line-height:1.55;color:var(--dim);max-width:34ch;margin-top:28px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--accent);text-transform:uppercase;margin-bottom:26px}
+  .headline{font-family:var(--display);text-transform:uppercase;font-size:clamp(64px,9vw,144px);line-height:.882;letter-spacing:.03em}
+  .headline .l1{display:flex;align-items:center;gap:.18em}
+  .bird{width:.778em;height:.681em;flex:0 0 auto}
+  .subline{font-size:16px;line-height:1.5625;color:var(--dim);max-width:34ch;margin-top:28px}
 
   .prev{margin-top:56px}
-  .prev-label{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:#6B6B64;text-transform:uppercase;margin-bottom:18px}
+  .prev-label{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:#6B6B64;text-transform:uppercase;margin-bottom:18px}
   .prev-logos{display:flex;align-items:center;gap:26px}
   .prev-logos img{height:15px;width:auto;opacity:1;filter:brightness(0) saturate(100%) invert(43%) sepia(6%) saturate(280%) hue-rotate(20deg) brightness(92%) contrast(88%)}
   .prev-logos .adobe{height:13px}
@@ -63,10 +63,10 @@
   .stat{display:grid;grid-template-columns:175px 1fr;gap:24px;align-items:center;padding:26px 0;border-bottom:1px solid var(--line)}
   .stat:first-child{border-top:1px solid var(--line)}
   .stat-label{display:flex;flex-direction:column}
-  .stat .num,.stat .word{font-family:var(--display);text-transform:uppercase;font-size:48px;line-height:.82}
+  .stat .num,.stat .word{font-family:var(--display);text-transform:uppercase;font-size:48px;line-height:.875;letter-spacing:.03em}
   .stat .num{color:var(--accent)}
   .stat .word{color:var(--fg)}
-  .stat .desc{font-family:var(--mono);font-size:12px;letter-spacing:.1em;line-height:1.55;color:var(--dim);text-transform:uppercase}
+  .stat .desc{font-family:var(--mono);font-size:11px;letter-spacing:.12em;line-height:1.82;color:var(--dim);text-transform:uppercase}
   .avail{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--dim);text-transform:uppercase;margin-top:28px;display:flex;align-items:center;gap:9px}
   .avail::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
 
@@ -129,6 +129,22 @@
     .nav-links{gap:20px}
     section.block{padding:80px 0}
   }
+
+  /* Initial load reveal — fade + slide-up + blur, staggered */
+  @keyframes reveal{0%{opacity:0;transform:translateY(30px);filter:blur(10px)}100%{opacity:1;transform:translateY(0);filter:blur(0)}}
+  .wordmark,.nav-links a,.eyebrow,.headline .l1,.headline .l2,.subline,.prev,.stats .stat,.avail{animation:reveal .8s ease-out both}
+  .wordmark{animation-delay:.05s}
+  .nav-links a{animation-delay:.1s}
+  .eyebrow{animation-delay:.15s}
+  .headline .l1{animation-delay:.3s}
+  .headline .l2{animation-delay:.45s}
+  .subline{animation-delay:.6s}
+  .prev{animation-delay:.75s}
+  .stats .stat:nth-child(1){animation-delay:.5s}
+  .stats .stat:nth-child(2){animation-delay:.6s}
+  .stats .stat:nth-child(3){animation-delay:.7s}
+  .avail{animation-delay:.85s}
+  @media(prefers-reduced-motion:reduce){.wordmark,.nav-links a,.eyebrow,.headline .l1,.headline .l2,.subline,.prev,.stats .stat,.avail{animation:none}}
 </style>
 </head>
 <body>
@@ -162,7 +178,7 @@
       </span>
       <span class="l2">I'M <span class="accent">TAJ</span></span>
     </h1>
-    <p class="subline">Senior Product Designer with a track record of leading design strategy—now focused 100% on leveraging AI-powered workflows to drive efficiencies, ideate, and build.</p>
+    <p class="subline">Senior Product Designer, now focused on AI-powered design workflows.</p>
     <div class="prev">
       <p class="prev-label">Previously at</p>
       <div class="prev-logos">
