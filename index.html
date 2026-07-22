@@ -17,7 +17,7 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--fg);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body{background:var(--bg);color:var(--fg);font-family:var(--sans);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}
   a{color:inherit;text-decoration:none}
   img{max-width:100%;display:block}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
@@ -27,7 +27,7 @@
 
   /* NAV */
   nav{position:absolute;top:0;left:0;right:0;z-index:20}
-  .nav-in{max-width:var(--maxw);margin:0 auto;padding:34px var(--pad);display:flex;align-items:center;justify-content:space-between}
+  .nav-in{padding:34px var(--pad);display:flex;align-items:center;justify-content:space-between}
   .wordmark{font-family:var(--display);font-size:30px;letter-spacing:.08em}
   .nav-links{display:flex;gap:34px}
   .nav-links a{font-family:var(--display);font-size:15px;letter-spacing:.08em;color:var(--dim);text-transform:uppercase;transition:color .2s}
@@ -41,11 +41,13 @@
                radial-gradient(30% 34% at 20% 70%, rgba(255,255,255,.05), transparent 72%);
   }
   .hero-col{padding:120px var(--pad) 60px;display:flex;flex-direction:column;justify-content:center}
-  .hero-left{max-width:calc(var(--maxw)/2)}
+  .hero-left{padding-left:0;padding-right:0}
+  /* content block centered in the left half; logo tracks its left edge via JS */
+  .hero-left-inner{width:fit-content;max-width:calc(100% - 48px);margin:0 auto}
   .hero-right{border-left:1px solid var(--line);padding-left:0;padding-right:0;align-items:center}
   .hero-right-inner{width:570px;max-width:calc(100% - 56px)}
   .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--accent);text-transform:uppercase;margin-bottom:26px}
-  .headline{font-family:var(--display);text-transform:uppercase;font-size:clamp(64px,9vw,144px);line-height:.86;letter-spacing:.02em}
+  .headline{font-family:var(--display);text-transform:uppercase;font-size:clamp(64px,9vw,144px);line-height:.88;letter-spacing:.03em}
   .headline .l1{display:flex;align-items:center;gap:.16em}
   .bird{width:.72em;height:.62em;flex:0 0 auto}
   .subline{font-size:18px;line-height:1.55;color:var(--dim);max-width:34ch;margin-top:28px}
@@ -58,9 +60,12 @@
   .prev-logos .gopro{height:17px}
 
   .stats{display:flex;flex-direction:column;justify-content:center;height:100%}
-  .stat{display:grid;grid-template-columns:110px 1fr;gap:24px;align-items:center;padding:26px 0;border-bottom:1px solid var(--line)}
+  .stat{display:grid;grid-template-columns:175px 1fr;gap:24px;align-items:center;padding:26px 0;border-bottom:1px solid var(--line)}
   .stat:first-child{border-top:1px solid var(--line)}
-  .stat .num{font-family:var(--display);font-size:48px;line-height:.9;color:var(--accent)}
+  .stat-label{display:flex;flex-direction:column}
+  .stat .num,.stat .word{font-family:var(--display);text-transform:uppercase;font-size:48px;line-height:.82}
+  .stat .num{color:var(--accent)}
+  .stat .word{color:var(--fg)}
   .stat .desc{font-family:var(--mono);font-size:12px;letter-spacing:.1em;line-height:1.55;color:var(--dim);text-transform:uppercase}
   .avail{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--dim);text-transform:uppercase;margin-top:28px;display:flex;align-items:center;gap:9px}
   .avail::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
@@ -116,6 +121,7 @@
     .hero-col{padding:130px var(--pad) 60px}
     .hero-right{border-left:none;border-top:1px solid var(--line);padding-top:50px}
     .hero-left{max-width:none}
+    .hero-left-inner{width:100%;max-width:none;margin:0}
     .headline{font-size:clamp(56px,16vw,96px)}
     .case,.case.rev .case-text{grid-template-columns:1fr;order:0;gap:32px}
     .visual{height:280px}
@@ -129,7 +135,7 @@
 
 <nav>
   <div class="nav-in">
-    <a href="/" class="wordmark">TAJ</a>
+    <a href="/" class="wordmark">TP</a>
     <div class="nav-links">
       <a href="#work">Work</a>
       <a href="#about">About</a>
@@ -141,7 +147,8 @@
 <!-- HERO -->
 <header class="hero">
   <div class="hero-col hero-left">
-    <p class="eyebrow">UX Design · Leadership · AI</p>
+    <div class="hero-left-inner">
+    <p class="eyebrow">Product Design · Design Systems · AI Builder</p>
     <h1 class="headline">
       <span class="l1">HI,
         <svg class="bird" viewBox="0 0 330 290" aria-hidden="true">
@@ -155,7 +162,7 @@
       </span>
       <span class="l2">I'M <span class="accent">TAJ</span></span>
     </h1>
-    <p class="subline">I design and lead product experiences — blending strategy, craft, and AI to ship work that matters.</p>
+    <p class="subline">Senior Product Designer with a track record of leading design strategy—now focused 100% on leveraging AI-powered workflows to drive efficiencies, ideate, and build.</p>
     <div class="prev">
       <p class="prev-label">Previously at</p>
       <div class="prev-logos">
@@ -164,14 +171,15 @@
         <img class="adobe" src="assets/img/adobe.svg" alt="Adobe" />
       </div>
     </div>
+    </div>
   </div>
 
   <div class="hero-col hero-right">
     <div class="hero-right-inner">
       <div class="stats">
-        <div class="stat"><span class="num">15+</span><span class="desc">Designing across SaaS companies and complex tooling</span></div>
-        <div class="stat"><span class="num">AI in</span><span class="desc">Experimenting, building, and uncovering efficiencies</span></div>
-        <div class="stat"><span class="num">Any</span><span class="desc">Experience in small feature launches to leading large-scale tool reinventions</span></div>
+        <div class="stat"><div class="stat-label"><span class="num">15+</span><span class="word">Years</span></div><span class="desc">Designing across SaaS companies and complex tooling</span></div>
+        <div class="stat"><div class="stat-label"><span class="num">AI in</span><span class="word">Practice</span></div><span class="desc">Experimenting, building, and uncovering efficiencies</span></div>
+        <div class="stat"><div class="stat-label"><span class="num">Any</span><span class="word">Scale</span></div><span class="desc">Experience in small feature launches to leading large-scale tool reinventions</span></div>
       </div>
       <p class="avail">Based in Europe · Open to opportunities</p>
     </div>
@@ -232,5 +240,18 @@
   </div>
 </footer>
 
+<script>
+  function alignLogo(){
+    var inner=document.querySelector('.hero-left-inner');
+    var nav=document.querySelector('.nav-in');
+    if(!inner||!nav) return;
+    if(window.matchMedia('(max-width:900px)').matches){ nav.style.paddingLeft=''; return; }
+    nav.style.paddingLeft = Math.round(inner.getBoundingClientRect().left) + 'px';
+  }
+  window.addEventListener('load', alignLogo);
+  window.addEventListener('resize', alignLogo);
+  document.addEventListener('DOMContentLoaded', alignLogo);
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(alignLogo); }
+</script>
 </body>
 </html>
