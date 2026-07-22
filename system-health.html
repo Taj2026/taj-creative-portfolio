@@ -14,23 +14,22 @@
     --line:#212121; --accent:#F0605A; --gray:#DEDFE2;
     --display:"Bebas Neue",sans-serif; --sans:"DM Sans",sans-serif; --mono:"DM Mono",ui-monospace,monospace;
     --maxw:1312px; --pad:64px;
-    /* vivid coral glow over black — for thumbnails / feature panels */
-    --coral-glow:
-      radial-gradient(60% 75% at 14% 86%, rgba(255,110,88,.60), transparent 55%),
-      radial-gradient(56% 70% at 90% 12%, rgba(255,128,92,.50), transparent 55%),
-      radial-gradient(54% 66% at 88% 90%, rgba(255,96,82,.50), transparent 55%),
-      radial-gradient(48% 62% at 10% 12%, rgba(240,96,90,.32), transparent 58%),
+    /* coral-family glows over black — 4 distinct variants (different direction + hue) */
+    --coral-glow: /* v1 — coral, light sweeping from bottom-left */
+      radial-gradient(125% 125% at 4% 100%, rgba(255,106,85,.62), transparent 62%),
+      radial-gradient(72% 72% at 100% 6%, rgba(255,150,92,.40), transparent 60%),
       #0a0a0c;
-    --coral-glow-2: /* mirrored + pinker */
-      radial-gradient(60% 75% at 86% 84%, rgba(255,100,112,.58), transparent 55%),
-      radial-gradient(56% 70% at 10% 14%, rgba(255,118,112,.50), transparent 55%),
-      radial-gradient(54% 66% at 12% 88%, rgba(240,92,112,.48), transparent 55%),
-      radial-gradient(48% 62% at 90% 14%, rgba(255,112,96,.30), transparent 58%),
+    --coral-glow-2: /* v2 — pink/magenta, light sweeping from top-right */
+      radial-gradient(125% 125% at 100% 2%, rgba(255,86,124,.60), transparent 62%),
+      radial-gradient(72% 72% at 4% 100%, rgba(232,72,116,.42), transparent 60%),
       #0a0a0c;
-    --coral-glow-3: /* bottom bloom, warm-to-pink */
-      radial-gradient(78% 62% at 50% 104%, rgba(255,112,88,.55), transparent 60%),
-      radial-gradient(60% 56% at 86% 16%, rgba(255,94,104,.46), transparent 58%),
-      radial-gradient(58% 54% at 14% 24%, rgba(255,132,96,.40), transparent 58%),
+    --coral-glow-3: /* v3 — orange/amber, rising wide from the bottom */
+      radial-gradient(150% 115% at 50% 116%, rgba(255,134,64,.58), transparent 64%),
+      radial-gradient(72% 66% at 92% 6%, rgba(255,92,84,.40), transparent 60%),
+      #0a0a0c;
+    --coral-glow-4: /* v4 — deep red-coral, light sweeping from bottom-right */
+      radial-gradient(125% 125% at 100% 100%, rgba(238,74,72,.60), transparent 62%),
+      radial-gradient(72% 72% at 2% 4%, rgba(255,122,98,.40), transparent 60%),
       #0a0a0c;
     /* softer coral glow — for the hero visual */
     --coral-glow-soft:
