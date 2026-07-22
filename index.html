@@ -145,17 +145,25 @@
   .stats .stat:nth-child(3){animation-delay:.7s}
   .avail{animation-delay:.85s}
 
-  /* Origami bird: fly in from top-left, settle, then wings idle */
+  /* Origami bird: meanders down like a falling leaf while its wings beat, then settles */
   @keyframes bird-fly{
-    0%{opacity:0;transform:translate(-150px,-230px) rotate(-26deg) scale(.6)}
-    55%{opacity:1;transform:translate(16px,-12px) rotate(5deg) scale(1.02)}
+    0%{opacity:0;transform:translate(-140px,-244px) rotate(-10deg) scale(.62)}
+    10%{opacity:1;transform:translate(-98px,-188px) rotate(5deg) scale(.7)}
+    26%{transform:translate(-126px,-130px) rotate(-6deg) scale(.79)}
+    42%{transform:translate(-58px,-80px) rotate(5deg) scale(.88)}
+    58%{transform:translate(-86px,-36px) rotate(-4deg) scale(.95)}
+    74%{transform:translate(-16px,2px) rotate(3deg) scale(1)}
+    88%{transform:translate(8px,-6px) rotate(-1deg) scale(1)}
     100%{opacity:1;transform:translate(0,0) rotate(0deg) scale(1)}
   }
-  .bird{animation:bird-fly 1.8s cubic-bezier(.22,.68,.24,1) .3s both}
-  .bird .wings{transform-box:view-box;transform-origin:135px 113px;animation:flap 3.6s ease-in-out 2.1s infinite}
-  @keyframes flap{0%,100%{transform:rotate(0deg)}50%{transform:rotate(-4deg)}}
+  .bird{animation:bird-fly 2.9s ease-in-out .3s both}
+  /* Each wing hinges at the body joint and beats: strong flaps on the way down, subtle idle once landed */
+  @keyframes flapfast{0%,100%{transform:rotate(0deg)}50%{transform:rotate(-18deg)}}
+  @keyframes flap{0%,100%{transform:rotate(0deg)}50%{transform:rotate(-10deg)}}
+  .wing-main{transform-box:view-box;transform-origin:136px 111px;animation:flapfast .46s ease-in-out .3s 6 both,flap 1.05s ease-in-out 3.06s infinite}
+  .wing-tip{transform-box:view-box;transform-origin:261px 104px;animation:flapfast .46s ease-in-out .3s 6 both,flap 1.05s ease-in-out 3.06s infinite}
 
-  @media(prefers-reduced-motion:reduce){.wordmark,.nav-links a,.eyebrow,.headline .hi-text,.headline .l2,.subline,.prev,.stats .stat,.avail,.bird,.bird .wings{animation:none}}
+  @media(prefers-reduced-motion:reduce){.wordmark,.nav-links a,.eyebrow,.headline .hi-text,.headline .l2,.subline,.prev,.stats .stat,.avail,.bird,.wing-main,.wing-tip{animation:none}}
 </style>
 </head>
 <body>
@@ -179,11 +187,9 @@
     <h1 class="headline">
       <span class="l1"><span class="hi-text">HI,</span>
         <svg class="bird" viewBox="0 0 330 290" aria-hidden="true">
-          <g class="wings">
-            <path d="M5 3 L152 10 L135 113 Z" fill="#EA4E4E"/>
-            <path d="M152 10 L250 92 L135 113 Z" fill="#F0685F"/>
-            <path d="M250 92 L322 82 L272 116 Z" fill="#EA4E4E"/>
-          </g>
+          <path class="wing-main" d="M5 3 L152 10 L135 113 Z" fill="#EA4E4E"/>
+          <path d="M152 10 L250 92 L135 113 Z" fill="#F0685F"/>
+          <path class="wing-tip" d="M250 92 L322 82 L272 116 Z" fill="#EA4E4E"/>
           <path d="M135 113 L272 116 L178 192 Z" fill="#CE4040"/>
           <path d="M135 113 L178 192 L98 276 Z" fill="#F0685F"/>
           <path d="M135 113 L98 276 L126 206 Z" fill="#CE4040"/>
