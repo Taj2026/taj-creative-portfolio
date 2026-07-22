@@ -146,29 +146,36 @@
   .stats .stat:nth-child(3){animation-delay:.7s}
   .avail{animation-delay:.85s}
 
-  /* Origami bird: drifts down a wandering, curved path with a couple of hover-pauses, then settles.
-     Per-keyframe easing shapes each leg — decelerate into a hover, linger, then dart on. */
+  /* Origami bird: drifts down in one gentle sweep, then swings up and over in a
+     semicircular arc before floating back down to settle. Densely sampled points
+     traversed at constant speed (linear) so the path reads as a smooth curve. */
   @keyframes bird-fly{
-    0%  {opacity:0;transform:translate(-152px,-250px) rotate(-13deg) scale(.60);animation-timing-function:cubic-bezier(.2,.6,.35,1)}
-    6%  {opacity:1;transform:translate(-116px,-210px) rotate(9deg)  scale(.66);animation-timing-function:cubic-bezier(.25,.7,.35,1)}
-    15% {transform:translate(-138px,-168px) rotate(-9deg) scale(.73);animation-timing-function:cubic-bezier(.35,.15,.6,.85)}
-    23% {transform:translate(-133px,-160px) rotate(-6deg) scale(.75);animation-timing-function:cubic-bezier(.66,0,.76,.32)}
-    33% {transform:translate(-72px,-130px)  rotate(12deg) scale(.83);animation-timing-function:cubic-bezier(.45,.05,.55,.95)}
-    41% {transform:translate(-99px,-100px)  rotate(-5deg) scale(.87);animation-timing-function:cubic-bezier(.25,.7,.35,1)}
-    50% {transform:translate(-49px,-78px)   rotate(11deg) scale(.92);animation-timing-function:cubic-bezier(.35,.15,.6,.85)}
-    56% {transform:translate(-57px,-72px)   rotate(5deg)  scale(.93);animation-timing-function:cubic-bezier(.66,0,.76,.32)}
-    67% {transform:translate(-71px,-38px)   rotate(-8deg) scale(.97);animation-timing-function:cubic-bezier(.45,.05,.55,.95)}
-    77% {transform:translate(-23px,-15px)   rotate(7deg)  scale(1);animation-timing-function:cubic-bezier(.25,.7,.35,1)}
-    85% {transform:translate(-30px,-6px)    rotate(-3deg) scale(1);animation-timing-function:cubic-bezier(.45,.05,.55,.95)}
-    93% {transform:translate(7px,-9px)      rotate(2deg)  scale(1);animation-timing-function:cubic-bezier(.2,.7,.3,1)}
+    0%  {opacity:0;transform:translate(-120px,-230px) rotate(-5deg) scale(.62);animation-timing-function:cubic-bezier(.2,.55,.4,1)}
+    5%  {opacity:1;transform:translate(-112px,-200px) rotate(-3deg) scale(.65)}
+    13% {transform:translate(-98px,-158px)  rotate(-2deg) scale(.70)}
+    20% {transform:translate(-86px,-122px)  rotate(-1deg) scale(.74)}
+    27% {transform:translate(-74px,-90px)   rotate(0deg)  scale(.78)}
+    34% {transform:translate(-63px,-60px)   rotate(1deg)  scale(.83)}
+    40% {transform:translate(-55px,-38px)   rotate(2deg)  scale(.87)}
+    44% {transform:translate(-50px,-26px)   rotate(2deg)  scale(.90)}
+    49% {transform:translate(-47px,-57px)   rotate(3deg)  scale(.92)}
+    54% {transform:translate(-40px,-85px)   rotate(3deg)  scale(.93)}
+    60% {transform:translate(-28px,-104px)  rotate(1deg)  scale(.94)}
+    65% {transform:translate(-15px,-110px)  rotate(0deg)  scale(.95)}
+    70% {transform:translate(-2px,-104px)   rotate(-1deg) scale(.96)}
+    75% {transform:translate(10px,-85px)    rotate(-3deg) scale(.97)}
+    81% {transform:translate(17px,-57px)    rotate(-3deg) scale(.98)}
+    86% {transform:translate(20px,-26px)    rotate(-2deg) scale(.99)}
+    92% {transform:translate(12px,-10px)    rotate(-1deg) scale(1);animation-timing-function:cubic-bezier(.3,.6,.4,1)}
+    96% {transform:translate(5px,-3px)      rotate(0deg)  scale(1);animation-timing-function:cubic-bezier(.3,.6,.4,1)}
     100%{opacity:1;transform:translate(0,0) rotate(0deg)  scale(1)}
   }
-  .bird{animation:bird-fly 4s linear .3s both}
+  .bird{animation:bird-fly 4.2s linear .3s both}
   /* Each wing hinges at the body joint and beats: strong flaps on the way down, subtle idle once landed */
   @keyframes flapfast{0%,100%{transform:rotate(0deg)}50%{transform:rotate(-18deg)}}
   @keyframes flap{0%,100%{transform:rotate(0deg)}50%{transform:rotate(-10deg)}}
-  .wing-main{transform-box:view-box;transform-origin:136px 111px;animation:flapfast .46s ease-in-out .3s 8 both,flap 1.05s ease-in-out 3.98s infinite}
-  .wing-tip{transform-box:view-box;transform-origin:261px 104px;animation:flapfast .46s ease-in-out .3s 8 both,flap 1.05s ease-in-out 3.98s infinite}
+  .wing-main{transform-box:view-box;transform-origin:136px 111px;animation:flapfast .46s ease-in-out .3s 9 both,flap 1.05s ease-in-out 4.44s infinite}
+  .wing-tip{transform-box:view-box;transform-origin:261px 104px;animation:flapfast .46s ease-in-out .3s 9 both,flap 1.05s ease-in-out 4.44s infinite}
 
   @media(prefers-reduced-motion:reduce){.wordmark,.nav-links a,.eyebrow,.headline .hi-text,.headline .l2,.subline,.prev,.stats .stat,.avail,.bird,.wing-main,.wing-tip{animation:none}}
 </style>
