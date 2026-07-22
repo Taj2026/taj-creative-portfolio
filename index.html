@@ -145,23 +145,29 @@
   .stats .stat:nth-child(3){animation-delay:.7s}
   .avail{animation-delay:.85s}
 
-  /* Origami bird: meanders down like a falling leaf while its wings beat, then settles */
+  /* Origami bird: drifts down a wandering, curved path with a couple of hover-pauses, then settles.
+     Per-keyframe easing shapes each leg — decelerate into a hover, linger, then dart on. */
   @keyframes bird-fly{
-    0%{opacity:0;transform:translate(-140px,-244px) rotate(-10deg) scale(.62)}
-    10%{opacity:1;transform:translate(-98px,-188px) rotate(5deg) scale(.7)}
-    26%{transform:translate(-126px,-130px) rotate(-6deg) scale(.79)}
-    42%{transform:translate(-58px,-80px) rotate(5deg) scale(.88)}
-    58%{transform:translate(-86px,-36px) rotate(-4deg) scale(.95)}
-    74%{transform:translate(-16px,2px) rotate(3deg) scale(1)}
-    88%{transform:translate(8px,-6px) rotate(-1deg) scale(1)}
-    100%{opacity:1;transform:translate(0,0) rotate(0deg) scale(1)}
+    0%  {opacity:0;transform:translate(-152px,-250px) rotate(-13deg) scale(.60);animation-timing-function:cubic-bezier(.2,.6,.35,1)}
+    6%  {opacity:1;transform:translate(-116px,-210px) rotate(9deg)  scale(.66);animation-timing-function:cubic-bezier(.25,.7,.35,1)}
+    15% {transform:translate(-138px,-168px) rotate(-9deg) scale(.73);animation-timing-function:cubic-bezier(.35,.15,.6,.85)}
+    23% {transform:translate(-133px,-160px) rotate(-6deg) scale(.75);animation-timing-function:cubic-bezier(.66,0,.76,.32)}
+    33% {transform:translate(-72px,-130px)  rotate(12deg) scale(.83);animation-timing-function:cubic-bezier(.45,.05,.55,.95)}
+    41% {transform:translate(-99px,-100px)  rotate(-5deg) scale(.87);animation-timing-function:cubic-bezier(.25,.7,.35,1)}
+    50% {transform:translate(-49px,-78px)   rotate(11deg) scale(.92);animation-timing-function:cubic-bezier(.35,.15,.6,.85)}
+    56% {transform:translate(-57px,-72px)   rotate(5deg)  scale(.93);animation-timing-function:cubic-bezier(.66,0,.76,.32)}
+    67% {transform:translate(-71px,-38px)   rotate(-8deg) scale(.97);animation-timing-function:cubic-bezier(.45,.05,.55,.95)}
+    77% {transform:translate(-23px,-15px)   rotate(7deg)  scale(1);animation-timing-function:cubic-bezier(.25,.7,.35,1)}
+    85% {transform:translate(-30px,-6px)    rotate(-3deg) scale(1);animation-timing-function:cubic-bezier(.45,.05,.55,.95)}
+    93% {transform:translate(7px,-9px)      rotate(2deg)  scale(1);animation-timing-function:cubic-bezier(.2,.7,.3,1)}
+    100%{opacity:1;transform:translate(0,0) rotate(0deg)  scale(1)}
   }
-  .bird{animation:bird-fly 2.9s ease-in-out .3s both}
+  .bird{animation:bird-fly 4s linear .3s both}
   /* Each wing hinges at the body joint and beats: strong flaps on the way down, subtle idle once landed */
   @keyframes flapfast{0%,100%{transform:rotate(0deg)}50%{transform:rotate(-18deg)}}
   @keyframes flap{0%,100%{transform:rotate(0deg)}50%{transform:rotate(-10deg)}}
-  .wing-main{transform-box:view-box;transform-origin:136px 111px;animation:flapfast .46s ease-in-out .3s 6 both,flap 1.05s ease-in-out 3.06s infinite}
-  .wing-tip{transform-box:view-box;transform-origin:261px 104px;animation:flapfast .46s ease-in-out .3s 6 both,flap 1.05s ease-in-out 3.06s infinite}
+  .wing-main{transform-box:view-box;transform-origin:136px 111px;animation:flapfast .46s ease-in-out .3s 8 both,flap 1.05s ease-in-out 3.98s infinite}
+  .wing-tip{transform-box:view-box;transform-origin:261px 104px;animation:flapfast .46s ease-in-out .3s 8 both,flap 1.05s ease-in-out 3.98s infinite}
 
   @media(prefers-reduced-motion:reduce){.wordmark,.nav-links a,.eyebrow,.headline .hi-text,.headline .l2,.subline,.prev,.stats .stat,.avail,.bird,.wing-main,.wing-tip{animation:none}}
 </style>
