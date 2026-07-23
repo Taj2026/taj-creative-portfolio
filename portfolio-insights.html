@@ -106,7 +106,7 @@
   .fpanel{background:var(--coral-glow);padding:40px}
   .fpanel.v2{background:var(--coral-glow-2)}
   .fpanel.v3{background:var(--coral-glow-3)}
-  .fpanel .embed{border-radius:12px;box-shadow:0 22px 50px rgba(0,0,0,.45)}
+  .fpanel .embed{background:transparent;box-shadow:none}
 
   /* MIGRATION */
   .heading-split .l2{color:var(--accent)}
@@ -201,7 +201,7 @@
   <div class="wrap" style="display:flex;flex-direction:column;gap:130px">
 
     <div class="feat">
-      <div class="fpanel"><div class="embed" data-fit><iframe src="assets/anim/feature1.html" loading="lazy" scrolling="no" title="Data visualization animation"></iframe></div></div>
+      <div class="fpanel"><div class="embed" data-fit data-w="1000" data-h="520"><iframe src="assets/anim/feature1.html" loading="lazy" scrolling="no" title="Data visualization animation"></iframe></div></div>
       <div class="feat-text">
         <p class="feat-label">Data Visualizations</p>
         <h3 class="feat-title">Crafted to make dense information easy to scan</h3>
@@ -252,9 +252,11 @@
 <script>
   function fitEmbeds(){
     document.querySelectorAll('.embed[data-fit]').forEach(function(el){
-      var w=el.clientWidth, s=w/1440;
-      el.style.height=(900*s)+'px';
-      var f=el.querySelector('iframe'); if(f) f.style.transform='scale('+s+')';
+      var bw=parseFloat(el.getAttribute('data-w'))||1440;
+      var bh=parseFloat(el.getAttribute('data-h'))||900;
+      var w=el.clientWidth, s=w/bw;
+      el.style.height=(bh*s)+'px';
+      var f=el.querySelector('iframe'); if(f){ f.style.width=bw+'px'; f.style.height=bh+'px'; f.style.transform='scale('+s+')'; }
     });
   }
   window.addEventListener('load',fitEmbeds);
