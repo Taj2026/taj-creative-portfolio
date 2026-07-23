@@ -144,7 +144,7 @@
 <nav class="dnav">
   <div class="dnav-in">
     <a class="back" href="index.html">← Portfolio</a>
-    <span class="crumb">Accessibility · Atlassian · 2026</span>
+    <span class="crumb">Accessibility · Atlassian · 2023</span>
   </div>
 </nav>
 
@@ -172,8 +172,8 @@
   <div class="wrap">
     <p class="label">Context</p>
     <h2 class="heading2 heading-split">Why <span class="l2">accessibility</span></h2>
-    <p class="body-lg">To make Atlassian's Data Center products truly enterprise-grade, they had to work for every user. That meant retrofitting accessibility standards into a large, highly-customized legacy codebase — and delivering the transparent VPAT documentation that public-sector and enterprise buyers require before they'll sign.</p>
-    <div class="video-lg"><div class="embed" data-fit data-w="1185" data-h="740"><iframe src="assets/anim/a11y-context.html" loading="lazy" scrolling="no" title="Accessibility storyboard — slides zoom-out"></iframe></div></div>
+    <p class="body-lg">To make Atlassian's Data Center products truly enterprise-grade, they had to work for every user. What we discovered during the VPAT process spurred us to create a vision for operationalizing inclusion. To make it successful, we needed to touch community, culture, and practices.</p>
+    <div class="video-lg"><div class="embed" data-fit data-w="1185" data-h="740"><iframe data-src="assets/anim/a11y-context.html" loading="lazy" scrolling="no" title="Accessibility storyboard — slides zoom-out"></iframe></div></div>
     <div class="cols2">
       <div class="col"><h4>The Challenge</h4><p>Accessibility had to be retrofitted into a legacy platform at scale — a steep technical and organizational hurdle. Critical bugs were blocking vital public-sector and enterprise deals, and there was no shared, sustainable process for keeping products accessible over time.</p></div>
       <div class="col"><h4>The Opportunity</h4><p>A coordinated, org-wide push — audit, remediation, and transparent documentation — could unblock those deals immediately, and turn accessibility from a one-off audit into an ongoing, embedded practice.</p></div>
@@ -247,6 +247,16 @@
   window.addEventListener('load',fitEmbeds);
   window.addEventListener('resize',fitEmbeds);
   document.addEventListener('DOMContentLoaded',fitEmbeds);
+
+  // Defer each animation: only load (and thus start playing) its iframe once its section scrolls into view.
+  (function(){
+    function load(f){ if(f && f.getAttribute('data-src')){ f.src=f.getAttribute('data-src'); f.removeAttribute('data-src'); setTimeout(fitEmbeds,60); } }
+    if(!('IntersectionObserver' in window)){ document.querySelectorAll('iframe[data-src]').forEach(load); return; }
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ load(e.target.querySelector('iframe[data-src]')); io.unobserve(e.target); } });
+    },{rootMargin:'0px 0px 120px 0px',threshold:0.01});
+    document.querySelectorAll('.embed').forEach(function(el){ io.observe(el); });
+  })();
 
   // Align the "Portfolio" back button to the same left edge the home headline uses.
   // Mirrors the home page's split-layout geometry: the left content block is 570px

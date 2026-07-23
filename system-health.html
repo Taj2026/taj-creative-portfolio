@@ -161,11 +161,11 @@
     <div class="dhero-l-inner">
       <p class="label">Atlassian · Design Lead</p>
       <h1 class="dtitle">System<br><span class="accent">Health</span></h1>
-      <p class="dintro">How we gave teams a single, real-time view of system health — turning scattered signals into clear status, early warnings, and faster incident response.</p>
+      <p class="dintro">How we gave teams a single, real-time view of Atlassian apps system health — taking information buried in scattered lists and tools into clear signals, early warnings, and faster incident response.</p>
     </div>
   </div>
   <div class="dhero-r">
-    <div class="dvisual"><img src="assets/img/system-health-dashboard.png?v=4" alt="System Health dashboard" /></div>
+    <div class="dvisual"><img src="assets/img/system-health-context.png?v=2" alt="System Health dashboard" /></div>
     <div class="sbands">
       <div class="sband"><span class="num">80%</span><span class="desc">Alert noise reduction</span></div>
       <div class="sband"><span class="num">6.0+</span><span class="desc">Average SEQ scores</span></div>
@@ -193,7 +193,7 @@
   <div class="wrap" style="display:flex;flex-direction:column;gap:130px">
 
     <div class="feat">
-      <div class="fpanel"><div class="embed" data-fit data-w="880" data-h="560"><iframe src="assets/anim/system-health-map.html" loading="lazy" scrolling="no" title="Real-time monitoring animation"></iframe></div></div>
+      <div class="fpanel"><div class="embed" data-fit data-w="880" data-h="560"><iframe data-src="assets/anim/system-health-map.html" loading="lazy" scrolling="no" title="Real-time monitoring animation"></iframe></div></div>
       <div class="feat-text">
         <p class="feat-label">Real-Time Monitoring</p>
         <h3 class="feat-title">A tactile incident map turns static incident lists into a live, interactive way to gain understanding</h3>
@@ -207,11 +207,11 @@
         <h3 class="feat-title">Alerts that cut through the noise</h3>
         <p class="feat-body">Alerting prioritizes what actually matters and groups related signals together, so teams are notified about real problems early — without the fatigue of constant false alarms.</p>
       </div>
-      <div class="fpanel v2"><div class="embed" data-fit><iframe src="assets/anim/system-health-rail.html" loading="lazy" scrolling="no" title="Smart alerting animation"></iframe></div></div>
+      <div class="fpanel v2"><div class="embed" data-fit><iframe data-src="assets/anim/system-health-rail.html" loading="lazy" scrolling="no" title="Smart alerting animation"></iframe></div></div>
     </div>
 
     <div class="feat">
-      <div class="fpanel v3"><div class="embed" data-fit><iframe src="assets/anim/feature3.html" loading="lazy" scrolling="no" title="Incident context animation"></iframe></div></div>
+      <div class="fpanel v3"><div class="embed" data-fit><iframe data-src="assets/anim/feature3.html" loading="lazy" scrolling="no" title="Incident context animation"></iframe></div></div>
       <div class="feat-text">
         <p class="feat-label">Incident Context</p>
         <h3 class="feat-title">Every incident, with full context</h3>
@@ -228,7 +228,7 @@
     <p class="label">Proactive Reliability</p>
     <h2 class="heading2 heading-split">Staying ahead <span class="l2">of failures</span></h2>
     <p class="body-lg">With health trends and early signals in view, teams can shift from reacting to outages toward preventing them — spotting the slow degradations and recurring patterns that lead to incidents, and acting before they escalate.</p>
-    <div class="video-lg"><div class="embed" data-fit><iframe src="assets/anim/migration.html" loading="lazy" scrolling="no" title="Proactive reliability animation"></iframe></div></div>
+    <div class="video-lg"><div class="embed" data-fit><iframe data-src="assets/anim/migration.html" loading="lazy" scrolling="no" title="Proactive reliability animation"></iframe></div></div>
   </div>
 </section>
 
@@ -254,6 +254,16 @@
   window.addEventListener('load',fitEmbeds);
   window.addEventListener('resize',fitEmbeds);
   document.addEventListener('DOMContentLoaded',fitEmbeds);
+
+  // Defer each animation: only load (and thus start playing) its iframe once its section scrolls into view.
+  (function(){
+    function load(f){ if(f && f.getAttribute('data-src')){ f.src=f.getAttribute('data-src'); f.removeAttribute('data-src'); setTimeout(fitEmbeds,60); } }
+    if(!('IntersectionObserver' in window)){ document.querySelectorAll('iframe[data-src]').forEach(load); return; }
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ load(e.target.querySelector('iframe[data-src]')); io.unobserve(e.target); } });
+    },{rootMargin:'0px 0px 120px 0px',threshold:0.01});
+    document.querySelectorAll('.embed').forEach(function(el){ io.observe(el); });
+  })();
 
   // Align the "Portfolio" back button to the same left edge the home headline uses.
   // Mirrors the home page's split-layout geometry: the left content block is 570px
