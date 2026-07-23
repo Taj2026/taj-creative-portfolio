@@ -115,9 +115,6 @@
   .glow.v4{background:var(--coral-glow-4)}
   .visual{align-items:flex-start}
   .visual .shot{position:relative;width:calc(100% - 84px);border-radius:12px;box-shadow:0 24px 55px rgba(0,0,0,.5);margin:42px auto 0}
-  /* animation thumbnail — same floating-card frame as .shot, iframe scaled to fit */
-  .visual .embed{overflow:hidden}
-  .visual .embed iframe{position:absolute;top:0;left:0;width:1440px;height:900px;border:0;transform-origin:top left;pointer-events:none}
 
   /* EXPERIMENTS */
   .thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
@@ -268,7 +265,7 @@
           <div class="tags"><span class="tag">Cloud</span><span class="tag">Enterprise</span><span class="tag">UX/UI</span></div>
           <span class="case-link">Open case study ↗</span>
         </div>
-        <div class="visual glow v2"><div class="shot embed" data-fit><iframe data-src="assets/anim/system-health-loading.html" loading="lazy" scrolling="no" title="System Health dashboard loading" tabindex="-1"></iframe></div></div>
+        <div class="visual glow v2"><img class="shot" src="assets/img/system-health-dashboard.png?v=4" alt="System Health dashboard" /></div>
       </a>
 
       <a class="case" href="accessibility.html">
@@ -341,28 +338,6 @@
   window.addEventListener('resize', alignLogo);
   document.addEventListener('DOMContentLoaded', alignLogo);
   if(document.fonts && document.fonts.ready){ document.fonts.ready.then(alignLogo); }
-
-  // Scale animation-thumbnail embeds to fit, and only load (start playing) each once it scrolls into view.
-  function fitEmbeds(){
-    document.querySelectorAll('.embed[data-fit]').forEach(function(el){
-      var bw=parseFloat(el.getAttribute('data-w'))||1440;
-      var bh=parseFloat(el.getAttribute('data-h'))||900;
-      var w=el.clientWidth, s=w/bw;
-      el.style.height=(bh*s)+'px';
-      var f=el.querySelector('iframe'); if(f){ f.style.width=bw+'px'; f.style.height=bh+'px'; f.style.transform='scale('+s+')'; }
-    });
-  }
-  window.addEventListener('load',fitEmbeds);
-  window.addEventListener('resize',fitEmbeds);
-  document.addEventListener('DOMContentLoaded',fitEmbeds);
-  (function(){
-    function load(f){ if(f && f.getAttribute('data-src')){ f.src=f.getAttribute('data-src'); f.removeAttribute('data-src'); setTimeout(fitEmbeds,60); } }
-    if(!('IntersectionObserver' in window)){ document.querySelectorAll('iframe[data-src]').forEach(load); return; }
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if(e.isIntersecting){ load(e.target.querySelector('iframe[data-src]')); io.unobserve(e.target); } });
-    },{rootMargin:'0px 0px 120px 0px',threshold:0.01});
-    document.querySelectorAll('.embed').forEach(function(el){ io.observe(el); });
-  })();
 
   // If the visitor hasn't scrolled/interacted after 10s, slowly ease down to the case studies.
   (function(){
