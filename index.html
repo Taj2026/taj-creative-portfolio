@@ -345,20 +345,32 @@
   document.addEventListener('DOMContentLoaded', alignLogo);
   if(document.fonts && document.fonts.ready){ document.fonts.ready.then(alignLogo); }
 
-  // If the visitor hasn't scrolled/interacted after 7s, gently scroll to the case studies.
+  // If the visitor hasn't scrolled/interacted after 10s, slowly ease down to the case studies.
   (function(){
-    var cancelled=false;
+    var cancelled=false, autoScrolling=false;
     function cancel(){ cancelled=true; }
-    ['wheel','touchmove','scroll','keydown','pointerdown'].forEach(function(ev){
-      window.addEventListener(ev, cancel, {passive:true, once:true});
+    ['wheel','touchstart','keydown','pointerdown'].forEach(function(ev){
+      window.addEventListener(ev, cancel, {passive:true});
     });
+    window.addEventListener('scroll', function(){ if(!autoScrolling) cancelled=true; }, {passive:true});
+    function ease(t){ return t<0.5 ? 2*t*t : 1-Math.pow(-2*t+2,2)/2; } // easeInOutQuad
     setTimeout(function(){
       if(cancelled || window.scrollY > 10) return;
       var work=document.getElementById('work');
       if(!work) return;
-      var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-      work.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'start'});
-    }, 7000);
+      var targetY=Math.round(work.getBoundingClientRect().top+window.scrollY);
+      if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){ window.scrollTo(0,targetY); return; }
+      autoScrolling=true;
+      var startY=window.scrollY, dist=targetY-startY, t0=null, dur=2200;
+      function step(ts){
+        if(cancelled) return;
+        if(t0===null) t0=ts;
+        var p=Math.min((ts-t0)/dur,1);
+        window.scrollTo(0, startY + dist*ease(p));
+        if(p<1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }, 10000);
   })();
 </script>
 </body>
