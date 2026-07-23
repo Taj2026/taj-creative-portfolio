@@ -254,7 +254,7 @@
     if(!('IntersectionObserver' in window)){ document.querySelectorAll('iframe[data-src]').forEach(load); return; }
     var io=new IntersectionObserver(function(entries){
       entries.forEach(function(e){ if(e.isIntersecting){ load(e.target.querySelector('iframe[data-src]')); io.unobserve(e.target); } });
-    },{rootMargin:'0px 0px 120px 0px',threshold:0.01});
+    },{rootMargin:'0px 0px -20% 0px',threshold:0.01});
     document.querySelectorAll('.embed').forEach(function(el){ io.observe(el); });
   })();
 

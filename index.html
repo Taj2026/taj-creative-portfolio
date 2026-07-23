@@ -124,6 +124,10 @@
   .thumb.empty.v2{background:var(--coral-glow-2)}
   .thumb.empty.v3{background:var(--coral-glow-3)}
   .thumb.empty.v4{background:var(--coral-glow-4)}
+  /* "coming soon" — semi-transparent black film + label over the thumbnail */
+  .thumb.comingsoon img{position:relative;z-index:0}
+  .thumb.comingsoon::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.55);z-index:1}
+  .thumb.comingsoon .soon-label{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;color:var(--fg);font-family:var(--mono);text-transform:uppercase;letter-spacing:.2em;font-size:13px}
 
   /* FOOTER */
   footer{border-top:1px solid var(--line);padding:70px 0}
@@ -301,7 +305,7 @@
     <h2 class="sec-title">Vibe Coding</h2>
     <div class="thumbs">
       <div class="thumb"><img src="assets/img/forage.png" alt="Forage — prepared foods brand concept" /></div>
-      <div class="thumb empty v2"></div>
+      <div class="thumb empty v2 comingsoon"><span class="soon-label">Coming soon</span></div>
       <div class="thumb empty v3"></div>
     </div>
   </div>
