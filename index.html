@@ -175,15 +175,15 @@
     72%  {transform:translate(-23px,2px) scale(1)}
     100% {opacity:1;transform:translate(-23px,0) scale(1)}
   }
-  .bird{animation:bird-drop .7s cubic-bezier(.3,.72,.4,1) 1.5s both}
-  /* Three diminishing wing-beats, timed to the landing, then rest */
+  .bird{animation:bird-drop .85s cubic-bezier(.3,.72,.4,1) 1.5s both}
+  /* Three diminishing wing-beats, timed to the landing, then rest. Only the wing
+     flaps — the head/beak (.wing-tip) is deliberately left static. */
   @keyframes flap{
     0%{transform:rotate(0deg)}   14%{transform:rotate(-16deg)}  28%{transform:rotate(0deg)}
     42%{transform:rotate(-13deg)} 56%{transform:rotate(0deg)}    70%{transform:rotate(-10deg)}
     84%,100%{transform:rotate(0deg)}
   }
-  .wing-main{transform-box:view-box;transform-origin:136px 111px;animation:flap 1.69s ease-in-out 2.2s 1 both}
-  .wing-tip{transform-box:view-box;transform-origin:261px 104px;animation:flap 1.69s ease-in-out 2.2s 1 both}
+  .wing-main{transform-box:view-box;transform-origin:136px 111px;animation:flap 2.1s ease-in-out 2.35s 1 both}
 
   @media(prefers-reduced-motion:reduce){.wordmark,.nav-links a,.eyebrow,.headline .hi-text,.headline .l2,.subline,.prev,.stats .stat,.avail,.bird,.wing-main,.wing-tip{animation:none}}
 </style>
