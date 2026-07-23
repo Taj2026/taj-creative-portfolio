@@ -68,7 +68,7 @@
   .headline{font-family:var(--display);text-transform:uppercase;font-size:clamp(64px,9vw,144px);line-height:.882;letter-spacing:.03em}
   .headline .l1{display:flex;align-items:center;gap:.18em}
   .headline .l2{display:block;margin-top:5px}
-  .bird{width:.858em;height:.751em;flex:0 0 auto}
+  .bird{width:.901em;height:.789em;flex:0 0 auto}
   .subline{font-size:16px;line-height:1.5625;color:var(--dim);max-width:34ch;margin-top:28px}
 
   .prev{margin-top:56px}
@@ -164,18 +164,22 @@
   .avail{animation-delay:.85s}
 
   /* Origami bird: after the hero text has settled, it simply drops straight in,
-     gives one subtle wing-flap as it lands, then holds still. */
+     flaps a few times as it lands, then holds still. */
   @keyframes bird-drop{
-    0%   {opacity:0;transform:translate(-8px,-40px) scale(.96)}
+    0%   {opacity:0;transform:translate(-13px,-40px) scale(.96)}
     35%  {opacity:1}
-    72%  {transform:translate(-8px,2px) scale(1)}
-    100% {opacity:1;transform:translate(-8px,0) scale(1)}
+    72%  {transform:translate(-13px,2px) scale(1)}
+    100% {opacity:1;transform:translate(-13px,0) scale(1)}
   }
   .bird{animation:bird-drop .56s cubic-bezier(.3,.72,.4,1) 1.5s both}
-  /* One gentle wing-beat, timed to the landing, then rest */
-  @keyframes flapOnce{0%,100%{transform:rotate(0deg)}50%{transform:rotate(-13deg)}}
-  .wing-main{transform-box:view-box;transform-origin:136px 111px;animation:flapOnce .52s ease-in-out 2.02s 1 both}
-  .wing-tip{transform-box:view-box;transform-origin:261px 104px;animation:flapOnce .52s ease-in-out 2.02s 1 both}
+  /* A few diminishing wing-beats, timed to the landing, then rest */
+  @keyframes flap{
+    0%{transform:rotate(0deg)}   14%{transform:rotate(-15deg)}  28%{transform:rotate(0deg)}
+    42%{transform:rotate(-11deg)} 56%{transform:rotate(0deg)}    70%{transform:rotate(-7deg)}
+    84%,100%{transform:rotate(0deg)}
+  }
+  .wing-main{transform-box:view-box;transform-origin:136px 111px;animation:flap 1.3s ease-in-out 2.02s 1 both}
+  .wing-tip{transform-box:view-box;transform-origin:261px 104px;animation:flap 1.3s ease-in-out 2.02s 1 both}
 
   @media(prefers-reduced-motion:reduce){.wordmark,.nav-links a,.eyebrow,.headline .hi-text,.headline .l2,.subline,.prev,.stats .stat,.avail,.bird,.wing-main,.wing-tip{animation:none}}
 </style>
