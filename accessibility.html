@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>System Health — Taj Palchaudhuri</title>
-<meta name="description" content="System Health — a real-time monitoring application that unifies status, alerting, and incident context so teams catch problems early and resolve them faster." />
+<title>Accessibility — Taj Palchaudhuri</title>
+<meta name="description" content="Accessibility at Scale — an org-wide initiative that took a legacy enterprise platform from accessibility audit to embedded practice, unblocking public-sector and enterprise sales." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet" />
@@ -51,10 +51,6 @@
   .label{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--accent);text-transform:uppercase}
   .sec-title{font-family:var(--display);text-transform:uppercase;line-height:.9;letter-spacing:.03em}
 
-  /* scaled animation embed */
-  .embed{position:relative;width:100%;overflow:hidden;background:var(--gray)}
-  .embed iframe{position:absolute;top:0;left:0;width:1440px;height:900px;border:0;transform-origin:top left}
-
   /* NAV */
   .dnav{border-bottom:1px solid var(--line)}
   .dnav-in{padding:30px var(--pad);display:flex;align-items:center;justify-content:space-between}
@@ -83,19 +79,13 @@
   .heading2{font-family:var(--display);text-transform:uppercase;font-size:clamp(52px,6.5vw,76px);line-height:.9;letter-spacing:.03em;margin-top:18px}
   .body-lg{font-size:18px;line-height:1.6;color:var(--dim);max-width:52ch;margin-top:20px}
 
-  /* CONTEXT visual (large, flat gray) */
+  /* CONTEXT visual (large) */
   .video-lg{margin-top:50px}
-  .context-shot{width:100%;display:block}
+  .context-shot{width:100%;display:block;border-radius:12px}
 
   .cols2{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:26px}
   .col h4{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase;margin-bottom:16px}
   .col p{font-size:17px;line-height:1.6;color:var(--dim)}
-
-  /* QUOTE */
-  .quote{border-top:1px solid var(--line);padding:120px 0}
-  .qmark{font-family:var(--display);font-size:100px;line-height:.5;color:var(--accent)}
-  .qtext{font-family:var(--display);text-transform:uppercase;font-size:clamp(34px,4.4vw,50px);line-height:1.04;letter-spacing:.03em;margin-top:20px}
-  .qattr{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--dim);text-transform:uppercase;margin-top:22px}
 
   /* FEATURES */
   .features{border-top:1px solid var(--line);padding:120px 0;display:flex;flex-direction:column;gap:130px}
@@ -104,12 +94,12 @@
   .feat-label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase}
   .feat-title{font-family:var(--display);text-transform:uppercase;font-size:clamp(34px,3.4vw,42px);line-height:1.02;letter-spacing:.03em;margin:14px 0 18px}
   .feat-body{font-size:16px;line-height:1.6;color:var(--dim);max-width:46ch}
-  .fpanel{background:var(--coral-glow);padding:40px}
+  .fpanel{background:var(--coral-glow);padding:40px;display:flex;align-items:center;justify-content:center}
   .fpanel.v2{background:var(--coral-glow-2)}
   .fpanel.v3{background:var(--coral-glow-3)}
-  .fpanel .embed{background:transparent;box-shadow:none}
+  .fpanel img{width:100%;display:block;border-radius:8px;box-shadow:0 18px 44px rgba(0,0,0,.4)}
 
-  /* MIGRATION */
+  /* split heading accent */
   .heading-split .l2{color:var(--accent)}
 
   /* NEXT */
@@ -140,7 +130,7 @@
     .dhero-r{border-left:none;border-top:1px solid var(--line)}
     .cols2{grid-template-columns:1fr;gap:36px}
     .feat,.feat.rev .feat-text{grid-template-columns:1fr;order:0;gap:28px}
-    .sec,.features,.quote,.next{padding:70px 0}
+    .sec,.features,.next{padding:70px 0}
     .fpanel{padding:24px}
   }
 </style>
@@ -151,7 +141,7 @@
 <nav class="dnav">
   <div class="dnav-in">
     <a class="back" href="index.html">← Portfolio</a>
-    <span class="crumb">System Health · Atlassian · 2026</span>
+    <span class="crumb">Accessibility · Atlassian · 2026</span>
   </div>
 </nav>
 
@@ -160,16 +150,16 @@
   <div class="dhero-l">
     <div class="dhero-l-inner">
       <p class="label">Atlassian · Design Lead</p>
-      <h1 class="dtitle">System<br><span class="accent">Health</span></h1>
-      <p class="dintro">How we gave teams a single, real-time view of system health — turning scattered signals into clear status, early warnings, and faster incident response.</p>
+      <h1 class="dtitle">Accessibility<br><span class="accent">at Scale</span></h1>
+      <p class="dintro">How an org-wide accessibility initiative took a legacy enterprise platform from audit to embedded practice — unblocking public-sector and enterprise sales along the way.</p>
     </div>
   </div>
   <div class="dhero-r">
-    <div class="dvisual"><img src="assets/img/system-health-dashboard.png?v=4" alt="System Health dashboard" /></div>
+    <div class="dvisual"><img src="assets/img/a11y-vpat.png" alt="Atlassian Data Center accessibility VPAT documentation" /></div>
     <div class="sbands">
-      <div class="sband"><span class="num">80%</span><span class="desc">Alert noise reduction</span></div>
-      <div class="sband"><span class="num">6.0+</span><span class="desc">Average SEQ scores</span></div>
-      <div class="sband"><span class="num">75%</span><span class="desc">Reduction in time to awareness</span></div>
+      <div class="sband"><span class="num">AA</span><span class="desc">WCAG 2.1 conformance achieved</span></div>
+      <div class="sband"><span class="num">40</span><span class="desc">Core user flows audited</span></div>
+      <div class="sband"><span class="num">VPAT</span><span class="desc">Delivered to unblock enterprise deals</span></div>
     </div>
   </div>
 </header>
@@ -178,12 +168,12 @@
 <section class="sec">
   <div class="wrap">
     <p class="label">Context</p>
-    <h2 class="heading2 heading-split">What is <span class="l2">System Health</span></h2>
-    <p class="body-lg">System Health brings monitoring, alerting, and incident context into one place — giving teams a live picture of how their systems are performing. Instead of piecing together signals from disconnected dashboards, teams can see what's healthy, what's degrading, and what needs attention, and act before small issues become outages.</p>
-    <div class="video-lg"><img class="context-shot" src="assets/img/system-health-context.png" alt="System Health dashboard" /></div>
+    <h2 class="heading2 heading-split">Why <span class="l2">accessibility</span></h2>
+    <p class="body-lg">To make Atlassian's Data Center products truly enterprise-grade, they had to work for every user. That meant retrofitting accessibility standards into a large, highly-customized legacy codebase — and delivering the transparent VPAT documentation that public-sector and enterprise buyers require before they'll sign.</p>
+    <div class="video-lg"><img class="context-shot" src="assets/img/a11y-mission.png" alt="Accessibility mission: enabling every person to work independently" /></div>
     <div class="cols2">
-      <div class="col"><h4>The Challenge</h4><p>Teams were watching their systems through a patchwork of disconnected dashboards, logs, and alerts. Critical signals were easy to miss, context lived in different tools, and by the time an issue surfaced it had often already reached customers.</p></div>
-      <div class="col"><h4>The Opportunity</h4><p>By unifying health signals into one clear, real-time surface — with alerting that prioritizes what matters and context that travels with every incident — we gave teams the confidence to catch problems early and resolve them faster, together.</p></div>
+      <div class="col"><h4>The Challenge</h4><p>Accessibility had to be retrofitted into a legacy platform at scale — a steep technical and organizational hurdle. Critical bugs were blocking vital public-sector and enterprise deals, and there was no shared, sustainable process for keeping products accessible over time.</p></div>
+      <div class="col"><h4>The Opportunity</h4><p>A coordinated, org-wide push — audit, remediation, and transparent documentation — could unblock those deals immediately, and turn accessibility from a one-off audit into an ongoing, embedded practice.</p></div>
     </div>
   </div>
 </section>
@@ -193,42 +183,42 @@
   <div class="wrap" style="display:flex;flex-direction:column;gap:130px">
 
     <div class="feat">
-      <div class="fpanel"><div class="embed" data-fit data-w="880" data-h="560"><iframe src="assets/anim/system-health-map.html" loading="lazy" scrolling="no" title="Real-time monitoring animation"></iframe></div></div>
+      <div class="fpanel"><img src="assets/img/a11y-score.png" alt="Accessibility score from the audit" /></div>
       <div class="feat-text">
-        <p class="feat-label">Real-Time Monitoring</p>
-        <h3 class="feat-title">See every system's health at a glance</h3>
-        <p class="feat-body">Live status across services turns a wall of raw metrics into a clear, scannable picture — so teams can immediately see what's healthy, what's trending the wrong way, and where to focus.</p>
+        <p class="feat-label">The Audit</p>
+        <h3 class="feat-title">An org-wide accessibility audit</h3>
+        <p class="feat-body">We assessed 40 core user flows against WCAG 2.1 AA, scoring every area and surfacing the issues that mattered most — turning a vague mandate into a concrete, prioritized picture of exactly where the platform stood.</p>
       </div>
     </div>
 
     <div class="feat rev">
       <div class="feat-text">
-        <p class="feat-label">Smart Alerting</p>
-        <h3 class="feat-title">Alerts that cut through the noise</h3>
-        <p class="feat-body">Alerting prioritizes what actually matters and groups related signals together, so teams are notified about real problems early — without the fatigue of constant false alarms.</p>
+        <p class="feat-label">Building Empathy</p>
+        <h3 class="feat-title">Grounded in real user experience</h3>
+        <p class="feat-body">Regular listening sessions with people who rely on screen readers, keyboard navigation, and other assistive tech kept the work grounded in lived experience — so fixes solved real problems, not just checklist items.</p>
       </div>
-      <div class="fpanel v2"><div class="embed" data-fit><iframe src="assets/anim/system-health-rail.html" loading="lazy" scrolling="no" title="Smart alerting animation"></iframe></div></div>
+      <div class="fpanel v2"><img src="assets/img/a11y-empathy.jpg" alt="Building empathy for users with disabilities" /></div>
     </div>
 
     <div class="feat">
-      <div class="fpanel v3"><div class="embed" data-fit><iframe src="assets/anim/feature3.html" loading="lazy" scrolling="no" title="Incident context animation"></iframe></div></div>
+      <div class="fpanel v3"><img src="assets/img/a11y-townhall.png" alt="Leadership supporting the importance of accessibility" /></div>
       <div class="feat-text">
-        <p class="feat-label">Incident Context</p>
-        <h3 class="feat-title">Every incident, with full context</h3>
-        <p class="feat-body">When something breaks, the timeline, affected systems, and recent changes are already gathered in one place — so teams can move from detection to resolution without hunting for information.</p>
+        <p class="feat-label">Culture &amp; Leadership</p>
+        <h3 class="feat-title">Backed from the top down</h3>
+        <p class="feat-body">Accessibility wasn't a side project. Leadership set it as an explicit goal — with dedicated OKRs and regular Town Hall moments — giving teams the mandate and momentum to treat accessibility as everyone's responsibility.</p>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- MIGRATION -->
+<!-- VISION -->
 <section class="sec">
   <div class="wrap">
-    <p class="label">Proactive Reliability</p>
-    <h2 class="heading2 heading-split">Staying ahead <span class="l2">of failures</span></h2>
-    <p class="body-lg">With health trends and early signals in view, teams can shift from reacting to outages toward preventing them — spotting the slow degradations and recurring patterns that lead to incidents, and acting before they escalate.</p>
-    <div class="video-lg"><div class="embed" data-fit><iframe src="assets/anim/migration.html" loading="lazy" scrolling="no" title="Proactive reliability animation"></iframe></div></div>
+    <p class="label">The Vision</p>
+    <h2 class="heading2 heading-split">From audit to <span class="l2">embedded practice</span></h2>
+    <p class="body-lg">The lasting outcome wasn't a one-time fix — it was a new way of working. We mapped out a cross-functional accessibility team, pairing dedicated designers, engineers, and a product manager, with shared rituals, tooling, and acceptance criteria — so accessibility became a first-class input into discovery, design reviews, implementation, and QA, not a late-stage audit.</p>
+    <div class="video-lg"><img class="context-shot" src="assets/img/a11y-personas.png" alt="Accessibility personas and audit cards" /></div>
   </div>
 </section>
 
@@ -236,25 +226,12 @@
 <section class="next">
   <div class="wrap">
     <p class="k">Next case study</p>
-    <p class="t">Accessibility<br><span class="accent">at Scale</span></p>
-    <a class="lnk" href="accessibility.html">Open case study →</a>
+    <p class="t">Portfolio<br><span class="accent">Insights</span></p>
+    <a class="lnk" href="portfolio-insights.html">Open case study →</a>
   </div>
 </section>
 
 <script>
-  function fitEmbeds(){
-    document.querySelectorAll('.embed[data-fit]').forEach(function(el){
-      var bw=parseFloat(el.getAttribute('data-w'))||1440;
-      var bh=parseFloat(el.getAttribute('data-h'))||900;
-      var w=el.clientWidth, s=w/bw;
-      el.style.height=(bh*s)+'px';
-      var f=el.querySelector('iframe'); if(f){ f.style.width=bw+'px'; f.style.height=bh+'px'; f.style.transform='scale('+s+')'; }
-    });
-  }
-  window.addEventListener('load',fitEmbeds);
-  window.addEventListener('resize',fitEmbeds);
-  document.addEventListener('DOMContentLoaded',fitEmbeds);
-
   // Align the "Portfolio" back button to the same left edge the home headline uses.
   // Mirrors the home page's split-layout geometry: the left content block is 570px
   // (capped to the half-width minus 48px) centered in the left half of the viewport.
