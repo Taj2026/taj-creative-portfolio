@@ -343,6 +343,28 @@
   document.addEventListener('DOMContentLoaded', alignLogo);
   if(document.fonts && document.fonts.ready){ document.fonts.ready.then(alignLogo); }
 
+  // Origami bird: after it lands, the wing keeps flapping on a gentle loop — a beat
+  // every 3–4s, with interval and strength randomized so it never feels mechanical.
+  // Only the wing (.wing-main) moves; the head/beak (.wing-tip) stays still.
+  (function(){
+    var wing = document.querySelector('.wing-main');
+    if(!wing || !wing.animate) return;
+    if(window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+    function flap(){
+      var a = 13 + Math.random()*5;            // primary beat, 13–18°
+      var b = a * (0.5 + Math.random()*0.2);   // trailing beat, smaller
+      wing.animate([
+        {transform:'rotate(0deg)'},
+        {transform:'rotate(-'+a.toFixed(1)+'deg)', offset:0.30},
+        {transform:'rotate(0deg)', offset:0.55},
+        {transform:'rotate(-'+b.toFixed(1)+'deg)', offset:0.80},
+        {transform:'rotate(0deg)'}
+      ], {duration:820 + Math.random()*220, easing:'ease-in-out'});
+    }
+    function loop(){ setTimeout(function(){ flap(); loop(); }, 3000 + Math.random()*1000); }
+    setTimeout(loop, 4600);  // begin after the drop-in + landing flap have finished
+  })();
+
   // If the visitor hasn't scrolled/interacted after 10s, slowly ease down to the case studies.
   (function(){
     var cancelled=false, autoScrolling=false;
