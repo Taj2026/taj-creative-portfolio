@@ -6,7 +6,7 @@
  * no Google script loads and no data is collected.
  */
 (function () {
-  var MEASUREMENT_ID = 'G-XXXXXXXXXX'; // <-- paste your GA4 Measurement ID here
+  var MEASUREMENT_ID = 'G-RE26PGL3WL'; // GA4 Measurement ID (tajcreative.com web stream)
 
   // Not configured yet (still the placeholder): do nothing.
   if (!MEASUREMENT_ID || MEASUREMENT_ID.indexOf('XXXX') !== -1) return;
