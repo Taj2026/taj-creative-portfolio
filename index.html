@@ -176,14 +176,10 @@
     100% {opacity:1;transform:translate(-23px,0) scale(1)}
   }
   .bird{animation:bird-drop .85s cubic-bezier(.3,.72,.4,1) 1.5s both}
-  /* Three diminishing wing-beats, timed to the landing, then rest. Only the wing
-     flaps — the head/beak (.wing-tip) is deliberately left static. */
-  @keyframes flap{
-    0%{transform:rotate(0deg)}   14%{transform:rotate(-16deg)}  28%{transform:rotate(0deg)}
-    42%{transform:rotate(-13deg)} 56%{transform:rotate(0deg)}    70%{transform:rotate(-10deg)}
-    84%,100%{transform:rotate(0deg)}
-  }
-  .wing-main{transform-box:view-box;transform-origin:136px 111px;animation:flap 2.1s ease-in-out 2.35s 1 both}
+  /* The wing pivots at the body joint; its flapping is driven on a randomized loop
+     in JS (see below) — a single beat every 3–4s. Only the wing moves; the head/beak
+     (.wing-tip) stays static, and there is no flap on landing. */
+  .wing-main{transform-box:view-box;transform-origin:136px 111px}
 
   @media(prefers-reduced-motion:reduce){.wordmark,.nav-links a,.eyebrow,.headline .hi-text,.headline .l2,.subline,.prev,.stats .stat,.avail,.bird,.wing-main,.wing-tip{animation:none}}
 </style>
@@ -351,18 +347,15 @@
     if(!wing || !wing.animate) return;
     if(window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
     function flap(){
-      var a = 13 + Math.random()*5;            // primary beat, 13–18°
-      var b = a * (0.5 + Math.random()*0.2);   // trailing beat, smaller
+      var a = 13 + Math.random()*5;            // a single beat, 13–18°
       wing.animate([
         {transform:'rotate(0deg)'},
-        {transform:'rotate(-'+a.toFixed(1)+'deg)', offset:0.30},
-        {transform:'rotate(0deg)', offset:0.55},
-        {transform:'rotate(-'+b.toFixed(1)+'deg)', offset:0.80},
+        {transform:'rotate(-'+a.toFixed(1)+'deg)', offset:0.45},
         {transform:'rotate(0deg)'}
-      ], {duration:820 + Math.random()*220, easing:'ease-in-out'});
+      ], {duration:560 + Math.random()*160, easing:'ease-in-out'});
     }
     function loop(){ setTimeout(function(){ flap(); loop(); }, 3000 + Math.random()*1000); }
-    setTimeout(loop, 4600);  // begin after the drop-in + landing flap have finished
+    setTimeout(loop, 2500);  // begin shortly after the bird lands — no flap on landing
   })();
 
   // If the visitor hasn't scrolled/interacted after 10s, slowly ease down to the case studies.
