@@ -36,12 +36,13 @@
   .nav-links a:hover,.nav-links a[aria-current]{color:var(--fg)}
 
   /* HERO / ABOUT */
-  .about{min-height:100vh;display:grid;grid-template-columns:250px 1fr;align-items:center;gap:80px;padding:150px var(--pad) 90px}
+  .about{min-height:100vh;display:flex;flex-direction:column;justify-content:center;gap:52px;padding:150px var(--pad) 90px}
+  .about-grid{display:grid;grid-template-columns:250px 1fr;align-items:start;gap:80px}
   .portrait{position:relative;border-radius:16px;overflow:hidden;background:var(--coral-glow)}
   .portrait img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5;mix-blend-mode:normal}
   .about-copy{max-width:600px}
   .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--accent);text-transform:uppercase;margin-bottom:24px}
-  .about-title{font-family:var(--display);text-transform:uppercase;font-size:clamp(54px,7vw,96px);line-height:.9;letter-spacing:.03em}
+  .about-title{font-family:var(--display);text-transform:uppercase;font-size:clamp(56px,9vw,120px);line-height:.9;letter-spacing:.03em}
   .about-title .accent{color:var(--accent)}
   .about-body{margin-top:32px;display:flex;flex-direction:column;gap:20px}
   .about-body p{font-size:17px;line-height:1.62;color:var(--dim);max-width:52ch}
@@ -113,11 +114,14 @@
 </nav>
 
 <main class="about wrap">
-  <div class="portrait"><img src="assets/img/headshot-web.jpg" alt="Taj Palchaudhuri" /></div>
-  <div class="about-copy">
+  <header class="about-head">
     <p class="eyebrow">About</p>
-    <h1 class="about-title">UX Designer<br><span class="accent">&amp; Leader</span></h1>
-    <div class="about-body">
+    <h1 class="about-title">UX Designer <span class="accent">&amp; Leader</span></h1>
+  </header>
+  <div class="about-grid">
+    <div class="portrait"><img src="assets/img/headshot-web.jpg" alt="Taj Palchaudhuri" /></div>
+    <div class="about-copy">
+      <div class="about-body">
       <p>I'm a UX designer and leader with <strong>15+ years</strong> turning complex, fragmented problems into clear, human experiences — across enterprise SaaS, data-heavy dashboards, developer tooling, and consumer products used by millions.</p>
       <p>Along the way I've shaped design at companies like <strong>Atlassian, Autodesk, GoPro, and Adobe</strong> — from enterprise admin experiences and design systems to consumer platforms and the communities around them. I pair product strategy with hands-on craft, and I care as much about the systems and teams behind the work as the pixels in front of it.</p>
       <p>Lately I've been focused on <strong>AI-powered design workflows</strong> — building with the latest tools, finding where they create real leverage, and exploring how they reshape what a designer can do.</p>
@@ -130,7 +134,8 @@
         <img class="adobe" src="assets/img/adobe.svg" alt="Adobe" />
       </div>
     </div>
-    <a class="cta" href="mailto:hello@tajcreative.com">Say hello ↗</a>
+      <a class="cta" href="mailto:hello@tajcreative.com">Say hello ↗</a>
+    </div>
   </div>
 </main>
 
