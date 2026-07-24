@@ -89,6 +89,8 @@
 
   /* CONTEXT video (large, flat gray) */
   .video-lg{margin-top:50px}
+  .video-embed{position:relative;width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000}
+  .video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 
   .cols2{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:26px}
   .col h4{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase;margin-bottom:16px}
@@ -210,7 +212,7 @@
     <p class="label">Context</p>
     <h2 class="heading2 heading-split">About <span class="l2">this project</span></h2>
     <p class="body-lg">A short paragraph introducing the project — what it is, who it's for, and the business goal it serves. Replace this with the context that frames the work.</p>
-    <div class="video-lg"><div class="ph"></div></div>
+    <div class="video-lg"><div class="video-embed"><iframe src="https://www.youtube.com/embed/IyTv_SR2uUo" title="GoPro: Best of 2015 — The Year in Review" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div>
     <div class="cols2">
       <div class="col"><h4>The Challenge</h4><p>GoPro cameras are notoriously hardy, rugged, and waterproof. Once a customer purchased one, they rarely came back until they needed another — on average 7 years later. On top of that, media often stayed on the camera or on personal storage, as it was difficult to offload and edit.</p></div>
       <div class="col"><h4>The Opportunity</h4><p>There was an opening here to build a passionate community around active lifestyles and sports, and to offer them an ecosystem where they could connect and share their media. This could also give GoPro additional revenue beyond just the cameras.</p></div>
