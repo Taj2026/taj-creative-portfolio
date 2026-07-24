@@ -54,6 +54,9 @@
   /* scaled animation embed */
   .embed{position:relative;width:100%;overflow:hidden;background:transparent;border-radius:12px}
   .embed iframe{position:absolute;top:0;left:0;width:1440px;height:900px;border:0;transform-origin:top left}
+  /* fluid (self-scaling) animation embed — fills its own container instead of the fixed-size scale trick */
+  .embed-fluid{aspect-ratio:1300/1224;background:#e9e9ea}
+  .embed-fluid iframe{position:absolute;inset:0;width:100%;height:100%;transform:none}
   /* placeholder visual panels (scaffold — swap for images/animations) */
   .ph{width:100%;aspect-ratio:16/9;border-radius:12px;background:var(--coral-glow)}
   .ph.v2{background:var(--coral-glow-2)}
@@ -90,7 +93,7 @@
   /* CONTEXT video (large, flat gray) */
   .video-lg{margin-top:50px}
   .video-embed{position:relative;width:100%;aspect-ratio:64/33;border-radius:12px;overflow:hidden;background:#000}
-  .video-embed video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:opacity .8s ease}
+  .video-embed video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.04);transition:opacity .8s ease}
 
   .cols2{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:26px}
   .col h4{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase;margin-bottom:16px}
@@ -216,10 +219,19 @@
     <script>
     (function(){
       var v=document.getElementById('goproVid'); if(!v) return;
-      // On end: fade to black, hold ~3s, then restart and fade back in.
+      var START=1;                       // skip the first second (play-button artifact)
+      function seekStart(){ try{ v.currentTime=START; }catch(e){} }
+      v.addEventListener('loadedmetadata', seekStart);
+      if(v.readyState>=1) seekStart();
+      // Reveal (fade in) only once we're actually showing frames at/after START.
+      var shown=false;
+      function reveal(){ if(shown) return; shown=true; v.style.opacity='1'; }
+      v.addEventListener('playing', reveal);
+      v.addEventListener('seeked', function(){ if(v.currentTime>=START-0.05) reveal(); });
+      // On end: fade to black, hold ~3s, then restart from START and fade back in.
       v.addEventListener('ended',function(){
         v.style.opacity='0';
-        setTimeout(function(){ v.currentTime=0; var p=v.play(); if(p&&p.catch)p.catch(function(){}); v.style.opacity='1'; }, 3800);
+        setTimeout(function(){ v.currentTime=START; var p=v.play(); if(p&&p.catch)p.catch(function(){}); v.style.opacity='1'; }, 3800);
       });
       // Play only while in view (and kick off autoplay reliably).
       if('IntersectionObserver' in window){
@@ -243,7 +255,7 @@
   <div class="wrap" style="display:flex;flex-direction:column;gap:130px">
 
     <div class="feat">
-      <div class="ph"></div>
+      <div class="embed embed-fluid"><iframe data-src="assets/anim/gopro-transition.html" loading="lazy" scrolling="no" title="GoPro app transition animation"></iframe></div>
       <div class="feat-text">
         <p class="feat-label">Feature One</p>
         <h3 class="feat-title">A short, punchy feature headline</h3>
