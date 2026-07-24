@@ -37,7 +37,8 @@
 
   /* HERO / ABOUT */
   .about{min-height:100vh;display:flex;flex-direction:column;justify-content:center;gap:52px;padding:150px var(--pad) 90px}
-  .about-grid{display:grid;grid-template-columns:250px 1fr;align-items:start;gap:80px}
+  .about-grid{display:grid;grid-template-columns:250px 1fr;align-items:center;gap:80px}
+  .about-left{width:250px}
   .portrait{position:relative;border-radius:16px;overflow:hidden;background:var(--coral-glow)}
   .portrait img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5;mix-blend-mode:normal}
   .about-copy{max-width:600px}
@@ -48,7 +49,7 @@
   .about-body p{font-size:17px;line-height:1.62;color:var(--dim);max-width:52ch}
   .about-body strong{color:var(--fg);font-weight:500}
 
-  .prev{margin-top:44px}
+  .prev{margin-top:28px}
   .prev-label{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:#6B6B64;text-transform:uppercase;margin-bottom:18px}
   .prev-logos{display:flex;align-items:center;gap:26px}
   .prev-logos img{height:15px;width:auto;filter:brightness(0) saturate(100%) invert(43%) sepia(6%) saturate(280%) hue-rotate(20deg) brightness(92%) contrast(88%)}
@@ -119,20 +120,22 @@
     <h1 class="about-title">UX Designer <span class="accent">&amp; Leader</span></h1>
   </header>
   <div class="about-grid">
-    <div class="portrait"><img src="assets/img/headshot-web.jpg" alt="Taj Palchaudhuri" /></div>
+    <div class="about-left">
+      <div class="portrait"><img src="assets/img/headshot-web.jpg" alt="Taj Palchaudhuri" /></div>
+      <div class="prev">
+        <p class="prev-label">Previously at</p>
+        <div class="prev-logos">
+          <img class="atlassian" src="assets/img/atlassian.svg" alt="Atlassian" />
+          <img class="gopro" src="assets/img/gopro.svg" alt="GoPro" />
+          <img class="adobe" src="assets/img/adobe.svg" alt="Adobe" />
+        </div>
+      </div>
+    </div>
     <div class="about-copy">
       <div class="about-body">
       <p>I'm a UX designer at heart with <strong>15+ years</strong> turning complex, fragmented problems into clear, human experiences. I've worked across enterprise SaaS, consumer websites, and creative tools used by millions.</p>
       <p>Along the way I've shaped design at companies like <strong>Atlassian, Autodesk, GoPro, and Adobe</strong> — from enterprise admin experiences and design systems to consumer platforms and the communities around them. I pair product strategy with hands-on craft.</p>
       <p>Lately I've been focused on <strong>AI-powered design workflows</strong> — building with the latest tools, finding where they create leverage, and having a lot of fun.</p>
-    </div>
-    <div class="prev">
-      <p class="prev-label">Previously at</p>
-      <div class="prev-logos">
-        <img class="atlassian" src="assets/img/atlassian.svg" alt="Atlassian" />
-        <img class="gopro" src="assets/img/gopro.svg" alt="GoPro" />
-        <img class="adobe" src="assets/img/adobe.svg" alt="Adobe" />
-      </div>
     </div>
       <a class="cta" href="mailto:hello@tajcreative.com">Say hello ↗</a>
     </div>
