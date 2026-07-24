@@ -57,6 +57,27 @@
   .cta{margin-top:44px;display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:13px;letter-spacing:.12em;color:var(--fg);text-transform:uppercase;transition:color .2s}
   .cta:hover{color:var(--accent)}
 
+  /* EXPERIENCE / SKILLS / EDUCATION */
+  .about-sec{border-top:1px solid var(--line);padding:96px 0}
+  .sec-h{font-family:var(--display);text-transform:uppercase;font-size:clamp(38px,5vw,60px);line-height:.9;letter-spacing:.03em;margin-top:14px}
+  .xp{list-style:none;margin-top:42px}
+  .xp-row{display:flex;align-items:baseline;justify-content:space-between;gap:24px;padding:22px 0;border-bottom:1px solid var(--line)}
+  .xp-row:first-child{border-top:1px solid var(--line)}
+  .xp-role{display:flex;flex-direction:column;gap:5px}
+  .xp-co{font-family:var(--display);text-transform:uppercase;font-size:26px;letter-spacing:.03em;line-height:1}
+  .xp-title{font-size:15px;color:var(--dim)}
+  .xp-when{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;white-space:nowrap;text-align:right}
+  .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:44px;margin-top:42px}
+  .skill-group h4{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase;margin-bottom:18px}
+  .skill-group .tags{display:flex;flex-wrap:wrap;gap:9px}
+  .skill-group .tag{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--dim);text-transform:uppercase;border:1px solid var(--line);border-radius:4px;padding:8px 12px}
+  .edu{margin-top:42px;display:flex;flex-direction:column}
+  .edu-row{display:flex;align-items:baseline;justify-content:space-between;gap:24px;padding:20px 0;border-bottom:1px solid var(--line)}
+  .edu-row:first-child{border-top:1px solid var(--line)}
+  .edu-row .d b{font-family:var(--display);text-transform:uppercase;font-size:22px;letter-spacing:.03em;font-weight:400}
+  .edu-row .d span{display:block;font-size:14px;color:var(--dim);margin-top:5px}
+  .edu-row .w{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
+
   /* FOOTER */
   footer{border-top:1px solid var(--line);padding:34px 0}
   .foot-in{display:flex;align-items:center;justify-content:space-between;gap:24px}
@@ -97,8 +118,8 @@
     <p class="eyebrow">About</p>
     <h1 class="about-title">UX Designer<br><span class="accent">&amp; Leader</span></h1>
     <div class="about-body">
-      <p>I'm a UX designer and leader with <strong>15+ years</strong> turning complex, fragmented problems into clear, human experiences — across enterprise SaaS, developer tooling, and consumer products used by millions.</p>
-      <p>Along the way I've shaped design at companies like <strong>Atlassian, GoPro, and Adobe</strong> — from enterprise admin experiences and design systems to consumer platforms and the communities around them. I pair product strategy with hands-on craft, and I care as much about the systems and teams behind the work as the pixels in front of it.</p>
+      <p>I'm a UX designer and leader with <strong>15+ years</strong> turning complex, fragmented problems into clear, human experiences — across enterprise SaaS, data-heavy dashboards, developer tooling, and consumer products used by millions.</p>
+      <p>Along the way I've shaped design at companies like <strong>Atlassian, Autodesk, GoPro, and Adobe</strong> — from enterprise admin experiences and design systems to consumer platforms and the communities around them. I pair product strategy with hands-on craft, and I care as much about the systems and teams behind the work as the pixels in front of it.</p>
       <p>Lately I've been focused on <strong>AI-powered design workflows</strong> — building with the latest tools, finding where they create real leverage, and exploring how they reshape what a designer can do.</p>
     </div>
     <div class="prev">
@@ -112,6 +133,95 @@
     <a class="cta" href="mailto:hello@tajcreative.com">Say hello ↗</a>
   </div>
 </main>
+
+<section class="about-sec">
+  <div class="wrap">
+    <p class="eyebrow">Experience</p>
+    <h2 class="sec-h">Where I've worked</h2>
+    <ul class="xp">
+      <li class="xp-row">
+        <div class="xp-role"><span class="xp-co">Atlassian</span><span class="xp-title">UX Design Manager &amp; Lead</span></div>
+        <span class="xp-when">2021–2026 · Remote EMEA</span>
+      </li>
+      <li class="xp-row">
+        <div class="xp-role"><span class="xp-co">Autodesk</span><span class="xp-title">UX Design Manager</span></div>
+        <span class="xp-when">2016–2019 · San Francisco</span>
+      </li>
+      <li class="xp-row">
+        <div class="xp-role"><span class="xp-co">GoPro</span><span class="xp-title">Lead Designer — Marketing, Software &amp; Apps</span></div>
+        <span class="xp-when">2015–2016 · San Francisco</span>
+      </li>
+      <li class="xp-row">
+        <div class="xp-role"><span class="xp-co">Adobe</span><span class="xp-title">Senior Experience Designer</span></div>
+        <span class="xp-when">2010–2015 · San Francisco</span>
+      </li>
+      <li class="xp-row">
+        <div class="xp-role"><span class="xp-co">Yahoo</span><span class="xp-title">Senior Visual Designer</span></div>
+        <span class="xp-when">2008–2010 · SF Bay Area</span>
+      </li>
+      <li class="xp-row">
+        <div class="xp-role"><span class="xp-co">FINE</span><span class="xp-title">Web Designer &amp; Developer</span></div>
+        <span class="xp-when">2006–2008 · San Francisco</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="about-sec">
+  <div class="wrap">
+    <p class="eyebrow">Skills</p>
+    <h2 class="sec-h">What I do</h2>
+    <div class="skills">
+      <div class="skill-group">
+        <h4>UX &amp; Design</h4>
+        <div class="tags">
+          <span class="tag">UX / UI Design</span>
+          <span class="tag">End-to-End Solution Design</span>
+          <span class="tag">User Research</span>
+          <span class="tag">Information Architecture</span>
+          <span class="tag">Data Visualization</span>
+          <span class="tag">High-Fidelity Prototyping</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Leadership &amp; Frameworks</h4>
+        <div class="tags">
+          <span class="tag">Agile / Scrum</span>
+          <span class="tag">Lean UX</span>
+          <span class="tag">Cross-Functional Collaboration</span>
+          <span class="tag">Strategic Thinking</span>
+          <span class="tag">Stakeholder Management</span>
+          <span class="tag">Mentoring &amp; Team Growth</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Innovation</h4>
+        <div class="tags">
+          <span class="tag">AI-Driven Design</span>
+          <span class="tag">AI-Powered Prototyping</span>
+          <span class="tag">Data-Driven Decision Making</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about-sec">
+  <div class="wrap">
+    <p class="eyebrow">Education</p>
+    <h2 class="sec-h">Where I studied</h2>
+    <div class="edu">
+      <div class="edu-row">
+        <div class="d"><b>University of Michigan</b><span>BFA, Industrial Design</span></div>
+        <span class="w">1995–1999</span>
+      </div>
+      <div class="edu-row">
+        <div class="d"><b>Academy of Art University</b><span>Graduate design coursework</span></div>
+        <span class="w">2000–2002</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <footer>
   <div class="wrap foot-in">
