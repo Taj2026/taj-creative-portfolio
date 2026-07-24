@@ -33,6 +33,10 @@
   /* HERO */
   .fhero{padding:110px 0 12px}
   .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--accent);text-transform:uppercase;margin-bottom:24px}
+  .fhead-top{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:24px}
+  .fhead-top .eyebrow{margin-bottom:0}
+  .fdot{font-family:var(--mono);font-size:11px;color:var(--accent)}
+  .status-note{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
   .ftitle{font-family:var(--display);text-transform:uppercase;font-size:clamp(64px,10vw,132px);line-height:.88;letter-spacing:.03em}
   .fintro{margin-top:30px;display:flex;flex-direction:column;gap:20px;max-width:70ch}
   .fintro p{font-size:18px;line-height:1.62;color:var(--dim)}
@@ -88,7 +92,11 @@
 
 <header class="fhero">
   <div class="wrap">
-    <p class="eyebrow">Vibe Coding</p>
+    <div class="fhead-top">
+      <p class="eyebrow">Vibe Coding</p>
+      <span class="fdot">·</span>
+      <span class="status-note">Project in progress</span>
+    </div>
     <h1 class="ftitle">Forage</h1>
     <div class="fintro">
       <p><strong>Forage</strong> is a self-initiated project in vibe coding — designing and building a complete brand and product concept end to end, with AI as a creative collaborator.</p>
@@ -104,7 +112,7 @@
 </header>
 
 <section class="wrap">
-  <div class="bigimg"><img src="assets/img/forage-detail.jpg" alt="Forage — brand system and mobile app screens: home, menu, pop-up markets, and pickup order" /></div>
+  <div class="bigimg"><img src="assets/img/forage-detail.jpg?v=2" alt="Forage — brand system and mobile app screens: home, menu, pop-up markets, and pickup order" /></div>
 </section>
 
 <section class="contact-cta" id="contact">
