@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Forage — Taj Palchaudhuri</title>
+<meta name="description" content="Forage — a vibe-coding experiment: designing and building a complete prepared-foods brand and mobile product concept end to end with AI as a creative collaborator." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0A0A0A; --fg:#EBEBE5; --muted:#9CA3AF; --dim:#CDCDC6;
+    --line:#212121; --accent:#F0605A;
+    --display:"Bebas Neue",sans-serif; --sans:"DM Sans",sans-serif; --mono:"DM Mono",ui-monospace,monospace;
+    --maxw:1312px; --pad:64px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  h1,h2,h3,h4,h5,h6{font-weight:400}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--fg);font-family:var(--sans);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+
+  /* NAV */
+  .fnav{border-bottom:1px solid var(--line)}
+  .fnav-in{padding:26px 0;display:flex;align-items:center;justify-content:space-between}
+  .back{font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:var(--fg);text-transform:uppercase;transition:color .2s}
+  .back:hover{color:var(--accent)}
+  .crumb{font-family:var(--mono);font-size:13px;letter-spacing:.14em;color:var(--dim);text-transform:uppercase}
+
+  /* HERO */
+  .fhero{padding:110px 0 12px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--accent);text-transform:uppercase;margin-bottom:24px}
+  .ftitle{font-family:var(--display);text-transform:uppercase;font-size:clamp(64px,10vw,132px);line-height:.88;letter-spacing:.03em}
+  .fintro{margin-top:30px;display:flex;flex-direction:column;gap:20px;max-width:70ch}
+  .fintro p{font-size:18px;line-height:1.62;color:var(--dim)}
+  .fintro strong{color:var(--fg);font-weight:500}
+  .fmeta{margin-top:40px;display:flex;flex-wrap:wrap;gap:10px}
+  .fmeta .tag{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--dim);text-transform:uppercase;border:1px solid var(--line);border-radius:4px;padding:8px 12px}
+
+  /* BIG IMAGE */
+  .bigimg{margin:60px 0 96px;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#0d0d0f}
+  .bigimg img{width:100%;display:block}
+
+  /* CONTACT CTA */
+  .contact-cta{border-top:1px solid var(--line);padding:112px 0 120px}
+  .contact-in{display:grid;grid-template-columns:1.15fr 1fr;gap:80px;align-items:start}
+  .contact-title{font-family:var(--display);text-transform:uppercase;font-size:clamp(56px,8vw,112px);line-height:.9;letter-spacing:.02em;margin-top:14px}
+  .contact-title .accent{color:var(--accent)}
+  .contact-side{padding-top:32px}
+  .contact-lead{font-size:17px;line-height:1.62;color:var(--dim);max-width:46ch}
+  .contact-links{list-style:none;margin-top:48px;display:flex;flex-direction:column;gap:24px}
+  .contact-links a{display:inline-flex;align-items:center;gap:16px;font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg);transition:color .2s}
+  .contact-links a:hover{color:var(--accent)}
+  .contact-links svg{width:18px;height:18px;flex:none;color:var(--muted);transition:color .2s}
+  .contact-links a:hover svg{color:var(--accent)}
+
+  /* SITE FOOTER */
+  .site-footer{border-top:1px solid var(--line);padding:52px 0 60px}
+  .sf-in{display:flex;flex-direction:column;gap:20px;align-items:flex-start}
+  .sf-copy{font-family:var(--sans);font-size:16px;color:var(--fg)}
+  .sf-rights{font-family:var(--sans);font-size:14px;line-height:1.7;color:var(--muted)}
+  .sf-built{font-family:var(--sans);display:flex;align-items:center;flex-wrap:wrap;gap:10px;font-size:14px;color:var(--dim)}
+  .sf-tools{display:inline-flex;align-items:center;flex-wrap:wrap;gap:10px}
+  .sf-tool{display:inline-flex;align-items:center;gap:7px}
+  .sf-tool svg{width:15px;height:15px;flex:none;color:var(--dim)}
+  .sf-dot{color:var(--muted)}
+
+  @media(max-width:900px){
+    :root{--pad:28px}
+    .contact-in{grid-template-columns:1fr;gap:32px}
+    .contact-side{padding-top:0}
+    .fhero{padding:80px 0 0}
+  }
+</style>
+<script src="assets/analytics.js"></script>
+</head>
+<body>
+
+<nav class="fnav">
+  <div class="wrap fnav-in">
+    <a class="back" href="index.html">← Portfolio</a>
+    <span class="crumb">Forage · Vibe Coding</span>
+  </div>
+</nav>
+
+<header class="fhero">
+  <div class="wrap">
+    <p class="eyebrow">Vibe Coding</p>
+    <h1 class="ftitle">Forage</h1>
+    <div class="fintro">
+      <p><strong>Forage</strong> is a self-initiated experiment in vibe coding — designing and building a complete brand and product concept end to end, with AI as a creative collaborator.</p>
+      <p>I imagined a high-end prepared-foods brand for Frankfurt am Main: simple, seasonal meals ordered through an app and collected at weekend pop-up markets. From identity and typography to a full mobile interface, the goal was to move from a blank canvas to a polished, buildable concept as fast as possible — and to see how far an AI-assisted workflow can take a single designer.</p>
+    </div>
+    <div class="fmeta">
+      <span class="tag">Brand Identity</span>
+      <span class="tag">Product Design</span>
+      <span class="tag">AI-Assisted Build</span>
+      <span class="tag">Personal</span>
+    </div>
+  </div>
+</header>
+
+<section class="wrap">
+  <div class="bigimg"><img src="assets/img/forage-detail.jpg" alt="Forage — brand system and mobile app screens: home, menu, pop-up markets, and pickup order" /></div>
+</section>
+
+<section class="contact-cta" id="contact">
+  <div class="wrap contact-in">
+    <div class="contact-head">
+      <p class="eyebrow">Contact</p>
+      <h2 class="contact-title">Reach out<br>&amp; let's<br><span class="accent">connect</span></h2>
+    </div>
+    <div class="contact-side">
+      <p class="contact-lead">I'm interested in an exciting new challenge. Let's do some amazing work together.</p>
+      <ul class="contact-links">
+        <li><a href="mailto:hello@tajcreative.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          hello@tajcreative.com</a></li>
+        <li><a href="https://www.linkedin.com/in/taj-palchaudhuri/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.96-1.8-2.96-1.8 0-2.08 1.4-2.08 2.86V21H9z"/></svg>
+          LinkedIn</a></li>
+        <li><a href="#" data-pending="resume">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13.5h6M9 17h6"/></svg>
+          Resume</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap sf-in">
+    <p class="sf-copy">&copy; 2026 Taj Palchaudhuri</p>
+    <p class="sf-rights">All content and images on this site are copyrighted.<br>Reproduction or use for AI model training is prohibited.</p>
+    <p class="sf-built">Designed and built with<span class="sf-tools"><span class="sf-tool"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c.5 4.5 3.5 7.5 8 8-4.5.5-7.5 3.5-8 8-.5-4.5-3.5-7.5-8-8 4.5-.5 7.5-3.5 8-8z"/></svg>Claude</span><span class="sf-dot">&middot;</span><span class="sf-tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>Pencil.dev</span><span class="sf-dot">&middot;</span><span class="sf-tool"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 4.7 18 5 18 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>GitHub</span><span class="sf-dot">&middot;</span><span class="sf-tool"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 22 20H2z"/></svg>Vercel</span></span></p>
+  </div>
+</footer>
+
+</body>
+</html>

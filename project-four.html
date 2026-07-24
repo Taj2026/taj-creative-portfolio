@@ -89,8 +89,8 @@
 
   /* CONTEXT video (large, flat gray) */
   .video-lg{margin-top:50px}
-  .video-embed{position:relative;width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000}
-  .video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .video-embed{position:relative;width:100%;aspect-ratio:64/33;border-radius:12px;overflow:hidden;background:#000}
+  .video-embed video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:opacity .8s ease}
 
   .cols2{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:26px}
   .col h4{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase;margin-bottom:16px}
@@ -212,7 +212,24 @@
     <p class="label">Context</p>
     <h2 class="heading2 heading-split">About <span class="l2">this project</span></h2>
     <p class="body-lg">A short paragraph introducing the project — what it is, who it's for, and the business goal it serves. Replace this with the context that frames the work.</p>
-    <div class="video-lg"><div class="video-embed"><iframe src="https://www.youtube.com/embed/IyTv_SR2uUo" title="GoPro: Best of 2015 — The Year in Review" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div>
+    <div class="video-lg"><div class="video-embed"><video id="goproVid" src="assets/video/gopro-2015.mp4" muted autoplay playsinline preload="metadata"></video></div></div>
+    <script>
+    (function(){
+      var v=document.getElementById('goproVid'); if(!v) return;
+      // On end: fade to black, hold ~3s, then restart and fade back in.
+      v.addEventListener('ended',function(){
+        v.style.opacity='0';
+        setTimeout(function(){ v.currentTime=0; var p=v.play(); if(p&&p.catch)p.catch(function(){}); v.style.opacity='1'; }, 3800);
+      });
+      // Play only while in view (and kick off autoplay reliably).
+      if('IntersectionObserver' in window){
+        new IntersectionObserver(function(es){es.forEach(function(e){
+          if(e.isIntersecting){ if(v.ended) return; var p=v.play(); if(p&&p.catch)p.catch(function(){}); }
+          else if(!v.paused){ v.pause(); }
+        });},{threshold:0.25}).observe(v);
+      }
+    })();
+    </script>
     <div class="cols2">
       <div class="col"><h4>The Challenge</h4><p>GoPro cameras are notoriously hardy, rugged, and waterproof. Once a customer purchased one, they rarely came back until they needed another — on average 7 years later.</p></div>
       <div class="col"><h4>The Opportunity</h4><p>There was an opening here to build a passionate community around active lifestyles and sports, and to offer them an ecosystem where they could connect and stay engaged, inspiring future purchases.</p></div>
