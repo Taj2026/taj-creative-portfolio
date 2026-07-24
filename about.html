@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>About — Taj Palchaudhuri</title>
+<meta name="description" content="About Taj Palchaudhuri — a UX designer and leader turning complex, fragmented problems into clear, human experiences across enterprise SaaS, developer tooling, and consumer products." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0A0A0A; --fg:#EBEBE5; --muted:#9CA3AF; --dim:#CDCDC6;
+    --line:#212121; --accent:#F0605A;
+    --display:"Bebas Neue",sans-serif; --sans:"DM Sans",sans-serif; --mono:"DM Mono",ui-monospace,monospace;
+    --maxw:1312px; --pad:64px;
+    --coral-glow:
+      radial-gradient(125% 125% at 4% 100%, rgba(255,106,85,.55), transparent 62%),
+      radial-gradient(72% 72% at 100% 6%, rgba(255,150,92,.36), transparent 60%),
+      #0a0a0c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  h1,h2,h3,h4,h5,h6{font-weight:400}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--fg);font-family:var(--sans);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+
+  /* NAV */
+  nav{position:absolute;top:0;left:0;right:0;z-index:20}
+  .nav-in{padding:34px var(--pad);display:flex;align-items:center;justify-content:space-between}
+  .wordmark{font-family:var(--display);font-size:30px;letter-spacing:.08em}
+  .nav-links{display:flex;gap:34px}
+  .nav-links a{font-family:var(--display);font-size:14px;letter-spacing:.08em;color:var(--dim);text-transform:uppercase;transition:color .2s}
+  .nav-links a:hover,.nav-links a[aria-current]{color:var(--fg)}
+
+  /* HERO / ABOUT */
+  .about{min-height:100vh;display:grid;grid-template-columns:0.9fr 1.1fr;align-items:center;gap:80px;padding:150px var(--pad) 90px}
+  .portrait{position:relative;border-radius:16px;overflow:hidden;background:var(--coral-glow)}
+  .portrait img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5;mix-blend-mode:normal}
+  .about-copy{max-width:600px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--accent);text-transform:uppercase;margin-bottom:24px}
+  .about-title{font-family:var(--display);text-transform:uppercase;font-size:clamp(54px,7vw,96px);line-height:.9;letter-spacing:.03em}
+  .about-title .accent{color:var(--accent)}
+  .about-body{margin-top:32px;display:flex;flex-direction:column;gap:20px}
+  .about-body p{font-size:17px;line-height:1.62;color:var(--dim);max-width:52ch}
+  .about-body strong{color:var(--fg);font-weight:500}
+
+  .prev{margin-top:44px}
+  .prev-label{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:#6B6B64;text-transform:uppercase;margin-bottom:18px}
+  .prev-logos{display:flex;align-items:center;gap:26px}
+  .prev-logos img{height:15px;width:auto;filter:brightness(0) saturate(100%) invert(43%) sepia(6%) saturate(280%) hue-rotate(20deg) brightness(92%) contrast(88%)}
+  .prev-logos .adobe{height:13px}
+  .prev-logos .gopro{height:17px}
+
+  .cta{margin-top:44px;display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:13px;letter-spacing:.12em;color:var(--fg);text-transform:uppercase;transition:color .2s}
+  .cta:hover{color:var(--accent)}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--line);padding:34px 0}
+  .foot-in{display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .foot-in span,.foot-in a{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--dim);text-transform:uppercase}
+  .foot-in a{display:inline-flex;align-items:center;gap:9px;color:var(--fg);transition:color .2s}
+  .foot-in a:hover{color:var(--accent)}
+
+  @keyframes reveal{0%{opacity:0;transform:translateY(28px);filter:blur(8px)}100%{opacity:1;transform:translateY(0);filter:blur(0)}}
+  .portrait,.eyebrow,.about-title,.about-body,.prev,.cta{animation:reveal .8s ease-out both}
+  .eyebrow{animation-delay:.1s}.about-title{animation-delay:.2s}.about-body{animation-delay:.35s}.prev{animation-delay:.5s}.cta{animation-delay:.6s}
+  @media(prefers-reduced-motion:reduce){.portrait,.eyebrow,.about-title,.about-body,.prev,.cta{animation:none}}
+
+  @media(max-width:900px){
+    :root{--pad:28px}
+    .about{grid-template-columns:1fr;gap:40px;padding:120px var(--pad) 70px;min-height:0}
+    .portrait{max-width:420px}
+    .foot-in{flex-direction:column;align-items:flex-start;gap:12px}
+  }
+</style>
+<script src="assets/analytics.js"></script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a href="/" class="wordmark">TP</a>
+    <div class="nav-links">
+      <a href="index.html#work">Work</a>
+      <a href="about.html" aria-current="page">About</a>
+      <a href="mailto:hello@tajcreative.com">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main class="about wrap">
+  <div class="portrait"><img src="assets/img/headshot-web.jpg" alt="Taj Palchaudhuri" /></div>
+  <div class="about-copy">
+    <p class="eyebrow">About</p>
+    <h1 class="about-title">UX Designer<br><span class="accent">&amp; Leader</span></h1>
+    <div class="about-body">
+      <p>I'm a UX designer and leader with <strong>15+ years</strong> turning complex, fragmented problems into clear, human experiences — across enterprise SaaS, developer tooling, and consumer products used by millions.</p>
+      <p>Along the way I've shaped design at companies like <strong>Atlassian, GoPro, and Adobe</strong> — from enterprise admin experiences and design systems to consumer platforms and the communities around them. I pair product strategy with hands-on craft, and I care as much about the systems and teams behind the work as the pixels in front of it.</p>
+      <p>Lately I've been focused on <strong>AI-powered design workflows</strong> — building with the latest tools, finding where they create real leverage, and exploring how they reshape what a designer can do.</p>
+    </div>
+    <div class="prev">
+      <p class="prev-label">Previously at</p>
+      <div class="prev-logos">
+        <img class="atlassian" src="assets/img/atlassian.svg" alt="Atlassian" />
+        <img class="gopro" src="assets/img/gopro.svg" alt="GoPro" />
+        <img class="adobe" src="assets/img/adobe.svg" alt="Adobe" />
+      </div>
+    </div>
+    <a class="cta" href="mailto:hello@tajcreative.com">Say hello ↗</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>© 2026 Taj Palchaudhuri</span>
+    <a href="mailto:hello@tajcreative.com">Say hello ↗</a>
+    <span>Based in Europe · Open to opportunities</span>
+  </div>
+</footer>
+</body>
+</html>
