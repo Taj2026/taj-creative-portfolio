@@ -57,6 +57,10 @@
   /* fluid (self-scaling) animation embed — fills its own container instead of the fixed-size scale trick */
   .embed-fluid{aspect-ratio:1300/1224;background:#e9e9ea}
   .embed-fluid iframe{position:absolute;inset:0;width:100%;height:100%;transform:none}
+  /* large vertical feature: short text on top, big tall animation below */
+  .feat-vertical{display:flex;flex-direction:column;gap:44px}
+  .fv-head{max-width:640px}
+  .fv-embed{max-width:940px;margin:0 auto;width:100%}
   /* placeholder visual panels (scaffold — swap for images/animations) */
   .ph{width:100%;aspect-ratio:16/9;border-radius:12px;background:var(--coral-glow)}
   .ph.v2{background:var(--coral-glow-2)}
@@ -255,7 +259,7 @@
   <div class="wrap" style="display:flex;flex-direction:column;gap:130px">
 
     <div class="feat">
-      <div class="embed embed-fluid"><iframe data-src="assets/anim/gopro-transition.html" loading="lazy" scrolling="no" title="GoPro app transition animation"></iframe></div>
+      <div class="embed embed-fluid"><iframe data-src="assets/anim/gopro-mockuploop.html" loading="lazy" scrolling="no" title="GoPro mobile app mockups"></iframe></div>
       <div class="feat-text">
         <p class="feat-label">Feature One</p>
         <h3 class="feat-title">A short, punchy feature headline</h3>
@@ -263,21 +267,14 @@
       </div>
     </div>
 
-    <div class="feat rev">
-      <div class="feat-text">
+    <div class="feat-vertical">
+      <div class="fv-head">
         <p class="feat-label">Feature Two</p>
         <h3 class="feat-title">A short, punchy feature headline</h3>
         <p class="feat-body">One or two sentences describing the second key part of the solution and the value it delivered.</p>
       </div>
-      <div class="ph v2"></div>
-    </div>
-
-    <div class="feat">
-      <div class="ph v3"></div>
-      <div class="feat-text">
-        <p class="feat-label">Feature Three</p>
-        <h3 class="feat-title">A short, punchy feature headline</h3>
-        <p class="feat-body">One or two sentences describing the third key part of the solution and the value it delivered.</p>
+      <div class="fv-embed">
+        <div class="embed" data-fit data-w="1280" data-h="3250"><iframe data-src="assets/anim/gopro-fade.html" loading="lazy" scrolling="no" title="GoPro homepage fade sequence"></iframe></div>
       </div>
     </div>
 
