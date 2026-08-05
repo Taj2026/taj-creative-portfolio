@@ -54,6 +54,9 @@
   /* scaled animation embed */
   .embed{position:relative;width:100%;overflow:hidden;background:transparent;border-radius:12px}
   .embed iframe{position:absolute;top:0;left:0;width:1440px;height:900px;border:0;transform-origin:top left}
+  /* soft first-frame poster shown in the glow until the animation is live */
+  .embed .embed-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:4;opacity:1;transition:opacity .7s ease;pointer-events:none}
+  .embed.is-live .embed-poster{opacity:0}
 
   /* NAV */
   .dnav{border-bottom:1px solid var(--line)}
@@ -207,7 +210,7 @@
     <p class="label">Context</p>
     <h2 class="heading2 heading-split">What is <span class="l2">System Health</span></h2>
     <p class="body-lg">System Health brings monitoring, alerting, and incident context into one place — giving teams a live picture of how their systems are performing. Instead of piecing together signals from disconnected dashboards, teams can see what's healthy, what's degrading, and what needs attention, and act before small issues become outages.</p>
-    <div class="video-lg"><div class="embed" data-fit><iframe data-src="assets/anim/system-health-loading.html?v=2" loading="lazy" scrolling="no" title="System Health dashboard loading"></iframe></div></div>
+    <div class="video-lg"><div class="embed" data-fit><img class="embed-poster" src="assets/img/posters/system-health-loading.png" alt="" loading="lazy" /><iframe data-src="assets/anim/system-health-loading.html?v=2" loading="lazy" scrolling="no" title="System Health dashboard loading"></iframe></div></div>
     <div class="cols2">
       <div class="col"><h4>The Challenge</h4><p>Teams were watching their systems through a patchwork of disconnected dashboards, logs, and alerts. Critical signals were easy to miss, context lived in different tools, and by the time an issue surfaced it had often already reached customers.</p></div>
       <div class="col"><h4>The Opportunity</h4><p>By unifying health signals into one clear, real-time surface — with alerting that prioritizes what matters and context that travels with every incident — we gave teams the confidence to catch problems early and resolve them faster, together.</p></div>
@@ -220,7 +223,7 @@
   <div class="wrap" style="display:flex;flex-direction:column;gap:130px">
 
     <div class="feat">
-      <div class="fpanel"><div class="embed" data-fit data-w="880" data-h="700"><iframe data-src="assets/anim/system-health-map.html?v=2" loading="lazy" scrolling="no" title="Real-time monitoring animation"></iframe></div></div>
+      <div class="fpanel"><div class="embed" data-fit data-w="880" data-h="700"><img class="embed-poster" src="assets/img/posters/system-health-map.png" alt="" loading="lazy" /><iframe data-src="assets/anim/system-health-map.html?v=2" loading="lazy" scrolling="no" title="Real-time monitoring animation"></iframe></div></div>
       <div class="feat-text">
         <p class="feat-label">Real-Time Monitoring</p>
         <h3 class="feat-title">A tactile incident map turns static lists into an interactive way to comprehend.</h3>
@@ -234,11 +237,11 @@
         <h3 class="feat-title">More signal, less noise</h3>
         <p class="feat-body">Reducing information overload by using methods like progressive disclosure to surface the right information at the right time.</p>
       </div>
-      <div class="fpanel v2"><div class="embed" data-fit><iframe data-src="assets/anim/system-health-rail.html?v=2" loading="lazy" scrolling="no" title="Smart alerting animation"></iframe></div></div>
+      <div class="fpanel v2"><div class="embed" data-fit><img class="embed-poster" src="assets/img/posters/system-health-rail.png" alt="" loading="lazy" /><iframe data-src="assets/anim/system-health-rail.html?v=2" loading="lazy" scrolling="no" title="Smart alerting animation"></iframe></div></div>
     </div>
 
     <div class="feat">
-      <div class="fpanel v3"><div class="embed" data-fit data-w="1240" data-h="780"><iframe data-src="assets/anim/system-health-incident.html?v=2" loading="lazy" scrolling="no" title="Incident context animation"></iframe></div></div>
+      <div class="fpanel v3"><div class="embed" data-fit data-w="1240" data-h="780"><img class="embed-poster" src="assets/img/posters/system-health-incident.png" alt="" loading="lazy" /><iframe data-src="assets/anim/system-health-incident.html?v=2" loading="lazy" scrolling="no" title="Incident context animation"></iframe></div></div>
       <div class="feat-text">
         <p class="feat-label">Incident Context</p>
         <h3 class="feat-title">Every incident, with full context</h3>
@@ -283,7 +286,7 @@
 
   // Defer each animation: only load (and thus start playing) its iframe once its section scrolls into view.
   (function(){
-    function load(f){ if(f && f.getAttribute('data-src')){ f.src=f.getAttribute('data-src'); f.removeAttribute('data-src'); setTimeout(fitEmbeds,60); } }
+    function load(f){ if(f && f.getAttribute('data-src')){ f.src=f.getAttribute('data-src'); f.removeAttribute('data-src'); setTimeout(fitEmbeds,60); var em=f.closest('.embed'); if(em){ setTimeout(function(){ em.classList.add('is-live'); }, 1400); } } }
     if(!('IntersectionObserver' in window)){ document.querySelectorAll('iframe[data-src]').forEach(load); return; }
     var io=new IntersectionObserver(function(entries){
       entries.forEach(function(e){ if(e.isIntersecting){ load(e.target.querySelector('iframe[data-src]')); io.unobserve(e.target); } });

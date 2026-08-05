@@ -75,6 +75,7 @@
   .prev-label{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:#6B6B64;text-transform:uppercase;margin-bottom:18px}
   .prev-logos{display:flex;align-items:center;gap:26px}
   .prev-logos img{height:15px;width:auto;opacity:1;filter:brightness(0) saturate(100%) invert(43%) sepia(6%) saturate(280%) hue-rotate(20deg) brightness(92%) contrast(88%)}
+  .prev-logos .atlassian{height:13.5px}
   .prev-logos .adobe{height:13px}
   .prev-logos .gopro{height:17px}
 
@@ -114,7 +115,7 @@
   .glow.v3{background:var(--coral-glow-3)}
   .glow.v4{background:var(--coral-glow-4)}
   .visual{align-items:flex-start}
-  .visual .shot{position:relative;width:calc(100% - 84px);border-radius:12px;box-shadow:0 24px 55px rgba(0,0,0,.5);margin:42px auto 0}
+  .visual .shot{position:relative;width:calc(100% - 56px);height:calc(100% - 6px);object-fit:cover;object-position:top center;border-radius:12px 12px 0 0;box-shadow:0 24px 55px rgba(0,0,0,.5);margin:36px auto 0}
 
   /* EXPERIMENTS */
   .thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
@@ -211,6 +212,18 @@
   .sf-tool svg{width:15px;height:15px;flex:none;color:var(--dim)}
   .sf-dot{color:var(--muted)}
 </style>
+<!-- progressively warm the detail-page animations in the background -->
+<link rel="prefetch" href="assets/anim/system-health-loading.html?v=2">
+<link rel="prefetch" href="assets/anim/system-health-map.html?v=2">
+<link rel="prefetch" href="assets/anim/system-health-rail.html?v=2">
+<link rel="prefetch" href="assets/anim/system-health-incident.html?v=2">
+<link rel="prefetch" href="assets/anim/a11y-context.html?v=2">
+<link rel="prefetch" href="assets/anim/context.html?v=2">
+<link rel="prefetch" href="assets/anim/feature1.html?v=2">
+<link rel="prefetch" href="assets/anim/feature2.html?v=2">
+<link rel="prefetch" href="assets/anim/feature3.html?v=2">
+<link rel="prefetch" href="assets/anim/pi-migration.html?v=2">
+<link rel="prefetch" href="assets/anim/gopro-mockuploop.html?v=2">
 <script src="assets/analytics.js"></script>
 </head>
 <body>
