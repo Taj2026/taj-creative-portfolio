@@ -64,6 +64,16 @@
   .feat-vertical{display:flex;flex-direction:column;gap:44px}
   .fv-head{max-width:640px}
   .fv-embed{max-width:940px;margin:0 auto;width:100%}
+  /* inspiration → result blocks */
+  .inspo-block{width:100%}
+  .inspo-label{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase;margin-bottom:22px}
+  .inspo{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .inspo-item{margin:0}
+  .inspo-item img{width:100%;aspect-ratio:16/11;object-fit:cover;border-radius:12px;display:block;border:1px solid var(--line)}
+  .inspo-item figcaption{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--dim);text-transform:uppercase;margin-top:14px}
+  .inspo-ph{aspect-ratio:16/11;border-radius:12px;background:#1a1a1c;border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+  .inspo-ph span{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+  @media(max-width:760px){.inspo{grid-template-columns:1fr;gap:16px}}
   /* placeholder visual panels (scaffold — swap for images/animations) */
   .ph{width:100%;aspect-ratio:16/9;border-radius:12px;background:var(--coral-glow)}
   .ph.v2{background:var(--coral-glow-2)}
@@ -272,12 +282,21 @@
 
     <div class="feat-vertical">
       <div class="fv-head">
-        <p class="feat-label">Feature Two</p>
+        <p class="feat-label">The Marketing Site</p>
         <h3 class="feat-title">Design as a driver for commercial growth</h3>
-        <p class="feat-body">Designed and developed a community-focused web platform for GoPro tailored to action sports enthusiasts. The digital strategy centered on unifying brand engagement, live partner events, and software service integration into a single high-conversion ecosystem.</p>
+        <p class="feat-body">We took the brand guide, the desktop applications, and the overall style, and channeled them into a community-focused marketing website for GoPro — tailored to action sports enthusiasts, and unifying brand engagement, live partner events, and software services into a single high-conversion ecosystem.</p>
       </div>
-      <div class="fv-embed">
-        <div class="fpanel v2"><div class="embed" data-fit data-w="1280" data-h="3250"><iframe data-src="assets/anim/gopro-fade.html?v=2" loading="lazy" scrolling="no" title="GoPro homepage fade sequence"></iframe></div></div>
+      <div class="inspo-block">
+        <p class="inspo-label">Inspiration — brand guide, desktop apps &amp; overall style</p>
+        <div class="inspo">
+          <figure class="inspo-item"><img src="assets/img/gopro-brand-system.jpg" alt="GoPro brand and design system" loading="lazy" /><figcaption>Brand &amp; design system</figcaption></figure>
+          <figure class="inspo-item"><img src="assets/img/gopro-editor.jpg" alt="GoPro desktop editing application" loading="lazy" /><figcaption>Desktop applications</figcaption></figure>
+          <figure class="inspo-item"><div class="inspo-ph"><span>Quik app · image pending</span></div><figcaption>Product &amp; app style</figcaption></figure>
+        </div>
+      </div>
+      <div class="inspo-block">
+        <p class="inspo-label">The result — the marketing website</p>
+        <div class="fv-embed"><div class="fpanel v2"><div class="embed" data-fit data-w="1280" data-h="3250"><iframe data-src="assets/anim/gopro-fade.html?v=2" loading="lazy" scrolling="no" title="GoPro homepage fade sequence"></iframe></div></div></div>
       </div>
     </div>
 

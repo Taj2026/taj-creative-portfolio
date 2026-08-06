@@ -45,8 +45,13 @@
   .fmeta .tag{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--dim);text-transform:uppercase;border:1px solid var(--line);border-radius:4px;padding:8px 12px}
 
   /* BIG IMAGE */
-  .bigimg{margin:60px 0 96px;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#0d0d0f}
-  .bigimg img{width:100%;display:block}
+  .bigimg{margin:60px 0 96px}
+  /* soft-fade the image edges so the green blends seamlessly into the page background */
+  .bigimg img{width:100%;display:block;
+    -webkit-mask-image:linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 7%, #000 93%, transparent 100%);
+    -webkit-mask-composite:source-in;
+    mask-image:linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 7%, #000 93%, transparent 100%);
+    mask-composite:intersect}
 
   /* CONTACT CTA */
   .contact-cta{border-top:1px solid var(--line);padding:112px 0 120px}
@@ -99,14 +104,14 @@
     </div>
     <h1 class="ftitle">Forage</h1>
     <div class="fintro">
-      <p><strong>Forage</strong> is a self-initiated project in vibe coding — designing and building a complete brand and product concept end to end, with AI as a creative collaborator.</p>
-      <p>A friend is building a high-end prepared-foods brand for Frankfurt am Main: simple, seasonal meals ordered through an app and collected at weekend pop-up markets. From identity and typography to a full mobile interface, the goal was to move from a blank canvas to a polished, buildable concept as fast as possible — and to see how far an AI-assisted workflow can take a single designer.</p>
+      <p><strong>Forage</strong> is a community collaboration in vibe coding — designing and building a complete brand and product concept end to end, with AI as a creative collaborator, in support of a healthier way of eating in Germany.</p>
+      <p>A visionary concept in Frankfurt am Main. Simple, healthy, curated meals ordered and simply collected. From identity and typography to a full mobile interface, the goal was to move from concept to a polished, buildable product as fast as possible — with AI as a collaborator.</p>
     </div>
     <div class="fmeta">
       <span class="tag">Brand Identity</span>
       <span class="tag">Product Design</span>
       <span class="tag">AI-Assisted Build</span>
-      <span class="tag">Personal</span>
+      <span class="tag">Community Collaboration</span>
     </div>
   </div>
 </header>
