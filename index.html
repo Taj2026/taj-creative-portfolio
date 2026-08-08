@@ -64,6 +64,16 @@
   .hero-left-inner{width:570px;max-width:calc(100% - 48px);margin:0 auto}
   .hero-right{border-left:1px solid var(--line);padding-left:0;padding-right:0;align-items:center}
   .hero-right-inner{width:570px;max-width:calc(100% - 56px)}
+  /* Down-arrow scroll cue anchored to the bottom of the first screen */
+  .scroll-cue{position:absolute;left:50%;bottom:30px;z-index:5;display:flex;flex-direction:column;align-items:center;gap:9px;
+    background:none;border:0;padding:6px;cursor:pointer;color:var(--muted);transition:color .2s ease,opacity .5s ease;
+    animation:cueBob 2.2s ease-in-out infinite}
+  .scroll-cue:hover{color:var(--fg)}
+  .cue-label{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase}
+  .scroll-cue svg{width:22px;height:22px}
+  .scroll-cue.is-hidden{opacity:0;pointer-events:none}
+  @keyframes cueBob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,7px)}}
+  @media(prefers-reduced-motion:reduce){.scroll-cue{animation:none;transform:translateX(-50%)}}
   .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--accent);text-transform:uppercase;margin-bottom:26px}
   .headline{font-family:var(--display);text-transform:uppercase;font-size:clamp(64px,9vw,144px);line-height:.882;letter-spacing:.03em}
   .headline .l1{display:flex;align-items:center;gap:.18em}
@@ -143,6 +153,7 @@
   @media(max-width:900px){
     :root{--pad:28px}
     .hero{grid-template-columns:1fr;min-height:auto}
+    .scroll-cue{display:none}
     .hero-col{padding:130px var(--pad) 60px}
     .hero-right{border-left:none;border-top:1px solid var(--line);padding-top:50px}
     .hero-left{max-width:none}
@@ -279,6 +290,11 @@
       <p class="avail">Open to opportunities</p>
     </div>
   </div>
+
+  <button class="scroll-cue" type="button" aria-label="Scroll to case studies">
+    <span class="cue-label">Scroll</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+  </button>
 </header>
 
 <!-- CASE STUDIES -->
@@ -392,32 +408,18 @@
     setTimeout(loop, 2500);  // begin shortly after the bird lands — no flap on landing
   })();
 
-  // If the visitor hasn't scrolled/interacted after 10s, slowly ease down to the case studies.
+  // Scroll cue: a down arrow at the bottom of the hero inviting the visitor to
+  // scroll. It fades away once they start scrolling and clicks through to the work.
   (function(){
-    var cancelled=false, autoScrolling=false;
-    function cancel(){ cancelled=true; }
-    ['wheel','touchstart','keydown','pointerdown'].forEach(function(ev){
-      window.addEventListener(ev, cancel, {passive:true});
+    var cue=document.querySelector('.scroll-cue');
+    if(!cue) return;
+    var work=document.getElementById('work');
+    cue.addEventListener('click', function(){
+      if(work) work.scrollIntoView({behavior:'smooth'});
     });
-    window.addEventListener('scroll', function(){ if(!autoScrolling) cancelled=true; }, {passive:true});
-    function ease(t){ return t<0.5 ? 2*t*t : 1-Math.pow(-2*t+2,2)/2; } // easeInOutQuad
-    setTimeout(function(){
-      if(cancelled || window.scrollY > 10) return;
-      var work=document.getElementById('work');
-      if(!work) return;
-      var targetY=Math.round(work.getBoundingClientRect().top+window.scrollY);
-      if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){ window.scrollTo(0,targetY); return; }
-      autoScrolling=true;
-      var startY=window.scrollY, dist=targetY-startY, t0=null, dur=2200;
-      function step(ts){
-        if(cancelled) return;
-        if(t0===null) t0=ts;
-        var p=Math.min((ts-t0)/dur,1);
-        window.scrollTo(0, startY + dist*ease(p));
-        if(p<1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
-    }, 10000);
+    window.addEventListener('scroll', function(){
+      cue.classList.toggle('is-hidden', window.scrollY > 40);
+    }, {passive:true});
   })();
 </script>
 
