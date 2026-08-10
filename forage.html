@@ -46,12 +46,7 @@
 
   /* BIG IMAGE */
   .bigimg{margin:60px 0 96px}
-  /* soft-fade the image edges so the green blends seamlessly into the page background */
-  .bigimg img{width:100%;display:block;
-    -webkit-mask-image:linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 7%, #000 93%, transparent 100%);
-    -webkit-mask-composite:source-in;
-    mask-image:linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 7%, #000 93%, transparent 100%);
-    mask-composite:intersect}
+  .bigimg img{width:100%;display:block;border-radius:16px}
 
   /* CONTACT CTA */
   .contact-cta{border-top:1px solid var(--line);padding:112px 0 120px}
