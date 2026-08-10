@@ -209,7 +209,7 @@
     <p class="label">Context</p>
     <h2 class="heading2 heading-split">What is <span class="l2">Portfolio Insights</span></h2>
     <p class="body-lg">Portfolio Insights is an application designed to help enterprise admins understand their footprint with Atlassian, take action to optimize it, as well as confidently migrate their instances to cloud. By connecting visibility and planning assisted by AI, it drives a key Atlassian business goal — cloud migration — with far more clarity than disconnected data ever could.</p>
-    <div class="video-lg"><div class="embed" data-fit data-w="1580" data-h="1272"><img class="embed-poster" src="assets/img/posters/pi-dashboard-load.png?v=1" alt="" loading="lazy" /><iframe data-src="assets/anim/pi-dashboard-load.html?v=1" loading="lazy" scrolling="no" title="Portfolio Insights dashboard load animation"></iframe></div></div>
+    <div class="video-lg"><div class="embed" data-fit data-w="1580" data-h="1272"><img class="embed-poster" src="assets/img/posters/pi-dashboard-fill.png?v=1" alt="" loading="lazy" /><iframe data-src="assets/anim/pi-dashboard-fill.html?v=1" loading="lazy" scrolling="no" title="Portfolio Insights dashboard fill animation"></iframe></div></div>
     <div class="cols2">
       <div class="col"><h4>The Challenge</h4><p>Enterprise admins were facing a multi-layered problem, not a single pain point. They needed visibility into what they had, insights to understand it, the ability to act on what they learned, and a clear path to grow with Atlassian — but each of these jobs was scattered across disconnected tools and surfaces.</p></div>
       <div class="col"><h4>The Opportunity</h4><p>By bringing scattered data into one comprehensive application, we gave admins actionable insights in one place — with a clear, scannable structure and an AI component doing the heavy lifting. Empowering them to manage, optimize, and plan migrations from a single surface made admins more confident in growing their footprint and going wall-to-wall with Atlassian.</p></div>
@@ -295,7 +295,7 @@
 
   // Defer each animation: only load (and thus start playing) its iframe once its section scrolls into view.
   (function(){
-    function load(f){ if(f && f.getAttribute('data-src')){ f.src=f.getAttribute('data-src'); f.removeAttribute('data-src'); setTimeout(fitEmbeds,60); var em=f.closest('.embed'); if(em){ setTimeout(function(){ em.classList.add('is-live'); }, 1400); } } }
+    function load(f){ if(!(f && f.getAttribute('data-src'))) return; var em=f.closest('.embed'); f.src=f.getAttribute('data-src'); f.removeAttribute('data-src'); setTimeout(fitEmbeds,60); if(!em) return; var cap=0; function reveal(){ em.classList.add('is-live'); } (function poll(){ cap++; var ready=false; try{ var d=f.contentDocument; ready=!!(d && d.body && d.body.children.length>0 && !d.getElementById('__bundler_thumbnail')); }catch(e){ ready=true; } if(ready){ setTimeout(reveal,500); return; } if(cap>150){ reveal(); return; } setTimeout(poll,100); })(); }
     if(!('IntersectionObserver' in window)){ document.querySelectorAll('iframe[data-src]').forEach(load); return; }
     var io=new IntersectionObserver(function(entries){
       entries.forEach(function(e){ if(e.isIntersecting){ load(e.target.querySelector('iframe[data-src]')); io.unobserve(e.target); } });
