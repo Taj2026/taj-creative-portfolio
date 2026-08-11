@@ -98,6 +98,14 @@
   .qmark{font-family:var(--display);font-size:100px;line-height:.5;color:var(--accent)}
   .qtext{font-family:var(--display);text-transform:uppercase;font-size:clamp(34px,4.4vw,50px);line-height:1.04;letter-spacing:.03em;margin-top:20px}
   .qattr{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--dim);text-transform:uppercase;margin-top:22px}
+  /* scroll-triggered quote reveal — soft fade + rise + de-blur, staggered per line */
+  .quote .qmark,.quote .qtext,.quote .qattr{opacity:0;transform:translateY(28px);filter:blur(8px);
+    transition:opacity .8s cubic-bezier(.4,0,.2,1),transform .8s cubic-bezier(.4,0,.2,1),filter .8s cubic-bezier(.4,0,.2,1)}
+  .quote.in .qmark{transition-delay:0s}
+  .quote.in .qtext{transition-delay:.09s}
+  .quote.in .qattr{transition-delay:.2s}
+  .quote.in .qmark,.quote.in .qtext,.quote.in .qattr{opacity:1;transform:translateY(0);filter:blur(0)}
+  @media(prefers-reduced-motion:reduce){.quote .qmark,.quote .qtext,.quote .qattr{opacity:1;transform:none;filter:none;transition:none}}
 
   /* FEATURES */
   .features{border-top:1px solid var(--line);padding:120px 0;display:flex;flex-direction:column;gap:130px}
@@ -301,6 +309,17 @@
       entries.forEach(function(e){ if(e.isIntersecting){ load(e.target.querySelector('iframe[data-src]')); io.unobserve(e.target); } });
     },{rootMargin:'0px 0px -20% 0px',threshold:0.01});
     document.querySelectorAll('.embed').forEach(function(el){ io.observe(el); });
+  })();
+
+  // Reveal quote blocks as they scroll into view.
+  (function(){
+    var quotes=document.querySelectorAll('.quote');
+    if(!quotes.length) return;
+    if(!('IntersectionObserver' in window)){ quotes.forEach(function(q){ q.classList.add('in'); }); return; }
+    var qo=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); qo.unobserve(e.target); } });
+    },{rootMargin:'0px 0px -12% 0px',threshold:0.25});
+    quotes.forEach(function(q){ qo.observe(q); });
   })();
 
   // Align the "Portfolio" back button to the same left edge the home headline uses.
