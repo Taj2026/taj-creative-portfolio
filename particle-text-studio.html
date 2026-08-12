@@ -1,259 +1,405 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Particle Text Studio — Taj Palchaudhuri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #111111;
+      --muted: #666666;
+      --accent: #555555;
+      --surface: #f8f8f8;
+      --border: #e0e0e0;
+      --radius: 1rem;
+      --font: "Space Grotesk", system-ui, sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--fg);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    .particle-app {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .particle-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .particle-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.35em;
+      color: var(--accent);
+    }
+
+    .particle-title {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .particle-desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 34rem;
+    }
+
+    .particle-canvas-wrap {
+      position: relative;
+      height: 55vh;
+      min-height: 320px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 24px 70px -28px rgba(0,0,0,0.12);
+    }
+
+    .particle-canvas-wrap canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      touch-action: none;
+    }
+
+    .particle-controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      padding: 1.25rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .particle-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .particle-field.full {
+      grid-column: 1 / -1;
+    }
+
+    @media (min-width: 640px) {
+      .particle-field { grid-column: span 1; }
+    }
+
+    .particle-label {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--fg);
+    }
+
+    .particle-value {
+      color: var(--accent);
+    }
+
+    input[type="text"] {
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      padding: 0.65rem 0.8rem;
+      border: 1px solid var(--border);
+      border-radius: calc(var(--radius) - 0.25rem);
+      background: var(--bg);
+      color: var(--fg);
+      outline: none;
+      width: 100%;
+    }
+
+    input[type="text"]:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(0,0,0,0.05);
+    }
+
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--border);
+      outline: none;
+      cursor: pointer;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--fg);
+      border: 2px solid var(--bg);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+      cursor: pointer;
+    }
+
+    input[type="range"]::-moz-range-thumb {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--fg);
+      border: 2px solid var(--bg);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+      cursor: pointer;
+    }
+  </style>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png" />
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
-<title>Particle Text Studio — Taj Palchaudhuri</title>
-<meta name="description" content="An interactive HTML5 canvas toy — type any text and watch it explode into thousands of glowing particles that scatter from your cursor and spring back into place." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet" />
-<style>
-  :root{
-    --bg:#0A0A0A; --fg:#EBEBE5; --muted:#9CA3AF; --dim:#CDCDC6;
-    --line:#212121; --accent:#F0605A; --surface:#111214;
-    --display:"Bebas Neue",sans-serif; --sans:"DM Sans",sans-serif; --mono:"DM Mono",ui-monospace,monospace;
-    --maxw:1200px; --pad:64px;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  h1,h2,h3{font-weight:400}
-  body{background:var(--bg);color:var(--fg);font-family:var(--sans);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
-
-  .fnav{border-bottom:1px solid var(--line)}
-  .fnav-in{padding:26px 0;display:flex;align-items:center;justify-content:space-between}
-  .back{font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:var(--fg);text-transform:uppercase;transition:color .2s}
-  .back:hover{color:var(--accent)}
-  .crumb{font-family:var(--mono);font-size:13px;letter-spacing:.14em;color:var(--dim);text-transform:uppercase}
-
-  .hero{padding:64px 0 30px}
-  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.35em;color:var(--accent);text-transform:uppercase;margin-bottom:18px}
-  .title{font-family:var(--display);text-transform:uppercase;font-size:clamp(52px,8vw,104px);line-height:.9;letter-spacing:.03em}
-  .lead{font-size:16px;line-height:1.6;color:var(--dim);max-width:56ch;margin-top:20px}
-
-  .studio{padding:0 0 110px}
-  .stage{position:relative;height:56vh;min-height:340px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:radial-gradient(120% 120% at 50% 0,#141518,#0b0b0c 70%)}
-  .stage canvas{display:block;width:100%;height:100%;touch-action:none}
-  .hint{position:absolute;left:20px;bottom:16px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;pointer-events:none;opacity:.8}
-
-  .controls{margin-top:22px;display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:26px;border:1px solid var(--line);border-radius:16px;padding:24px;background:var(--surface)}
-  .ctrl{display:flex;flex-direction:column;gap:12px}
-  .ctrl-top{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
-  .ctrl label{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--dim);text-transform:uppercase}
-  .ctrl .val{font-family:var(--mono);font-size:12px;color:var(--accent)}
-  .text-input{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:11px 13px;color:var(--fg);font-family:var(--mono);font-size:14px;letter-spacing:.04em;transition:border-color .2s}
-  .text-input:focus{outline:none;border-color:var(--accent)}
-
-  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:3px;background:var(--line);border-radius:3px;cursor:pointer}
-  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;border-radius:50%;background:var(--accent);border:0;box-shadow:0 0 0 4px rgba(240,96,90,.18)}
-  input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--accent);border:0}
-
-  .site-footer{border-top:1px solid var(--line);padding:44px 0 60px}
-  .sf-copy{font-family:var(--sans);font-size:15px;color:var(--fg)}
-  .sf-built{font-family:var(--sans);font-size:14px;color:var(--dim);margin-top:10px}
-
-  @media(max-width:900px){
-    :root{--pad:24px}
-    .controls{grid-template-columns:1fr 1fr}
-  }
-  @media(max-width:560px){ .controls{grid-template-columns:1fr} }
-</style>
+<style>.pt-back{position:fixed;top:18px;left:22px;z-index:30;font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg);text-decoration:none;opacity:.65;transition:opacity .2s}.pt-back:hover{opacity:1}</style>
 <script src="assets/analytics.js"></script>
 </head>
 <body>
+  <a href="index.html" class="pt-back">← Portfolio</a>
+  <div class="particle-app">
+    <header class="particle-header">
+      <p class="particle-eyebrow">canvas · particles · physics</p>
+      <h1 class="particle-title">Particle Text Studio</h1>
+      <p class="particle-desc">Type something, then sweep your cursor through the letters. Particles flee, then spring home.</p>
+    </header>
 
-<nav class="fnav">
-  <div class="wrap fnav-in">
-    <a class="back" href="index.html">← Portfolio</a>
-    <span class="crumb">Particle Text Studio · Vibe Coding</span>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="wrap">
-    <p class="eyebrow">Canvas · Particles · Physics</p>
-    <h1 class="title">Particle Text Studio</h1>
-    <p class="lead">Type something, then sweep your cursor through the letters. Thousands of particles flee from your pointer, then spring back home. Built as a vibe-coding experiment.</p>
-  </div>
-</header>
-
-<section class="studio">
-  <div class="wrap">
-    <div class="stage">
-      <canvas id="c"></canvas>
-      <span class="hint">Move your cursor across the text</span>
+    <div class="particle-canvas-wrap">
+      <canvas id="particle-canvas"></canvas>
     </div>
 
-    <div class="controls">
-      <div class="ctrl">
-        <div class="ctrl-top"><label for="text">Text</label></div>
-        <input id="text" class="text-input" type="text" value="HELLO" maxlength="18" placeholder="Type here…" autocomplete="off" spellcheck="false" />
+    <div class="particle-controls">
+      <div class="particle-field full">
+        <label class="particle-label" for="particle-text">Text</label>
+        <input type="text" id="particle-text" value="HELLO" maxlength="18" placeholder="Type here…" />
       </div>
-      <div class="ctrl">
-        <div class="ctrl-top"><label for="count">Particles</label><span class="val" id="count-v">6,000</span></div>
-        <input id="count" type="range" min="500" max="20000" step="500" value="6000" />
+      <div class="particle-field">
+        <div class="particle-label">
+          <span>Particles</span>
+          <span class="particle-value" id="count-val">6,000</span>
+        </div>
+        <input type="range" id="particle-count" min="500" max="20000" step="500" value="6000" />
       </div>
-      <div class="ctrl">
-        <div class="ctrl-top"><label for="cycle">Color cycle</label><span class="val" id="cycle-v">1.2</span></div>
-        <input id="cycle" type="range" min="0" max="6" step="0.1" value="1.2" />
+      <div class="particle-field">
+        <div class="particle-label">
+          <span>Color cycle</span>
+          <span class="particle-value" id="cycle-val">1.2</span>
+        </div>
+        <input type="range" id="particle-cycle" min="0" max="6" step="0.1" value="1.2" />
       </div>
-      <div class="ctrl">
-        <div class="ctrl-top"><label for="repel">Repulsion</label><span class="val" id="repel-v">60</span></div>
-        <input id="repel" type="range" min="0" max="200" step="5" value="60" />
+      <div class="particle-field">
+        <div class="particle-label">
+          <span>Repulsion</span>
+          <span class="particle-value" id="repel-val">60</span>
+        </div>
+        <input type="range" id="particle-repel" min="0" max="200" step="5" value="60" />
       </div>
     </div>
   </div>
-</section>
 
-<footer class="site-footer">
-  <div class="wrap">
-    <p class="sf-copy">&copy; 2026 Taj Palchaudhuri</p>
-    <p class="sf-built">A vibe-coding experiment · built with Claude</p>
-  </div>
-</footer>
+  <script>
+    (function() {
+      const canvas = document.getElementById('particle-canvas');
+      const ctx = canvas.getContext('2d');
+      const textInput = document.getElementById('particle-text');
+      const countInput = document.getElementById('particle-count');
+      const cycleInput = document.getElementById('particle-cycle');
+      const repelInput = document.getElementById('particle-repel');
+      const countVal = document.getElementById('count-val');
+      const cycleVal = document.getElementById('cycle-val');
+      const repelVal = document.getElementById('repel-val');
 
-<script>
-(function(){
-  var SPRING = 0.045, FRICTION = 0.88;
-  var settings = { text:"HELLO", count:6000, colorCycle:1.2, repulsion:60 };
+      const SPRING = 0.045;
+      const FRICTION = 0.88;
 
-  var canvas = document.getElementById("c");
-  var ctx = canvas.getContext("2d");
-  var particles = [];
-  var pointer = { x:-9999, y:-9999, active:false };
-  var width=0, height=0, dpr=1, time=0, raf=0;
+      let width = 0;
+      let height = 0;
+      let dpr = 1;
+      let time = 0;
+      let particles = [];
+      const pointer = { x: -9999, y: -9999, active: false };
 
-  function sampleTargets(){
-    var text = settings.text, count = settings.count;
-    var off = document.createElement("canvas");
-    off.width = Math.max(1, Math.floor(width));
-    off.height = Math.max(1, Math.floor(height));
-    var octx = off.getContext("2d");
-    if(!octx) return [];
-    var label = (text || "").trim() || " ";
-    var fontSize = Math.min(height*0.34, (width*1.7)/Math.max(label.length,3));
-    fontSize = Math.max(28, fontSize);
-    octx.fillStyle = "#000";
-    octx.textAlign = "center";
-    octx.textBaseline = "middle";
-    octx.font = '700 ' + fontSize + 'px "Space Grotesk", system-ui, sans-serif';
-    octx.fillText(label, off.width/2, off.height/2);
-    var data = octx.getImageData(0,0,off.width,off.height).data;
-    var hits = [];
-    for(var y=0; y<off.height; y+=2){
-      for(var x=0; x<off.width; x+=2){
-        if((data[(y*off.width+x)*4+3]||0) > 128) hits.push({x:x, y:y});
-      }
-    }
-    if(hits.length===0) return [];
-    var targets = [];
-    for(var i=0;i<count;i++){
-      var h = hits[Math.floor(Math.random()*hits.length)];
-      targets.push({ x: h.x + (Math.random()-0.5)*2, y: h.y + (Math.random()-0.5)*2 });
-    }
-    return targets;
-  }
-
-  function rebuild(){
-    var targets = sampleTargets();
-    var prev = particles;
-    particles = targets.map(function(t, i){
-      var old = prev[i];
-      return {
-        x: old ? old.x : Math.random()*width,
-        y: old ? old.y : Math.random()*height,
-        hx: t.x, hy: t.y,
-        vx: old ? old.vx : 0,
-        vy: old ? old.vy : 0,
-        hue: (i/Math.max(targets.length,1))*360,
-        size: 0.7 + Math.random()*1.1
+      const settings = {
+        text: textInput.value,
+        count: +countInput.value,
+        colorCycle: +cycleInput.value,
+        repulsion: +repelInput.value,
       };
-    });
-  }
 
-  function resize(){
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
-    var rect = canvas.getBoundingClientRect();
-    width = rect.width; height = rect.height;
-    canvas.width = Math.floor(width*dpr);
-    canvas.height = Math.floor(height*dpr);
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-    rebuild();
-  }
+      function sampleTargets() {
+        const off = document.createElement('canvas');
+        off.width = Math.max(1, Math.floor(width));
+        off.height = Math.max(1, Math.floor(height));
+        const octx = off.getContext('2d');
+        if (!octx) return [];
 
-  function onMove(e){
-    var rect = canvas.getBoundingClientRect();
-    pointer = { x: e.clientX-rect.left, y: e.clientY-rect.top, active:true };
-  }
-  function onLeave(){ pointer = { x:-9999, y:-9999, active:false }; }
+        const label = settings.text.trim() || ' ';
+        let fontSize = Math.min(height * 0.34, (width * 1.7) / Math.max(label.length, 3));
+        fontSize = Math.max(28, fontSize);
+        octx.fillStyle = '#000';
+        octx.textAlign = 'center';
+        octx.textBaseline = 'middle';
+        octx.font = `700 ${fontSize}px "Space Grotesk", system-ui, sans-serif`;
+        octx.fillText(label, off.width / 2, off.height / 2);
 
-  function loop(){
-    var colorCycle = settings.colorCycle, repulsion = settings.repulsion;
-    time += 1;
-    var radius = 60 + repulsion*1.1;
-    var r2 = radius*radius;
-    var p = pointer;
-    ctx.clearRect(0,0,width,height);
-    ctx.globalCompositeOperation = "lighter";
-    for(var i=0;i<particles.length;i++){
-      var q = particles[i];
-      q.vx += (q.hx - q.x)*SPRING;
-      q.vy += (q.hy - q.y)*SPRING;
-      if(p.active){
-        var dx = q.x - p.x, dy = q.y - p.y;
-        var d2 = dx*dx + dy*dy;
-        if(d2 < r2 && d2 > 0.01){
-          var d = Math.sqrt(d2);
-          var force = (1 - d/radius) * (repulsion*0.06);
-          q.vx += (dx/d)*force;
-          q.vy += (dy/d)*force;
+        const data = octx.getImageData(0, 0, off.width, off.height).data;
+        const hits = [];
+        for (let y = 0; y < off.height; y += 2) {
+          for (let x = 0; x < off.width; x += 2) {
+            if ((data[(y * off.width + x) * 4 + 3] ?? 0) > 128) hits.push({ x, y });
+          }
         }
+        if (hits.length === 0) return [];
+
+        const targets = [];
+        for (let i = 0; i < settings.count; i++) {
+          const h = hits[Math.floor(Math.random() * hits.length)];
+          targets.push({
+            x: h.x + (Math.random() - 0.5) * 2,
+            y: h.y + (Math.random() - 0.5) * 2,
+          });
+        }
+        return targets;
       }
-      q.vx *= FRICTION; q.vy *= FRICTION;
-      q.x += q.vx; q.y += q.vy;
-      var phase = ((q.hue + time*colorCycle*0.25) % 360) * (Math.PI/180);
-      var speed = Math.min(Math.hypot(q.vx, q.vy), 12);
-      var base = 38 - Math.sin(phase)*26*Math.min(colorCycle,1);
-      var light = Math.max(0, base - speed*3);
-      ctx.fillStyle = "hsl(0 0% " + light + "%)";
-      ctx.beginPath();
-      ctx.arc(q.x, q.y, q.size + speed*0.06, 0, Math.PI*2);
-      ctx.fill();
-    }
-    ctx.globalCompositeOperation = "source-over";
-    raf = requestAnimationFrame(loop);
-  }
 
-  // controls
-  function bind(id, key, fmt){
-    var el = document.getElementById(id), out = document.getElementById(id+"-v");
-    el.addEventListener("input", function(){
-      settings[key] = parseFloat(el.value);
-      if(out) out.textContent = fmt ? fmt(settings[key]) : el.value;
-      if(key==="count") rebuild();
-    });
-  }
-  document.getElementById("text").addEventListener("input", function(e){ settings.text = e.target.value; rebuild(); });
-  bind("count","count", function(v){ return v.toLocaleString(); });
-  bind("cycle","colorCycle", function(v){ return v.toFixed(1); });
-  bind("repel","repulsion", function(v){ return String(v); });
+      function rebuild() {
+        const targets = sampleTargets();
+        const prev = particles;
+        particles = targets.map((t, i) => {
+          const old = prev[i];
+          return {
+            x: old ? old.x : Math.random() * width,
+            y: old ? old.y : Math.random() * height,
+            hx: t.x,
+            hy: t.y,
+            vx: old ? old.vx : 0,
+            vy: old ? old.vy : 0,
+            hue: (i / Math.max(targets.length, 1)) * 360,
+            size: 0.7 + Math.random() * 1.1,
+          };
+        });
+      }
 
-  window.addEventListener("pointermove", onMove, { passive:true });
-  canvas.addEventListener("pointerleave", onLeave);
-  window.addEventListener("blur", onLeave);
-  window.addEventListener("resize", resize);
+      function resize() {
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const rect = canvas.parentElement.getBoundingClientRect();
+        width = rect.width;
+        height = rect.height;
+        canvas.width = Math.floor(width * dpr);
+        canvas.height = Math.floor(height * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        rebuild();
+      }
 
-  // start once fonts are ready so the sampled glyphs match Space Grotesk
-  var started=false;
-  function start(){ if(started) return; started=true; resize(); raf = requestAnimationFrame(loop); }
-  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(start); setTimeout(start, 800); }
-  else start();
-})();
-</script>
+      function onMove(e) {
+        const rect = canvas.getBoundingClientRect();
+        pointer.x = e.clientX - rect.left;
+        pointer.y = e.clientY - rect.top;
+        pointer.active = true;
+      }
 
+      function onLeave() {
+        pointer.x = -9999;
+        pointer.y = -9999;
+        pointer.active = false;
+      }
+
+      function loop() {
+        time += 1;
+        const radius = 60 + settings.repulsion * 1.1;
+        const r2 = radius * radius;
+        const p = pointer;
+
+        ctx.clearRect(0, 0, width, height);
+        ctx.globalCompositeOperation = 'lighter';
+
+        for (let i = 0; i < particles.length; i++) {
+          const q = particles[i];
+
+          q.vx += (q.hx - q.x) * SPRING;
+          q.vy += (q.hy - q.y) * SPRING;
+
+          if (p.active) {
+            const dx = q.x - p.x;
+            const dy = q.y - p.y;
+            const d2 = dx * dx + dy * dy;
+            if (d2 < r2 && d2 > 0.01) {
+              const d = Math.sqrt(d2);
+              const force = (1 - d / radius) * (settings.repulsion * 0.06);
+              q.vx += (dx / d) * force;
+              q.vy += (dy / d) * force;
+            }
+          }
+
+          q.vx *= FRICTION;
+          q.vy *= FRICTION;
+          q.x += q.vx;
+          q.y += q.vy;
+
+          const phase = ((q.hue + time * settings.colorCycle * 0.25) % 360) * (Math.PI / 180);
+          const speed = Math.min(Math.hypot(q.vx, q.vy), 12);
+          const base = 38 - Math.sin(phase) * 26 * Math.min(settings.colorCycle, 1);
+          const light = Math.max(0, base - speed * 3);
+          ctx.fillStyle = `hsl(0 0% ${light}%)`;
+          ctx.beginPath();
+          ctx.arc(q.x, q.y, q.size + speed * 0.06, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        ctx.globalCompositeOperation = 'source-over';
+        requestAnimationFrame(loop);
+      }
+
+      const ro = new ResizeObserver(resize);
+      ro.observe(canvas.parentElement);
+
+      window.addEventListener('pointermove', onMove, { passive: true });
+      canvas.addEventListener('pointerleave', onLeave);
+      window.addEventListener('blur', onLeave);
+
+      textInput.addEventListener('input', (e) => {
+        settings.text = e.target.value;
+        rebuild();
+      });
+      countInput.addEventListener('input', (e) => {
+        settings.count = +e.target.value;
+        countVal.textContent = settings.count.toLocaleString();
+        rebuild();
+      });
+      cycleInput.addEventListener('input', (e) => {
+        settings.colorCycle = +e.target.value;
+        cycleVal.textContent = settings.colorCycle.toFixed(1);
+      });
+      repelInput.addEventListener('input', (e) => {
+        settings.repulsion = +e.target.value;
+        repelVal.textContent = String(settings.repulsion);
+      });
+
+      resize();
+      requestAnimationFrame(loop);
+    })();
+  </script>
 </body>
 </html>
