@@ -17,7 +17,7 @@
       This page requires JavaScript to display.
     </div>
   </noscript>
-<style id="__pi_fix">#__bundler_loading,#__bundler_thumbnail{display:none!important}body{background:transparent!important}</style><script id="__pi_fix_js">setInterval(function(){document.querySelectorAll("div").forEach(function(e){if(!e.children.length){var b=getComputedStyle(e).backgroundColor;if(b==="rgb(30, 30, 33)"||b==="rgb(26, 26, 33)"){e.style.display="none";}}});},200);</script></head>
+<style id="__pi_fix">#__bundler_loading,#__bundler_thumbnail{display:none!important}body{background:transparent!important}</style><script id="__pi_fix_js">(function(){function isGray(b){return b==="rgb(222, 223, 226)"||b==="rgb(237, 237, 239)"||b==="rgb(240, 238, 230)"||b==="rgb(233, 233, 234)";}function fix(){try{document.documentElement.style.setProperty("background","transparent","important");}catch(e){}if(document.body)document.body.style.setProperty("background","transparent","important");var els=document.querySelectorAll("div,section,main");for(var i=0;i<els.length;i++){var e=els[i],b=getComputedStyle(e).backgroundColor;if(isGray(b))e.style.setProperty("background","transparent","important");else if(!e.children.length&&(b==="rgb(30, 30, 33)"||b==="rgb(26, 26, 33)"))e.style.display="none";}}var t0=Date.now();function loop(){fix();if(Date.now()-t0<12000)requestAnimationFrame(loop);else setInterval(fix,300);}requestAnimationFrame(loop);})();</script></head>
 <body>
   <div id="__bundler_thumbnail">
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none"></rect><g stroke="#C7CCD4" stroke-width="4" fill="none" stroke-linecap="round"><path d="M32 50h36"></path><path d="M32 36h36"></path><path d="M32 64h20"></path></g></svg>
