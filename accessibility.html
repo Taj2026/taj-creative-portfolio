@@ -84,7 +84,9 @@
 
   /* CONTEXT visual (large) */
   .video-lg{margin-top:50px}
-  .context-shot{width:100%;display:block;border-radius:12px}
+  .context-shot{width:100%;display:block;border-radius:12px;opacity:0;transition:opacity 2.6s ease}
+  .context-shot.is-in{opacity:1}
+  @media(prefers-reduced-motion:reduce){.context-shot{transition:none;opacity:1}}
   /* scaled animation embed (design-size iframe scaled to fit) */
   .embed{position:relative;width:100%;overflow:hidden;background:transparent;border-radius:12px}
   .embed iframe{position:absolute;top:0;left:0;width:1440px;height:900px;border:0;transform-origin:top left}
@@ -289,6 +291,18 @@
       entries.forEach(function(e){ if(e.isIntersecting){ load(e.target.querySelector('iframe[data-src]')); io.unobserve(e.target); } });
     },{rootMargin:'0px 0px -20% 0px',threshold:0.01});
     document.querySelectorAll('.embed').forEach(function(el){ io.observe(el); });
+  })();
+
+  // Slowly fade in the large context image once it scrolls into view (~2.6s).
+  (function(){
+    var imgs=document.querySelectorAll('.context-shot');
+    if(!imgs.length) return;
+    function show(el){ requestAnimationFrame(function(){ el.classList.add('is-in'); }); }
+    if(!('IntersectionObserver' in window)){ imgs.forEach(show); return; }
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ show(e.target); io.unobserve(e.target); } });
+    },{rootMargin:'0px 0px -15% 0px',threshold:0.15});
+    imgs.forEach(function(el){ io.observe(el); });
   })();
 
   // Align the "Portfolio" back button to the same left edge the home headline uses.
