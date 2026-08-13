@@ -15,20 +15,18 @@
   }
   .ml-fade {
     position:absolute; inset:0;
-    animation: mlFadeOut 8s linear infinite;
+    animation: mlFadeOut 7s linear 1 both;
   }
   .ml-fade img {
     position:absolute; inset:0;
     width:100%; height:100%;
     object-fit:contain; display:block;
   }
-  .ml-hifi { opacity:0; animation: mlHifi 8s linear infinite; }
+  .ml-hifi { opacity:0; animation: mlHifi 7s linear 1 both; }
   @keyframes mlHifi {
-    0%, 15%  { opacity:0; }
-    30%      { opacity:1; }
-    75%      { opacity:1; }
-    88%      { opacity:0; }
-    100%     { opacity:0; }
+    0%, 18%  { opacity:0; }
+    45%      { opacity:1; }
+    100%     { opacity:1; }
   }
   @keyframes mlFadeOut {
     0%,100%  { opacity:1; }

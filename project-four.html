@@ -55,13 +55,15 @@
   .sec-title{font-family:var(--display);text-transform:uppercase;line-height:.9;letter-spacing:.03em}
 
   /* scaled animation embed */
-  .embed{position:relative;width:100%;overflow:hidden;background:transparent;border-radius:12px}
-  .embed iframe{position:absolute;top:0;left:0;width:1440px;height:900px;border:0;transform-origin:top left}
+  .embed{position:relative;width:100%;overflow:hidden;background:#fff;border-radius:12px}
+  /* animation stays hidden over a white backdrop until it has painted a stable frame, then fades in — no gray/blue flash, no mid-load jump */
+  .embed iframe{position:absolute;top:0;left:0;width:1440px;height:900px;border:0;transform-origin:top left;opacity:0;transition:opacity .6s ease}
+  .embed.is-live iframe{opacity:1}
   /* soft first-frame poster shown in the glow until the animation is live */
   .embed .embed-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:4;opacity:1;transition:opacity .7s ease;pointer-events:none}
   .embed.is-live .embed-poster{opacity:0}
   /* fluid (self-scaling) animation embed — fills its own container instead of the fixed-size scale trick */
-  .embed-fluid{aspect-ratio:1300/1224;background:#e9e9ea}
+  .embed-fluid{aspect-ratio:1300/1224;background:#fff}
   .embed-fluid iframe{position:absolute;inset:0;width:100%;height:100%;transform:none}
   /* large vertical feature: short text on top, big tall animation below */
   .feat-vertical{display:flex;flex-direction:column;gap:44px}
@@ -135,7 +137,7 @@
   .fpanel{background:var(--coral-glow);padding:40px}
   .fpanel.v2{background:var(--coral-glow-2)}
   .fpanel.v3{background:var(--coral-glow-3)}
-  .fpanel .embed{background:transparent;box-shadow:none}
+  .fpanel .embed{background:#fff;box-shadow:none}
 
   /* MIGRATION */
   .heading-split .l2{color:var(--accent)}
@@ -275,11 +277,11 @@
   <div class="wrap" style="display:flex;flex-direction:column;gap:130px">
 
     <div class="feat">
-      <div class="fpanel"><div class="embed embed-fluid"><img class="embed-poster" src="assets/img/posters/gopro-mockuploop.png?v=2" alt="" loading="eager" /><iframe data-src="assets/anim/gopro-mockuploop.html?v=3" loading="lazy" scrolling="no" title="GoPro mobile app mockups"></iframe></div></div>
+      <div class="fpanel"><div class="embed embed-fluid"><img class="embed-poster" src="assets/img/posters/gopro-mockuploop.png?v=2" alt="" loading="eager" /><iframe data-src="assets/anim/gopro-mockuploop.html?v=4" loading="lazy" scrolling="no" title="GoPro mobile app mockups"></iframe></div></div>
       <div class="feat-text">
-        <p class="feat-label">Feature One</p>
-        <h3 class="feat-title">A short, punchy feature headline</h3>
-        <p class="feat-body">One or two sentences describing the first key part of the solution and the value it delivered.</p>
+        <p class="feat-label">The Mobile Experience</p>
+        <h3 class="feat-title">The community in your pocket</h3>
+        <p class="feat-body">The mobile app carried the same community-first thinking to the smaller screen — capture, edit, and share your footage in a few taps. Every clip flowed into the same user-generated feeds that powered the desktop site, so the story stayed continuous from the trailhead to the home page.</p>
       </div>
     </div>
 
@@ -298,7 +300,7 @@
       </div>
       <div class="inspo-block">
         <p class="inspo-label">The result — the marketing website</p>
-        <div class="fv-embed"><div class="fpanel v2"><div class="embed" data-fit data-w="1280" data-h="3250"><iframe data-src="assets/anim/gopro-fade.html?v=2" loading="lazy" scrolling="no" title="GoPro homepage fade sequence"></iframe></div></div></div>
+        <div class="fv-embed"><div class="fpanel v2"><div class="embed" data-fit data-w="1280" data-h="3250"><iframe data-src="assets/anim/gopro-fade.html?v=3" loading="lazy" scrolling="no" title="GoPro homepage fade sequence"></iframe></div></div></div>
       </div>
     </div>
 
@@ -330,7 +332,7 @@
 
   // Defer each animation: only load (and thus start playing) its iframe once its section scrolls into view.
   (function(){
-    function load(f){ if(f && f.getAttribute('data-src')){ f.src=f.getAttribute('data-src'); f.removeAttribute('data-src'); setTimeout(fitEmbeds,60); var em=f.closest('.embed'); if(em){ setTimeout(function(){ em.classList.add('is-live'); }, 1400); } } }
+    function load(f){ if(!(f && f.getAttribute('data-src'))) return; var em=f.closest('.embed'); var poster=em?em.querySelector('.embed-poster'):null; var started=false; function start(){ if(started) return; started=true; f.src=f.getAttribute('data-src'); f.removeAttribute('data-src'); setTimeout(fitEmbeds,60); if(!em) return; var cap=0,lastSig='',stable=0; function reveal(){ em.classList.add('is-live'); } function sigOf(s){ var h=0,L=s.length,i; for(i=0;i<L;i+=9){ h=(h*31+s.charCodeAt(i))|0; } return h+'#'+L; } (function poll(){ cap++; try{ var d=f.contentDocument; if(d && d.body && !d.getElementById('__bundler_thumbnail')){ var sig=sigOf(d.body.innerHTML||''); if(sig===lastSig){ stable++; } else { stable=0; lastSig=sig; } if(stable>=3){ reveal(); return; } } }catch(e){ reveal(); return; } if(cap>60){ reveal(); return; } setTimeout(poll,180); })(); } if(poster && !poster.complete){ poster.addEventListener('load',start,{once:true}); poster.addEventListener('error',start,{once:true}); setTimeout(start,1000); } else { start(); } }
     if(!('IntersectionObserver' in window)){ document.querySelectorAll('iframe[data-src]').forEach(load); return; }
     var io=new IntersectionObserver(function(entries){
       entries.forEach(function(e){ if(e.isIntersecting){ load(e.target.querySelector('iframe[data-src]')); io.unobserve(e.target); } });
