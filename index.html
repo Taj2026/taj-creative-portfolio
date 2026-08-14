@@ -129,6 +129,8 @@
   .glow.v4{background:var(--coral-glow-4)}
   .visual{align-items:flex-start}
   .visual .shot{position:relative;width:calc(100% - 56px);height:calc(100% - 6px);object-fit:cover;object-position:top center;border-radius:12px 12px 0 0;box-shadow:0 24px 55px rgba(0,0,0,.5);margin:36px auto 0;transform-origin:top center;transition:transform .45s cubic-bezier(.2,.6,.2,1)}
+  /* device shot: a transparent cut-out device floats on the glow (full frame, no crop) instead of a filling screenshot */
+  .visual .shot.device{width:calc(100% - 48px);height:calc(100% - 40px);object-fit:contain;object-position:center;border-radius:0;box-shadow:none;filter:drop-shadow(0 16px 30px rgba(0,0,0,.55));margin:0;align-self:center;transform-origin:center}
   /* screenshot gently expands on hover; the glow background stays put */
   .case:hover .visual .shot{transform:scale(1.029)}
   @media(prefers-reduced-motion:reduce){.visual .shot{transition:none}.case:hover .visual .shot{transform:none}}
@@ -361,7 +363,7 @@
           <div class="tags"><span class="tag">iPad</span><span class="tag">Video</span><span class="tag">UX/UI</span></div>
           <span class="case-link">Open case study ↗</span>
         </div>
-        <div class="visual glow"><img class="shot" src="assets/img/adobe-thumb.png?v=4" alt="Adobe tablet video-editing app on iPad" /></div>
+        <div class="visual glow"><img class="shot device" src="assets/img/adobe-thumb.png?v=5" alt="Adobe tablet video-editing app on iPad" /></div>
       </a>
 
     </div>
