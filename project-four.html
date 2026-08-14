@@ -72,14 +72,12 @@
   /* inspiration → result blocks */
   .inspo-block{width:100%}
   .inspo-label{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase;margin-bottom:22px}
-  /* inspiration photos — a single horizontal row you scroll through */
-  .inspo{display:flex;gap:20px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;padding-bottom:14px;scrollbar-width:thin}
-  .inspo::-webkit-scrollbar{height:8px}
-  .inspo::-webkit-scrollbar-thumb{background:var(--line);border-radius:8px}
-  .inspo-item{margin:0;flex:0 0 auto;width:clamp(260px,31%,352px);scroll-snap-align:start}
+  /* inspiration photos — all six in one row, sized to fit (no scroll) */
+  .inspo{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+  .inspo-item{margin:0}
   .inspo-item img{width:100%;aspect-ratio:16/11;object-fit:cover;background:#000;display:block;border:1px solid var(--line)}
   .inspo-item figcaption{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--dim);text-transform:uppercase;margin-top:14px}
-  @media(max-width:760px){.inspo-item{width:78%}}
+  @media(max-width:760px){.inspo{grid-template-columns:repeat(3,1fr);gap:10px}}
   /* placeholder visual panels (scaffold — swap for images/animations) */
   .ph{width:100%;aspect-ratio:16/9;border-radius:12px;background:var(--coral-glow)}
   .ph.v2{background:var(--coral-glow-2)}
