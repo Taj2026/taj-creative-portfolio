@@ -47,7 +47,8 @@
   .display{font-family:var(--display);text-transform:uppercase;line-height:.9;letter-spacing:.01em}
 
   /* NAV */
-  nav{position:absolute;top:0;left:0;right:0;z-index:20}
+  nav{position:fixed;top:0;left:0;right:0;z-index:20;transition:background .3s ease,backdrop-filter .3s ease,border-color .3s ease;border-bottom:1px solid transparent}
+  nav.is-stuck{background:rgba(10,10,10,.55);-webkit-backdrop-filter:saturate(140%) blur(14px);backdrop-filter:saturate(140%) blur(14px);border-bottom-color:rgba(255,255,255,.07)}
   .nav-in{padding:34px var(--pad);display:flex;align-items:center;justify-content:space-between}
   .wordmark{font-family:var(--display);font-size:30px;letter-spacing:.08em}
   .nav-links{display:flex;gap:34px}
@@ -438,6 +439,15 @@
     window.addEventListener('scroll', function(){
       cue.classList.toggle('is-hidden', window.scrollY > 40);
     }, {passive:true});
+  })();
+
+  // Translucent nav: gains a blurred, see-through backdrop once the page is scrolled.
+  (function(){
+    var nav=document.querySelector('nav');
+    if(!nav) return;
+    function upd(){ nav.classList.toggle('is-stuck', window.scrollY > 24); }
+    window.addEventListener('scroll', upd, {passive:true});
+    upd();
   })();
 </script>
 
