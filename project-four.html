@@ -120,6 +120,21 @@
   .col h4{font-family:var(--mono);font-size:15px;letter-spacing:.12em;color:var(--accent);text-transform:uppercase;margin-bottom:16px}
   .col p{font-size:17px;line-height:1.6;color:var(--dim)}
 
+  /* CONNECTING — hub & spoke operating model */
+  .connect-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;margin-top:60px}
+  .hub{width:100%;height:auto;display:block;overflow:visible}
+  .hub .ring{fill:none;stroke:var(--line);stroke-width:1.4}
+  .hub .spoke{stroke:var(--line);stroke-width:1.4}
+  .hub .sat-bg{fill:var(--accent)}
+  .hub .core{fill:var(--accent)}
+  .hub .core-t{fill:#0a0a0c;font-family:var(--display);letter-spacing:.04em;text-anchor:middle}
+  .hub .sat-label{fill:var(--dim);font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase}
+  .connect-points{display:grid;grid-template-columns:1fr 1fr;gap:38px 46px}
+  .cp-k{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--accent)}
+  .cp-t{font-family:var(--display);text-transform:uppercase;font-size:23px;line-height:1;letter-spacing:.02em;margin:10px 0 10px}
+  .cp-b{font-size:14px;line-height:1.58;color:var(--dim)}
+  @media(max-width:900px){.connect-grid{grid-template-columns:1fr;gap:44px}}
+
   /* QUOTE */
   .quote{border-top:1px solid var(--line);padding:120px 0}
   .qmark{font-family:var(--display);font-size:100px;line-height:.5;color:var(--accent)}
@@ -266,6 +281,60 @@
     <div class="cols2">
       <div class="col"><h4>The Challenge</h4><p>GoPro cameras are notoriously hardy, rugged, and waterproof. Once a customer purchased one, they rarely came back until they needed another — on average 7 years later.</p></div>
       <div class="col"><h4>The Opportunity</h4><p>There was an opening here to build a passionate community around active lifestyles and sports, and to offer them an ecosystem where they could connect and stay engaged, inspiring future purchases.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CONNECTING (operating model) -->
+<section class="sec">
+  <div class="wrap">
+    <p class="label">Bringing it together</p>
+    <h2 class="heading2 heading-split">Connecting the <span class="l2">whole company</span></h2>
+    <p class="body-lg">Bringing the GoPro brand to life meant connecting a web of disparate teams — from the camera hardware to the desktop and mobile software to the business functions around them — behind one consistent brand and experience.</p>
+    <div class="connect-grid">
+      <div class="hub-wrap">
+        <svg class="hub" viewBox="0 0 620 500" role="img" aria-label="Design connecting hardware design, hardware UI, engineering, security, legal, marketing, mobile apps, and desktop software around the GoPro brand">
+          <circle class="ring" cx="310" cy="255" r="165"/>
+          <!-- spokes -->
+          <line class="spoke" x1="310" y1="255" x2="310" y2="90"/>
+          <line class="spoke" x1="310" y1="255" x2="427" y2="138"/>
+          <line class="spoke" x1="310" y1="255" x2="475" y2="255"/>
+          <line class="spoke" x1="310" y1="255" x2="427" y2="372"/>
+          <line class="spoke" x1="310" y1="255" x2="310" y2="420"/>
+          <line class="spoke" x1="310" y1="255" x2="193" y2="372"/>
+          <line class="spoke" x1="310" y1="255" x2="145" y2="255"/>
+          <line class="spoke" x1="310" y1="255" x2="193" y2="138"/>
+          <!-- satellites -->
+          <g class="sat"><circle class="sat-bg" cx="310" cy="90" r="27"/><g transform="translate(300,80)" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="5" width="17" height="12" rx="2.5"/><circle cx="10" cy="11" r="3.4"/><path d="M6.5 5l1.3-2.2h4.4L13.5 5"/></g></g>
+          <g class="sat"><circle class="sat-bg" cx="427" cy="138" r="27"/><g transform="translate(417,128)" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7h8"/><path d="M14 7h3.5"/><path d="M2.5 14h4"/><path d="M11 14h6.5"/><circle cx="12" cy="7" r="2.1"/><circle cx="8.5" cy="14" r="2.1"/></g></g>
+          <g class="sat"><circle class="sat-bg" cx="475" cy="255" r="27"/><g transform="translate(465,245)" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 6l-4 4 4 4"/><path d="M13 6l4 4-4 4"/></g></g>
+          <g class="sat"><circle class="sat-bg" cx="427" cy="372" r="27"/><g transform="translate(417,362)" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.5l6.5 2.6v4.7c0 3.8-2.7 6.2-6.5 7.6-3.8-1.4-6.5-3.8-6.5-7.6V5.1z"/></g></g>
+          <g class="sat"><circle class="sat-bg" cx="310" cy="420" r="27"/><g transform="translate(300,410)" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3.2v13.6"/><path d="M4.5 17h11"/><path d="M6 7.5h8"/><path d="M6 7.5l-2.7 4.2h5.4z"/><path d="M14 7.5l-2.7 4.2h5.4z"/></g></g>
+          <g class="sat"><circle class="sat-bg" cx="193" cy="372" r="27"/><g transform="translate(183,362)" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.2v3.6l9 3.4V4.8z"/><path d="M12 7.6c1.6.4 2.6 1.3 2.6 2.4S13.6 12 12 12.4"/></g></g>
+          <g class="sat"><circle class="sat-bg" cx="145" cy="255" r="27"/><g transform="translate(135,245)" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="1.8" width="8" height="16.4" rx="2.2"/><path d="M8.8 15.4h2.4"/></g></g>
+          <g class="sat"><circle class="sat-bg" cx="193" cy="138" r="27"/><g transform="translate(183,128)" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.8" y="3" width="16.4" height="11" rx="1.6"/><path d="M7 18h6"/><path d="M10 14v4"/></g></g>
+          <!-- core -->
+          <circle class="core" cx="310" cy="255" r="54"/>
+          <text class="core-t" x="310" y="252" font-size="25">GOPRO</text>
+          <text class="core-t" x="310" y="274" font-size="15">BRAND</text>
+          <!-- labels -->
+          <text class="sat-label" x="310" y="49" text-anchor="middle">HARDWARE<tspan x="310" dy="14">DESIGN</tspan></text>
+          <text class="sat-label" x="461" y="127" text-anchor="start">HARDWARE<tspan x="461" dy="14">UI</tspan></text>
+          <text class="sat-label" x="510" y="259" text-anchor="start">ENGINEERING</text>
+          <text class="sat-label" x="462" y="392" text-anchor="start">SECURITY</text>
+          <text class="sat-label" x="310" y="470" text-anchor="middle">LEGAL</text>
+          <text class="sat-label" x="158" y="392" text-anchor="end">MARKETING</text>
+          <text class="sat-label" x="108" y="252" text-anchor="end">MOBILE<tspan x="108" dy="14">APPS</tspan></text>
+          <text class="sat-label" x="158" y="127" text-anchor="end">DESKTOP<tspan x="158" dy="14">SOFTWARE</tspan></text>
+        </svg>
+      </div>
+      <div class="connect-points">
+        <div class="cp"><p class="cp-k">01</p><h4 class="cp-t">One brand system</h4><p class="cp-b">A single visual language and voice every team could design against.</p></div>
+        <div class="cp"><p class="cp-k">02</p><h4 class="cp-t">Shared components</h4><p class="cp-b">Reusable UI patterns kept desktop, mobile, and camera in sync.</p></div>
+        <div class="cp"><p class="cp-k">03</p><h4 class="cp-t">Cross-team rituals</h4><p class="cp-b">Regular reviews aligned hardware, software, and business on one direction.</p></div>
+        <div class="cp"><p class="cp-k">04</p><h4 class="cp-t">One customer story</h4><p class="cp-b">Every touchpoint laddered up to the same community-first experience.</p></div>
+      </div>
     </div>
   </div>
 </section>
