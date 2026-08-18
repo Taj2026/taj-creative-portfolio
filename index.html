@@ -164,9 +164,10 @@
     .hero-col{padding:130px var(--pad) 60px}
     .hero-right{border-left:none;border-top:1px solid var(--line);padding-top:50px}
     .hero-left{max-width:none}
-    .hero-left-inner{width:100%;max-width:none;margin:0}
+    .hero-left-inner,.hero-right-inner{width:100%;max-width:none;margin:0}
     .headline{font-size:clamp(56px,16vw,96px)}
-    .case,.case.rev .case-text{grid-template-columns:1fr;order:0;gap:32px}
+    .case,.case.rev{grid-template-columns:1fr;gap:32px}
+    .case.rev .case-text{order:0}
     .visual{height:280px}
     .thumbs{grid-template-columns:1fr}
     .nav-links{gap:20px}
