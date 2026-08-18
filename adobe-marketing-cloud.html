@@ -107,12 +107,19 @@
   .feat-mobile .m-tile img{width:100%;display:block}
   .feat-mobile .feat-label{margin-top:22px}
 
-  /* PULL QUOTE */
-  .pquote{border-top:1px solid var(--line);padding:110px 0}
-  .pquote .label{margin-bottom:30px}
-  .pq{margin:0;max-width:960px;font-family:var(--sans);font-weight:500;font-size:clamp(24px,3vw,38px);line-height:1.36;letter-spacing:-.015em;color:var(--fg)}
-  .pq .qm{color:var(--accent)}
-  .pq-cite{display:block;margin-top:32px;font-family:var(--mono);font-style:normal;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+  /* QUOTE */
+  .quote{border-top:1px solid var(--line);padding:120px 0}
+  .qmark{font-family:var(--display);font-size:100px;line-height:.5;color:var(--accent)}
+  .qtext{font-family:var(--display);text-transform:uppercase;font-size:clamp(34px,4.4vw,50px);line-height:1.04;letter-spacing:.03em;margin-top:20px}
+  .qattr{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--dim);text-transform:uppercase;margin-top:22px}
+  /* scroll-triggered quote reveal — soft fade + rise + de-blur, staggered per line */
+  .quote .qmark,.quote .qtext,.quote .qattr{opacity:0;transform:translateY(28px);filter:blur(8px);
+    transition:opacity .8s cubic-bezier(.4,0,.2,1),transform .8s cubic-bezier(.4,0,.2,1),filter .8s cubic-bezier(.4,0,.2,1)}
+  .quote.in .qmark{transition-delay:0s}
+  .quote.in .qtext{transition-delay:.09s}
+  .quote.in .qattr{transition-delay:.2s}
+  .quote.in .qmark,.quote.in .qtext,.quote.in .qattr{opacity:1;transform:translateY(0);filter:blur(0)}
+  @media(prefers-reduced-motion:reduce){.quote .qmark,.quote .qtext,.quote .qattr{opacity:1;transform:none;filter:none;transition:none}}
   /* placeholder screen slot — swap the inner block for a screen once available */
   .phn{aspect-ratio:4/3;border-radius:10px;background:rgba(8,8,10,.34);border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px}
   .phn span{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:rgba(255,255,255,.66);text-transform:uppercase;line-height:1.7}
@@ -146,7 +153,7 @@
     .dhero-r{border-left:none;border-top:1px solid var(--line)}
     .cols2{grid-template-columns:1fr;gap:36px}
     .feat,.feat.rev .feat-text{grid-template-columns:1fr;order:0;gap:28px}
-    .sec,.features,.next{padding:70px 0}
+    .sec,.features,.quote,.next{padding:70px 0}
     .fpanel{padding:24px}
   }
 
@@ -271,12 +278,12 @@
   </div>
 </section>
 
-<!-- PULL QUOTE -->
-<section class="pquote">
+<!-- QUOTE -->
+<section class="quote">
   <div class="wrap">
-    <p class="label">Recognition</p>
-    <blockquote class="pq"><span class="qm">“</span>Adobe distanced itself from the pack with a combination of an innovative, detailed vision and in-market functionality designed solely to provide marketers with a clear incentive to use multiple solutions within the Adobe Marketing Cloud.<span class="qm">”</span></blockquote>
-    <cite class="pq-cite">— Forrester Report</cite>
+    <div class="qmark">“</div>
+    <p class="qtext">Adobe distanced itself from the pack with a combination of an innovative, detailed vision and in-market functionality designed solely to provide marketers with <span class="accent">a clear incentive to use multiple solutions within the Adobe Marketing Cloud</span></p>
+    <p class="qattr">— Forrester Report</p>
   </div>
 </section>
 
@@ -340,6 +347,17 @@
   window.addEventListener('resize',alignBack);
   document.addEventListener('DOMContentLoaded',alignBack);
   if(document.fonts && document.fonts.ready){ document.fonts.ready.then(alignBack); }
+
+  // Reveal quote blocks as they scroll into view.
+  (function(){
+    var quotes=document.querySelectorAll('.quote');
+    if(!quotes.length) return;
+    if(!('IntersectionObserver' in window)){ quotes.forEach(function(q){ q.classList.add('in'); }); return; }
+    var qo=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); qo.unobserve(e.target); } });
+    },{rootMargin:'0px 0px -12% 0px',threshold:0.25});
+    quotes.forEach(function(q){ qo.observe(q); });
+  })();
 </script>
 
 <script src="assets/lightbox.js"></script>
