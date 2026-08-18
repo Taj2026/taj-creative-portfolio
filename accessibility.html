@@ -247,7 +247,7 @@
     <p class="label">The Vision</p>
     <h2 class="heading2 heading-split">From audit to <span class="l2">embedded practice</span></h2>
     <p class="body-lg">The lasting outcome wasn't a one-time fix — it was a new way of working. We stood up a cross-functional accessibility team with shared rituals, tooling, and acceptance criteria, making accessibility a first-class input across design, build, and QA — not a late-stage audit.</p>
-    <div class="video-lg"><div class="embed" data-fit data-w="1185" data-h="740"><img class="embed-poster" src="assets/img/posters/a11y-context.png" alt="" loading="lazy" /><iframe data-src="assets/anim/a11y-context.html?v=3" loading="lazy" scrolling="no" title="Accessibility storyboard — slides zoom-out"></iframe></div></div>
+    <div class="video-lg"><div class="embed" data-fit data-w="1185" data-h="740" style="background:#f4f5f7"><iframe data-src="assets/anim/a11y-context.html?v=4" loading="lazy" scrolling="no" title="Accessibility storyboard — slides zoom-out"></iframe></div></div>
   </div>
 </section>
 
@@ -280,7 +280,7 @@
     if(!('IntersectionObserver' in window)){ document.querySelectorAll('iframe[data-src]').forEach(load); return; }
     var io=new IntersectionObserver(function(entries){
       entries.forEach(function(e){ if(e.isIntersecting){ load(e.target.querySelector('iframe[data-src]')); io.unobserve(e.target); } });
-    },{rootMargin:'0px 0px -20% 0px',threshold:0.01});
+    },{rootMargin:'0px 0px 150px 0px',threshold:0.01});
     document.querySelectorAll('.embed').forEach(function(el){ io.observe(el); });
   })();
 
