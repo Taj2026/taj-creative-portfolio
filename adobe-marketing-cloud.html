@@ -7,7 +7,7 @@
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png" />
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 <title>Adobe Marketing Cloud — Taj Palchaudhuri</title>
-<meta name="description" content="Adobe Marketing Cloud — a 0→1 platform that unified Adobe's marketing solutions (analytics, targeting, campaigns, content, and advertising) into one integrated cloud with a shared experience for marketers." />
+<meta name="description" content="Adobe Marketing Cloud — 0→1 platform that unified Adobe's marketing solutions (analytics, targeting, campaigns, content, and advertising) into one integrated cloud with a shared experience for marketers." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet" />
@@ -79,6 +79,18 @@
   .cols2{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:46px}
   .col h4{font-family:var(--mono);font-size:15px;letter-spacing:.12em;color:var(--accent);text-transform:uppercase;margin-bottom:16px}
   .col p{font-size:17px;line-height:1.6;color:var(--dim)}
+
+  /* PROCESS */
+  .process{margin-top:88px;padding-top:64px;border-top:1px solid var(--line)}
+  .process .label{margin-bottom:0}
+  .process .heading2{font-size:clamp(38px,4.2vw,52px)}
+  .process .body-lg{max-width:64ch;margin-bottom:44px}
+  .prow{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .ptile figure{margin:0}
+  .ptile .pimg{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top center;display:block;border-radius:12px;border:1px solid var(--line);background:#fff;box-shadow:0 18px 40px rgba(0,0,0,.35);cursor:zoom-in}
+  .ptile figcaption{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--dim);text-transform:uppercase;margin-top:16px}
+  .ptile .pn{color:var(--accent)}
+  @media(max-width:820px){.prow{grid-template-columns:1fr;gap:22px}}
 
   /* FEATURES */
   .features{border-top:1px solid var(--line);padding:120px 0;display:flex;flex-direction:column;gap:130px}
@@ -161,7 +173,7 @@
 <nav class="dnav">
   <div class="dnav-in">
     <a class="back" href="index.html">← Portfolio</a>
-    <span class="crumb">Adobe · Marketing Cloud · 2012</span>
+    <span class="crumb">Adobe · Marketing Cloud · 2014</span>
   </div>
 </nav>
 
@@ -171,11 +183,11 @@
     <div class="dhero-l-inner">
       <p class="label">Adobe · Design Lead</p>
       <h1 class="dtitle">One Cloud For<br><span class="accent">Every Marketer</span></h1>
-      <p class="dintro">A 0&nbsp;→&nbsp;1 platform that brought Adobe's marketing solutions and acquisitions — analytics, targeting, campaigns, content, and advertising — together into a single, integrated application, with one shared experience for the modern marketer.</p>
+      <p class="dintro">0&nbsp;→&nbsp;1 platform that brought Adobe's marketing solutions and acquisitions — analytics, targeting, campaigns, content, and advertising — together into a single, integrated application, with one shared experience for the modern marketer.</p>
     </div>
   </div>
   <div class="dhero-r">
-    <div class="dvisual"><img src="assets/img/amc-hero.png?v=2" alt="Adobe Marketing Cloud — the Nike Marketing Cloud dashboard on an iMac: channels, campaigns, tasks, financials, alerts, and recent campaigns unified in one view" /></div>
+    <div class="dvisual"><img src="assets/img/amc-hero.png?v=3" alt="Adobe Marketing Cloud — the Nike Marketing Cloud dashboard on an iMac: channels, campaigns, tasks, financials, alerts, and recent campaigns unified in one view" /></div>
     <div class="sbands">
       <div class="sband"><span class="num">8</span><span class="desc">Marketing solutions unified into one integrated cloud</span></div>
       <div class="sband"><span class="num">0→1</span><span class="desc">A brand-new platform, built from the ground up</span></div>
@@ -192,8 +204,19 @@
     <p class="body-lg">Adobe's marketing solutions had grown up separately — many through acquisition — each with its own login, navigation, and visual language. Marketers were left to stitch them together by hand. Marketing Cloud set out to make them feel like a single product: one home, shared data and assets, and a consistent experience across everything a marketer touched.</p>
     <div class="video-lg"><img class="context-shot" src="assets/img/amc-context.jpg?v=1" alt="Adobe Marketing Cloud — the full Nike Marketing Cloud dashboard: channels, campaigns, tasks, financials, campaign performance, social buzz, alerts, and recent activity in one unified view" /></div>
     <div class="cols2">
-      <div class="col"><h4>The Challenge</h4><p>Eight powerful but disconnected solutions — Analytics, Target, Campaign, Experience Manager, Social, Media Optimizer, Audience Manager, and more — each built by a different team with a different design language. There was no shared shell, no shared identity, and no shared way to move between them.</p></div>
+      <div class="col"><h4>The Challenge</h4><p>Adobe owned a few marketing tools and then acquired a few additional. No shared UX, patterns, nor visuals. Additionally, there was no precedent in the market for a solution that would span analytics, targeting, audience managers and more, to become a holistic end-to-end application for marketers.</p></div>
       <div class="col"><h4>The Opportunity</h4><p>Unifying them into one cloud could turn a pile of point tools into a real platform — letting marketers sign in once, share audiences and assets across solutions, and work in one coherent, modern interface built to scale as new solutions joined.</p></div>
+    </div>
+
+    <div class="process">
+      <p class="label">Process</p>
+      <h2 class="heading2 heading-split">Starting from <span class="l2">zero</span></h2>
+      <p class="body-lg">With no precedent to build on, I started with research and persona creation to understand what marketers actually needed. From there I moved quickly into a high-level information architecture, then into sketching and wireframing the shell.</p>
+      <div class="prow">
+        <figure class="ptile"><img class="pimg" src="assets/img/amc-personas.jpg?v=1" alt="Adobe Marketing Cloud — user research and marketer personas" /><figcaption><span class="pn">01</span> · Research &amp; personas</figcaption></figure>
+        <figure class="ptile"><img class="pimg" src="assets/img/amc-ia.jpg?v=1" alt="Adobe Marketing Cloud — high-level information architecture" /><figcaption><span class="pn">02</span> · Information architecture</figcaption></figure>
+        <figure class="ptile"><img class="pimg" src="assets/img/amc-wires.jpg?v=1" alt="Adobe Marketing Cloud — early sketches and wireframes" /><figcaption><span class="pn">03</span> · Sketches &amp; wireframes</figcaption></figure>
+      </div>
     </div>
   </div>
 </section>
