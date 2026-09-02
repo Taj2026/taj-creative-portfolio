@@ -294,6 +294,27 @@
     window.addEventListener('scroll', upd, {passive:true});
     upd();
   })();
+
+  // Align the logo + nav links to the same edge the home headline and the
+  // case-study navs use, so the top-level pages stay in register.
+  function homeLeftEdge(){
+    var vw=document.documentElement.clientWidth||window.innerWidth;
+    if(vw<=900) return 28;
+    var innerW=Math.min(570, vw/2-48);
+    return Math.round((vw/2-innerW)/2);
+  }
+  function alignNav(){
+    var nav=document.querySelector('.nav-in');
+    if(!nav) return;
+    if(window.matchMedia('(max-width:900px)').matches){ nav.style.paddingLeft=''; nav.style.paddingRight=''; return; }
+    var e=homeLeftEdge();
+    nav.style.paddingLeft=e+'px';
+    nav.style.paddingRight=e+'px';
+  }
+  window.addEventListener('load',alignNav);
+  window.addEventListener('resize',alignNav);
+  document.addEventListener('DOMContentLoaded',alignNav);
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(alignNav); }
 </script>
 
 <script src="assets/lightbox.js"></script>
