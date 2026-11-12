@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+<title>Prepared for Stripe — Taj Palchaudhuri</title>
+<meta name="description" content="Two case studies prepared for Stripe: Portfolio Insights and System Health." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0A0A0A; --fg:#EBEBE5; --muted:#9CA3AF; --dim:#CDCDC6;
+    --line:#212121; --accent:#F0605A; --gray:#DEDFE2;
+    --display:"Bebas Neue",sans-serif; --sans:"DM Sans",sans-serif; --mono:"DM Mono",ui-monospace,monospace;
+    --maxw:1312px; --pad:64px;
+    /* coral-family glows over black — 4 distinct variants (different direction + hue) */
+    --coral-glow: /* v1 — coral, light sweeping from bottom-left */
+      radial-gradient(125% 125% at 4% 100%, rgba(255,106,85,.62), transparent 62%),
+      radial-gradient(72% 72% at 100% 6%, rgba(255,150,92,.40), transparent 60%),
+      #0a0a0c;
+    --coral-glow-2: /* v2 — pink/magenta, light sweeping from top-right */
+      radial-gradient(125% 125% at 100% 2%, rgba(255,86,124,.60), transparent 62%),
+      radial-gradient(72% 72% at 4% 100%, rgba(232,72,116,.42), transparent 60%),
+      #0a0a0c;
+    --coral-glow-3: /* v3 — orange/amber, rising wide from the bottom */
+      radial-gradient(150% 115% at 50% 116%, rgba(255,134,64,.58), transparent 64%),
+      radial-gradient(72% 66% at 92% 6%, rgba(255,92,84,.40), transparent 60%),
+      #0a0a0c;
+    --coral-glow-4: /* v4 — deep red-coral, light sweeping from bottom-right */
+      radial-gradient(125% 125% at 100% 100%, rgba(238,74,72,.60), transparent 62%),
+      radial-gradient(72% 72% at 2% 4%, rgba(255,122,98,.40), transparent 60%),
+      #0a0a0c;
+    /* softer coral glow — for the hero visual */
+    --coral-glow-soft:
+      radial-gradient(58% 72% at 12% 85%, rgba(255,110,88,.40), transparent 58%),
+      radial-gradient(54% 68% at 90% 10%, rgba(255,128,92,.34), transparent 58%),
+      radial-gradient(52% 64% at 90% 92%, rgba(255,96,82,.30), transparent 60%),
+      radial-gradient(46% 60% at 8% 10%, rgba(240,96,90,.20), transparent 60%),
+      #0a0a0c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  h1,h2,h3,h4,h5,h6{font-weight:400}  /* Bebas Neue ships one weight (400); match Paulo — no faux-bold */
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--fg);font-family:var(--sans);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+  .accent{color:var(--accent)}
+  .mono{font-family:var(--mono);text-transform:uppercase}
+  .label{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--accent);text-transform:uppercase}
+  .sec-title{font-family:var(--display);text-transform:uppercase;line-height:.9;letter-spacing:.03em}
+
+  /* scaled animation embed */
+  .embed{position:relative;width:100%;overflow:hidden;background:transparent;border-radius:12px}
+  .embed iframe{position:absolute;top:0;left:0;width:1440px;height:900px;border:0;transform-origin:top left}
+  /* soft first-frame poster shown in the glow until the animation is live */
+  .embed .embed-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:4;opacity:1;transition:opacity .7s ease;pointer-events:none}
+  .embed.is-live .embed-poster{opacity:0}
+
+  /* NAV */
+  .dnav{border-bottom:1px solid var(--line)}
+  .dnav-in{padding:30px var(--pad);display:flex;align-items:center;justify-content:space-between}
+  .back{font-family:var(--mono);font-size:13px;letter-spacing:.14em;color:var(--dim);text-transform:uppercase;display:inline-flex;gap:10px;transition:color .2s}
+  .back:hover{color:var(--fg)}
+  .crumb{font-family:var(--mono);font-size:13px;letter-spacing:.14em;color:var(--dim);text-transform:uppercase}
+
+  /* HERO */
+  .dhero{display:grid;grid-template-columns:1fr 1fr}
+  .dhero-l{padding:96px 0;display:flex;flex-direction:column;justify-content:center}
+  /* content block centered in the left half, matching the home hero */
+  .dhero-l-inner{width:570px;max-width:calc(100% - 48px);margin:0 auto;display:flex;flex-direction:column;gap:26px}
+  .dhero-r{border-left:1px solid var(--line);padding:60px var(--pad);display:flex;flex-direction:column;justify-content:center;gap:30px;background:var(--coral-glow-soft)}
+  .dtitle{font-family:var(--display);text-transform:uppercase;font-size:clamp(56px,7vw,90px);line-height:.9;letter-spacing:.03em}
+  .dintro{font-size:17px;line-height:1.6;color:var(--dim);max-width:44ch}
+  .dvisual{position:relative;padding:0 6% ;display:flex;align-items:center;justify-content:center;min-height:300px;background:transparent}
+  .dvisual img{width:85%;border-radius:12px;box-shadow:0 26px 60px rgba(0,0,0,.5)}
+  .sbands{background:#0C0C0F}
+  .sband{display:grid;grid-template-columns:100px 1fr;gap:24px;align-items:center;padding:20px;position:relative}
+  .sband:not(:last-child)::after{content:"";position:absolute;left:20px;right:20px;bottom:0;height:1px;background:var(--line)}
+  .sband .num{font-family:var(--display);font-size:40px;line-height:.9;color:var(--accent)}
+  .sband .desc{font-family:var(--mono);font-size:12px;letter-spacing:.09em;line-height:1.55;color:var(--dim);text-transform:uppercase}
+
+  /* SECTIONS */
+  .sec{border-top:1px solid var(--line);padding:104px 0}
+  .heading2{font-family:var(--display);text-transform:uppercase;font-size:clamp(52px,6.5vw,76px);line-height:.9;letter-spacing:.03em;margin-top:18px}
+  .body-lg{font-size:18px;line-height:1.6;color:var(--dim);max-width:52ch;margin-top:20px}
+
+  /* CONTEXT video (large, flat gray) */
+  .video-lg{margin-top:50px}
+
+  .cols2{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:26px}
+  .col h4{font-family:var(--mono);font-size:15px;letter-spacing:.12em;color:var(--accent);text-transform:uppercase;margin-bottom:16px}
+  .col p{font-size:17px;line-height:1.6;color:var(--dim)}
+
+  /* QUOTE */
+  .quote{border-top:1px solid var(--line);padding:120px 0}
+  .qmark{font-family:var(--display);font-size:100px;line-height:.5;color:var(--accent)}
+  .qtext{font-family:var(--display);text-transform:uppercase;font-size:clamp(34px,4.4vw,50px);line-height:1.04;letter-spacing:.03em;margin-top:20px}
+  .qattr{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--dim);text-transform:uppercase;margin-top:22px}
+  /* scroll-triggered quote reveal — soft fade + rise + de-blur, staggered per line */
+  .quote .qmark,.quote .qtext,.quote .qattr{opacity:0;transform:translateY(28px);filter:blur(8px);
+    transition:opacity .8s cubic-bezier(.4,0,.2,1),transform .8s cubic-bezier(.4,0,.2,1),filter .8s cubic-bezier(.4,0,.2,1)}
+  .quote.in .qmark{transition-delay:0s}
+  .quote.in .qtext{transition-delay:.09s}
+  .quote.in .qattr{transition-delay:.2s}
+  .quote.in .qmark,.quote.in .qtext,.quote.in .qattr{opacity:1;transform:translateY(0);filter:blur(0)}
+  @media(prefers-reduced-motion:reduce){.quote .qmark,.quote .qtext,.quote .qattr{opacity:1;transform:none;filter:none;transition:none}}
+
+  /* FEATURES */
+  .features{border-top:1px solid var(--line);padding:120px 0;display:flex;flex-direction:column;gap:130px}
+  .feat{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+  /* alternation comes from DOM order per feature (image-first vs text-first), matching the Pencil design */
+  .feat-label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase}
+  .feat-title{font-family:var(--display);text-transform:uppercase;font-size:clamp(34px,3.4vw,42px);line-height:1.02;letter-spacing:.03em;margin:14px 0 18px}
+  .feat-body{font-size:16px;line-height:1.6;color:var(--dim);max-width:46ch}
+  .fpanel{background:var(--coral-glow);padding:26px}
+  .fpanel.v2{background:var(--coral-glow-2)}
+  .fpanel.v3{background:var(--coral-glow-3)}
+  .fpanel .embed{background:transparent;box-shadow:none}
+
+  /* MIGRATION */
+  .heading-split .l2{color:var(--accent)}
+
+  /* NEXT */
+  .next{border-top:1px solid var(--line);padding:90px 0 120px}
+  .next .k{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--dim);text-transform:uppercase}
+  .next .t{font-family:var(--display);text-transform:uppercase;font-size:clamp(48px,6vw,72px);line-height:.9;letter-spacing:.03em;margin:16px 0}
+  .next a.lnk{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--accent);text-transform:uppercase}
+
+  /* Initial load reveal — fade + slide-up + blur, staggered (matches the home page) */
+  @keyframes reveal{0%{opacity:0;transform:translateY(30px);filter:blur(10px)}100%{opacity:1;transform:translateY(0);filter:blur(0)}}
+  .back,.crumb,.dhero .label,.dtitle,.dintro,.dvisual,.sband{animation:reveal .8s ease-out both}
+  .back{animation-delay:.05s}
+  .crumb{animation-delay:.1s}
+  .dhero .label{animation-delay:.2s}
+  .dtitle{animation-delay:.3s}
+  .dvisual{animation-delay:.4s}
+  .dintro{animation-delay:.5s}
+  .sband:nth-child(1){animation-delay:.55s}
+  .sband:nth-child(2){animation-delay:.65s}
+  .sband:nth-child(3){animation-delay:.75s}
+  @media(prefers-reduced-motion:reduce){.back,.crumb,.dhero .label,.dtitle,.dintro,.dvisual,.sband{animation:none}}
+
+  @media(max-width:900px){
+    :root{--pad:28px}
+    .dhero{grid-template-columns:1fr}
+    .dhero-l{padding:70px var(--pad)}
+    .dhero-l-inner{width:100%;max-width:none;margin:0}
+    .dhero-r{border-left:none;border-top:1px solid var(--line)}
+    .cols2{grid-template-columns:1fr;gap:36px}
+    .feat,.feat.rev .feat-text{grid-template-columns:1fr;order:0;gap:28px}
+    .sec,.features,.quote,.next{padding:70px 0}
+    .fpanel{padding:24px}
+  }
+
+  /* CONTACT CTA */
+  .contact-cta{border-top:1px solid var(--line);padding:112px 0 120px}
+  .contact-in{display:grid;grid-template-columns:1.15fr 1fr;gap:80px;align-items:start}
+  .contact-cta .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--accent);text-transform:uppercase;margin-bottom:24px}
+  .contact-title{font-family:var(--display);text-transform:uppercase;font-size:clamp(56px,8vw,112px);line-height:.9;letter-spacing:.02em;margin-top:14px}
+  .contact-title .accent{color:var(--accent)}
+  .contact-side{padding-top:32px}
+  .contact-lead{font-size:17px;line-height:1.62;color:var(--dim);max-width:46ch}
+  .contact-links{list-style:none;margin-top:48px;display:flex;flex-direction:column;gap:24px}
+  .contact-links a{display:inline-flex;align-items:center;gap:16px;font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg);transition:color .2s}
+  .contact-links a:hover{color:var(--accent)}
+  .contact-links svg{width:18px;height:18px;flex:none;color:var(--muted);transition:color .2s}
+  .contact-links a:hover svg{color:var(--accent)}
+  @media(max-width:900px){/*cmob*/.contact-in{grid-template-columns:1fr;gap:32px}.contact-side{padding-top:0}}
+
+  /* SITE FOOTER */
+  .site-footer{border-top:1px solid var(--line);padding:52px 0 60px}
+  .sf-in{display:flex;flex-direction:column;gap:20px;align-items:flex-start}
+  .sf-copy{font-family:var(--sans);font-size:16px;color:var(--fg)}
+  .sf-rights{font-family:var(--sans);font-size:14px;line-height:1.7;color:var(--muted)}
+  .sf-built{font-family:var(--sans);display:flex;align-items:center;flex-wrap:wrap;gap:10px;font-size:14px;color:var(--dim)}
+  .sf-tools{display:inline-flex;align-items:center;flex-wrap:wrap;gap:10px}
+  .sf-tool{display:inline-flex;align-items:center;gap:7px}
+  .sf-tool svg{width:15px;height:15px;flex:none;color:var(--dim)}
+  .sf-dot{color:var(--muted)}
+
+  /* ---- /ilovestripe additions ---- */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:48px}
+  .stat{padding:34px 0 34px 28px;border-left:1px solid var(--line)}
+  .stat:first-child{border-left:none;padding-left:0}
+  .stat .n{font-family:var(--display);font-size:clamp(52px,6vw,80px);line-height:.9;color:var(--accent);letter-spacing:.02em}
+  .stat .d{font-family:var(--mono);font-size:12px;letter-spacing:.09em;line-height:1.55;color:var(--dim);text-transform:uppercase;margin-top:12px;max-width:26ch}
+
+  .agenda{margin-top:48px;border-top:1px solid var(--line)}
+  .arow{display:grid;grid-template-columns:90px 1fr auto;gap:24px;align-items:baseline;padding:30px 0;border-bottom:1px solid var(--line);transition:padding-left .25s ease}
+  .arow:hover{padding-left:12px}
+  .arow .num{font-family:var(--display);font-size:44px;line-height:.9;color:var(--accent)}
+  .arow .t{font-family:var(--display);text-transform:uppercase;font-size:clamp(30px,3.6vw,44px);line-height:1;letter-spacing:.03em}
+  .arow .m{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--dim);text-transform:uppercase}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:52px;border-top:1px solid var(--line)}
+  .step{padding:32px 32px 36px 0;border-bottom:1px solid var(--line)}
+  .step:not(:nth-child(3n+1)){padding-left:32px;border-left:1px solid var(--line)}
+  .step .k{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--accent);text-transform:uppercase}
+  .step h3{font-family:var(--display);text-transform:uppercase;font-size:34px;line-height:1;letter-spacing:.03em;margin:12px 0 10px}
+  .step p{font-size:16px;line-height:1.6;color:var(--dim);max-width:34ch}
+
+  .cs-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:16px}
+  .cs-link{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase;border-bottom:1px solid transparent;transition:border-color .2s}
+  .cs-link:hover{border-color:var(--accent)}
+  .cs-foot{margin-top:56px}
+  .features.tight{padding:0 0 110px;border-top:none}
+  .quote.tight{padding:96px 0}
+
+  .fit{display:grid;grid-template-columns:repeat(3,1fr);gap:56px;margin-top:52px}
+  .fit h4{font-family:var(--mono);font-size:15px;letter-spacing:.12em;color:var(--accent);text-transform:uppercase;margin-bottom:16px}
+  .fit p{font-size:17px;line-height:1.6;color:var(--dim)}
+  .learn{margin-top:64px;padding-top:36px;border-top:1px solid var(--line);display:grid;grid-template-columns:200px 1fr;gap:32px}
+  .learn p.body{font-size:17px;line-height:1.6;color:var(--dim);max-width:68ch}
+
+  @media(max-width:900px){
+    .stats{grid-template-columns:1fr}
+    .stat,.stat:first-child{border-left:none;padding:26px 0;border-bottom:1px solid var(--line)}
+    .stat:last-child{border-bottom:none}
+    .arow{grid-template-columns:56px 1fr;gap:16px}
+    .arow .m{grid-column:2}
+    .arow .num{font-size:34px}
+    .steps{grid-template-columns:1fr}
+    .step,.step:not(:nth-child(3n+1)){padding:26px 0;border-left:none}
+    .fit{grid-template-columns:1fr;gap:36px}
+    .learn{grid-template-columns:1fr;gap:12px}
+    .features.tight{padding-bottom:70px}
+  }
+</style>
+<script src="/assets/analytics.js"></script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="dnav">
+  <div class="dnav-in">
+    <a class="back" href="/">← Portfolio</a>
+    <span class="crumb">Prepared for Stripe · Product Designer, Global Payments</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="dhero">
+  <div class="dhero-l">
+    <div class="dhero-l-inner">
+      <p class="label">Case study review · Stripe</p>
+      <h1 class="dtitle">Complexity<br><span class="accent">into clarity</span></h1>
+      <p class="dintro">Hi Stripe — thanks for the time. Two case studies on turning dense, high-stakes data into clear signals and confident decisions: the work I'd love to bring to global payments.</p>
+    </div>
+  </div>
+  <div class="dhero-r">
+    <div class="dvisual"><img src="/assets/img/dashboard.png?v=6" alt="Portfolio Insights dashboard" /></div>
+    <div class="sbands">
+      <div class="sband"><span class="num">15+</span><span class="desc">Years designing for SaaS, consumer and creative tools</span></div>
+      <div class="sband"><span class="num">5 YRS</span><span class="desc">Design Lead at Atlassian, working remotely across EMEA</span></div>
+      <div class="sband"><span class="num">2</span><span class="desc">Case studies, both shipped to enterprise admins</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- AGENDA -->
+<section class="sec" id="agenda">
+  <div class="wrap">
+    <p class="label">Today</p>
+    <h2 class="heading2">Two case studies, <span class="accent">one thread</span></h2>
+    <p class="body-lg">Both start with the same problem: people making high-stakes decisions from information scattered across too many places. Both end with a single surface they can trust.</p>
+    <div class="agenda">
+      <a class="arow" href="#portfolio-insights"><span class="num">01</span><span class="t">Portfolio Insights</span><span class="m">AI · Data visualization · Migration</span></a>
+      <a class="arow" href="#system-health"><span class="num">02</span><span class="t">System Health</span><span class="m">Real-time · Reliability · Trust</span></a>
+      <a class="arow" href="#fit"><span class="num">03</span><span class="t">Why this fits Stripe</span><span class="m">And what I'm keen to learn</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="sec" id="approach">
+  <div class="wrap">
+    <p class="label">How I work</p>
+    <h2 class="heading2">How I approach <span class="accent">a problem</span></h2>
+    <div class="steps">
+      <div class="step"><p class="k">01</p><h3>Discover</h3><p>Talk to real users. Audit what already exists.</p></div>
+      <div class="step"><p class="k">02</p><h3>Define</h3><p>Frame the problem. Map the journey.</p></div>
+      <div class="step"><p class="k">03</p><h3>Ideate</h3><p>Set principles. Sketch the options.</p></div>
+      <div class="step"><p class="k">04</p><h3>Prototype</h3><p>Build it just enough to feel real.</p></div>
+      <div class="step"><p class="k">05</p><h3>Validate</h3><p>Test with users. Learn, then iterate.</p></div>
+      <div class="step"><p class="k">06</p><h3>Ship</h3><p>Ship it, measure it, keep improving.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY 01 -->
+<section class="sec" id="portfolio-insights">
+  <div class="wrap">
+    <div class="cs-head">
+      <p class="label">Case study 01 · Atlassian · Design Lead · 2025-2026</p>
+      <a class="cs-link" href="/portfolio-insights.html">Full case study ↗</a>
+    </div>
+    <h2 class="heading2">Portfolio <span class="accent">Insights</span></h2>
+    <p class="body-lg">How we turned fragmented data into something an admin could quickly scan, understand, and act on by combining business vision, data visualization, and product craft.</p>
+    <div class="stats">
+      <div class="stat"><div class="n">33%</div><div class="d">Reduction in time for migration planning</div></div>
+      <div class="stat"><div class="n">5×</div><div class="d">Increase in self-serve assessments for migration</div></div>
+      <div class="stat"><div class="n">1400</div><div class="d">Instances connected within 6 months of launch</div></div>
+    </div>
+    <div class="video-lg"><div class="embed" data-fit data-w="1580" data-h="1272"><img class="embed-poster" src="/assets/img/posters/pi-empty-default.png?v=2" alt="" loading="lazy" /><iframe data-src="/assets/anim/pi-empty-default.html?v=3" loading="lazy" scrolling="no" title="Portfolio Insights dashboard load animation"></iframe></div></div>
+    <div class="cols2">
+      <div class="col"><h4>The Challenge</h4><p>Enterprise admins faced a fragmented ecosystem with information scattered across disconnected tools. Finding and diagnosing problems took manual effort and time.</p></div>
+      <div class="col"><h4>The Opportunity</h4><p>By consolidating data into a single, AI-powered application, we provided enterprise admins with actionable insights and an intuitive surface to optimize and plan migrations, giving them the confidence to scale wall-to-wall with Atlassian.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="quote tight">
+  <div class="wrap">
+    <div class="qmark">“</div>
+    <p class="qtext">Admins are at the heart of the successful<br><span class="accent">adoption of Atlassian's System of Work</span></p>
+    <p class="qattr">— Justin Maguire, Head of Design, TAP</p>
+  </div>
+</section>
+
+<section class="features tight">
+  <div class="wrap" style="display:flex;flex-direction:column;gap:130px">
+    <div class="feat">
+      <div class="fpanel"><div class="embed" data-fit data-w="960" data-h="553"><img class="embed-poster" src="/assets/img/posters/pi-hero-fill.png?v=3" alt="" loading="lazy" /><iframe data-src="/assets/anim/pi-hero-fill.html?v=4" loading="lazy" scrolling="no" title="Instance health data visualization animation"></iframe></div></div>
+      <div class="feat-text">
+        <p class="feat-label">Data Visualizations</p>
+        <h3 class="feat-title">Crafted to make dense information easy to scan</h3>
+        <p class="feat-body">The data visualizations turn complex, high-volume information into something admins can take in at a glance — giving them the clarity to understand their footprint and reach better decisions, faster.</p>
+      </div>
+    </div>
+    <div class="feat rev">
+      <div class="feat-text">
+        <p class="feat-label">AI Co-Pilot</p>
+        <h3 class="feat-title">An always-on AI co-pilot</h3>
+        <p class="feat-body">An AI assistant sits right alongside the data — ready to summarize what's happening, flag what needs attention, and suggest the next move, so admins always have a knowledgeable second set of eyes.</p>
+      </div>
+      <div class="fpanel v2"><div class="embed" data-fit data-w="1580" data-h="1272"><img class="embed-poster" src="/assets/img/posters/pi-ai-expand.png?v=1" alt="" loading="lazy" /><iframe data-src="/assets/anim/pi-ai-expand.html?v=2" loading="lazy" scrolling="no" title="AI co-pilot animation"></iframe></div></div>
+    </div>
+    <div class="feat">
+      <div class="fpanel v3"><div class="embed" data-fit data-w="1860" data-h="1064"><img class="embed-poster" src="/assets/img/posters/pi-migration-plan.png?v=6" alt="" loading="lazy" /><iframe data-src="/assets/anim/pi-migration-plan.html?v=7" loading="lazy" scrolling="no" title="Migration planning animation"></iframe></div></div>
+      <div class="feat-text">
+        <p class="feat-label">Migration Planning</p>
+        <h3 class="feat-title">A clear path to cloud</h3>
+        <p class="feat-body">Once an instance is optimized, admins move into migration planning — scoping sources, sequencing the work, and mapping a confident path to cloud, all in one place.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY 02 -->
+<section class="sec" id="system-health">
+  <div class="wrap">
+    <div class="cs-head">
+      <p class="label">Case study 02 · Atlassian · Design Lead · 2026</p>
+      <a class="cs-link" href="/system-health.html">Full case study ↗</a>
+    </div>
+    <h2 class="heading2">System <span class="accent">Health</span></h2>
+    <p class="body-lg">How we gave teams a single, real-time view of Atlassian apps system health — taking information buried in scattered lists and tools into clear signals, early warnings, and faster incident response.</p>
+    <div class="stats">
+      <div class="stat"><div class="n">80%</div><div class="d">Alert noise reduction</div></div>
+      <div class="stat"><div class="n">6.0+</div><div class="d">Average SEQ scores</div></div>
+      <div class="stat"><div class="n">75%</div><div class="d">Reduction in time to awareness</div></div>
+    </div>
+    <div class="video-lg"><div class="embed" data-fit data-w="1440" data-h="900"><img class="embed-poster" src="/assets/img/posters/system-health-loading.png?v=1" alt="" loading="lazy" /><iframe data-src="/assets/anim/system-health-loading.html?v=2" loading="lazy" scrolling="no" title="System Health dashboard loading"></iframe></div></div>
+    <div class="cols2">
+      <div class="col"><h4>The Challenge</h4><p>Org administrators were often not aware of Atlassian incidents or downtime until it was too late. Information was buried in disconnected dashboards and logs. Critical signals were easy to miss, leading to frustrated users in their organizations.</p></div>
+      <div class="col"><h4>The Opportunity</h4><p>By unifying health signals into one clear, real-time surface with constant updates, we gave teams the confidence to catch problems early and resolve them faster, together.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="features tight">
+  <div class="wrap" style="display:flex;flex-direction:column;gap:130px">
+    <div class="feat">
+      <div class="fpanel"><div class="embed" data-fit data-w="880" data-h="640"><img class="embed-poster" src="/assets/img/posters/system-health-map.png?v=3" alt="" loading="lazy" /><iframe data-src="/assets/anim/system-health-map.html?v=2" loading="lazy" scrolling="no" title="Real-time monitoring animation"></iframe></div></div>
+      <div class="feat-text">
+        <p class="feat-label">Real-Time Monitoring</p>
+        <h3 class="feat-title">From static lists to a living map</h3>
+        <p class="feat-body">Incidents were previously compiled into lists buried in fragmented tools and UIs. With this map, the path to understanding becomes easy. An admin can quickly scan where incidents are, zoom, and get more details.</p>
+      </div>
+    </div>
+    <div class="feat rev">
+      <div class="feat-text">
+        <p class="feat-label">Smart Alerting</p>
+        <h3 class="feat-title">More signal, less noise</h3>
+        <p class="feat-body">Used techniques such as progressive disclosure and detail pages which avoided overwhelming the user with too much information on first view. Less complexity, less noise, and more clarity.</p>
+      </div>
+      <div class="fpanel v2"><div class="embed" data-fit data-w="1440" data-h="900"><img class="embed-poster" src="/assets/img/posters/system-health-rail.png?v=1" alt="" loading="lazy" /><iframe data-src="/assets/anim/system-health-rail.html?v=2" loading="lazy" scrolling="no" title="Smart alerting animation"></iframe></div></div>
+    </div>
+    <div class="feat">
+      <div class="fpanel v3"><div class="embed" data-fit data-w="1240" data-h="780"><img class="embed-poster" src="/assets/img/posters/system-health-incident.png?v=1" alt="" loading="lazy" /><iframe data-src="/assets/anim/system-health-incident.html?v=2" loading="lazy" scrolling="no" title="Incident context animation"></iframe></div></div>
+      <div class="feat-text">
+        <p class="feat-label">Incident Context</p>
+        <h3 class="feat-title">Every incident, with full context</h3>
+        <p class="feat-body">When something breaks, the timeline, affected systems, and recent changes are already gathered in one place — so teams can move from detection to resolution without hunting for information.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIT -->
+<section class="sec" id="fit">
+  <div class="wrap">
+    <p class="label">Why this fits</p>
+    <h2 class="heading2">From admin dashboards <span class="accent">to payments</span></h2>
+    <div class="fit">
+      <div><h4>Dense data, made legible</h4><p>Visualizations that let people take in high-volume information at a glance — the same discipline any payments dashboard needs when the numbers matter.</p></div>
+      <div><h4>Trust is the product</h4><p>System Health made reliability visible: 80% less alert noise and 75% faster time to awareness. Confidence in infrastructure is built from clear, honest signals.</p></div>
+      <div><h4>High-stakes decisions</h4><p>Migration planning turned guesswork into a confident path. Where mistakes are expensive, clear next steps and a calm interface do the heavy lifting.</p></div>
+    </div>
+    <div class="learn">
+      <p class="label">What I'm keen to learn</p>
+      <p class="body">The specifics of money movement at global scale — compliance, currencies, and local payment methods across markets — and how design decisions have to hold up across all of them.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  function fitEmbeds(){
+    document.querySelectorAll('.embed[data-fit]').forEach(function(el){
+      var bw=parseFloat(el.getAttribute('data-w'))||1440;
+      var bh=parseFloat(el.getAttribute('data-h'))||900;
+      var w=el.clientWidth, s=w/bw;
+      el.style.height=(bh*s)+'px';
+      var f=el.querySelector('iframe'); if(f){ f.style.width=bw+'px'; f.style.height=bh+'px'; f.style.transform='scale('+s+')'; }
+    });
+  }
+  window.addEventListener('load',fitEmbeds);
+  window.addEventListener('resize',fitEmbeds);
+  document.addEventListener('DOMContentLoaded',fitEmbeds);
+
+  // Defer each animation: only load (and thus start playing) its iframe once its section scrolls into view.
+  (function(){
+    function load(f){ if(!(f && f.getAttribute('data-src'))) return; var em=f.closest('.embed'); var poster=em?em.querySelector('.embed-poster'):null; var started=false; function start(){ if(started) return; started=true; f.src=f.getAttribute('data-src'); f.removeAttribute('data-src'); setTimeout(fitEmbeds,60); if(!em) return; var cap=0,lastSig='',stable=0; function reveal(){ em.classList.add('is-live'); } function sigOf(s){ var h=0,L=s.length,i; for(i=0;i<L;i+=9){ h=(h*31+s.charCodeAt(i))|0; } return h+'#'+L; } (function poll(){ cap++; try{ var d=f.contentDocument; if(d && d.body && !d.getElementById('__bundler_thumbnail')){ var sig=sigOf(d.body.innerHTML||''); if(sig===lastSig){ stable++; } else { stable=0; lastSig=sig; } if(stable>=3){ reveal(); return; } } }catch(e){ reveal(); return; } if(cap>50){ reveal(); return; } setTimeout(poll,180); })(); } if(poster && !poster.complete){ poster.addEventListener('load',start,{once:true}); poster.addEventListener('error',start,{once:true}); setTimeout(start,1000); } else { start(); } }
+    if(!('IntersectionObserver' in window)){ document.querySelectorAll('iframe[data-src]').forEach(load); return; }
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ load(e.target.querySelector('iframe[data-src]')); io.unobserve(e.target); } });
+    },{rootMargin:'0px 0px -20% 0px',threshold:0.01});
+    document.querySelectorAll('.embed').forEach(function(el){ io.observe(el); });
+  })();
+
+  // Reveal quote blocks as they scroll into view.
+  (function(){
+    var quotes=document.querySelectorAll('.quote');
+    if(!quotes.length) return;
+    if(!('IntersectionObserver' in window)){ quotes.forEach(function(q){ q.classList.add('in'); }); return; }
+    var qo=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); qo.unobserve(e.target); } });
+    },{rootMargin:'0px 0px -12% 0px',threshold:0.25});
+    quotes.forEach(function(q){ qo.observe(q); });
+  })();
+
+  // Align the "Portfolio" back button to the same left edge the home headline uses.
+  // Mirrors the home page's split-layout geometry: the left content block is 570px
+  // (capped to the half-width minus 48px) centered in the left half of the viewport.
+  function homeLeftEdge(){
+    var vw=document.documentElement.clientWidth||window.innerWidth;
+    if(vw<=900) return 28;                 // matches home mobile --pad
+    var innerW=Math.min(570, vw/2-48);
+    return Math.round((vw/2-innerW)/2);
+  }
+  function alignBack(){
+    var nav=document.querySelector('.dnav-in');
+    if(!nav) return;
+    if(window.matchMedia('(max-width:900px)').matches){ nav.style.paddingLeft=''; nav.style.paddingRight=''; return; }
+    var e=homeLeftEdge();
+    nav.style.paddingLeft=e+'px';
+    nav.style.paddingRight=e+'px';
+  }
+  window.addEventListener('load',alignBack);
+  window.addEventListener('resize',alignBack);
+  document.addEventListener('DOMContentLoaded',alignBack);
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(alignBack); }
+</script>
+
+<section class="contact-cta" id="contact">
+  <div class="wrap contact-in">
+    <div class="contact-head">
+      <p class="eyebrow">Contact</p>
+      <h2 class="contact-title">Reach out<br>&amp; let's<br><span class="accent">connect</span></h2>
+    </div>
+    <div class="contact-side">
+      <p class="contact-lead">I'm interested in an exciting new challenge. Let's do some amazing work together.</p>
+      <ul class="contact-links">
+        <li><a href="mailto:solotaj@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          solotaj@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/taj-palchaudhuri/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.96-1.8-2.96-1.8 0-2.08 1.4-2.08 2.86V21H9z"/></svg>
+          LinkedIn</a></li>
+        <li><a href="#" data-pending="resume">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13.5h6M9 17h6"/></svg>
+          Resume</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap sf-in">
+    <p class="sf-copy">&copy; 2026 Taj Palchaudhuri</p>
+    <p class="sf-rights">All content and images on this site are copyrighted.<br>Reproduction or use for AI model training is prohibited.</p>
+    <p class="sf-built">Designed and built with<span class="sf-tools"><span class="sf-tool"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c.5 4.5 3.5 7.5 8 8-4.5.5-7.5 3.5-8 8-.5-4.5-3.5-7.5-8-8 4.5-.5 7.5-3.5 8-8z"/></svg>Claude</span><span class="sf-dot">&middot;</span><span class="sf-tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>Pencil.dev</span><span class="sf-dot">&middot;</span><span class="sf-tool"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 4.7 18 5 18 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>GitHub</span><span class="sf-dot">&middot;</span><span class="sf-tool"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 22 20H2z"/></svg>Vercel</span></span></p>
+  </div>
+</footer>
+
+<script src="/assets/lightbox.js"></script>
+</body>
+</html>
