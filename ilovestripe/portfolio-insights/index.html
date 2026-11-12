@@ -58,45 +58,49 @@
       <div class="col"><h4>The Challenge</h4><p>Enterprise admins faced a fragmented ecosystem with information scattered across disconnected tools. Finding and diagnosing problems took manual effort and time.</p></div>
       <div class="col"><h4>The Opportunity</h4><p>By consolidating data into a single, AI-powered application, we provided enterprise admins with actionable insights and an intuitive surface to optimize and plan migrations, giving them the confidence to scale wall-to-wall with Atlassian.</p></div>
     </div>
-    <figure class="fig"><div class="fig-bar"><span class="t">Workshop · Cross-functional brainstorm</span><span class="n">Recreated for this presentation</span></div><div class="fig-body">
-<div class="bs">
-  <div><p class="fig-h">In the room</p><div class="chips"><span class="chip">Product</span><span class="chip">Engineering</span><span class="chip">Design</span><span class="chip">Research</span><span class="chip">Data &amp; analytics</span><span class="chip">Customer &amp; support</span></div></div>
-  <div><p class="fig-h">Ideas on the wall</p><div class="stickies">
-    <div class="sticky c1" style="--r:-1.6deg"><span class="k">How might we</span>…show an admin the health of every instance at a glance?<span class="dots"><i></i><i></i><i></i></span></div>
-    <div class="sticky c2" style="--r:1.2deg"><span class="k">How might we</span>…surface risk before it turns into an incident?<span class="dots"><i></i><i></i></span></div>
-    <div class="sticky c3" style="--r:-0.8deg"><span class="k">How might we</span>…make migration readiness visible without a manual audit?<span class="dots"><i></i><i></i><i></i></span></div>
-    <div class="sticky c4" style="--r:1.5deg"><span class="k">How might we</span>…help admins trust an automated recommendation?<span class="dots"><i></i><i></i></span></div>
-    <div class="sticky c2" style="--r:-1.2deg"><span class="k">How might we</span>…give Data Center and Cloud admins one shared view?<span class="dots"><i></i></span></div>
-    <div class="sticky c1" style="--r:0.9deg"><span class="k">How might we</span>…turn a finding into the next action, in one place?<span class="dots"><i></i><i></i></span></div>
+    <figure class="fig"><div class="fig-bar"><span class="t">Workshop · Cross-craft brainstorm &amp; prioritization</span><span class="n">Recreated for this presentation</span></div><div class="fig-body">
+<div class="legend"><span><i class="c1"></i>Design</span><span><i class="c2"></i>Product</span><span><i class="c3"></i>Engineering</span><span><i class="c4"></i>Research</span><span><i class="c5"></i>Data</span></div>
+<div class="board">
+  <div class="pane"><h4>Diverge</h4><p class="s">Every craft, every idea</p><div class="stickies"><div class="sticky c1" style="--r:-1.6deg"><span class="k">Design</span>One health score per instance</div><div class="sticky c2" style="--r:1.2deg"><span class="k">Product</span>Biggest cost first: bloat nobody uses</div><div class="sticky c3" style="--r:-0.8deg"><span class="k">Engineering</span>What can we measure reliably today?</div><div class="sticky c4" style="--r:1.5deg"><span class="k">Research</span>What do admins check first?</div><div class="sticky c5" style="--r:-1.2deg"><span class="k">Data</span>Define what “healthy” means</div><div class="sticky c1" style="--r:0.9deg"><span class="k">Design</span>Show the reason behind every flag</div><div class="sticky c2" style="--r:-1.4deg"><span class="k">Product</span>Readiness before migration planning</div><div class="sticky c3" style="--r:1.1deg"><span class="k">Engineering</span>Reuse the telemetry we already collect</div><div class="sticky c4" style="--r:-0.7deg"><span class="k">Research</span>Where do admins lose the most time?</div></div></div>
+  <div class="pane"><h4>Cluster</h4><p class="s">Group what belongs together</p><div class="groups">
+    <div class="group"><b>See everything</b><div class="stubs"><i class="c1"></i><i class="c5"></i><i class="c2"></i></div></div>
+    <div class="group"><b>Know what to fix</b><div class="stubs"><i class="c2"></i><i class="c3"></i><i class="c1"></i></div></div>
+    <div class="group"><b>Trust the guidance</b><div class="stubs"><i class="c1"></i><i class="c4"></i></div></div>
+    <div class="group"><b>Plan the move</b><div class="stubs"><i class="c2"></i><i class="c4"></i><i class="c3"></i></div></div>
   </div></div>
-  <div><p class="fig-h">Themes we carried forward</p><ol class="rank">
-    <li>One view across every instance</li>
-    <li>Insight that leads straight to action</li>
-    <li>Automation admins can trust</li>
-  </ol></div>
-</div>
-<div class="fig-foot"><span><b>01</b>Frame the problem</span><span><b>02</b>Diverge on ideas</span><span><b>03</b>Cluster</span><span><b>04</b>Dot-vote</span></div>
-</div></figure>
-    <figure class="fig"><div class="fig-bar"><span class="t">Research · Admin interviews</span><span class="n">Recreated for this presentation</span></div><div class="fig-body">
-<div class="iv">
-  <div><p class="fig-h">Interview guide</p><ol class="guide">
-    <li><div><b>Role &amp; environment</b><span>“Tell me about the systems you look after.”</span></div></li>
-    <li><div><b>A typical week</b><span>“Walk me through what you did yesterday.”</span></div></li>
-    <li><div><b>Where the data lives</b><span>“Where do you go to answer that?”</span></div></li>
-    <li><div><b>Finding problems</b><span>“Tell me about the last time something went wrong.”</span></div></li>
-    <li><div><b>Planning a migration</b><span>“How do you decide what moves, and when?”</span></div></li>
-    <li><div><b>Trusting automation</b><span>“What would make you act on a recommendation?”</span></div></li>
-  </ol></div>
-  <div>
-    <p class="fig-h">Who we spoke with</p>
-    <div class="who"><span class="chip">Enterprise admin · Data Center</span><span class="chip">Enterprise admin · Cloud</span><span class="chip">Admin planning a move to Cloud</span></div>
-    <p class="fig-h">What we heard</p>
-    <div class="heard">
-      <div class="hcard"><h4>Scattered information</h4><p>Answers lived in disconnected tools, so one question meant visiting several.</p><q>“Add a quote from your interview notes”</q></div>
-      <div class="hcard"><h4>Manual diagnosis</h4><p>Finding and diagnosing a problem took manual effort and time.</p><q>“Add a quote from your interview notes”</q></div>
-      <div class="hcard"><h4>Migration by guesswork</h4><p>Scoping and sequencing a move to Cloud had no clear map.</p><q>“Add a quote from your interview notes”</q></div>
-      <div class="hcard"><h4>Conditional trust</h4><p>Admins would act on automation only if they could see why.</p><q>“Add a quote from your interview notes”</q></div>
+  <div class="pane"><h4>Prioritize</h4><p class="s">Impact against effort</p>
+    <div class="matrix"><div class="win"></div>
+      <span class="q" style="left:8px;top:7px">Do first</span><span class="q" style="right:8px;top:7px">Plan</span>
+      <span class="q" style="left:8px;bottom:7px">Quick wins</span><span class="q" style="right:8px;bottom:7px">Park</span>
+      <div class="dot c1" style="left:20%;top:26%">1</div><div class="dot c2" style="left:36%;top:38%">2</div><div class="dot c4" style="left:70%;top:22%">3</div><div class="dot m" style="left:16%;top:72%"></div><div class="dot m" style="left:62%;top:68%"></div><div class="dot m" style="left:84%;top:82%"></div><div class="dot m" style="left:44%;top:60%"></div>
     </div>
+    <div class="axis-x"><span>Low effort</span><span>High effort</span></div>
+    <ol class="rank"><li>Portfolio health at a glance</li><li>Cleanup recommendations</li><li>Cloud readiness view</li></ol>
+  </div>
+</div>
+</div></figure>
+    <figure class="fig"><div class="fig-bar"><span class="t">Research · Who we designed for &amp; how we learned</span><span class="n">Recreated for this presentation</span></div><div class="fig-body">
+<div class="pp">
+  <div>
+    <p class="fig-h">Proto-personas<small>Starting hypotheses, to validate</small></p>
+    <div class="people">
+      <div class="person"><svg viewBox="0 0 120 120" role="img" aria-label="Persona placeholder"><defs><linearGradient id="gshort" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a3a3a"/><stop offset="1" stop-color="#1c1c1c"/></linearGradient></defs><rect width="120" height="120" fill="url(#gshort)"/><path d="M14 124C14 92 36 80 60 80C84 80 106 92 106 124Z" fill="#4b4b4b"/><circle cx="60" cy="54" r="22" fill="#767676"/><path d="M37 52C35 28 85 28 83 52C77 41 43 41 37 52Z" fill="#242424"/></svg><h4>Data Center admin</h4><p class="role">Keeps a large instance healthy.</p><p class="hyp">Wants to know what’s bloated before users feel it.</p></div>
+      <div class="person"><svg viewBox="0 0 120 120" role="img" aria-label="Persona placeholder"><defs><linearGradient id="glong" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#444"/><stop offset="1" stop-color="#202020"/></linearGradient></defs><rect width="120" height="120" fill="url(#glong)"/><path d="M14 124C14 92 36 80 60 80C84 80 106 92 106 124Z" fill="#4b4b4b"/><circle cx="60" cy="54" r="22" fill="#767676"/><path d="M35 58C28 22 92 22 85 58L86 90L74 90L74 58C73 42 47 42 46 58L46 90L34 90Z" fill="#242424"/></svg><h4>Migration lead</h4><p class="role">Plans the move to Cloud.</p><p class="hyp">Needs to know when they’re ready, and what’s blocking them.</p></div>
+      <div class="person"><svg viewBox="0 0 120 120" role="img" aria-label="Persona placeholder"><defs><linearGradient id="gglasses" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3d3d3d"/><stop offset="1" stop-color="#1a1a1a"/></linearGradient></defs><rect width="120" height="120" fill="url(#gglasses)"/><path d="M14 124C14 92 36 80 60 80C84 80 106 92 106 124Z" fill="#4b4b4b"/><circle cx="60" cy="54" r="22" fill="#767676"/><path d="M38 50C38 30 82 30 82 50C76 41 44 41 38 50Z" fill="#242424"/><g fill="none" stroke="#bdbdbd" stroke-width="2"><circle cx="51" cy="55" r="7"/><circle cx="69" cy="55" r="7"/><path d="M58 55H62"/></g></svg><h4>Portfolio admin</h4><p class="role">Looks after many instances.</p><p class="hyp">Needs one view, not one-by-one checks.</p></div>
+      <div class="person"><svg viewBox="0 0 120 120" role="img" aria-label="Persona placeholder"><defs><linearGradient id="gcurly" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#404040"/><stop offset="1" stop-color="#1e1e1e"/></linearGradient></defs><rect width="120" height="120" fill="url(#gcurly)"/><path d="M14 124C14 92 36 80 60 80C84 80 106 92 106 124Z" fill="#4b4b4b"/><circle cx="60" cy="54" r="22" fill="#767676"/><g fill="#242424"><circle cx="42" cy="42" r="9"/><circle cx="54" cy="35" r="10"/><circle cx="68" cy="35" r="10"/><circle cx="79" cy="43" r="9"/><circle cx="60" cy="40" r="12"/></g></svg><h4>IT sponsor</h4><p class="role">Owns the outcome and the budget.</p><p class="hyp">Needs a status they can trust and repeat upward.</p></div>
+    </div>
+  </div>
+  <div class="plan">
+    <h5>Questions to answer</h5>
+    <ul class="qs"><li>What do admins check first, and where?</li><li>How do they decide something is unhealthy?</li><li>What blocks a move to Cloud?</li><li>What would make them act on a recommendation?</li></ul>
+    <h5>Methods</h5>
+    <div class="methods">
+      <div class="method"><span class="n">01</span><div><b>Stakeholder interviews</b><span>Product, engineering and support.</span></div></div>
+      <div class="method"><span class="n">02</span><div><b>Admin interviews</b><span>Data Center, Cloud, and mid-migration.</span></div></div>
+      <div class="method"><span class="n">03</span><div><b>Usage &amp; support review</b><span>What admins actually do, and ask.</span></div></div>
+      <div class="method"><span class="n">04</span><div><b>Concept walkthroughs</b><span>Paper, then clickable, early.</span></div></div>
+    </div>
+    <div class="steps2"><span>Plan</span><span>Recruit</span><span>Interview</span><span>Synthesize</span></div>
   </div>
 </div>
 </div></figure>
@@ -122,11 +126,11 @@
   </div></div>
   <div class="arr">→</div>
   <div><p class="fig-h">Clusters</p><div class="clusters">
-    <div class="cluster"><h4>Scattered sources</h4><div class="stubs"><i style="background:#F0605A"></i><i style="background:#F0605A"></i><i style="background:#F1E2C6"></i></div></div>
-    <div class="cluster"><h4>Manual diagnosis</h4><div class="stubs"><i style="background:#F1E2C6"></i><i style="background:#FFB35C"></i></div></div>
-    <div class="cluster"><h4>Migration guesswork</h4><div class="stubs"><i style="background:#FF8FA3"></i><i style="background:#FFB35C"></i><i style="background:#FF8FA3"></i></div></div>
-    <div class="cluster"><h4>Trust in automation</h4><div class="stubs"><i style="background:#F0605A"></i><i style="background:#F1E2C6"></i></div></div>
-    <div class="cluster"><h4>Data Center vs Cloud</h4><div class="stubs"><i style="background:#FF8FA3"></i><i style="background:#FFB35C"></i></div></div>
+    <div class="cluster"><h4>Scattered sources</h4><div class="stubs"><i class="c1"></i><i class="c1"></i><i class="c4"></i></div></div>
+    <div class="cluster"><h4>Manual diagnosis</h4><div class="stubs"><i class="c4"></i><i class="c2"></i></div></div>
+    <div class="cluster"><h4>Migration guesswork</h4><div class="stubs"><i class="c3"></i><i class="c2"></i><i class="c3"></i></div></div>
+    <div class="cluster"><h4>Trust in automation</h4><div class="stubs"><i class="c1"></i><i class="c4"></i></div></div>
+    <div class="cluster"><h4>Data Center vs Cloud</h4><div class="stubs"><i class="c3"></i><i class="c2"></i></div></div>
   </div></div>
   <div class="arr">→</div>
   <div><p class="fig-h">Insights</p>
@@ -136,30 +140,53 @@
   </div>
 </div>
 </div></figure>
-    <figure class="fig"><div class="fig-bar"><span class="t">Information architecture · Data Center and Cloud</span><span class="n">Recreated for this presentation</span></div><div class="fig-body">
+    <figure class="fig bw"><div class="fig-bar"><span class="t">Information architecture · Data Center optimization &amp; Cloud readiness</span><span class="n">Recreated for this presentation</span></div><div class="fig-body">
 <div class="ia">
   <div class="ia-entry">Admin hub<em>›</em>Insights<em>›</em>Portfolio insights</div>
   <div class="ia-v"></div>
-  <div class="ia-over"><h4>Portfolio overview</h4><p>Every instance, one view</p>
-    <div class="chips2"><span class="tag2">Instance health</span><span class="tag2">Instance complexity</span><span class="tag2">Entity growth</span><span class="tag2">Largest projects</span><span class="tag2">Attachment storage</span></div>
-  </div>
+  <div class="ia-over"><h4>Portfolio overview</h4><p>Every instance · health · readiness · recommendations</p></div>
   <div class="ia-fork"><span></span><span></span></div>
-  <div class="ia-lanes">
-    <div class="lane"><h4>Data Center</h4><p class="sub">Instances you run today</p>
-      <div class="node">Instance list<small>Health score, version, size</small></div><span class="dn">↓</span>
-      <div class="node">Instance detail<small>Health · Complexity · Entities · Storage · Apps</small></div>
+  <div class="ia-sides">
+    <div class="side"><h4>Data Center</h4><p class="sub">Optimization · run it leaner</p>
+      <ul class="tree">
+        <li>Instance health<small>Availability · performance · re-index</small></li>
+        <li>Complexity &amp; growth<small>Entities · custom fields · workflows</small></li>
+        <li>Storage<small>Attachments · largest projects</small></li>
+        <li>Apps<small>Usage · updates</small></li>
+        <li>Cleanup recommendations<small>Unused fields · inactive workflows</small></li>
+      </ul>
     </div>
-    <div class="lane bridge"><h4>Migration planning</h4><p class="sub">The bridge from Data Center to Cloud</p>
-      <div class="node">Assess readiness<small>What’s unused, at risk, or ready to move</small></div><span class="dn">↓</span>
-      <div class="node">Plan &amp; sequence<small>Scope sources and order the work</small></div><span class="dn">↓</span>
-      <div class="node">Move to Cloud<small>A confident path, in one place</small></div>
-    </div>
-    <div class="lane"><h4>Cloud</h4><p class="sub">Sites you run in Cloud</p>
-      <div class="node">Site list<small>Health score, plan, size</small></div><span class="dn">↓</span>
-      <div class="node">Site detail<small>Health · Complexity · Entities · Storage · Apps</small></div>
+    <div class="side alt"><h4>Cloud</h4><p class="sub">Readiness · know when to move</p>
+      <ul class="tree">
+        <li>Readiness score<small>Per instance, at a glance</small></li>
+        <li>Blockers &amp; risks<small>What stands in the way</small></li>
+        <li>App compatibility<small>Cloud-ready or needs a plan</small></li>
+        <li>Scope &amp; sizing<small>What moves, and how much</small></li>
+        <li>Migration plan<small>Sequence · timeline</small></li>
+      </ul>
     </div>
   </div>
-  <div class="ia-shared"><span class="l">Shared across both</span><span class="tag2">Recommendations</span><span class="tag2">AI assistant</span><span class="tag2">Cross-instance insights</span></div>
+  <div class="ia-bridge"><b>Shared across both</b><span class="tg">Instance list</span><span class="tg">Recommendations</span><span class="tg">AI assistant</span><span>Optimize → Ready → Migrate</span></div>
+  <div class="wf-row">
+    <div class="wf">
+      <div class="wf-top"><i></i><i></i><i></i><b></b></div>
+      <div class="wf-grid">
+        <div class="box tall"><div class="ring"></div><div class="bar"><i style="width:82%"></i></div><div class="bar"><i style="width:46%"></i></div><div class="bar"><i style="width:68%"></i></div></div>
+        <div class="box tall"><div class="row"><span class="sq on"></span><span class="ln"></span><span class="tagw"></span></div><div class="row"><span class="sq"></span><span class="ln"></span><span class="tagw"></span></div><div class="row"><span class="sq"></span><span class="ln"></span><span class="tagw"></span></div><div class="row"><span class="sq"></span><span class="ln"></span><span class="tagw"></span></div></div>
+      </div>
+      <div class="box" style="margin-top:12px"><div class="cols"><i style="height:40%"></i><i style="height:62%"></i><i style="height:48%"></i><i style="height:82%"></i><i style="height:58%"></i><i style="height:70%"></i><i style="height:36%"></i></div></div>
+      <p class="cap">Low-fi wireframe · Data Center optimization</p>
+    </div>
+    <div class="wf">
+      <div class="wf-top"><i></i><i></i><i></i><b></b></div>
+      <div class="wf-grid">
+        <div class="box tall"><div class="ring sm2"></div><div class="bar"><i style="width:74%"></i></div><div class="bar"><i style="width:52%"></i></div></div>
+        <div class="box tall"><div class="row"><span class="sq on"></span><span class="ln"></span></div><div class="row"><span class="sq on"></span><span class="ln"></span></div><div class="row"><span class="sq"></span><span class="ln"></span></div><div class="row"><span class="sq"></span><span class="ln"></span></div></div>
+      </div>
+      <div class="box" style="margin-top:12px"><div class="tl"><i class="on" style="left:0"></i><i class="on" style="left:38%"></i><i style="left:72%"></i><i style="left:calc(100% - 12px)"></i></div><div class="tlbl"><span>Assess</span><span>Plan</span><span>Move</span><span>Done</span></div></div>
+      <p class="cap">Low-fi wireframe · Cloud readiness</p>
+    </div>
+  </div>
 </div>
 </div></figure>
   </div>
