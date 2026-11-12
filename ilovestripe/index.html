@@ -299,6 +299,11 @@
   .ai-key{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:#6B6B64;text-transform:uppercase;margin-top:22px}
   .step-ai{display:flex;align-items:center;gap:18px;margin-top:24px;color:#6B6B64}
   .step-ai svg{height:16px;width:16px;flex:none;display:block}
+
+  .title-link{color:inherit;display:inline-block;border-bottom:2px solid transparent;transition:border-color .2s}
+  .title-link .ar{width:.5em;height:.5em;color:var(--accent);margin-left:.16em;vertical-align:.36em;display:inline-block;transition:transform .2s}
+  .title-link:hover{border-color:var(--accent)}
+  .title-link:hover .ar{transform:translate(3px,-3px)}
 </style>
 <script src="/assets/analytics.js"></script>
 </head>
@@ -365,8 +370,8 @@
     <h2 class="heading2">Two case studies, <span class="accent">one thread</span></h2>
     <p class="body-lg">Thanks for the time, Stripe. Both start with the same problem: people making high-stakes decisions from information scattered across too many places. Both end with a single surface they can trust — the kind of work I&rsquo;d love to bring to global payments.</p>
     <div class="agenda">
-      <a class="arow" href="#portfolio-insights"><span class="num">01</span><span class="t">Portfolio Insights</span><span class="m">AI · Data visualization · Migration</span></a>
-      <a class="arow" href="#system-health"><span class="num">02</span><span class="t">System Health</span><span class="m">Real-time · Reliability · Trust</span></a>
+      <a class="arow" href="/ilovestripe/portfolio-insights/"><span class="num">01</span><span class="t">Portfolio Insights</span><span class="m">AI · Data visualization · Migration</span></a>
+      <a class="arow" href="/ilovestripe/system-health/"><span class="num">02</span><span class="t">System Health</span><span class="m">Real-time · Reliability · Trust</span></a>
     </div>
   </div>
 </section>
@@ -395,7 +400,7 @@
       <p class="label">Case study 01 · Atlassian · Design Lead · 2025-2026</p>
       <a class="cs-link" href="/ilovestripe/portfolio-insights/">The full process →</a>
     </div>
-    <h2 class="heading2">Portfolio <span class="accent">Insights</span></h2>
+    <h2 class="heading2"><a class="title-link" href="/ilovestripe/portfolio-insights/">Portfolio <span class="accent">Insights</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></h2>
     <p class="body-lg">How we turned fragmented data into something an admin could quickly scan, understand, and act on by combining business vision, data visualization, and product craft.</p>
     <div class="stats">
       <div class="stat"><div class="n">33%</div><div class="d">Reduction in time for migration planning</div></div>
@@ -454,7 +459,7 @@
       <p class="label">Case study 02 · Atlassian · Design Lead · 2026</p>
       <a class="cs-link" href="/ilovestripe/system-health/">The full process →</a>
     </div>
-    <h2 class="heading2">System <span class="accent">Health</span></h2>
+    <h2 class="heading2"><a class="title-link" href="/ilovestripe/system-health/">System <span class="accent">Health</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></h2>
     <p class="body-lg">How we gave teams a single, real-time view of Atlassian apps system health — taking information buried in scattered lists and tools into clear signals, early warnings, and faster incident response.</p>
     <div class="stats">
       <div class="stat"><div class="n">80%</div><div class="d">Alert noise reduction</div></div>
