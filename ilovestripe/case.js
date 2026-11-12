@@ -53,3 +53,19 @@ function fitEmbeds(){
   window.addEventListener('resize',alignBack);
   document.addEventListener('DOMContentLoaded',alignBack);
   if(document.fonts && document.fonts.ready){ document.fonts.ready.then(alignBack); }
+
+// Sticky step nav: highlight the band currently in view.
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.snav a'));
+  if(!links.length) return;
+  var bands=links.map(function(a){ return document.getElementById(a.getAttribute('data-step')); });
+  function upd(){
+    var y=window.scrollY+130, cur=-1;
+    bands.forEach(function(b,i){ if(b && b.getBoundingClientRect().top+window.scrollY<=y) cur=i; });
+    links.forEach(function(a,i){ a.classList.toggle('on', i===cur); });
+  }
+  window.addEventListener('scroll',upd,{passive:true});
+  window.addEventListener('resize',upd);
+  window.addEventListener('load',upd);
+  upd();
+})();
