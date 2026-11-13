@@ -2,7 +2,7 @@
 (function(){
   var slides=[].slice.call(document.querySelectorAll('.slide'));
   if(!slides.length) return;
-  var desk=window.matchMedia('(min-width:901px) and (min-height:520px)');
+  var desk=window.matchMedia('(min-width:901px) and (min-height:360px)');
   var nav=document.querySelector('.dnav');
   var UP='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>';
   var DOWN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>';
@@ -53,20 +53,22 @@
   // ----- fit content to the slide -----
   function fit(){
     setNavH();
-    slides.forEach(function(s){
-      var f=s.querySelector('.slide-fit'); if(!f) return;
+    [].slice.call(document.querySelectorAll('.slide-fit')).forEach(function(f){
       f.style.transform=''; f.style.width=''; f.style.marginBottom=''; f.style.transformOrigin='';
       if(!desk.matches) return;
-      var avail=f.parentElement.clientHeight, h=f.offsetHeight;
+      var par=f.parentElement, cs=getComputedStyle(par), keep=f.hasAttribute('data-keepw');
+      var avail=par.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom), h=f.offsetHeight;
       if(!avail||h<=avail) return;
-      var k=Math.max(0.5,avail/h);
-      for(var n=0;n<4;n++){
-        f.style.width=(100/k)+'%';
-        h=f.offsetHeight;
-        if(h*k<=avail+1) break;
-        k=Math.max(0.5,avail/h);
+      var k=Math.max(0.35,avail/h);
+      if(!keep){
+        for(var n=0;n<4;n++){
+          f.style.width=(100/k)+'%';
+          h=f.offsetHeight;
+          if(h*k<=avail+1) break;
+          k=Math.max(0.35,avail/h);
+        }
       }
-      f.style.transformOrigin='top left';
+      f.style.transformOrigin=keep?'top center':'top left';
       f.style.transform='scale('+k+')';
       f.style.marginBottom=(-(f.offsetHeight*(1-k)))+'px';
     });

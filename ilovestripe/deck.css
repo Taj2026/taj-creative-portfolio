@@ -28,19 +28,21 @@ section.slide{padding-bottom:104px}
 .slide-fit{width:100%}
 
 /* desktop: fixed-height slides */
-@media(min-width:901px) and (min-height:520px){
+@media(min-width:901px) and (min-height:360px){
   html{scroll-snap-type:y mandatory}
   .slide{scroll-snap-align:start;height:calc(100vh - var(--navh));height:calc(100svh - var(--navh));overflow:hidden}
   section.slide{display:flex;flex-direction:column;padding:16px 0 80px}
   section.slide>.wrap{flex:1;min-height:0;display:flex;align-items:center;width:100%}
   .slide-fit{flex:none}
   /* hero slides: grid, content centred, never shorter than a slide */
-  header.slide{height:auto;min-height:calc(100vh - var(--navh));min-height:calc(100svh - var(--navh));overflow:visible}
-  header.dhero.slide{height:calc(100vh - var(--navh));height:calc(100svh - var(--navh));min-height:0;overflow:hidden}
-  .dhero .dhero-r{padding:28px var(--pad);gap:20px;min-height:0}
+  header.slide,header.dhero.slide{height:calc(100vh - var(--navh));height:calc(100svh - var(--navh));min-height:0;overflow:hidden}
+  .ihero.slide{grid-template-rows:minmax(0,1fr);align-content:stretch}
+  .ihero-col,.dhero-l,.dhero-r{min-height:0;overflow:hidden}
+  .ihero-col{padding:24px 0 84px}
+  .dhero .dhero-l{padding:24px 0 84px}
+  .dhero .dhero-r{padding:28px var(--pad) 84px;gap:20px}
   .dhero .dvisual{flex:1 1 0;min-height:0;padding:0 4%}
   .dhero .dvisual img{width:auto;max-width:100%;max-height:100%;object-fit:contain}
-  .dhero .dhero-l{padding:40px 0}
   .slide:has(.fig)>.wrap{max-width:1560px}
   /* last slide: contact fills, footer pinned to the bottom */
   section.slide-end{padding:0}
