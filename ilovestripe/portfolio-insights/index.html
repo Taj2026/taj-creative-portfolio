@@ -12,43 +12,40 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/ilovestripe/case.css?v=12" />
-<link rel="stylesheet" href="/ilovestripe/deck.css?v=3" />
+<link rel="stylesheet" href="/ilovestripe/case.css?v=13" />
 <script src="/assets/analytics.js"></script>
 </head>
 <body>
 
-<nav class="dnav">
-  <div class="dnav-in">
-    <div class="dnav-l">
-      <a class="back" href="/ilovestripe/" aria-label="Back to Prepared for Stripe">←<span class="bk-t"> Prepared for Stripe</span></a>
-      <ol class="snav snav-bar" aria-label="Process steps">
-        <li><a href="#discover" data-step="discover" data-label="Discover">01</a></li>
-        <li><a href="#define" data-step="define" data-label="Define">02</a></li>
-        <li><a href="#ideate" data-step="ideate" data-label="Ideate">03</a></li>
-        <li><a href="#prototype" data-step="prototype" data-label="Prototype">04</a></li>
-        <li><a href="#validate" data-step="validate" data-label="Validate">05</a></li>
-        <li><a href="#ship" data-step="ship" data-label="Ship">06</a></li>
-      </ol>
-    </div>
-    <div class="cs-switch" aria-label="Case studies">
-      <a href="/ilovestripe/">Overview</a>
-      <a href="/ilovestripe/portfolio-insights/" aria-current="page">Portfolio Insights</a>
-      <a href="/ilovestripe/system-health/">System Health</a>
-    </div>
-  </div>
-</nav>
-
-<ol class="snav snav-rail" aria-label="Process steps">
-    <li><a href="#discover" data-step="discover" data-label="Discover">01</a></li>
-    <li><a href="#define" data-step="define" data-label="Define">02</a></li>
-    <li><a href="#ideate" data-step="ideate" data-label="Ideate">03</a></li>
-    <li><a href="#prototype" data-step="prototype" data-label="Prototype">04</a></li>
-    <li><a href="#validate" data-step="validate" data-label="Validate">05</a></li>
-    <li><a href="#ship" data-step="ship" data-label="Ship">06</a></li>
+<ol class="snav snav-rail" aria-label="Sections">
+    <li><a href="#top" data-step="top" data-label="Overview">01</a></li>
+    <li><a href="#discover" data-step="discover" data-label="Discover">02</a></li>
+    <li><a href="#discover-2" data-step="discover-2" data-label="Research">03</a></li>
+    <li><a href="#discover-3" data-step="discover-3" data-label="Admin interviews">04</a></li>
+    <li><a href="#discover-4" data-step="discover-4" data-label="Brainstorm">05</a></li>
+    <li><a href="#discover-5" data-step="discover-5" data-label="Interview notes">06</a></li>
+    <li><a href="#define" data-step="define" data-label="Define">07</a></li>
+    <li><a href="#define-2" data-step="define-2" data-label="Synthesis">08</a></li>
+    <li><a href="#define-3" data-step="define-3" data-label="Journey map">09</a></li>
+    <li><a href="#define-4" data-step="define-4" data-label="Information architecture">10</a></li>
+    <li><a href="#define-5" data-step="define-5" data-label="Requirements">11</a></li>
+    <li><a href="#ideate" data-step="ideate" data-label="Ideate">12</a></li>
+    <li><a href="#ideate-2" data-step="ideate-2" data-label="Sketches">13</a></li>
+    <li><a href="#prototype" data-step="prototype" data-label="Prototype">14</a></li>
+    <li><a href="#prototype-2" data-step="prototype-2" data-label="Clickable flows">15</a></li>
+    <li><a href="#validate" data-step="validate" data-label="Validate">16</a></li>
+    <li><a href="#validate-2" data-step="validate-2" data-label="Test plan">17</a></li>
+    <li><a href="#validate-3" data-step="validate-3" data-label="Findings">18</a></li>
+    <li><a href="#ship" data-step="ship" data-label="Ship">19</a></li>
+    <li><a href="#ship-2" data-step="ship-2" data-label="Data Visualizations">20</a></li>
+    <li><a href="#ship-3" data-step="ship-3" data-label="AI Co-Pilot">21</a></li>
+    <li><a href="#ship-4" data-step="ship-4" data-label="Migration Planning">22</a></li>
+    <li><a href="#ship-5" data-step="ship-5" data-label="Results">23</a></li>
+    <li><a href="#next" data-step="next" data-label="Next case study">24</a></li>
+    <li><a href="#contact" data-step="contact" data-label="Contact">25</a></li>
 </ol>
 
-<header class="dhero slide" data-title="Overview">
+<header class="dhero" id="top">
   <div class="dhero-l">
     <div class="dhero-l-inner slide-fit" data-keepw>
       <p class="label">Atlassian · Design Lead</p>
@@ -63,8 +60,8 @@
 </header>
 
 <main class="bands">
-<section class="band slide g" id="discover" data-title="Discover">
-  <div class="wrap"><div class="slide-fit">
+<section class="band g" id="discover">
+  <div class="wrap">
     <p class="step-k">01 — Discover</p>
     <h2 class="band-title">Admins needed clarity,<br><span class="accent">not scattered clues</span></h2>
     <p class="band-lead">We sat down with admins.</p>
@@ -72,11 +69,11 @@
       <div class="col"><h4>The Challenge</h4><p>Enterprise admins faced a fragmented ecosystem with information scattered across disconnected tools. Finding and diagnosing problems took manual effort and time.</p></div>
       <div class="col"><h4>The Opportunity</h4><p>By consolidating data into a single, AI-powered application, we provided enterprise admins with actionable insights and an intuitive surface to optimize and plan migrations, giving them the confidence to scale wall-to-wall with Atlassian.</p></div>
     </div>
-  </div></div>
+  </div>
 </section>
-<section class="band slide g" data-title="Research">
-  <div class="wrap"><div class="slide-fit">
-    <p class="step-k">01 — Discover</p>
+<section class="band g cont" id="discover-2">
+  <div class="wrap">
+
 <figure class="fig"><div class="fig-bar"><span class="t">Research · Who we designed for &amp; how we learned</span></div><div class="fig-body">
 <div class="pp">
   <div>
@@ -102,11 +99,11 @@
   </div>
 </div>
 </div></figure>
-  </div></div>
+  </div>
 </section>
-<section class="band slide g" data-title="Admin interviews">
-  <div class="wrap"><div class="slide-fit">
-    <p class="step-k">01 — Discover</p>
+<section class="band g cont" id="discover-3">
+  <div class="wrap">
+
 <figure class="fig bw"><div class="fig-bar"><span class="t">Research · Admin interview panel (low-fi)</span></div><div class="fig-body"><div class="ad">
 <div class="paper"><div class="ph"><b>Panel mix</b><span>Who we spoke with</span></div><ul class="chk">
 <li><span class="ckb"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg></span><div><b>Data Center admin</b><span>Keeps a large instance healthy</span></div></li>
@@ -118,11 +115,11 @@
 <div class="paper"><div class="ph"><b>Session guide</b><span>60 min · remote</span></div><div class="blk"><div class="mn">05<small>MIN</small></div><div><b>Warm-up</b><span>Role, environment, how big a footprint.</span></div></div><div class="blk"><div class="mn">15<small>MIN</small></div><div><b>A normal week</b><span>What do you check first, and where?</span></div></div><div class="blk"><div class="mn">15<small>MIN</small></div><div><b>Last incident</b><span>Walk me through the last time something broke.</span></div></div><div class="blk"><div class="mn">15<small>MIN</small></div><div><b>Cloud &amp; migration</b><span>What’s in the way of moving?</span></div></div><div class="blk"><div class="mn">10<small>MIN</small></div><div><b>Early concepts</b><span>React to rough sketches. No pitch.</span></div></div></div>
 <div class="paper"><div class="ph"><b>Participants</b><span>Names withheld</span></div><div class="ros"><div class="rrow"><span class="av"></span><div><b>Admin 01</b><em>Data Center</em></div><span class="stat3"><u class=""></u><u class=""></u><u class=""></u></span></div><div class="rrow"><span class="av"></span><div><b>Admin 02</b><em>Data Center</em></div><span class="stat3"><u class=""></u><u class=""></u><u class=""></u></span></div><div class="rrow"><span class="av"></span><div><b>Admin 03</b><em>Cloud</em></div><span class="stat3"><u class=""></u><u class=""></u><u class=""></u></span></div><div class="rrow"><span class="av"></span><div><b>Admin 04</b><em>Mid-migration</em></div><span class="stat3"><u class=""></u><u class=""></u><u class=""></u></span></div><div class="rrow"><span class="av"></span><div><b>Admin 05</b><em>Portfolio</em></div><span class="stat3"><u class=""></u><u class=""></u><u class=""></u></span></div><div class="stk"><span>■ Screened</span><span>■ Interviewed</span><span>■ Synthesized</span></div></div></div>
 </div></div></figure>
-  </div></div>
+  </div>
 </section>
-<section class="band slide g" data-title="Brainstorm">
-  <div class="wrap"><div class="slide-fit">
-    <p class="step-k">01 — Discover</p>
+<section class="band g cont" id="discover-4">
+  <div class="wrap">
+
 <figure class="fig"><div class="fig-bar"><span class="t">Workshop · Cross-craft brainstorm &amp; prioritization</span></div><div class="fig-body">
 <div class="legend"><span><i class="c1"></i>Design</span><span><i class="c2"></i>Product</span><span><i class="c3"></i>Engineering</span><span><i class="c4"></i>Research</span><span><i class="c5"></i>Data</span></div>
 <div class="board">
@@ -144,11 +141,11 @@
   </div>
 </div>
 </div></figure>
-  </div></div>
+  </div>
 </section>
-<section class="band slide g" data-title="Interview notes">
-  <div class="wrap"><div class="slide-fit">
-    <p class="step-k">01 — Discover</p>
+<section class="band g cont last" id="discover-5">
+  <div class="wrap">
+
 <figure class="fig bw"><div class="fig-bar"><span class="t">Research · Interview notes &amp; brief (low-fi)</span></div><div class="fig-body"><div class="lo two"><div class="paper"><div class="ph"><b>Admin interview · notes</b><span>Page 1 of 2</span></div>
 <div class="field">Participant<i></i></div>
 <div class="field">Date<i></i></div>
@@ -165,19 +162,19 @@
 <div class="sec2"><h6>Plan</h6><div class="tlw"><span>Recruit</span><span>Interview</span><span>Synthesize</span><span>Share</span></div></div>
 <div class="sec2"><h6>Output</h6><span class="ln2 m"></span><span class="ln2 s"></span></div>
 </div></div></div></figure>
-  </div></div>
+  </div>
 </section>
-<section class="band slide k" id="define" data-title="Define">
-  <div class="wrap"><div class="slide-fit">
+<section class="band k" id="define">
+  <div class="wrap">
     <p class="step-k">02 — Define</p>
     <h2 class="band-title">Flying <span class="accent">blind</span></h2>
     <p class="band-lead">Atlassian's enterprise admins managed complex, high-stakes environments — with information scattered across disconnected tools. Diagnosing problems took manual digging, and migration planning was guesswork.</p>
     <div class="shift"><div class="shift-row"><span class="from">Scattered data</span><span class="arr">→</span><span class="to">One admin view</span></div><div class="shift-row"><span class="from">Manual audits</span><span class="arr">→</span><span class="to">Automated insight</span></div><div class="shift-row"><span class="from">Guesswork</span><span class="arr">→</span><span class="to">A confident migration plan</span></div></div>
-  </div></div>
+  </div>
 </section>
-<section class="band slide k" data-title="Synthesis">
-  <div class="wrap"><div class="slide-fit">
-    <p class="step-k">02 — Define</p>
+<section class="band k cont" id="define-2">
+  <div class="wrap">
+
 <figure class="fig"><div class="fig-bar"><span class="t">Synthesis · From observations to insights</span></div><div class="fig-body">
 <div class="sm">
   <div><p class="fig-h">Observations</p><div class="notes">
@@ -206,17 +203,17 @@
   </div>
 </div>
 </div></figure>
-  </div></div>
+  </div>
 </section>
-<section class="band slide k" data-title="Journey map">
-  <div class="wrap"><div class="slide-fit">
-    <p class="step-k">02 — Define</p>
+<section class="band k cont" id="define-3">
+  <div class="wrap">
+
 <figure class="fig bw"><div class="fig-bar"><span class="t">Journey map · An admin, from “is anything wrong?” to a plan (low-fi)</span></div><div class="fig-body"><div class="jmwrap"><div class="jm"><div class="rh"></div><div class="st"><small>01</small>Check on things</div><div class="st"><small>02</small>Find the problem</div><div class="st"><small>03</small>Decide what to fix</div><div class="st"><small>04</small>Clean up</div><div class="st"><small>05</small>Assess readiness</div><div class="st"><small>06</small>Plan the move</div><div class="rh">Doing</div><div class="">Open several tools</div><div class="">Dig through logs and lists</div><div class="">Weigh what matters</div><div class="">Remove unused items</div><div class="">Size the migration</div><div class="">Sequence the work</div><div class="rh">Thinking</div><div class="">Is anything wrong?</div><div class="">Where do I even look?</div><div class="">What’s safe to change?</div><div class="">Did that help?</div><div class="">Are we ready to move?</div><div class="">What goes first?</div><div class="rh">Pain point</div><div class="pain">Information is scattered</div><div class="pain">Manual, slow diagnosis</div><div class="pain">No clear priority</div><div class="pain">Impact is hard to see</div><div class="pain">Scope is a guess</div><div class="pain">No single plan</div><div class="rh">Opportunity</div><div class="">One health view</div><div class="">Surface issues first</div><div class="">Ranked recommendations</div><div class="">Show before and after</div><div class="">A readiness score</div><div class="">A guided plan</div><div class="rh">Emotion</div><div class="emo"><span class="mid"></span><span class="lb" style="top:6px">Positive</span><span class="lb" style="bottom:6px">Negative</span><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M8.33 50 L8.33 50 L25.00 88 L41.67 66 L58.33 30 L75.00 84 L91.67 22" fill="none" stroke="#e8e8e8" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linejoin="round"/></svg><span class="pt" style="left:8.33%;top:50%"></span><span class="pt" style="left:25.00%;top:88%"></span><span class="pt" style="left:41.67%;top:66%"></span><span class="pt" style="left:58.33%;top:30%"></span><span class="pt" style="left:75.00%;top:84%"></span><span class="pt" style="left:91.67%;top:22%"></span></div></div></div></div></figure>
-  </div></div>
+  </div>
 </section>
-<section class="band slide k" data-title="Information architecture">
-  <div class="wrap"><div class="slide-fit">
-    <p class="step-k">02 — Define</p>
+<section class="band k cont" id="define-4">
+  <div class="wrap">
+
 <figure class="fig bw"><div class="fig-bar"><span class="t">Information architecture · Data Center optimization &amp; Cloud readiness</span></div><div class="fig-body">
 <div class="ia">
   <div class="ia-entry">Admin hub<em>›</em>Insights<em>›</em>Portfolio insights</div>
@@ -266,11 +263,11 @@
   </div>
 </div>
 </div></figure>
-  </div></div>
+  </div>
 </section>
-<section class="band slide k" data-title="Requirements">
-  <div class="wrap"><div class="slide-fit">
-    <p class="step-k">02 — Define</p>
+<section class="band k cont last" id="define-5">
+  <div class="wrap">
+
 <figure class="fig bw"><div class="fig-bar"><span class="t">Requirements · PRD &amp; the new panel (low-fi)</span></div><div class="fig-body"><div class="prdwrap"><div class="paper"><div class="ph"><b>PRD · AI assistant panel</b><span>v0.3 · Draft</span></div>
 <div class="sec2" style="margin-top:0"><h6>Problem</h6>
   <ul class="bul"><li>Admins can see what is wrong, but not what to do next.</li></ul></div>
@@ -296,18 +293,18 @@
     <div class="inp"><span>Ask about this instance</span><i></i></div>
   </div>
 </div><p class="cap" style="margin-top:12px">Low-fi wireframe · AI assistant slide-over panel</p></div></div></div></div></figure>
-  </div></div>
+  </div>
 </section>
-<section class="band slide g" id="ideate" data-title="Ideate">
-  <div class="wrap"><div class="slide-fit">
+<section class="band g" id="ideate">
+  <div class="wrap">
     <p class="step-k">03 — Ideate</p>
     <h2 class="band-title">Design <span class="accent">principles</span></h2>
     <div class="pcards"><div class="pcard"><p class="k">01</p><h3>Clarity over completeness</h3><p>Dense, high-volume data made legible at a glance.</p></div><div class="pcard"><p class="k">02</p><h3>AI as a co-pilot, not a black box</h3><p>An always-on assistant that summarizes, flags risk, and suggests next moves.</p></div><div class="pcard"><p class="k">03</p><h3>One path from insight to action</h3><p>Optimization and migration planning live in the same surface.</p></div></div>
-  </div></div>
+  </div>
 </section>
-<section class="band slide g" data-title="Sketches">
-  <div class="wrap"><div class="slide-fit">
-    <p class="step-k">03 — Ideate</p>
+<section class="band g cont last" id="ideate-2">
+  <div class="wrap">
+
 <figure class="fig bw"><div class="fig-bar"><span class="t">Concept sketches &amp; core flow (low-fi)</span></div><div class="fig-body">
 <div class="sk">
   <div class="opt"><div class="mini"><div class="r2"><div class="bx"></div><div class="bx"></div><div class="bx"></div></div><div class="bx t"></div><div class="r2"><div class="bx"></div><div class="bx"></div><div class="bx"></div></div></div><p class="cap"><b>A</b> · Overview first</p></div>
@@ -316,10 +313,10 @@
 </div>
 <div class="flow"><span class="nd">Overview</span><span class="ar">→</span><span class="nd">Instance detail</span><span class="ar">→</span><span class="nd">Recommendation</span><span class="ar">→</span><span class="nd">Apply cleanup</span><span class="ar">→</span><span class="nd alt">Readiness</span><span class="ar">→</span><span class="nd alt">Migration plan</span></div>
 </div></figure>
-  </div></div>
+  </div>
 </section>
-<section class="band slide k" id="prototype" data-title="Prototype">
-  <div class="wrap"><div class="slide-fit">
+<section class="band k" id="prototype">
+  <div class="wrap">
     <p class="step-k">04 — Prototype</p>
     <h2 class="band-title">Build it just enough <span class="accent">to feel real</span></h2>
     <figure class="fig bw"><div class="fig-bar"><span class="t">Prototype · Fidelity ladder</span></div><div class="fig-body">
@@ -329,29 +326,29 @@
   <div class="rung"><div class="frame"><img src="/assets/img/dashboard.png?v=6" alt="The shipped Portfolio Insights dashboard" loading="lazy" /></div><p class="cap"><b>03</b> · High-fi, the shipped design</p></div>
 </div>
 </div></figure>
-  </div></div>
+  </div>
 </section>
-<section class="band slide k" data-title="Clickable flows">
-  <div class="wrap"><div class="slide-fit">
-    <p class="step-k">04 — Prototype</p>
+<section class="band k cont last" id="prototype-2">
+  <div class="wrap">
+
 <figure class="fig bw"><div class="fig-bar"><span class="t">Prototype · Clickable flows (low-fi)</span></div><div class="fig-body">
 <div class="flowset">
   <div><p class="flowlab">Flow A<small>Data Center · optimize</small></p><div class="frow"><div class="scr"><span class="cap2">Overview</span><div class="ring"></div><div class="bar"><i style="width:80%"></i></div><div class="bar"><i style="width:50%"></i></div><div class="bar"><i style="width:66%"></i></div><span class="hot" style="left:74%;top:78%">1</span></div><span class="fa">→</span><div class="scr"><span class="cap2">Recommendation</span><span class="ln2 "></span><span class="ln2 m"></span><span class="ln2 s"></span><div class="row"><span class="tagw" style="width:44px"></span><span class="ln"></span></div><div class="btn">Review</div><span class="hot" style="left:93%;top:85%">2</span></div><span class="fa">→</span><div class="scr"><span class="cap2">Review changes</span><div class="row"><span class="sq on"></span><span class="ln"></span></div><div class="row"><span class="sq on"></span><span class="ln"></span></div><div class="row"><span class="sq on"></span><span class="ln"></span></div><div class="row"><span class="sq"></span><span class="ln"></span></div><div class="btn">Apply</div><span class="hot" style="left:93%;top:87%">3</span></div><span class="fa">→</span><div class="scr"><span class="cap2">Done</span><div class="big-ok"></div><span class="ln2 m"></span><span class="ln2 s"></span><div class="btn ghost">Undo</div></div></div></div>
   <div><p class="flowlab">Flow B<small>Cloud · get ready</small></p><div class="frow"><div class="scr"><span class="cap2">Readiness</span><div class="ring sm2" style="width:54px;height:54px;border-width:7px"></div><div class="bar"><i style="width:74%"></i></div><div class="bar"><i style="width:52%"></i></div><div class="bar"><i style="width:40%"></i></div><span class="hot" style="left:80%;top:30%">1</span></div><span class="fa">→</span><div class="scr"><span class="cap2">Blockers</span><div class="row"><span class="warn">!</span><span class="ln"></span></div><div class="row"><span class="warn">!</span><span class="ln"></span></div><div class="row"><span class="sq"></span><span class="ln"></span></div><span class="hot" style="left:93%;top:40%">2</span></div><span class="fa">→</span><div class="scr"><span class="cap2">App compatibility</span><div class="row"><span class="sq"></span><span class="ln"></span><span class="tagw"></span></div><div class="row"><span class="sq"></span><span class="ln"></span><span class="tagw"></span></div><div class="row"><span class="sq"></span><span class="ln"></span><span class="tagw"></span></div><div class="row"><span class="sq"></span><span class="ln"></span><span class="tagw"></span></div><span class="hot" style="left:93%;top:36%">3</span></div><span class="fa">→</span><div class="scr"><span class="cap2">Plan</span><div class="tl" style="margin:20px 8px 14px"><i class="on" style="left:0"></i><i class="on" style="left:38%"></i><i style="left:72%"></i><i style="left:calc(100% - 12px)"></i></div><div class="tlbl"><span>Assess</span><span>Plan</span><span>Move</span></div><div class="btn">Start plan</div><span class="hot" style="left:93%;top:87%">4</span></div></div></div>
 </div>
 </div></figure>
-  </div></div>
+  </div>
 </section>
-<section class="band slide g" id="validate" data-title="Validate">
-  <div class="wrap"><div class="slide-fit">
+<section class="band g" id="validate">
+  <div class="wrap">
     <p class="step-k">05 — Validate</p>
     <h2 class="band-title">Test with users. <span class="accent">Learn, then iterate.</span></h2>
     <p class="band-lead">Put the clickable flows in front of admins with a short task list, watch where they hesitate, then feed what we learn back into the design.</p>
-  </div></div>
+  </div>
 </section>
-<section class="band slide g" data-title="Test plan">
-  <div class="wrap"><div class="slide-fit">
-    <p class="step-k">05 — Validate</p>
+<section class="band g cont" id="validate-2">
+  <div class="wrap">
+
 <figure class="fig bw"><div class="fig-bar"><span class="t">Validate · Usability test plan &amp; scorecard (low-fi)</span></div><div class="fig-body"><div class="vgrid"><div class="paper"><div class="ph"><b>Usability test plan</b><span>Moderated · remote</span></div>
 <div class="sec2" style="margin-top:0"><h6>Objective</h6><span class="ln2 "></span><span class="ln2 m"></span></div>
 <div class="sec2"><h6>Method</h6><div><span class="cb"><u class="on"></u>Moderated</span><span class="cb"><u class="on"></u>Think-aloud</span><span class="cb"><u class="on"></u>Remote</span></div></div>
@@ -367,11 +364,11 @@
 <div class="sec2"><h6>Overall</h6><span class="ln2 m"></span><span class="ln2 "></span><span class="ln2 s"></span></div>
 <div class="tagrow"><span>Trust</span><span>Clarity</span><span>Confidence</span><span>Missing</span></div>
 </div></div></div></figure>
-  </div></div>
+  </div>
 </section>
-<section class="band slide g" data-title="Findings">
-  <div class="wrap"><div class="slide-fit">
-    <p class="step-k">05 — Validate</p>
+<section class="band g cont last" id="validate-3">
+  <div class="wrap">
+
 <figure class="fig bw"><div class="fig-bar"><span class="t">Validate · Findings &amp; iteration (low-fi)</span></div><div class="fig-body">
 <div class="vgrid">
   <div class="paper"><div class="ph"><b>Findings log</b><span>Severity-rated</span></div>
@@ -386,10 +383,10 @@
   <div class="notes2"><span>Reason shown</span><span>Impact preview</span><span>Undo after apply</span></div></div>
 </div>
 </div></figure>
-  </div></div>
+  </div>
 </section>
-<section class="band slide k" id="ship" data-title="Ship">
-  <div class="wrap"><div class="slide-fit">
+<section class="band k" id="ship">
+  <div class="wrap">
     <p class="step-k">06 — Ship</p>
     <div class="split"><div>
     <h2 class="band-title">The finished <span class="accent">product</span></h2>
@@ -397,44 +394,44 @@
     </div>
     <div class="band-body"><div class="embed" data-fit data-w="1580" data-h="1272"><img class="embed-poster" src="/assets/img/posters/pi-empty-default.png?v=2" alt="" loading="lazy" /><iframe data-src="/assets/anim/pi-empty-default.html?v=3" loading="lazy" scrolling="no" title="Portfolio Insights dashboard load animation"></iframe></div></div>
     </div>
-  </div></div>
+  </div>
 </section>
-<section class="band slide k" data-title="Data Visualizations">
-  <div class="wrap"><div class="slide-fit">
-    <p class="step-k">06 — Ship</p>
+<section class="band k cont" id="ship-2">
+  <div class="wrap">
+
     <div class="feats">
       <div class="feat">
         <div class="fpanel"><div class="embed" data-fit data-w="960" data-h="553"><img class="embed-poster" src="/assets/img/posters/pi-hero-fill.png?v=3" alt="" loading="lazy" /><iframe data-src="/assets/anim/pi-hero-fill.html?v=4" loading="lazy" scrolling="no" title="Instance health data visualization animation"></iframe></div></div>
         <div class="feat-text"><p class="feat-label">Data Visualizations</p><h3 class="feat-title">Crafted to make dense information easy to scan</h3><p class="feat-body">The data visualizations turn complex, high-volume information into something admins can take in at a glance — giving them the clarity to understand their footprint and reach better decisions, faster.</p></div>
       </div>
     </div>
-  </div></div>
+  </div>
 </section>
-<section class="band slide k" data-title="AI Co-Pilot">
-  <div class="wrap"><div class="slide-fit">
-    <p class="step-k">06 — Ship</p>
+<section class="band k cont" id="ship-3">
+  <div class="wrap">
+
     <div class="feats">
       <div class="feat rev">
         <div class="feat-text"><p class="feat-label">AI Co-Pilot</p><h3 class="feat-title">An always-on AI co-pilot</h3><p class="feat-body">An AI assistant sits right alongside the data — ready to summarize what's happening, flag what needs attention, and suggest the next move, so admins always have a knowledgeable second set of eyes.</p></div>
         <div class="fpanel v2"><div class="embed" data-fit data-w="1580" data-h="1272"><img class="embed-poster" src="/assets/img/posters/pi-ai-expand.png?v=1" alt="" loading="lazy" /><iframe data-src="/assets/anim/pi-ai-expand.html?v=2" loading="lazy" scrolling="no" title="AI co-pilot animation"></iframe></div></div>
       </div>
     </div>
-  </div></div>
+  </div>
 </section>
-<section class="band slide k" data-title="Migration Planning">
-  <div class="wrap"><div class="slide-fit">
-    <p class="step-k">06 — Ship</p>
+<section class="band k cont" id="ship-4">
+  <div class="wrap">
+
     <div class="feats">
       <div class="feat">
         <div class="fpanel v3"><div class="embed" data-fit data-w="1860" data-h="1064"><img class="embed-poster" src="/assets/img/posters/pi-migration-plan.png?v=6" alt="" loading="lazy" /><iframe data-src="/assets/anim/pi-migration-plan.html?v=7" loading="lazy" scrolling="no" title="Migration planning animation"></iframe></div></div>
         <div class="feat-text"><p class="feat-label">Migration Planning</p><h3 class="feat-title">A clear path to cloud</h3><p class="feat-body">Once an instance is optimized, admins move into migration planning — scoping sources, sequencing the work, and mapping a confident path to cloud, all in one place.</p></div>
       </div>
     </div>
-  </div></div>
+  </div>
 </section>
-<section class="band slide k" data-title="Results">
-  <div class="wrap"><div class="slide-fit">
-    <p class="step-k">06 — Ship</p>
+<section class="band k cont last" id="ship-5">
+  <div class="wrap">
+
 
     <div class="stats">
       <div class="stat"><div class="n">33%</div><div class="d">Reduction in time for migration planning</div></div>
@@ -446,11 +443,11 @@
       <p class="qtext">Admins are at the heart of the successful<br><span class="accent">adoption of Atlassian's System of Work</span></p>
       <p class="qattr">— Justin Maguire, Head of Design, TAP</p>
     </div>
-  </div></div>
+  </div>
 </section>
 </main>
 
-<section class="next slide" data-title="Next case study">
+<section class="next" id="next">
   <div class="wrap">
     <p class="k">Next case study</p>
     <p class="t">System <span class="accent">Health</span></p>
@@ -458,7 +455,6 @@
   </div>
 </section>
 
-<section class="slide slide-end" data-title="Contact">
 <section class="contact-cta" id="contact">
   <div class="wrap contact-in">
     <div class="contact-head">
@@ -489,10 +485,8 @@
     <p class="sf-built">Designed and built with<span class="sf-tools"><span class="sf-tool"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c.5 4.5 3.5 7.5 8 8-4.5.5-7.5 3.5-8 8-.5-4.5-3.5-7.5-8-8 4.5-.5 7.5-3.5 8-8z"/></svg>Claude</span><span class="sf-dot">&middot;</span><span class="sf-tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>Pencil.dev</span><span class="sf-dot">&middot;</span><span class="sf-tool"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 4.7 18 5 18 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>GitHub</span><span class="sf-dot">&middot;</span><span class="sf-tool"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 22 20H2z"/></svg>Vercel</span></span></p>
   </div>
 </footer>
-</section>
 
 <script src="/ilovestripe/case.js?v=3"></script>
-<script src="/ilovestripe/deck.js?v=1"></script>
 
 <script src="/assets/lightbox.js"></script>
 </body>

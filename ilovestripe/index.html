@@ -226,7 +226,7 @@
   }
 
   /* ---- intro hero (mirrors the home page) ---- */
-  .ihero{position:relative;min-height:calc(100vh - 82px);display:grid;grid-template-columns:1fr 1fr;align-content:center;isolation:isolate;border-bottom:1px solid var(--line)}
+  .ihero{position:relative;min-height:100vh;min-height:100svh;display:grid;grid-template-columns:1fr 1fr;align-content:center;isolation:isolate;border-bottom:1px solid var(--line)}
   .ihero::before{content:"";position:absolute;inset:0;z-index:-1;
     background:radial-gradient(38% 42% at 26% 52%, rgba(255,255,255,.09), transparent 70%),
                radial-gradient(30% 34% at 20% 70%, rgba(255,255,255,.05), transparent 72%)}
@@ -330,30 +330,15 @@
   }
   @media(max-width:640px){.cs-switch{gap:14px}.cs-switch a{font-size:10px;letter-spacing:.08em}}
 </style>
-<link rel="stylesheet" href="/ilovestripe/deck.css?v=3" />
 <script src="/assets/analytics.js"></script>
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="dnav">
-  <div class="dnav-in">
-    <div class="dnav-l">
-      <a class="back" href="/">← Portfolio</a>
-      <span class="crumb">Prepared for Stripe</span>
-    </div>
-    <div class="cs-switch" aria-label="Sections">
-      <a href="#approach">How I work</a>
-      <a href="/ilovestripe/portfolio-insights/">Portfolio Insights</a>
-      <a href="/ilovestripe/system-health/">System Health</a>
-    </div>
-  </div>
-</nav>
 
 <!-- INTRO -->
-<header class="ihero slide" data-title="Intro">
+<header class="ihero">
   <div class="ihero-col ihero-left">
-    <div class="ihero-left-inner slide-fit" data-keepw>
+    <div class="ihero-left-inner">
       <p class="i-eyebrow">Product Design · Design Systems · AI Builder</p>
       <h1 class="i-headline">
         <span class="l1"><span class="hi-text">HI,</span>
@@ -380,7 +365,7 @@
     </div>
   </div>
   <div class="ihero-col ihero-right">
-    <div class="ihero-right-inner slide-fit" data-keepw>
+    <div class="ihero-right-inner">
       <div class="i-stats">
         <div class="i-stat"><div class="i-stat-label"><span class="num">15+</span><span class="word">Years</span></div><span class="desc">Designing for SaaS companies with complex datasets, as well as consumer tools and experiences</span></div>
         <div class="i-stat"><div class="i-stat-label"><span class="num">Lead</span><span class="word">Atlassian</span></div><span class="desc">UX Design Manager &amp; Lead, 2021–2026 — enterprise admin experiences and design systems</span></div>
@@ -393,9 +378,9 @@
 </header>
 
 <!-- APPROACH -->
-<section class="sec slide" id="approach" data-title="How I work">
+<section class="sec" id="approach">
   <div class="wrap">
-    <div class="slide-fit">
+    <div>
     <p class="label">How I work</p>
     <h2 class="heading2">How I approach <span class="accent">a problem</span></h2>
     <p class="body-lg">I pair product strategy with hands-on craft, and bring AI in where it creates leverage at each step.</p>
@@ -413,9 +398,9 @@
 </section>
 
 <!-- CASE STUDIES -->
-<section class="sec slide" id="cases" data-title="Case studies">
+<section class="sec" id="cases">
   <div class="wrap">
-    <div class="slide-fit">
+    <div>
     <p class="label">Case studies</p>
     <h2 class="heading2">Two case studies, <span class="accent">one thread</span></h2>
     <p class="body-lg">Both start with the same problem: people making high-stakes decisions from information scattered across too many places. Both end with a single surface they can trust.</p>
@@ -490,6 +475,5 @@
 </script>
 
 <script src="/assets/lightbox.js"></script>
-<script src="/ilovestripe/deck.js?v=1"></script>
 </body>
 </html>

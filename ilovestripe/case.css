@@ -630,3 +630,17 @@
   .chk b{display:block;font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:19px;letter-spacing:.04em;color:#fff;line-height:1.05}
   .chk span:not(.ckb){display:block;font-size:12.5px;color:#cfcfcf;margin-top:3px;line-height:1.35}
   @media(max-width:1000px){.ad{grid-template-columns:1fr}}
+
+  /* ---- long scrolling page ---- */
+  .band{padding-bottom:0}
+  .band.cont{padding-top:0}
+  .band.last{padding-bottom:128px}
+  .band.g.cont,.band.k.cont{border-top:none}
+  .snav-rail{top:24px;gap:0;max-height:calc(100vh - 48px);overflow:hidden}
+  .snav-rail a{padding:3px 7px;font-size:10px}
+  .split{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
+  .dhero{min-height:100vh;min-height:100svh}
+  .dhero-r{justify-content:center;gap:0}
+  .dhero .dvisual{align-items:flex-start;margin-bottom:-70px;z-index:1}
+  .dhero .sbands{position:relative;z-index:2;box-shadow:0 -22px 44px rgba(0,0,0,.45)}
+  @media(max-width:900px){.split{grid-template-columns:1fr;gap:32px}.dhero{min-height:0}.band{padding-bottom:0}.band.cont{padding-top:0}.band.last{padding-bottom:80px}}
