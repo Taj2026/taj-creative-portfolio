@@ -25,7 +25,7 @@ html{scroll-padding-top:var(--navh)}
 
 /* default (small screens): natural height, room for the arrows */
 section.slide{padding-bottom:104px}
-.slide-fit{width:100%}
+.slide-fit:not([data-keepw]){width:100%}
 
 /* desktop: fixed-height slides */
 @media(min-width:901px) and (min-height:360px){
