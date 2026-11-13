@@ -316,6 +316,42 @@
     .pnav{bottom:24px}
     .na-l{display:none}
   }
+
+  /* ---- top nav (sticky) + section links ---- */
+  .dnav{position:sticky;top:0;z-index:30;background:rgba(10,10,10,.82);-webkit-backdrop-filter:saturate(140%) blur(14px);backdrop-filter:saturate(140%) blur(14px)}
+  .dnav-in{padding:18px var(--pad)}
+  .dnav-l{display:flex;align-items:center;gap:26px;min-width:0}
+  .dnav-l .crumb{padding-left:26px;border-left:1px solid var(--line)}
+  .cs-switch{display:flex;gap:26px}
+  .cs-switch a{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;padding:6px 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap}
+  .cs-switch a:hover{color:var(--fg);border-bottom-color:var(--accent)}
+  .ihero{min-height:calc(100vh - 62px)}
+  #approach,#cases{scroll-margin-top:62px}
+
+  /* ---- case study cards ---- */
+  .ccards{display:flex;flex-direction:column;gap:64px;margin-top:64px}
+  .ccard{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:center;color:inherit}
+  .ccard.rev .ctext{order:2}
+  .clabel{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase}
+  .ctitle{font-family:var(--display);text-transform:uppercase;font-size:clamp(44px,5.4vw,72px);line-height:.9;letter-spacing:.03em;margin:16px 0 18px}
+  .cdesc{font-size:16px;line-height:1.6;color:var(--dim);max-width:46ch}
+  .cstats{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:24px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--dim);text-transform:uppercase}
+  .cstats b{font-family:var(--display);font-weight:400;font-size:32px;color:var(--accent);letter-spacing:.03em;margin-right:9px;vertical-align:-2px}
+  .clink{display:inline-flex;margin-top:28px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--fg);text-transform:uppercase;transition:color .2s}
+  .ccard:hover .clink{color:var(--accent)}
+  .cvis{height:380px;overflow:hidden;display:flex;justify-content:center;align-items:flex-start;background:var(--coral-glow)}
+  .cvis.v3{background:var(--coral-glow-3)}
+  .cvis .shot{width:calc(100% - 56px);height:calc(100% - 6px);object-fit:cover;object-position:top center;border-radius:12px 12px 0 0;box-shadow:0 24px 55px rgba(0,0,0,.5);margin:36px auto 0;transform-origin:top center;transition:transform .45s cubic-bezier(.2,.6,.2,1)}
+  .ccard:hover .shot{transform:scale(1.03)}
+  @media(prefers-reduced-motion:reduce){.cvis .shot{transition:none}.ccard:hover .shot{transform:none}}
+  @media(max-width:900px){
+    .dnav-in{flex-wrap:wrap;row-gap:8px}
+    .cs-switch{width:100%;gap:20px;overflow-x:auto}
+    .ccard{grid-template-columns:1fr;gap:28px}
+    .ccard.rev .ctext{order:0}
+    .cvis{height:300px}
+  }
+  @media(max-width:640px){.cs-switch{gap:14px}.cs-switch a{font-size:10px;letter-spacing:.08em}}
 </style>
 <script src="/assets/analytics.js"></script>
 </head>
@@ -324,8 +360,15 @@
 <!-- NAV -->
 <nav class="dnav">
   <div class="dnav-in">
-    <a class="back" href="/">← Portfolio</a>
-    <span class="crumb">Prepared for Stripe · Product Designer, Global Payments</span>
+    <div class="dnav-l">
+      <a class="back" href="/">← Portfolio</a>
+      <span class="crumb">Prepared for Stripe</span>
+    </div>
+    <div class="cs-switch" aria-label="Sections">
+      <a href="#approach">How I work</a>
+      <a href="/ilovestripe/portfolio-insights/">Portfolio Insights</a>
+      <a href="/ilovestripe/system-health/">System Health</a>
+    </div>
   </div>
 </nav>
 
@@ -369,28 +412,15 @@
       </div>
     </div>
   </div>
-<div class="pnav hero-pnav"><div class="wrap"><a class="nav-arrow" href="#agenda" aria-label="Next: Case studies"><span class="na-l">Case studies</span><span class="na-c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span></a></div></div>
+<div class="pnav hero-pnav"><div class="wrap"><a class="nav-arrow" href="#approach" aria-label="Next: How I work"><span class="na-l">How I work</span><span class="na-c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span></a></div></div>
 </header>
-
-<!-- AGENDA -->
-<section class="has-pnav sec" id="agenda">
-  <div class="wrap">
-    <p class="label">Today</p>
-    <h2 class="heading2">Two case studies, <span class="accent">one thread</span></h2>
-    <p class="body-lg">Thanks for the time, Stripe. Both start with the same problem: people making high-stakes decisions from information scattered across too many places. Both end with a single surface they can trust — the kind of work I&rsquo;d love to bring to global payments.</p>
-    <div class="agenda">
-      <a class="arow" href="/ilovestripe/portfolio-insights/"><span class="num">01</span><span class="t">Portfolio Insights</span><span class="m">AI · Data visualization · Migration</span></a>
-      <a class="arow" href="/ilovestripe/system-health/"><span class="num">02</span><span class="t">System Health</span><span class="m">Real-time · Reliability · Trust</span></a>
-    </div>
-  </div>
-  <div class="pnav"><div class="wrap"><a class="nav-arrow" href="#approach" aria-label="Next: How I work"><span class="na-l">How I work</span><span class="na-c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span></a></div></div>
-</section>
 
 <!-- APPROACH -->
 <section class="has-pnav sec" id="approach">
   <div class="wrap">
     <p class="label">How I work</p>
     <h2 class="heading2">How I approach <span class="accent">a problem</span></h2>
+    <p class="body-lg">I pair product strategy with hands-on craft, and bring AI in where it creates leverage at each step.</p>
     <p class="ai-key">AI tools that can help at each phase</p>
     <div class="steps">
       <div class="step"><p class="k">01</p><h3>Discover</h3><p>Talk to real users. Audit what already exists.</p><div class="step-ai"><svg viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="Claude"><title>Claude</title><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="Dovetail"><title>Dovetail</title><path d="M6.75 0 1.5 3l5.25 3v6L12 9V3Zm0 12L1.5 15l5.25 3v6L12 21v-6Zm10.5-6L12 8.966 17.25 12v6l5.25-3V9Z"/></svg></div></div>
@@ -401,162 +431,46 @@
       <div class="step"><p class="k">06</p><h3>Ship</h3><p>Ship it, measure it, keep improving.</p><div class="step-ai"><svg viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="GitHub"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><svg viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="Vercel"><title>Vercel</title><path d="m12 1.608 12 20.784H0Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="Claude"><title>Claude</title><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg></div></div>
     </div>
   </div>
-  <div class="pnav"><div class="wrap"><a class="nav-arrow" href="#portfolio-insights" aria-label="Next: Portfolio Insights"><span class="na-l">Portfolio Insights</span><span class="na-c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span></a></div></div>
+  <div class="pnav"><div class="wrap"><a class="nav-arrow" href="#cases" aria-label="Next: Case studies"><span class="na-l">Case studies</span><span class="na-c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span></a></div></div>
 </section>
 
-<!-- CASE STUDY 01 -->
-<section class="sec" id="portfolio-insights">
+<!-- CASE STUDIES -->
+<section class="has-pnav sec" id="cases">
   <div class="wrap">
-    <div class="cs-head">
-      <p class="label">Case study 01 · Atlassian · Design Lead · 2025-2026</p>
-      <a class="cs-link" href="/ilovestripe/portfolio-insights/">The full process →</a>
-    </div>
-    <h2 class="heading2"><a class="title-link" href="/ilovestripe/portfolio-insights/">Portfolio <span class="accent">Insights</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></h2>
-    <p class="body-lg">How we turned fragmented data into something an admin could quickly scan, understand, and act on by combining business vision, data visualization, and product craft.</p>
-    <div class="stats">
-      <div class="stat"><div class="n">33%</div><div class="d">Reduction in time for migration planning</div></div>
-      <div class="stat"><div class="n">5×</div><div class="d">Increase in self-serve assessments for migration</div></div>
-      <div class="stat"><div class="n">1400</div><div class="d">Instances connected within 6 months of launch</div></div>
-    </div>
-    <div class="video-lg"><div class="embed" data-fit data-w="1580" data-h="1272"><img class="embed-poster" src="/assets/img/posters/pi-empty-default.png?v=2" alt="" loading="lazy" /><iframe data-src="/assets/anim/pi-empty-default.html?v=3" loading="lazy" scrolling="no" title="Portfolio Insights dashboard load animation"></iframe></div></div>
-    <div class="cols2">
-      <div class="col"><h4>The Challenge</h4><p>Enterprise admins faced a fragmented ecosystem with information scattered across disconnected tools. Finding and diagnosing problems took manual effort and time.</p></div>
-      <div class="col"><h4>The Opportunity</h4><p>By consolidating data into a single, AI-powered application, we provided enterprise admins with actionable insights and an intuitive surface to optimize and plan migrations, giving them the confidence to scale wall-to-wall with Atlassian.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="quote tight">
-  <div class="wrap">
-    <div class="qmark">“</div>
-    <p class="qtext">Admins are at the heart of the successful<br><span class="accent">adoption of Atlassian's System of Work</span></p>
-    <p class="qattr">— Justin Maguire, Head of Design, TAP</p>
-  </div>
-</section>
-
-<section class="has-pnav features tight">
-  <div class="wrap" style="display:flex;flex-direction:column;gap:130px">
-    <div class="feat">
-      <div class="fpanel"><div class="embed" data-fit data-w="960" data-h="553"><img class="embed-poster" src="/assets/img/posters/pi-hero-fill.png?v=3" alt="" loading="lazy" /><iframe data-src="/assets/anim/pi-hero-fill.html?v=4" loading="lazy" scrolling="no" title="Instance health data visualization animation"></iframe></div></div>
-      <div class="feat-text">
-        <p class="feat-label">Data Visualizations</p>
-        <h3 class="feat-title">Crafted to make dense information easy to scan</h3>
-        <p class="feat-body">The data visualizations turn complex, high-volume information into something admins can take in at a glance — giving them the clarity to understand their footprint and reach better decisions, faster.</p>
-      </div>
-    </div>
-    <div class="feat rev">
-      <div class="feat-text">
-        <p class="feat-label">AI Co-Pilot</p>
-        <h3 class="feat-title">An always-on AI co-pilot</h3>
-        <p class="feat-body">An AI assistant sits right alongside the data — ready to summarize what's happening, flag what needs attention, and suggest the next move, so admins always have a knowledgeable second set of eyes.</p>
-      </div>
-      <div class="fpanel v2"><div class="embed" data-fit data-w="1580" data-h="1272"><img class="embed-poster" src="/assets/img/posters/pi-ai-expand.png?v=1" alt="" loading="lazy" /><iframe data-src="/assets/anim/pi-ai-expand.html?v=2" loading="lazy" scrolling="no" title="AI co-pilot animation"></iframe></div></div>
-    </div>
-    <div class="feat">
-      <div class="fpanel v3"><div class="embed" data-fit data-w="1860" data-h="1064"><img class="embed-poster" src="/assets/img/posters/pi-migration-plan.png?v=6" alt="" loading="lazy" /><iframe data-src="/assets/anim/pi-migration-plan.html?v=7" loading="lazy" scrolling="no" title="Migration planning animation"></iframe></div></div>
-      <div class="feat-text">
-        <p class="feat-label">Migration Planning</p>
-        <h3 class="feat-title">A clear path to cloud</h3>
-        <p class="feat-body">Once an instance is optimized, admins move into migration planning — scoping sources, sequencing the work, and mapping a confident path to cloud, all in one place.</p>
-      </div>
-    </div>
-  </div>
-  <div class="pnav"><div class="wrap"><a class="nav-arrow" href="#system-health" aria-label="Next: System Health"><span class="na-l">System Health</span><span class="na-c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span></a></div></div>
-</section>
-
-<!-- CASE STUDY 02 -->
-<section class="sec" id="system-health">
-  <div class="wrap">
-    <div class="cs-head">
-      <p class="label">Case study 02 · Atlassian · Design Lead · 2026</p>
-      <a class="cs-link" href="/ilovestripe/system-health/">The full process →</a>
-    </div>
-    <h2 class="heading2"><a class="title-link" href="/ilovestripe/system-health/">System <span class="accent">Health</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></h2>
-    <p class="body-lg">How we gave teams a single, real-time view of Atlassian apps system health — taking information buried in scattered lists and tools into clear signals, early warnings, and faster incident response.</p>
-    <div class="stats">
-      <div class="stat"><div class="n">80%</div><div class="d">Alert noise reduction</div></div>
-      <div class="stat"><div class="n">6.0+</div><div class="d">Average SEQ scores</div></div>
-      <div class="stat"><div class="n">75%</div><div class="d">Reduction in time to awareness</div></div>
-    </div>
-    <div class="video-lg"><div class="embed" data-fit data-w="1440" data-h="900"><img class="embed-poster" src="/assets/img/posters/system-health-loading.png?v=1" alt="" loading="lazy" /><iframe data-src="/assets/anim/system-health-loading.html?v=2" loading="lazy" scrolling="no" title="System Health dashboard loading"></iframe></div></div>
-    <div class="cols2">
-      <div class="col"><h4>The Challenge</h4><p>Org administrators were often not aware of Atlassian incidents or downtime until it was too late. Information was buried in disconnected dashboards and logs. Critical signals were easy to miss, leading to frustrated users in their organizations.</p></div>
-      <div class="col"><h4>The Opportunity</h4><p>By unifying health signals into one clear, real-time surface with constant updates, we gave teams the confidence to catch problems early and resolve them faster, together.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="has-pnav features tight">
-  <div class="wrap" style="display:flex;flex-direction:column;gap:130px">
-    <div class="feat">
-      <div class="fpanel"><div class="embed" data-fit data-w="880" data-h="640"><img class="embed-poster" src="/assets/img/posters/system-health-map.png?v=3" alt="" loading="lazy" /><iframe data-src="/assets/anim/system-health-map.html?v=2" loading="lazy" scrolling="no" title="Real-time monitoring animation"></iframe></div></div>
-      <div class="feat-text">
-        <p class="feat-label">Real-Time Monitoring</p>
-        <h3 class="feat-title">From static lists to a living map</h3>
-        <p class="feat-body">Incidents were previously compiled into lists buried in fragmented tools and UIs. With this map, the path to understanding becomes easy. An admin can quickly scan where incidents are, zoom, and get more details.</p>
-      </div>
-    </div>
-    <div class="feat rev">
-      <div class="feat-text">
-        <p class="feat-label">Smart Alerting</p>
-        <h3 class="feat-title">More signal, less noise</h3>
-        <p class="feat-body">Used techniques such as progressive disclosure and detail pages which avoided overwhelming the user with too much information on first view. Less complexity, less noise, and more clarity.</p>
-      </div>
-      <div class="fpanel v2"><div class="embed" data-fit data-w="1440" data-h="900"><img class="embed-poster" src="/assets/img/posters/system-health-rail.png?v=1" alt="" loading="lazy" /><iframe data-src="/assets/anim/system-health-rail.html?v=2" loading="lazy" scrolling="no" title="Smart alerting animation"></iframe></div></div>
-    </div>
-    <div class="feat">
-      <div class="fpanel v3"><div class="embed" data-fit data-w="1240" data-h="780"><img class="embed-poster" src="/assets/img/posters/system-health-incident.png?v=1" alt="" loading="lazy" /><iframe data-src="/assets/anim/system-health-incident.html?v=2" loading="lazy" scrolling="no" title="Incident context animation"></iframe></div></div>
-      <div class="feat-text">
-        <p class="feat-label">Incident Context</p>
-        <h3 class="feat-title">Every incident, with full context</h3>
-        <p class="feat-body">When something breaks, the timeline, affected systems, and recent changes are already gathered in one place — so teams can move from detection to resolution without hunting for information.</p>
-      </div>
+    <p class="label">Case studies</p>
+    <h2 class="heading2">Two case studies, <span class="accent">one thread</span></h2>
+    <p class="body-lg">Both start with the same problem: people making high-stakes decisions from information scattered across too many places. Both end with a single surface they can trust.</p>
+    <div class="ccards">
+      <a class="ccard" href="/ilovestripe/portfolio-insights/">
+        <div class="ctext">
+          <p class="clabel">01 · Atlassian · Design Lead · 2025-2026</p>
+          <h3 class="ctitle">Portfolio <span class="accent">Insights</span></h3>
+          <p class="cdesc">How we turned fragmented data into something an admin could quickly scan, understand, and act on, by combining business vision, data visualization, and product craft.</p>
+          <div class="cstats"><span><b>33%</b>less migration planning time</span><span><b>5×</b>more self-serve assessments</span></div>
+          <span class="clink">Open the case study →</span>
+        </div>
+        <div class="cvis"><img class="shot" src="/assets/img/dashboard.png?v=6" alt="Portfolio Insights dashboard" loading="lazy" /></div>
+      </a>
+      <a class="ccard rev" href="/ilovestripe/system-health/">
+        <div class="ctext">
+          <p class="clabel">02 · Atlassian · Design Lead · 2026</p>
+          <h3 class="ctitle">System <span class="accent">Health</span></h3>
+          <p class="cdesc">How we gave teams a single, real-time view of system health, turning information buried in scattered lists and tools into clear signals, early warnings, and faster incident response.</p>
+          <div class="cstats"><span><b>80%</b>alert noise reduction</span><span><b>75%</b>faster time to awareness</span></div>
+          <span class="clink">Open the case study →</span>
+        </div>
+        <div class="cvis v3"><img class="shot" src="/assets/img/system-health-dashboard.png?v=1" alt="System Health dashboard" loading="lazy" /></div>
+      </a>
     </div>
   </div>
   <div class="pnav"><div class="wrap"><a class="nav-arrow" href="#contact" aria-label="Next: Contact"><span class="na-l">Contact</span><span class="na-c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span></a></div></div>
 </section>
 
 <script>
-  function fitEmbeds(){
-    document.querySelectorAll('.embed[data-fit]').forEach(function(el){
-      var bw=parseFloat(el.getAttribute('data-w'))||1440;
-      var bh=parseFloat(el.getAttribute('data-h'))||900;
-      var w=el.clientWidth, s=w/bw;
-      el.style.height=(bh*s)+'px';
-      var f=el.querySelector('iframe'); if(f){ f.style.width=bw+'px'; f.style.height=bh+'px'; f.style.transform='scale('+s+')'; }
-    });
-  }
-  window.addEventListener('load',fitEmbeds);
-  window.addEventListener('resize',fitEmbeds);
-  document.addEventListener('DOMContentLoaded',fitEmbeds);
-
-  // Defer each animation: only load (and thus start playing) its iframe once its section scrolls into view.
-  (function(){
-    function load(f){ if(!(f && f.getAttribute('data-src'))) return; var em=f.closest('.embed'); var poster=em?em.querySelector('.embed-poster'):null; var started=false; function start(){ if(started) return; started=true; f.src=f.getAttribute('data-src'); f.removeAttribute('data-src'); setTimeout(fitEmbeds,60); if(!em) return; var cap=0,lastSig='',stable=0; function reveal(){ em.classList.add('is-live'); } function sigOf(s){ var h=0,L=s.length,i; for(i=0;i<L;i+=9){ h=(h*31+s.charCodeAt(i))|0; } return h+'#'+L; } (function poll(){ cap++; try{ var d=f.contentDocument; if(d && d.body && !d.getElementById('__bundler_thumbnail')){ var sig=sigOf(d.body.innerHTML||''); if(sig===lastSig){ stable++; } else { stable=0; lastSig=sig; } if(stable>=3){ reveal(); return; } } }catch(e){ reveal(); return; } if(cap>50){ reveal(); return; } setTimeout(poll,180); })(); } if(poster && !poster.complete){ poster.addEventListener('load',start,{once:true}); poster.addEventListener('error',start,{once:true}); setTimeout(start,1000); } else { start(); } }
-    if(!('IntersectionObserver' in window)){ document.querySelectorAll('iframe[data-src]').forEach(load); return; }
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if(e.isIntersecting){ load(e.target.querySelector('iframe[data-src]')); io.unobserve(e.target); } });
-    },{rootMargin:'0px 0px -20% 0px',threshold:0.01});
-    document.querySelectorAll('.embed').forEach(function(el){ io.observe(el); });
-  })();
-
-  // Reveal quote blocks as they scroll into view.
-  (function(){
-    var quotes=document.querySelectorAll('.quote');
-    if(!quotes.length) return;
-    if(!('IntersectionObserver' in window)){ quotes.forEach(function(q){ q.classList.add('in'); }); return; }
-    var qo=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); qo.unobserve(e.target); } });
-    },{rootMargin:'0px 0px -12% 0px',threshold:0.25});
-    quotes.forEach(function(q){ qo.observe(q); });
-  })();
-
-  // Align the "Portfolio" back button to the same left edge the home headline uses.
-  // Mirrors the home page's split-layout geometry: the left content block is 570px
-  // (capped to the half-width minus 48px) centered in the left half of the viewport.
+  // Align the back link to the same left edge the hero headline uses.
   function homeLeftEdge(){
     var vw=document.documentElement.clientWidth||window.innerWidth;
-    if(vw<=900) return 28;                 // matches home mobile --pad
+    if(vw<=900) return 28;
     var innerW=Math.min(570, vw/2-48);
     return Math.round((vw/2-innerW)/2);
   }

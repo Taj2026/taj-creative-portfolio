@@ -547,6 +547,17 @@
     .fa{transform:rotate(90deg)}
   }
 
+  /* ---- case study switcher in the top bar ---- */
+  .cs-switch{display:flex;gap:26px}
+  .cs-switch a{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;padding:6px 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap}
+  .cs-switch a:hover{color:var(--fg);border-bottom-color:var(--accent)}
+  .cs-switch a[aria-current]{color:var(--fg);border-bottom-color:var(--accent)}
+  @media(max-width:900px){
+    .dnav-in{flex-wrap:wrap;row-gap:8px}
+    .cs-switch{width:100%;gap:20px;overflow-x:auto}
+  }
+  @media(max-width:640px){.cs-switch{gap:14px}.cs-switch a{font-size:10px;letter-spacing:.08em}}
+
   /* ---- sticky step navigation ---- */
   .dnav{position:sticky;top:0;z-index:30;background:rgba(10,10,10,.82);-webkit-backdrop-filter:saturate(140%) blur(14px);backdrop-filter:saturate(140%) blur(14px)}
   .dnav-in{padding:18px var(--pad)}
