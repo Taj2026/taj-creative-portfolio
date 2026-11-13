@@ -650,6 +650,30 @@
   .crafts span.t{border:1px solid #5a5a5a;padding:4px 9px;color:#cfcfcf}
   @media(max-width:1000px){.sb{grid-template-columns:1fr}}
 
+  /* ---- VPAT audit process (low-fi) ---- */
+  .jr{display:grid;grid-template-columns:34px 1fr 14px;gap:10px;align-items:center;padding:10px 0;border-top:1px solid #3a3a3a;font-size:13px;color:#e8e8e8}
+  .jr:first-of-type{border-top:none;padding-top:2px}
+  .jr .no{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:#fff}
+  .jr u{width:12px;height:12px;border:1px solid #8a8a8a;display:block;text-decoration:none}
+  .jr.more{color:#8a8a8a;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase}
+  .pr{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
+  .pr span{border:1px solid #5a5a5a;padding:3px 8px;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#cfcfcf}
+  .sv{display:grid;grid-template-columns:78px 1fr;gap:12px;padding:12px 0;border-top:1px solid #3a3a3a;align-items:start}
+  .sv:first-of-type{border-top:none;padding-top:2px}
+  .sv .dots{display:flex;gap:4px;padding-top:4px}
+  .sv .dots i{width:11px;height:11px;border:1px solid #8a8a8a;display:block}
+  .sv .dots i.on{background:#e8e8e8;border-color:#e8e8e8}
+  .sv b{display:block;font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:17px;letter-spacing:.04em;color:#fff;line-height:1.05}
+  .sv span.d{display:block;font-size:12px;color:#cfcfcf;margin-top:3px;line-height:1.35}
+  .mb{display:grid;grid-template-columns:repeat(9,1fr);gap:3px;margin:6px 0 4px}
+  .mb i{height:26px;background:#e8e8e8;display:block}
+  .mb i:last-child{background:#fff}
+  .mbl{display:grid;grid-template-columns:repeat(9,1fr);gap:3px;font-family:var(--mono);font-size:8.5px;letter-spacing:.06em;color:#8a8a8a;text-align:center}
+  .loop{display:flex;align-items:center;flex-wrap:wrap;gap:6px 0;margin-top:14px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#cfcfcf}
+  .loop span:not(:last-child)::after{content:"→";margin:0 10px;color:#8a8a8a}
+  .cb2{margin-top:16px;border:1px solid #fff;padding:12px 14px;font-family:var(--display);text-transform:uppercase;font-size:18px;letter-spacing:.04em;color:#fff;line-height:1.1}
+  .cb2 small{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;color:#8a8a8a;margin-top:5px}
+
   /* ---- long scrolling page ---- */
   .band{padding-bottom:0}
   .band.cont{padding-top:0}
