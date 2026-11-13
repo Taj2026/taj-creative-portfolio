@@ -69,3 +69,13 @@ function fitEmbeds(){
   window.addEventListener('load',upd);
   upd();
 })();
+
+// Side rail: on mid-size screens it stays hidden until the first step is reached, so it never covers the hero.
+(function(){
+  var first=document.querySelector('.band'); if(!first) return;
+  function t(){ document.body.classList.toggle('past-hero', first.getBoundingClientRect().top < window.innerHeight*0.6); }
+  window.addEventListener('scroll',t,{passive:true});
+  window.addEventListener('resize',t);
+  window.addEventListener('load',t);
+  t();
+})();

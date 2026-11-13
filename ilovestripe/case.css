@@ -576,3 +576,17 @@
     .snav{padding-left:12px}
     .snav a{padding:6px 7px}
   }
+
+  /* ---- vertical step rail ---- */
+  .snav-rail{display:none}
+  @media(min-width:901px){
+    .snav-bar{display:none}
+    .snav-rail{display:flex;flex-direction:column;gap:2px;position:fixed;left:12px;top:92px;z-index:25;list-style:none;padding:0;border:none;transition:opacity .25s}
+    .snav-rail a{padding:7px 8px}
+    .snav-rail a::after{top:50%;left:calc(100% + 10px);transform:translateY(-50%) translateX(-3px)}
+    .snav-rail a:hover::after,.snav-rail a:focus-visible::after{transform:translateY(-50%) translateX(0)}
+  }
+  @media(min-width:901px) and (max-width:1399px){
+    .snav-rail{opacity:0;pointer-events:none}
+    body.past-hero .snav-rail{opacity:1;pointer-events:auto}
+  }
