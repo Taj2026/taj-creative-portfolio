@@ -1,0 +1,66 @@
+/* ===== Slide deck: every panel is exactly one viewport tall ===== */
+:root{--navh:65px}
+html{scroll-padding-top:var(--navh)}
+.slide,.band.slide{position:relative;box-sizing:border-box;scroll-margin-top:0}
+
+/* bottom-right prev / next arrows (injected by deck.js) */
+.pnav{position:absolute;left:0;right:0;bottom:28px;z-index:5;pointer-events:none}
+.pnav .wrap{display:flex;justify-content:flex-end;align-items:center;gap:22px}
+.nav-arrow{pointer-events:auto;display:inline-flex;align-items:center;gap:14px;color:var(--muted);transition:color .2s;background:none;border:0;font:inherit;cursor:pointer;padding:0}
+.na-l{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase}
+.na-c{width:44px;height:44px;border:1px solid rgba(255,255,255,.22);border-radius:50%;display:grid;place-items:center;transition:border-color .2s,background .2s}
+.na-c svg{width:18px;height:18px;transition:transform .2s}
+.nav-arrow:hover,.nav-arrow:focus-visible{color:var(--fg)}
+.nav-arrow:hover .na-c,.nav-arrow:focus-visible .na-c{border-color:var(--accent);background:rgba(240,96,90,.1)}
+.nav-next:hover svg,.nav-next:focus-visible svg{transform:translateY(2px)}
+.nav-prev:hover svg,.nav-prev:focus-visible svg{transform:translateY(-2px)}
+.nav-prev .na-c{width:36px;height:36px}
+.nav-prev .na-c svg{width:15px;height:15px}
+.hero-pnav .na-c{animation:naBob 2.2s ease-in-out infinite}
+@keyframes naBob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+@media(prefers-reduced-motion:reduce){.hero-pnav .na-c{animation:none}}
+
+/* slide counter */
+.pcount{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--muted)}
+
+/* default (small screens): natural height, room for the arrows */
+section.slide{padding-bottom:104px}
+.slide-fit{width:100%}
+
+/* desktop: fixed-height slides */
+@media(min-width:901px) and (min-height:520px){
+  html{scroll-snap-type:y mandatory}
+  .slide{scroll-snap-align:start;height:calc(100vh - var(--navh));height:calc(100svh - var(--navh));overflow:hidden}
+  section.slide{display:flex;flex-direction:column;padding:16px 0 80px}
+  section.slide>.wrap{flex:1;min-height:0;display:flex;align-items:center;width:100%}
+  .slide-fit{flex:none}
+  /* hero slides: grid, content centred, never shorter than a slide */
+  header.slide{height:auto;min-height:calc(100vh - var(--navh));min-height:calc(100svh - var(--navh));overflow:visible}
+  header.dhero.slide{height:calc(100vh - var(--navh));height:calc(100svh - var(--navh));min-height:0;overflow:hidden}
+  .dhero .dhero-r{padding:28px var(--pad);gap:20px;min-height:0}
+  .dhero .dvisual{flex:1 1 0;min-height:0;padding:0 4%}
+  .dhero .dvisual img{width:auto;max-width:100%;max-height:100%;object-fit:contain}
+  .dhero .dhero-l{padding:40px 0}
+  .slide:has(.fig)>.wrap{max-width:1560px}
+  /* last slide: contact fills, footer pinned to the bottom */
+  section.slide-end{padding:0}
+  section.slide-end>.contact-cta{flex:1;min-height:0;display:flex;align-items:center;padding:24px 0 0;border-top:none}
+  section.slide-end>.contact-cta>.wrap{width:100%}
+  section.slide-end .site-footer{padding:28px 0 32px}
+}
+
+/* ---- slide-specific spacing ---- */
+.slide .fig{margin-top:22px}
+.slide .band-title{margin-top:14px}
+.slide .band-lead{margin-top:18px}
+.slide .shift{margin-top:30px}
+.slide .shift-row{padding:20px 0}
+.slide .pcards{margin-top:34px}
+.slide .cols2{margin-top:32px}
+.slide .slot{margin-top:28px;min-height:170px}
+.slide .band-body{margin-top:0}
+.slide .feats{margin-top:0;gap:0}
+.slide .stats{margin-top:0}
+.slide .band .quote,.slide .quote{margin-top:48px;padding-top:56px}
+.split{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
+@media(max-width:900px){.split{grid-template-columns:1fr;gap:32px}}
