@@ -674,6 +674,18 @@
   .cb2{margin-top:16px;border:1px solid #fff;padding:12px 14px;font-family:var(--display);text-transform:uppercase;font-size:18px;letter-spacing:.04em;color:#fff;line-height:1.1}
   .cb2 small{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;color:#8a8a8a;margin-top:5px}
 
+  /* ---- condensed research panel ---- */
+  .rs{display:flex;flex-direction:column;gap:38px}
+  .people3{grid-template-columns:repeat(3,1fr)}
+  .rs2{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+  .ins{list-style:none}
+  .ins li{display:grid;grid-template-columns:34px 1fr;gap:4px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+  .ins li:first-child{border-top:1px solid rgba(255,255,255,.08)}
+  .ins .n{font-family:var(--display);font-size:26px;line-height:1;color:var(--accent)}
+  .ins b{display:block;font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:19px;letter-spacing:.03em;line-height:1.05}
+  .ins span{display:block;font-size:13.5px;color:var(--dim);margin-top:3px;line-height:1.4}
+  @media(max-width:1000px){.people3{grid-template-columns:1fr}.rs2{grid-template-columns:1fr;gap:34px}}
+
   /* ---- long scrolling page ---- */
   .band{padding-bottom:0}
   .band.cont{padding-top:0}
