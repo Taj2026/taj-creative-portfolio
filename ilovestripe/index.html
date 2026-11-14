@@ -330,6 +330,22 @@
     .cvis{height:300px}
   }
   @media(max-width:640px){.cs-switch{gap:14px}.cs-switch a{font-size:10px;letter-spacing:.08em}}
+
+  /* ---- bottom-right "next" arrows ---- */
+  .ihero,.sec{position:relative}
+  .pnav{position:absolute;left:0;right:0;bottom:28px;z-index:5;pointer-events:none}
+  .pnav .wrap{display:flex;justify-content:flex-end}
+  .nav-arrow{pointer-events:auto;display:inline-flex;align-items:center;gap:14px;color:var(--muted);transition:color .2s}
+  .na-l{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase}
+  .na-c{width:44px;height:44px;border:1px solid rgba(255,255,255,.22);border-radius:50%;display:grid;place-items:center;transition:border-color .2s,background .2s}
+  .na-c svg{width:18px;height:18px;transition:transform .2s}
+  .nav-arrow:hover,.nav-arrow:focus-visible{color:var(--fg)}
+  .nav-arrow:hover .na-c,.nav-arrow:focus-visible .na-c{border-color:var(--accent);background:rgba(240,96,90,.1)}
+  .nav-arrow:hover svg,.nav-arrow:focus-visible svg{transform:translateY(2px)}
+  .hero-pnav .na-c{animation:naBob 2.2s ease-in-out infinite}
+  @keyframes naBob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+  @media(prefers-reduced-motion:reduce){.hero-pnav .na-c{animation:none}}
+  @media(max-width:900px){.pnav{bottom:24px}.na-l{display:none}}
 </style>
 <script src="/assets/analytics.js"></script>
 </head>
@@ -384,6 +400,7 @@
       </div>
     </div>
   </div>
+<div class="pnav hero-pnav"><div class="wrap"><a class="nav-arrow" href="#approach" aria-label="Next: How I work"><span class="na-l">How I work</span><span class="na-c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span></a></div></div>
 </header>
 
 <!-- APPROACH -->
@@ -404,6 +421,7 @@
     </div>
       </div>
   </div>
+<div class="pnav"><div class="wrap"><a class="nav-arrow" href="#cases" aria-label="Next: Case studies"><span class="na-l">Case studies</span><span class="na-c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span></a></div></div>
 </section>
 
 <!-- CASE STUDIES -->
