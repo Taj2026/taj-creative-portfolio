@@ -737,6 +737,18 @@
   .side.alt2{border-style:dotted}
   .ia-sides.three .side{padding:20px 20px 22px}
 
+  .sk2{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;align-items:start}
+  .skc{margin:0}
+  .skc svg,.skflow svg{display:block;width:100%;height:auto;border-radius:3px;box-shadow:0 16px 34px rgba(0,0,0,.5)}
+  .skc:nth-child(1) svg{transform:rotate(-.7deg)}
+  .skc:nth-child(2) svg{transform:rotate(.5deg)}
+  .skc:nth-child(3) svg{transform:rotate(-.4deg)}
+  .skc figcaption{margin-top:14px;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8a8a8a}
+  .skc figcaption b{color:#fff;font-weight:500}
+  .skflow{margin-top:26px}
+  .skflow svg{transform:rotate(.2deg)}
+  @media(max-width:1000px){.sk2{grid-template-columns:1fr}}
+
   /* ---- long scrolling page ---- */
   .band{padding-bottom:0}
   .band.cont{padding-top:0}
