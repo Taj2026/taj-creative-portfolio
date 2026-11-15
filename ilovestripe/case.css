@@ -842,6 +842,21 @@
   .seqr .seqs{margin-top:22px}
   @media(max-width:1000px){.seq{grid-template-columns:1fr;gap:34px}}
 
+  .pc-tabs{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin-bottom:14px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase}
+  .pc-tabs .fl{color:#8a8a8a;margin-left:6px}
+  .pc-tabs .fl:first-child{margin-left:0}
+  .pc-tabs button{font:inherit;letter-spacing:inherit;text-transform:inherit;color:#cfcfcf;background:none;border:1px solid #5a5a5a;padding:7px 12px;cursor:pointer;transition:border-color .15s,color .15s,background .15s}
+  .pc-tabs button:hover{border-color:#9a9a9a;color:#fff}
+  .pc-tabs button.on{border-color:var(--accent);color:#fff;background:rgba(240,96,90,.14)}
+  .pc-tabs .hint{margin-left:auto;color:#8a8a8a}
+  .pc-stage{display:grid}
+  .pc-screen{grid-area:1/1;visibility:hidden;opacity:0;transition:opacity .25s}
+  .pc-screen.on{visibility:visible;opacity:1}
+  .pc-screen .mf-hot{cursor:pointer}
+  .pc-screen .mf-hot:hover{background:rgba(240,96,90,.32)}
+  .pc-screen .mf-cap{margin-top:14px}
+  @media(max-width:1000px){.pc-tabs .hint{margin-left:0;width:100%}}
+
   /* ---- long scrolling page ---- */
   .band{padding-bottom:0}
   .band.cont{padding-top:0}
