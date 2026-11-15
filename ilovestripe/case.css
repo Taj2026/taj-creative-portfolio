@@ -690,6 +690,19 @@
   .rjm img{width:100%;height:auto;display:block;cursor:zoom-in}
   .rjm-cap{margin-top:14px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#8a8a8a;line-height:1.4}
 
+  /* ---- research split ---- */
+  .qrow{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+  .qcard{border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:14px 15px 16px;background:rgba(0,0,0,.18)}
+  .qcard .n{font-family:var(--display);font-size:24px;line-height:1;color:var(--accent)}
+  .qcard b{display:block;font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:18px;letter-spacing:.03em;line-height:1.05;margin-top:8px}
+  .qcard span{display:block;font-size:13px;color:var(--dim);margin-top:5px;line-height:1.4}
+  .icards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .icard{border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:28px 28px 30px;background:rgba(0,0,0,.18)}
+  .icard .n{font-family:var(--display);font-size:44px;line-height:1;color:var(--accent)}
+  .icard b{display:block;font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:30px;letter-spacing:.03em;line-height:1;margin-top:14px}
+  .icard span{display:block;font-size:16px;color:var(--dim);margin-top:10px;line-height:1.5;max-width:38ch}
+  @media(max-width:1000px){.qrow{grid-template-columns:1fr 1fr}.icards{grid-template-columns:1fr}}
+
   /* ---- long scrolling page ---- */
   .band{padding-bottom:0}
   .band.cont{padding-top:0}
