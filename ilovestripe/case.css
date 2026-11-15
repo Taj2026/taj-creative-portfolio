@@ -709,6 +709,10 @@
   .fig.rsfig .fig-bar{border-bottom-color:rgba(255,255,255,.1)}
   .fig.rsfig .person,.fig.rsfig .qcard{background:transparent;border-color:rgba(255,255,255,.14)}
 
+  .fig.lightfig .fig-body{background:#fff;padding:0}
+  .fig.lightfig .rjm{display:block;line-height:0}
+  .fig.lightfig .rjm-cap{margin:0;padding:12px 20px 14px;background:#fff;color:#6b6b64;line-height:1.4}
+
   /* ---- long scrolling page ---- */
   .band{padding-bottom:0}
   .band.cont{padding-top:0}
