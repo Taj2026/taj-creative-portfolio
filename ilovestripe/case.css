@@ -788,6 +788,7 @@
   @keyframes naBob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
   @media(prefers-reduced-motion:reduce){.hero-pnav .na-c{animation:none}}
   @media(max-width:900px){.pnav{bottom:24px}.na-l{display:none}}
+  .band-title.longtitle{font-size:clamp(40px,5.7vw,86px)}
   .split{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
   .dhero{min-height:100vh;min-height:100svh}
   .dhero-r{justify-content:center;gap:0}
