@@ -714,19 +714,28 @@
   .fig.lightfig .rjm-cap{margin:0;padding:12px 20px 14px;background:#fff;color:#6b6b64;line-height:1.4}
 
   /* ---- combined Define slide: intro + insights ---- */
-  .defgrid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start;margin-top:22px}
-  .defgrid .band-lead{margin-top:0;font-size:17px}
+  .defgrid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start;margin-top:30px}
+  .defgrid .band-lead{margin-top:0;font-size:19px}
   .insl{margin:0}
   .insl .fig-h{margin-bottom:14px}
-  .icards.sm{gap:12px}
-  .icards.sm .icard{padding:16px 18px 18px;border-radius:10px}
-  .icards.sm .icard .n{font-size:30px}
-  .icards.sm .icard b{font-size:22px;margin-top:8px}
-  .icards.sm .icard span{font-size:13.5px;margin-top:6px;line-height:1.4}
+  .icards.sm{gap:16px}
+  .icards.sm .icard{padding:24px 24px 26px;border-radius:12px}
+  .icards.sm .icard .n{font-size:40px}
+  .icards.sm .icard b{font-size:27px;margin-top:10px}
+  .icards.sm .icard span{font-size:15px;margin-top:8px;line-height:1.45}
   .defshift{margin-top:16px}
   .defshift .shift{margin-top:0}
   .defshift .shift-row{padding:13px 0}
   @media(max-width:900px){.defgrid{grid-template-columns:1fr;gap:32px}}
+
+  .ia-fork.three{grid-template-columns:repeat(3,1fr);margin:0 16.6667%}
+  .ia-fork.three span{position:relative;border-top:1px solid #fff}
+  .ia-fork.three span:nth-child(2)::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:#fff}
+  .ia-fork.three span:first-child{border-left:1px solid #fff}
+  .ia-fork.three span:last-child{border-right:1px solid #fff}
+  .ia-sides.three{grid-template-columns:repeat(3,1fr);gap:22px}
+  .side.alt2{border-style:dotted}
+  .ia-sides.three .side{padding:20px 20px 22px}
 
   /* ---- long scrolling page ---- */
   .band{padding-bottom:0}
