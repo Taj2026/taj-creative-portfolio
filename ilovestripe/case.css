@@ -788,12 +788,15 @@
   @keyframes naBob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
   @media(prefers-reduced-motion:reduce){.hero-pnav .na-c{animation:none}}
   @media(max-width:900px){.pnav{bottom:24px}.na-l{display:none}}
+  .band .stats + .quote{border-top:none}
+  .band .stats:has(+ .quote){border-bottom:none}
   .band-title.longtitle{font-size:clamp(40px,5.7vw,86px)}
   .split{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
   .dhero{min-height:100vh;min-height:100svh}
   .dhero-r{justify-content:center;gap:0}
-  .dhero .dvisual{align-items:flex-start;margin-bottom:-70px;z-index:1}
-  .dhero .sbands{position:relative;z-index:2;box-shadow:0 -22px 44px rgba(0,0,0,.45)}
+  .dhero .dvisual{align-items:center;margin-bottom:0}
+  .dmetrics{margin-top:34px;background:transparent;border-top:1px solid #2a2a2a;border-bottom:1px solid #2a2a2a}
+  .dmetrics .sband{padding:16px 0}
   @media(max-width:900px){.split{grid-template-columns:1fr;gap:32px}.dhero{min-height:0}.band{padding-bottom:88px}.band.cont{padding-top:0}.band.last{padding-bottom:104px}}
 
   /* ---- equal-height, full-bleed sections ---- */
@@ -818,7 +821,7 @@
     .dhero-l,.dhero-r{min-height:0;overflow:hidden}
     .dhero .dhero-l{padding:16px 0 64px}
     .dhero .dhero-r{padding:16px var(--pad) 64px;gap:20px;justify-content:center}
-    .dhero .dvisual{flex:1 1 0;min-height:0;padding:56px 4% 0;align-items:flex-start;margin-bottom:-150px}
+    .dhero .dvisual{flex:1 1 0;min-height:0;padding:0 4%;align-items:center;margin-bottom:0}
     .dhero .dvisual img{width:auto;max-width:100%;max-height:100%;object-fit:contain}
     .slide .fig,.band .fig{margin-top:22px}
     .band .band-title{margin-top:14px}
