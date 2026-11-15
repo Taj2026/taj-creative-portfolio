@@ -242,7 +242,7 @@
   .legend{display:flex;flex-wrap:wrap;gap:10px 22px;margin-bottom:30px}
   .legend span{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
   .legend i{width:12px;height:12px;border-radius:2px;display:block}
-  .board{display:grid;grid-template-columns:1.35fr 1fr 1.05fr;gap:0;border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden}
+  .board{display:grid;grid-template-columns:1.2fr 1.2fr 1fr;gap:0;border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden}
   .pane{padding:24px 22px 28px;border-left:1px solid rgba(255,255,255,.1);background:rgba(0,0,0,.18)}
   .pane:first-child{border-left:none}
   .pane h4{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:26px;letter-spacing:.03em;line-height:1}
@@ -253,6 +253,8 @@
   .groups{display:flex;flex-direction:column;gap:12px}
   .group{border:1px dashed rgba(255,255,255,.22);border-radius:10px;padding:12px 14px 14px}
   .group b{display:block;font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:19px;letter-spacing:.03em;line-height:1.05}
+  .group .gn{font-family:var(--display);color:var(--accent);font-size:21px;margin-right:9px}
+  .group .gd{display:block;font-size:12.5px;color:var(--dim);margin-top:5px;line-height:1.35}
   .stubs{display:flex;gap:5px;margin-top:10px}
   .stubs i{width:20px;height:13px;border-radius:2px;display:block}
   .matrix{position:relative;aspect-ratio:1/0.88;border:1px solid rgba(255,255,255,.2);border-radius:6px;background:
