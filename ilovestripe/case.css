@@ -705,6 +705,10 @@
 
   .person img{width:88px;height:88px;border-radius:50%;display:block}
 
+  .fig.rsfig{background:#262626;border-color:rgba(255,255,255,.12)}
+  .fig.rsfig .fig-bar{border-bottom-color:rgba(255,255,255,.1)}
+  .fig.rsfig .person,.fig.rsfig .qcard{background:transparent;border-color:rgba(255,255,255,.14)}
+
   /* ---- long scrolling page ---- */
   .band{padding-bottom:0}
   .band.cont{padding-top:0}
