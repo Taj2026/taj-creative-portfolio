@@ -346,6 +346,20 @@
   @keyframes naBob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
   @media(prefers-reduced-motion:reduce){.hero-pnav .na-c{animation:none}}
   @media(max-width:900px){.pnav{bottom:24px}.na-l{display:none}}
+
+  /* ---- equal-height, full-bleed sections ---- */
+  .ihero,.sec{border:none}
+  #approach{background:#181818}
+  #cases{background:#0A0A0A}
+  @media(min-width:901px) and (min-height:360px){
+    .ihero,.sec{height:100vh;height:100svh;box-sizing:border-box;overflow:hidden}
+    .ihero{min-height:0;grid-template-rows:minmax(0,1fr);align-content:stretch}
+    .ihero-col{min-height:0;overflow:hidden;padding:calc(65px + 24px) 0 84px}
+    .sec{display:flex;flex-direction:column;padding:16px 0 88px}
+    .sec>.wrap{flex:1;min-height:0;display:flex;align-items:center;width:100%}
+    .slide-fit{flex:none}
+    .slide-fit:not([data-keepw]){width:100%}
+  }
 </style>
 <script src="/assets/analytics.js"></script>
 </head>
@@ -363,7 +377,7 @@
 
 <header class="ihero">
   <div class="ihero-col ihero-left">
-    <div class="ihero-left-inner">
+    <div class="ihero-left-inner slide-fit" data-keepw>
       <p class="i-eyebrow">Product Design · Design Systems · AI Builder</p>
       <h1 class="i-headline">
         <span class="l1"><span class="hi-text">HI,</span>
@@ -390,7 +404,7 @@
     </div>
   </div>
   <div class="ihero-col ihero-right">
-    <div class="ihero-right-inner">
+    <div class="ihero-right-inner slide-fit" data-keepw>
       <div class="i-stats">
         <div class="i-stat"><div class="i-stat-label"><span class="num">15+</span><span class="word">Years</span></div><span class="desc">Designing for SaaS companies with complex datasets, as well as consumer tools and experiences</span></div>
         <div class="i-stat"><div class="i-stat-label"><span class="num">Lead</span><span class="word">Atlassian</span></div><span class="desc">UX Design Manager &amp; Lead, 2021–2026 — enterprise admin experiences and design systems</span></div>
@@ -406,7 +420,7 @@
 <!-- APPROACH -->
 <section class="sec" id="approach">
   <div class="wrap">
-    <div>
+    <div class="slide-fit">
     <p class="label">How I work</p>
     <h2 class="heading2">How I approach <span class="accent">a problem</span></h2>
     <p class="body-lg">I pair product strategy with hands-on craft, and bring AI in where it creates leverage at each step.</p>
@@ -427,7 +441,7 @@
 <!-- CASE STUDIES -->
 <section class="sec" id="cases">
   <div class="wrap">
-    <div>
+    <div class="slide-fit">
     <p class="label">Case studies</p>
     <h2 class="heading2">Two case studies, <span class="accent">one thread</span></h2>
     <p class="body-lg">One is about making complex enterprise data clear. The other is about making a product accessible to everyone. Both are about removing what stands between people and their work.</p>
@@ -502,5 +516,6 @@
 </script>
 
 <script src="/assets/lightbox.js"></script>
+<script src="/ilovestripe/fit.js?v=1"></script>
 </body>
 </html>

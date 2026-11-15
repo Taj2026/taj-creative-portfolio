@@ -735,3 +735,35 @@
   .dhero .dvisual{align-items:flex-start;margin-bottom:-70px;z-index:1}
   .dhero .sbands{position:relative;z-index:2;box-shadow:0 -22px 44px rgba(0,0,0,.45)}
   @media(max-width:900px){.split{grid-template-columns:1fr;gap:32px}.dhero{min-height:0}.band{padding-bottom:88px}.band.cont{padding-top:0}.band.last{padding-bottom:104px}}
+
+  /* ---- equal-height, full-bleed sections ---- */
+  .band.g,.next.g,.slide-end.g{background:#181818;--line:#2f2f2f}
+  .band.k,.next.k,.slide-end.k{background:#0A0A0A;--line:#262626}
+  .band{border:none}
+  @media(min-width:901px) and (min-height:360px){
+    .dhero,.band,.next,.slide-end{height:100vh;height:100svh;box-sizing:border-box;overflow:hidden;position:relative}
+    .band,.band.cont,.band.last,.band.sum{display:flex;flex-direction:column;padding:16px 0 88px}
+    .band>.wrap{flex:1;min-height:0;display:flex;align-items:center;width:100%}
+    .slide-fit{flex:none}
+    .slide-fit:not([data-keepw]){width:100%}
+    .band:has(.fig)>.wrap{max-width:1560px}
+    .next{display:flex;flex-direction:column;justify-content:center;padding:0 0 88px}
+    .slide-end{display:flex;flex-direction:column}
+    .slide-end>.contact-cta{flex:1;min-height:0;display:flex;align-items:center;padding:24px 0 0;border-top:none}
+    .slide-end>.contact-cta>.wrap{width:100%}
+    .slide-end .site-footer{padding:28px 0 32px;border-top:1px solid var(--line)}
+    .dhero{min-height:0}
+    .dhero-l,.dhero-r{min-height:0;overflow:hidden}
+    .dhero .dhero-l{padding:24px 0 84px}
+    .dhero .dhero-r{padding:28px var(--pad) 84px;gap:20px;justify-content:center}
+    .dhero .dvisual{flex:1 1 0;min-height:0;padding:84px 4% 0;align-items:flex-start;margin-bottom:-170px}
+    .dhero .dvisual img{width:auto;max-width:100%;max-height:100%;object-fit:contain}
+    .slide .fig,.band .fig{margin-top:22px}
+    .band .band-title{margin-top:14px}
+    .band .band-lead{margin-top:18px}
+    .band .shift{margin-top:30px}
+    .band .shift-row{padding:20px 0}
+    .band .cols2{margin-top:32px}
+    .band .band-body{margin-top:0}
+    .band.cont>.wrap>.slide-fit>:first-child{margin-top:0}
+  }
