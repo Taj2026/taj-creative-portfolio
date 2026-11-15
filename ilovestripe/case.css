@@ -703,6 +703,8 @@
   .icard span{display:block;font-size:16px;color:var(--dim);margin-top:10px;line-height:1.5;max-width:38ch}
   @media(max-width:1000px){.qrow{grid-template-columns:1fr 1fr}.icards{grid-template-columns:1fr}}
 
+  .person img{width:88px;height:88px;border-radius:50%;display:block}
+
   /* ---- long scrolling page ---- */
   .band{padding-bottom:0}
   .band.cont{padding-top:0}
