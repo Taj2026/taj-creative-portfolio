@@ -80,24 +80,17 @@ function fitEmbeds(){
   t();
 })();
 
-// Prototype clickthrough: tabs and numbered hotspots switch the visible screen.
+// Prototype screen map: scale each full-size screen down to fit its thumbnail.
 (function(){
-  document.querySelectorAll('.pc').forEach(function(pc){
-    var tabs=[].slice.call(pc.querySelectorAll('.pc-tabs button'));
-    var scr=[].slice.call(pc.querySelectorAll('.pc-screen'));
-    var map={'1':2,'2':1,'3':2,'4':0,'5':0};
-    function show(i){
-      tabs.forEach(function(t,k){ t.classList.toggle('on',k===i); });
-      scr.forEach(function(s,k){ s.classList.toggle('on',k===i); });
-    }
-    tabs.forEach(function(t,k){ t.addEventListener('click',function(){ show(k); }); });
-    pc.querySelectorAll('.mf-hot').forEach(function(h){
-      var to=map[h.textContent.trim()];
-      if(to===undefined) return;
-      h.setAttribute('role','button'); h.setAttribute('tabindex','0');
-      h.addEventListener('click',function(){ show(to); });
-      h.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); show(to); } });
+  function fit(){
+    document.querySelectorAll('.tn').forEach(function(t){
+      var m=t.firstElementChild; if(!m) return;
+      var s=t.clientWidth/1000;
+      m.style.transform='scale('+s+')';
+      t.style.height=(640*s)+'px';
     });
-    show(0);
-  });
+  }
+  window.addEventListener('load',fit);
+  window.addEventListener('resize',fit);
+  document.addEventListener('DOMContentLoaded',fit);
 })();
