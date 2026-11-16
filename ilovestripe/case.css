@@ -983,9 +983,13 @@
   .pyrw .band-title{margin-top:0}
   .pyrw .band-lead{margin-top:18px}
   .pyr{width:100%;height:auto;display:block;overflow:visible}
-  .pyr .tl{font-family:var(--display);font-size:30px;letter-spacing:.05em;fill:#1c1210;text-anchor:middle;text-transform:uppercase}
+  .pyr .tl{font-family:var(--display);font-size:30px;letter-spacing:.05em;fill:#fff;text-anchor:middle;text-transform:uppercase}
   .pyr .nt{font-family:'DM Sans',sans-serif;font-size:17px;font-weight:600;fill:#1c1210}
   .pyr .ar{fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+  /* workshop board: Prioritize panel hugs its content */
+  .board .pane:nth-child(2){border-right:1px solid rgba(255,255,255,.1)}
+  .board .pane:nth-child(3){align-self:start;border-left:none;border-bottom:1px solid rgba(255,255,255,.1);border-radius:0 0 0 10px}
+  @media(max-width:1000px){.board .pane:nth-child(2){border-right:none}.board .pane:nth-child(3){align-self:stretch;border-bottom:none;border-radius:0}}
   @media(max-width:900px){.pyrw{grid-template-columns:1fr;gap:28px}}
 
   /* ---- long scrolling page ---- */
