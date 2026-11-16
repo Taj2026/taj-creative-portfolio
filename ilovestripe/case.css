@@ -1192,6 +1192,11 @@
   .zpt li::before{top:20px}
   @media(max-width:900px){.zmw{grid-template-columns:1fr}.zm-stage{aspect-ratio:16/10}}
 
+  /* ---- a11y: vision mini stories on a white rounded card ---- */
+  .ms{background:#fff;border-radius:22px;padding:28px;display:flex;flex-wrap:wrap;gap:16px;justify-content:center;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+  .ms img{display:block;width:calc((100% - 48px)/4);height:auto;border-radius:6px}
+  @media(max-width:900px){.ms{padding:16px;gap:10px}.ms img{width:calc((100% - 10px)/2)}}
+
   /* ---- long scrolling page ---- */
   .band{padding-bottom:0}
   .band.cont{padding-top:0}
@@ -1261,7 +1266,7 @@
     .slide-fit{flex:none}
     .slide-fit:not([data-keepw]){width:100%}
     .band:has(.fig)>.wrap{max-width:1560px}
-    .band:has(.feat)>.wrap,.band:has(.split .embed)>.wrap,.band:has(.split.rl)>.wrap{max-width:1560px}
+    .band:has(.feat)>.wrap,.band:has(.split .embed)>.wrap,.band:has(.split.rl)>.wrap,.band:has(.ms)>.wrap{max-width:1560px}
     .feat{grid-template-columns:1.58fr minmax(260px,.42fr);gap:44px}
     .feat.rev{grid-template-columns:minmax(260px,.42fr) 1.58fr}
     .fpanel{padding:14px}
