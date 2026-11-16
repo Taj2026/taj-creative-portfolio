@@ -94,3 +94,17 @@ function fitEmbeds(){
   window.addEventListener('resize',fit);
   document.addEventListener('DOMContentLoaded',fit);
 })();
+
+// Prototype video: scale the 1000x640 screens to the player width and size the stage.
+(function(){
+  function fitpv(){
+    document.querySelectorAll('.pv-screen').forEach(function(st){
+      var s=st.clientWidth/1000;
+      st.style.height=(640*s)+'px';
+      st.querySelectorAll('.pv-s').forEach(function(v){var m=v.firstElementChild; if(m) m.style.transform='scale('+s+')';});
+    });
+  }
+  window.addEventListener('load',fitpv);
+  window.addEventListener('resize',fitpv);
+  document.addEventListener('DOMContentLoaded',fitpv);
+})();
