@@ -957,6 +957,23 @@
   .vbd-sc p.e{color:#a8a89f}
   @media(max-width:1000px){.vbd-row.r1,.vbd-row.r3{grid-template-columns:1fr}.vbd-sc{grid-template-columns:repeat(2,1fr)}.vbd-pers{grid-template-columns:repeat(3,1fr)}}
 
+  /* ---- a11y VPAT process ---- */
+  .vpr{display:grid;grid-template-columns:repeat(5,1fr);position:relative;margin-top:24px;height:350px;gap:0 10px}
+  .vpr::after{content:"";position:absolute;left:-40px;right:-40px;bottom:18px;height:2px;background:#3a3a3a}
+  .vpr-s{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;position:relative;z-index:1;min-width:0}
+  .vpr-t{font-size:19px;line-height:1.3;text-align:center;color:#fff;max-width:215px;margin:0 0 20px}
+  .vpr-st{width:3px;height:var(--h);background:var(--accent);position:relative;flex:none}
+  .vpr-st::before{content:"";position:absolute;left:50%;top:-7px;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:var(--accent)}
+  .vpr-p{flex:none;height:38px;display:flex;align-items:center;padding:0 20px;background:var(--accent);color:#0A0A0A;border-radius:3px;font-family:var(--mono);font-size:12.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase}
+  .vpl{display:flex;align-items:center;flex-wrap:wrap;gap:12px 28px;margin-top:40px}
+  .vpl-k{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:#6B6B64;text-transform:uppercase;margin:0}
+  .vpl-logos{display:flex;align-items:center;gap:26px}
+  .vpl-logos img{width:auto;filter:brightness(0) saturate(100%) invert(43%) sepia(6%) saturate(280%) hue-rotate(20deg) brightness(92%) contrast(88%)}
+  .vpl-logos .atl{height:12.15px}
+  .vpl-logos .dq{height:26px}
+  .vpl-logos i{font-style:normal;font-family:var(--mono);font-size:13px;color:#4a4a44}
+  @media(max-width:900px){.vpr{grid-template-columns:1fr;height:auto;gap:22px}.vpr::after{display:none}.vpr-s{flex-direction:row-reverse;justify-content:flex-end;align-items:center;gap:14px}.vpr-st{display:none}.vpr-t{text-align:left;margin:0;max-width:none}}
+
   /* ---- long scrolling page ---- */
   .band{padding-bottom:0}
   .band.cont{padding-top:0}
