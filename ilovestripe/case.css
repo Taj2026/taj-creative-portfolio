@@ -1121,7 +1121,7 @@
   .seq{grid-template-columns:.9fr 1.1fr}
   .seq .seqh{position:relative;z-index:2;margin:0 0 -64px;justify-content:space-between;gap:6px}
   .seq .seqh figure{width:auto;flex:1 1 0;min-width:0}
-  .seq .seqh img{width:128px;height:128px;max-width:none;flex:none;object-fit:cover;aspect-ratio:1;border:5px solid #161616;box-shadow:0 12px 28px rgba(0,0,0,.5)}
+  .seq .seqh img{width:128px;height:128px;max-width:none;flex:none;object-fit:cover;aspect-ratio:1;border:0;box-shadow:0 12px 28px rgba(0,0,0,.5)}
   .seq .seqh figcaption{display:inline-block;white-space:nowrap;font-size:8.5px;margin-top:-12px;position:relative;background:#161616;color:#d6d6d6;padding:4px 9px;border-radius:99px;border:1px solid rgba(255,255,255,.14)}
   .seq .swf{padding-top:12px}
   .seq .seqr{padding-bottom:6px}
