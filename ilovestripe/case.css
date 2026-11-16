@@ -970,7 +970,7 @@
   .vpl-logos{display:flex;align-items:center;gap:26px}
   .vpl-logos img{width:auto;filter:brightness(0) saturate(100%) invert(43%) sepia(6%) saturate(280%) hue-rotate(20deg) brightness(92%) contrast(88%)}
   .vpl-logos .atl{height:12.15px}
-  .vpl-logos .dq{height:26px}
+  .vpl-logos .dq{height:19.5px}
   .vpl-logos i{font-style:normal;font-family:var(--mono);font-size:13px;color:#4a4a44}
   @media(max-width:900px){.vpr{grid-template-columns:1fr;height:auto;gap:22px}.vpr::after{display:none}.vpr-s{flex-direction:row-reverse;justify-content:flex-end;align-items:center;gap:14px}.vpr-st{display:none}.vpr-t{text-align:left;margin:0;max-width:none}}
 
