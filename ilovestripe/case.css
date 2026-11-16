@@ -1193,7 +1193,7 @@
   @media(max-width:900px){.zmw{grid-template-columns:1fr}.zm-stage{aspect-ratio:16/10}}
 
   /* ---- a11y: vision mini stories — big opaque title card overlapping a narrower, taller white card ---- */
-  .ms{position:relative;margin:36px auto 0;max-width:1000px}
+  .ms{position:relative;margin:36px auto 0;max-width:min(1000px,calc((100vh - 278px)/var(--ar,.69) + 88px))}
   .ms-g{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;background:#fff;border-radius:22px;padding:28px;box-shadow:0 24px 60px rgba(0,0,0,.4)}
   .ms-g img{display:block;width:100%;height:auto;border-radius:6px}
   .ms-t{position:absolute;left:-36px;top:-36px;width:calc(33.333% + 24px);height:auto;border-radius:10px;z-index:2;background:#091e42;box-shadow:0 22px 48px rgba(0,0,0,.45)}
