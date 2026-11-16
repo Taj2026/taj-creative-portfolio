@@ -1231,6 +1231,26 @@
   .vpm2 .vpl{margin-top:22px}
   @media(max-width:900px){.vph{grid-template-columns:1fr}.vsm{width:100%;max-width:340px}}
 
+  /* ---- portfolio insights: Data Center -> Cloud, one simple graphic ---- */
+  .dcc .band-lead{max-width:62ch}
+  .dcc-svg{width:100%;height:auto;display:block;margin-top:26px;overflow:visible}
+  .dcc-stat{display:grid;grid-template-columns:auto 1fr;column-gap:22px;align-items:center;margin-top:22px;padding:16px 24px;border:1px solid rgba(255,255,255,.14);border-radius:14px;background:rgba(255,255,255,.03)}
+  .dcc-stat b{grid-row:1/3;font-family:var(--display);font-weight:400;font-size:64px;line-height:.9;letter-spacing:.02em;color:var(--accent)}
+  .dcc-stat span{font-size:19px;line-height:1.35;color:var(--fg,#fff)}
+  .dcc-stat small{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted,#8a8a8a);margin-top:4px}
+  .dcc-svg .card{fill:rgba(255,255,255,.04);stroke:rgba(255,255,255,.28);stroke-width:1.5}
+  .dcc-svg .card.cl{stroke:var(--accent);fill:rgba(240,96,90,.07)}
+  .dcc-svg .ic{fill:rgba(255,255,255,.16);stroke:rgba(255,255,255,.55);stroke-width:2}
+  .dcc-svg .ic.cl{fill:rgba(240,96,90,.22);stroke:var(--accent)}
+  .dcc-svg .cl-o *{fill:#f0605a;stroke:#f0605a;stroke-width:6}
+  .dcc-svg .cl-i *{fill:#3b2523;stroke:none}
+  .dcc-svg .dot{fill:rgba(255,255,255,.7)}
+  .dcc-svg .nm{font-family:var(--display);font-size:46px;letter-spacing:.05em;fill:#fff;text-anchor:middle;text-transform:uppercase}
+  .dcc-svg .nm.cl{fill:var(--accent)}
+  .dcc-svg .cp{font-family:'DM Sans',sans-serif;font-size:19px;fill:#bdbdbd;text-anchor:middle}
+  .dcc-svg .ar{fill:none;stroke:var(--accent);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+  .dcc-svg .mg{font-family:var(--mono);font-size:15px;letter-spacing:.2em;fill:var(--accent);text-anchor:middle;text-transform:uppercase}
+
   /* ---- long scrolling page ---- */
   .band{padding-bottom:0}
   .band.cont{padding-top:0}
