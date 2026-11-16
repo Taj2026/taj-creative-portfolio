@@ -998,7 +998,7 @@
   .wgrid{display:flex;flex-direction:column;gap:26px;margin-top:26px}
   .wgrid .wtxt{display:grid;grid-template-columns:1fr 1fr;gap:44px}
   .wgrid .band-lead{margin:0;font-size:19px}
-  .wgrid .ctx-shot{border-radius:12px;width:100%;max-width:820px;margin:0 auto}
+  .wgrid .ctx-shot{border-radius:12px;width:100%;max-width:980px;margin:0 auto}
   @media(max-width:900px){.wgrid .wtxt{grid-template-columns:1fr;gap:16px}}
 
   /* ---- long scrolling page ---- */
