@@ -1212,6 +1212,8 @@
   .vph .band-title{grid-column:1;grid-row:1}
   .vph .band-lead{grid-column:1;grid-row:2}
   .vph .vsm{grid-column:2;grid-row:2;align-self:start;margin-top:20px}
+  /* mission slide image = same size as the Why accessibility image */
+  .band-body>.ctx-shot{max-width:980px;margin:0 auto}
   .vsm{width:330px;box-sizing:border-box;padding:16px 18px 18px;border:1px solid rgba(255,255,255,.2);border-radius:12px;background:rgba(255,255,255,.04)}
   .vsm-k{margin-bottom:12px}
   .vsm-rows{gap:9px}
