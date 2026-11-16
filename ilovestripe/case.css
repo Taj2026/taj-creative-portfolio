@@ -1183,7 +1183,7 @@
   @media(max-width:900px){.wfs{grid-template-columns:1fr;gap:28px}}
 
   /* ---- customer interviews: wider, shorter Zoom window; leaner text ---- */
-  .zmw{grid-template-columns:2.15fr 1fr;gap:40px}
+  .zmw{grid-template-columns:2.15fr 1fr;gap:40px;margin-top:22px}
   .zm-stage{aspect-ratio:2.6/1;overflow:hidden;display:block}
   .zm-stage img{position:absolute;left:50%;top:7%;height:86%;width:auto;transform:translateX(-50%)}
   .zml h4 + ul{margin-bottom:30px}
