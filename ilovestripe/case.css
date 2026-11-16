@@ -994,6 +994,13 @@
   .skc svg,.skflow svg{transform:none!important;border-radius:2px;box-shadow:none;outline:1px solid rgba(255,255,255,.14)}
   @media(max-width:900px){.pyrw{grid-template-columns:1fr;gap:28px}}
 
+  /* ---- a11y: why accessibility (text + infographic on one slide) ---- */
+  .wgrid{display:grid;grid-template-columns:.85fr 1.35fr;gap:44px;align-items:center;margin-top:30px}
+  .wgrid .band-lead{margin-top:0;font-size:19px}
+  .wgrid .band-lead + .band-lead{margin-top:18px}
+  .wgrid .ctx-shot{border-radius:12px}
+  @media(max-width:900px){.wgrid{grid-template-columns:1fr;gap:28px}}
+
   /* ---- long scrolling page ---- */
   .band{padding-bottom:0}
   .band.cont{padding-top:0}
