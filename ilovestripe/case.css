@@ -999,7 +999,7 @@
   .wgrid{display:flex;flex-direction:column;gap:26px;margin-top:26px}
   .wgrid .wtxt{display:grid;grid-template-columns:1fr 1fr;gap:44px}
   .wgrid .band-lead{margin:0;font-size:19px}
-  .wgrid .ctx-shot{border-radius:12px;width:100%;max-width:980px;margin:0 auto}
+  .wgrid .ctx-shot{border-radius:12px;width:100%;max-width:980px;margin:0}
   @media(max-width:900px){.wgrid .wtxt{grid-template-columns:1fr;gap:16px}}
 
   /* ---- customer interviews: persona in a Zoom-style window + findings ---- */
@@ -1152,6 +1152,22 @@
   .pv .mf-imp{flex:1;display:flex;flex-direction:column;margin-top:14px;border-top:1px solid #e6edf6}
   .pv .mf-imp .mf-row{flex:1;align-items:center;border-bottom:1px solid #eef2f8;color:#6b7686}
   .pv .mf-imp .mf-row:last-child{border-bottom:0}
+
+  /* ---- a11y: VPAT audit, process + severity condensed onto one slide ---- */
+  .vpm .vpk{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:26px 0 0}
+  .vpm .vpr{height:212px;margin-top:6px}
+  .vpm .vpr-t{font-size:16px;margin-bottom:14px;max-width:200px}
+  .vpm .vpr-st{height:calc(var(--h)*.5)}
+  .vpm .vpr-p{height:32px;font-size:11.5px;padding:0 16px}
+  .vpm .vpl{margin-top:12px}
+  .vpm .vsv{margin-top:8px}
+  .vpm .vsv-top{margin-bottom:8px}
+  .vpm .vsc .vsb{height:calc(var(--h)*.36)}
+  .vpm .vsc .vsb::after{display:none}
+  .vpm .vsc .vst{padding-top:10px}
+  .vpm .vsc h4{font-size:22px;margin-bottom:4px}
+  .vpm .vsc p{font-size:12.5px;line-height:1.45}
+  .vpm .vsv-axis{margin-top:12px}
 
   /* ---- long scrolling page ---- */
   .band{padding-bottom:0}
