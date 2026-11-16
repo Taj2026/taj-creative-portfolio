@@ -714,11 +714,11 @@
   .fig.lightfig .rjm-cap{margin:0;padding:12px 20px 14px;background:#fff;color:#6b6b64;line-height:1.4}
 
   /* ---- combined Define slide: intro + insights ---- */
-  .defgrid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start;margin-top:30px}
-  .defgrid .band-lead{margin-top:0;font-size:19px}
+  .defgrid{display:flex;flex-direction:column;gap:34px;margin-top:30px}
+  .defgrid .band-lead{margin-top:0;font-size:19px;max-width:72ch}
   .insl{margin:0}
   .insl .fig-h{margin-bottom:14px}
-  .icards.sm{gap:16px}
+  .icards.sm{gap:16px;align-items:stretch}
   .icards.sm .icard{padding:24px 24px 26px;border-radius:12px}
   .icards.sm .icard .n{font-size:40px}
   .icards.sm .icard b{font-size:27px;margin-top:10px}
@@ -726,7 +726,9 @@
   .defshift{margin-top:16px}
   .defshift .shift{margin-top:0}
   .defshift .shift-row{padding:13px 0}
-  @media(max-width:900px){.defgrid{grid-template-columns:1fr;gap:32px}}
+  @media(min-width:1001px){.icards.sm{grid-template-columns:repeat(4,1fr)}}
+  @media(max-width:1000px) and (min-width:601px){.icards.sm{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:900px){.defgrid{gap:32px}}
 
   .ia-fork.three{grid-template-columns:repeat(3,1fr);margin:0 16.6667%}
   .ia-fork.three span{position:relative;border-top:1px solid #fff}
