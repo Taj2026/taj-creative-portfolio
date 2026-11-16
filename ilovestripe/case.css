@@ -1169,6 +1169,29 @@
   .vpm .vsc p{font-size:12.5px;line-height:1.45}
   .vpm .vsv-axis{margin-top:12px}
 
+  /* ---- a11y: documented workflows (example Jira workflow, redrawn) ---- */
+  .wfs{display:grid;grid-template-columns:.7fr 1.6fr;gap:48px;align-items:center}
+  .wfs .band-title{margin-top:0}
+  .wfs .band-lead{margin-top:22px}
+  .wfc{border:1px solid rgba(255,255,255,.1);border-radius:14px;background:rgba(255,255,255,.03);padding:26px 28px 22px}
+  .wfc-k{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted,#8a8a8a);margin:0 0 14px}
+  .wfc svg{width:100%;height:auto;display:block;overflow:visible}
+  .wfc .nd{font-family:'DM Sans',sans-serif;font-size:19px;font-weight:600;letter-spacing:.06em;text-anchor:middle;dominant-baseline:central;text-transform:uppercase}
+  .wfc .tr{font-family:'DM Sans',sans-serif;font-size:17px;fill:#b8b8b8;text-anchor:middle}
+  .wfc .ar{fill:none;stroke:#8a8a8a;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .wfc-n{font-size:13px;color:var(--muted,#8a8a8a);margin:14px 0 0}
+  @media(max-width:900px){.wfs{grid-template-columns:1fr;gap:28px}}
+
+  /* ---- customer interviews: wider, shorter Zoom window; leaner text ---- */
+  .zmw{grid-template-columns:2.15fr 1fr;gap:40px}
+  .zm-stage{aspect-ratio:2.6/1;overflow:hidden;display:block}
+  .zm-stage img{position:absolute;left:50%;top:7%;height:86%;width:auto;transform:translateX(-50%)}
+  .zml h4 + ul{margin-bottom:30px}
+  .zat li{font-size:21px;padding:9px 17px}
+  .zpt li{font-size:17px;padding:12px 0 12px 24px}
+  .zpt li::before{top:20px}
+  @media(max-width:900px){.zmw{grid-template-columns:1fr}.zm-stage{aspect-ratio:16/10}}
+
   /* ---- long scrolling page ---- */
   .band{padding-bottom:0}
   .band.cont{padding-top:0}
