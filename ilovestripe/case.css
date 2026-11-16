@@ -1204,6 +1204,23 @@
   .ms-cap{align-self:end;justify-self:end;margin:0 4px 2px 0;text-align:right;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6b778c}
   @media(max-width:900px){.ms{margin:18px 0 0 0}.ms-g{grid-template-columns:repeat(2,1fr);padding:14px;gap:10px}.ms-t{position:static;width:100%;margin-bottom:10px}.ms-sp{display:none}.ms-l{align-items:flex-start;text-align:left}}
 
+  /* ---- a11y VPAT slide: tiny issue-classification chart in the upper right, process gets the room ---- */
+  .vph{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start}
+  .vph .band-lead{max-width:62ch}
+  .vsm{width:300px;margin-top:6px}
+  .vsm-k{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted,#8a8a8a);margin:0 0 10px}
+  .vsm-cols{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;align-items:end}
+  .vsm-c{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0}
+  .vsm-c i{display:block;width:100%;height:var(--h);background:var(--c);border-radius:3px 3px 0 0}
+  .vsm-c b{font-family:var(--mono);font-weight:400;font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;color:#bdbdbd}
+  .vsm-ax{display:flex;align-items:center;gap:8px;margin-top:8px;font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted,#8a8a8a)}
+  .vsm-ax i{flex:1;height:1px;background:linear-gradient(90deg,var(--accent),#3a3a3a)}
+  .vpm2 .vpr{height:300px;margin-top:30px}
+  .vpm2 .vpr-t{font-size:18px}
+  .vpm2 .vpr-st{height:calc(var(--h)*.72)}
+  .vpm2 .vpl{margin-top:22px}
+  @media(max-width:900px){.vph{grid-template-columns:1fr}.vsm{width:100%;max-width:340px}}
+
   /* ---- long scrolling page ---- */
   .band{padding-bottom:0}
   .band.cont{padding-top:0}
