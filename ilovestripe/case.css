@@ -999,7 +999,8 @@
   .wgrid{display:flex;flex-direction:column;gap:26px;margin-top:26px}
   .wgrid .wtxt{display:grid;grid-template-columns:1fr 1fr;gap:44px}
   .wgrid .band-lead{margin:0;font-size:19px}
-  .wgrid .ctx-shot{border-radius:12px;width:100%;max-width:980px;margin:0}
+  .wgrid .ctx-shot{border-radius:12px;width:100%;max-width:980px;margin:0 auto}
+  .band-title.ctr{justify-content:center;text-align:center}
   @media(max-width:900px){.wgrid .wtxt{grid-template-columns:1fr;gap:16px}}
 
   /* ---- customer interviews: persona in a Zoom-style window + findings ---- */
