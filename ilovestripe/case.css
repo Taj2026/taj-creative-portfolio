@@ -1054,7 +1054,7 @@
   .pv .mfw{background:#f6f9fd;border-color:#d6e0ee}
   .pv .mf-top{background:#e7eef8;border-bottom-color:#d3dfef}
   .pv .mf-nav{background:#eef3fa;border-right-color:#d3dfef}
-  .pv .mf-nav span.on{background:#d5e3f6;box-shadow:inset 3px 0 0 #6f9bd6}
+  .pv .mf-nav span.on{background:#d5e3f6;box-shadow:none}
   .pv .mf-org,.pv .mf-search{border-color:#c5d6ee}
   .pv .mf-card{border-color:#d8e2ef}
   .pv .mf-bar{background:#e4ecf7}
@@ -1074,6 +1074,17 @@
   .pv table.mf-t th{border-bottom-color:#d3dfef}
   .pv table.mf-t td{border-bottom-color:#e6edf6}
   .pv .mf-panel{border-left-color:#c5d6ee}
+
+  /* ---- prototype video: Atlassian's Charlie typefaces ---- */
+  @font-face{font-family:"Charlie Text";font-weight:400;font-style:normal;font-display:swap;src:local("CharlieText-Regular"),url(/assets/fonts/CharlieText-Regular.otf) format("opentype")}
+  @font-face{font-family:"Charlie Text";font-weight:600;font-style:normal;font-display:swap;src:local("CharlieText-Semibold"),url(/assets/fonts/CharlieText-Semibold.otf) format("opentype")}
+  @font-face{font-family:"Charlie Text";font-weight:700;font-style:normal;font-display:swap;src:local("CharlieText-Bold"),url(/assets/fonts/CharlieText-Bold.otf) format("opentype")}
+  @font-face{font-family:"Charlie Display";font-weight:600;font-style:normal;font-display:swap;src:local("CharlieDisplay-Semibold"),url(/assets/fonts/CharlieDisplay-Semibold.otf) format("opentype")}
+  @font-face{font-family:"Charlie Display";font-weight:700;font-style:normal;font-display:swap;src:local("CharlieDisplay-Bold"),url(/assets/fonts/CharlieDisplay-Bold.otf) format("opentype")}
+  .pv .mfw{font-family:"Charlie Text","DM Sans",system-ui,sans-serif}
+  .pv .mf-h,.pv .mf-stat{font-family:"Charlie Display","Charlie Text","DM Sans",sans-serif;font-weight:600;text-transform:none;letter-spacing:-.01em}
+  .pv .mf-h{font-size:24px}
+  .pv .mf-stat{font-size:22px}
 
   /* ---- long scrolling page ---- */
   .band{padding-bottom:0}
