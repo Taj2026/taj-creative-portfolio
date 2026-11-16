@@ -1125,6 +1125,3 @@
     #summary .ps-b{font-size:20px}
     #summary .ps-col{padding-top:72px;padding-bottom:56px}
   }
-
-  /* all case-study slides span the full width, like the hero */
-  .band>.wrap,.band:has(.fig)>.wrap,.band:has(.feat)>.wrap,.band:has(.split .embed)>.wrap,.pnav .wrap,.next>.wrap,.site-footer>.wrap,.slide-end .wrap{max-width:none}
