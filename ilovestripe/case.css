@@ -1209,12 +1209,10 @@
   .vph .band-lead{max-width:62ch}
   .vsm{width:300px;margin-top:6px}
   .vsm-k{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted,#8a8a8a);margin:0 0 10px}
-  .vsm-cols{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;align-items:end}
-  .vsm-c{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0}
-  .vsm-c i{display:block;width:100%;height:var(--h);background:var(--c);border-radius:3px 3px 0 0}
-  .vsm-c b{font-family:var(--mono);font-weight:400;font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;color:#bdbdbd}
-  .vsm-ax{display:flex;align-items:center;gap:8px;margin-top:8px;font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted,#8a8a8a)}
-  .vsm-ax i{flex:1;height:1px;background:linear-gradient(90deg,var(--accent),#3a3a3a)}
+  .vsm-rows{display:flex;flex-direction:column;gap:7px}
+  .vsm-r{display:grid;grid-template-columns:62px 1fr;align-items:center;gap:10px}
+  .vsm-r b{font-family:var(--mono);font-weight:400;font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;color:#bdbdbd}
+  .vsm-r i{display:block;height:4px;border-radius:2px;background:var(--c);width:var(--w)}
   .vpm2 .vpr{height:300px;margin-top:30px}
   .vpm2 .vpr-t{font-size:18px}
   .vpm2 .vpr-st{height:calc(var(--h)*.72)}
