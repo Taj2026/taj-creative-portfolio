@@ -1091,7 +1091,13 @@
   .pv .mf-main>div[style*="border-bottom:1px solid #d9d9d4"]{margin:0!important}
   .pv .mf-main>.mf-g{margin-top:0!important;flex:1 1 auto;min-height:0}
   .pv .mf-main>.mf-g[style*="repeat(4,1fr)"],.pv .mf-main>.mf-g[style*="1fr 1fr 1fr 1fr"]{flex:none}
-  .pv .mf-main>.mf-g[style*="1.7fr 1fr"]{flex-grow:1.25}
+  .pv .mf-main>.mf-g[style*="1.7fr 1fr"]{flex:none}
+  .pv .mf-g[style*="1.7fr 1fr"] .mf-card>div[style*="gap:22px"]{flex:none;padding:4px 6px 0;gap:34px!important}
+  .pv .mf-g[style*="1.7fr 1fr"] .mf-card>div[style*="gap:22px"]>svg{width:140px;height:140px}
+  .pv .mf-g[style*="1.7fr 1fr"] .mf-card>div[style*="gap:22px"] .mf-bar{margin:4px 0 9px}
+  .pv .mf-g[style*="1.7fr 1fr"] .mf-card>div[style*="gap:22px"] .mf-bar:last-child{margin-bottom:0}
+  .pv .mf-g[style*="1.7fr 1fr"] .mf-card>div[style*="border:1px solid #e4e4df"]{flex:none;margin-bottom:6px!important}
+  .pv .mf-card>div[style*="repeat(6,1fr)"]{display:flex!important;justify-content:space-between;gap:0!important}
   .pv .mf-main>.mf-card{margin-top:0!important}
   .pv .mf-main>.mf-card:last-child{flex:1;min-height:0;overflow:hidden}
   .pv .mf-main>.mf-g>.mf-card{display:flex;flex-direction:column;min-height:0}
@@ -1139,6 +1145,13 @@
   .seq .swf-rec{margin-top:14px;padding:16px 14px}
   .seq .swf-chart{margin-top:16px;height:118px}
   .seq .seqr{padding-bottom:6px}
+
+  /* recommendation detail: a modest chart with supporting figures underneath */
+  .pv .mf-card>.mf-chartw{flex:none!important;display:block!important}
+  .pv .mf-chartw div[style*="height:78px"]{flex:none;height:92px!important;min-height:0}
+  .pv .mf-imp{flex:1;display:flex;flex-direction:column;margin-top:14px;border-top:1px solid #e6edf6}
+  .pv .mf-imp .mf-row{flex:1;align-items:center;border-bottom:1px solid #eef2f8;color:#6b7686}
+  .pv .mf-imp .mf-row:last-child{border-bottom:0}
 
   /* ---- long scrolling page ---- */
   .band{padding-bottom:0}
