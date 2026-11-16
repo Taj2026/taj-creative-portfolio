@@ -1192,10 +1192,17 @@
   .zpt li::before{top:20px}
   @media(max-width:900px){.zmw{grid-template-columns:1fr}.zm-stage{aspect-ratio:16/10}}
 
-  /* ---- a11y: vision mini stories on a white rounded card ---- */
-  .ms{background:#fff;border-radius:22px;padding:28px;display:flex;flex-wrap:wrap;gap:16px;justify-content:center;box-shadow:0 24px 60px rgba(0,0,0,.4)}
-  .ms img{display:block;width:calc((100% - 48px)/4);height:auto;border-radius:6px}
-  @media(max-width:900px){.ms{padding:16px;gap:10px}.ms img{width:calc((100% - 10px)/2)}}
+  /* ---- a11y: vision mini stories — big title card overlapping a white card of six frames ---- */
+  .ms{position:relative;margin:36px 0 0 36px}
+  .ms-g{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;background:#fff;border-radius:22px;padding:28px;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+  .ms-g img{display:block;width:100%;height:auto;border-radius:6px}
+  .ms-t{position:absolute;left:-36px;top:-36px;width:calc(25% + 50px);height:auto;border-radius:10px;z-index:2;box-shadow:0 22px 48px rgba(0,0,0,.45)}
+  .ms-sp{visibility:hidden}
+  .ms-cap{margin:18px 0 0 4px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted,#8a8a8a)}
+  .ms-l{display:flex;flex-direction:column;justify-content:flex-end;color:#172b4d;padding:0 4px 4px}
+  .ms-l b{font-family:var(--display);font-weight:400;font-size:64px;line-height:.9;letter-spacing:.02em;color:#1868DB}
+  .ms-l span{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6b778c;margin-top:8px}
+  @media(max-width:900px){.ms{margin:18px 0 0 0}.ms-g{grid-template-columns:repeat(2,1fr);padding:14px;gap:10px}.ms-t{position:static;width:100%;margin-bottom:10px}.ms-sp,.ms-l{display:none}}
 
   /* ---- long scrolling page ---- */
   .band{padding-bottom:0}
