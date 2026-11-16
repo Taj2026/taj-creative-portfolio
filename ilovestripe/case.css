@@ -1084,7 +1084,9 @@
   .pv .mfw{font-family:"Charlie Text","DM Sans",system-ui,sans-serif}
   .pv .mf-h,.pv .mf-stat{font-family:"Charlie Display","Charlie Text","DM Sans",sans-serif;font-weight:600;text-transform:none;letter-spacing:-.01em}
   .pv .mf-h{font-size:24px}
-  .pv .mf-stat{font-size:22px}
+  .pv .mf-stat{font-size:22px;font-weight:400}
+  @font-face{font-family:"Charlie Display";font-weight:400;font-style:normal;font-display:swap;src:local("CharlieDisplay-Regular"),url(/assets/fonts/CharlieDisplay-Regular.otf) format("opentype")}
+  .pv .mfw svg text{font-family:"Charlie Display","Charlie Text","DM Sans",sans-serif;font-weight:400;letter-spacing:-.01em}
 
   /* ---- long scrolling page ---- */
   .band{padding-bottom:0}
