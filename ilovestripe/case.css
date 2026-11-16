@@ -1261,11 +1261,12 @@
     .slide-fit{flex:none}
     .slide-fit:not([data-keepw]){width:100%}
     .band:has(.fig)>.wrap{max-width:1560px}
-    .band:has(.feat)>.wrap,.band:has(.split .embed)>.wrap{max-width:1560px}
+    .band:has(.feat)>.wrap,.band:has(.split .embed)>.wrap,.band:has(.split.rl)>.wrap{max-width:1560px}
     .feat{grid-template-columns:1.58fr minmax(260px,.42fr);gap:44px}
     .feat.rev{grid-template-columns:minmax(260px,.42fr) 1.58fr}
     .fpanel{padding:14px}
     .split:has(.embed){grid-template-columns:.5fr 1.5fr;gap:44px}
+    .split.rl{grid-template-columns:.64fr 1.36fr;gap:44px}
     .next{display:flex;flex-direction:column;justify-content:center;padding:0 0 88px}
     .slide-end{display:flex;flex-direction:column}
     .slide-end>.contact-cta{flex:1;min-height:0;display:flex;align-items:center;padding:24px 0 0;border-top:none}
