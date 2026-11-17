@@ -121,3 +121,31 @@ function fitEmbeds(){
     try{ history.replaceState(null,'',a.getAttribute('href')); }catch(x){}
   });
 })();
+
+// Concept sketches: click (or Enter / Space) to expand a sketch in a large viewer; Esc, the X or a click outside closes it.
+(function(){
+  var items=[].slice.call(document.querySelectorAll('.skc'));
+  if(!items.length) return;
+  var ov=document.createElement('div');
+  ov.className='sk-ov'; ov.setAttribute('role','dialog'); ov.setAttribute('aria-modal','true'); ov.setAttribute('aria-label','Expanded sketch');
+  ov.innerHTML='<div class="sk-ov-in"></div><button class="sk-ov-x" type="button" aria-label="Close"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6 18 18M18 6 6 18"/></svg></button>';
+  document.body.appendChild(ov);
+  var host=ov.firstChild, btn=ov.lastChild, last=null;
+  function open(el){
+    var svg=el.querySelector('svg'); if(!svg) return;
+    last=el; host.innerHTML='';
+    var c=svg.cloneNode(true); c.removeAttribute('style'); host.appendChild(c);
+    var cap=el.querySelector('figcaption'); if(cap) host.appendChild(cap.cloneNode(true));
+    ov.classList.add('is-open'); document.documentElement.style.overflow='hidden'; btn.focus();
+  }
+  function close(){ ov.classList.remove('is-open'); document.documentElement.style.overflow=''; if(last) last.focus(); }
+  items.forEach(function(el){
+    var cap=el.querySelector('figcaption');
+    el.setAttribute('tabindex','0'); el.setAttribute('role','button');
+    el.setAttribute('aria-label','Expand sketch'+(cap?': '+cap.textContent:''));
+    el.addEventListener('click',function(){ open(el); });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); open(el); } });
+  });
+  ov.addEventListener('click',function(e){ if(e.target===ov||e.target.closest('.sk-ov-x')) close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&ov.classList.contains('is-open')) close(); });
+})();

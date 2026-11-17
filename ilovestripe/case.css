@@ -1294,6 +1294,34 @@
   /* ---- workshop board: Prioritize column runs the full height (no second bottom border/corner) ---- */
   .board .pane:nth-child(3){align-self:stretch;border-bottom:none;border-radius:0}
 
+  /* ---- concept sketches: click to expand ---- */
+  .skc,.skflow{cursor:zoom-in}
+  .skc:hover svg,.skflow:hover svg{outline:1px solid rgba(255,255,255,.45);outline-offset:3px}
+  .skc:focus-visible,.skflow:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
+  .sk-ov{position:fixed;inset:0;z-index:9998;display:flex;align-items:center;justify-content:center;padding:4vh 4vw;background:rgba(8,8,10,.88);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s ease}
+  .sk-ov.is-open{opacity:1;visibility:visible}
+  .sk-ov-in{display:flex;flex-direction:column;align-items:center;gap:14px}
+  .sk-ov-in svg{display:block;width:min(92vw,calc(80vh * 1.5), 1500px);height:auto;background:#fff;border-radius:4px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+  .sk-ov-in figcaption{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#bdbdbd}
+  .sk-ov-in figcaption b{color:#fff;font-weight:500}
+  .sk-ov-x{position:fixed;top:22px;right:26px;width:34px;height:34px;border-radius:50%;border:1px solid #fff;background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
+  .sk-ov-x:hover{background:rgba(255,255,255,.14)}
+  @media(prefers-reduced-motion:reduce){.sk-ov{transition:none}}
+
+  /* ---- type scale for slide text: 10 / 12 / 14 / 16 / 19 / 24 / 30 px + three fluid title sizes (S/M/L). Text inside images, prototypes, diagrams and mini stories is left alone. ---- */
+  @media(min-width:901px){
+    .vsm-r b:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *){font-size:10px!important}
+    .fig-h:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *),.feat-label:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *),.vpl-k:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *),.zml h4:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *),.vpr-p:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *),.vpm .vpr-p:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *),.vpl-logos i:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *){font-size:12px!important}
+    .wfc-n:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *),.dcc-q blockquote:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *){font-size:14px!important}
+    .icards.sm .icard span:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *),.zpt li:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *){font-size:16px!important}
+    .vpm2 .vpr-t:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *),.ps-b:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *),#summary .ps-b:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *),.zat li:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *){font-size:19px!important}
+    .icards.sm .icard b:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *){font-size:24px!important}
+    .pcard h3:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *),.icards.sm .icard .n:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *){font-size:30px!important}
+    .dtitle:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *),.band-title:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *),.stat .n:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *){font-size:clamp(56px,7vw,90px)!important}
+    .feat-title:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *),.sband .num:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *),.band-title.sm:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *){font-size:clamp(32px,3.6vw,48px)!important}
+    .ps-h:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *),.ps-h.tight:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *),.next .t:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *),.band-title.longtitle:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *){font-size:clamp(40px,4.6vw,64px)!important}
+  }
+
   /* ---- long scrolling page ---- */
   .band{padding-bottom:0}
   .band.cont{padding-top:0}
