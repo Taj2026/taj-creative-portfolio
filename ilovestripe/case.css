@@ -1263,6 +1263,10 @@
   @media(min-width:1200px){.band:has(.wfs2)>.wrap{max-width:1560px}}
   @media(max-width:900px){.wfs2{grid-template-columns:1fr}.wfx-g{grid-template-columns:1fr 1fr}}
 
+  /* ---- Data Center to Cloud: no boxes around the content ---- */
+  .dcc-svg .card,.dcc-svg .card.cl{fill:none;stroke:none}
+  .dcc-stat{border:0;background:none;padding:0}
+
   /* ---- long scrolling page ---- */
   .band{padding-bottom:0}
   .band.cont{padding-top:0}
