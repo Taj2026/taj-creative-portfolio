@@ -1328,6 +1328,13 @@
   @media(min-width:1200px){.band:has(.dual)>.wrap{max-width:1560px}}
   @media(max-width:900px){.dual{grid-template-columns:1fr}}
 
+  /* ---- prototype instance screen: compact Instance health card with an Environment card beneath ---- */
+  .mf-col{display:flex;flex-direction:column;gap:12px;min-width:0;min-height:0}
+  .mf-col>.mf-card:last-child{flex:1}
+  .pv .mf-col>.mf-card{display:flex;flex-direction:column;min-height:0}
+  .pv .mf-col>.mf-card:first-child{flex:none}
+  .pv .mf-col>.mf-card:last-child{flex:1}
+
   /* ---- long scrolling page ---- */
   .band{padding-bottom:0}
   .band.cont{padding-top:0}
