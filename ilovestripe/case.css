@@ -1277,8 +1277,15 @@
   .dcc-svg{max-width:720px;margin:22px auto 0}
   .dcc-stat{margin-top:16px;column-gap:16px;justify-content:center}
   .dcc-stat b{font-size:50px}
-  .dcc-stat span{font-size:17px}
+  .dcc-stat span{font-size:17px;text-wrap:balance;max-width:34em}
   .dcc-stat small{font-size:9.5px}
+
+  /* ---- Data Center to Cloud: arrow and cloud in white/gray (no coral) ---- */
+  .dcc-svg .ar{stroke:#e6e6e6}
+  .dcc-svg .mg{fill:#a8a8a8}
+  .dcc-svg .nm.cl{fill:#fff}
+  .dcc-svg .cl-o *{fill:#e6e6e6;stroke:#e6e6e6}
+  .dcc-svg .cl-i *{fill:#262626;stroke:none}
 
   /* ---- long scrolling page ---- */
   .band{padding-bottom:0}
