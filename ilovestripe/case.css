@@ -1287,6 +1287,14 @@
   .dcc-svg .cl-o *{fill:#e6e6e6;stroke:#e6e6e6}
   .dcc-svg .cl-i *{fill:#262626;stroke:none}
 
+  /* ---- Data Center to Cloud: small quote under the illustrations ---- */
+  .dcc-q{margin:26px auto 0;max-width:620px;text-align:center}
+  .dcc-q blockquote{margin:0;font-size:15px;line-height:1.55;font-style:italic;color:#bdbdbd}
+  .dcc-q figcaption{margin-top:8px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted,#8a8a8a)}
+
+  /* ---- workshop board: Prioritize column runs the full height (no second bottom border/corner) ---- */
+  .board .pane:nth-child(3){align-self:stretch;border-bottom:none;border-radius:0}
+
   /* ---- long scrolling page ---- */
   .band{padding-bottom:0}
   .band.cont{padding-top:0}
