@@ -108,3 +108,16 @@ function fitEmbeds(){
   window.addEventListener('resize',fitpv);
   document.addEventListener('DOMContentLoaded',fitpv);
 })();
+
+// Slide arrows and rail numbers: scroll to the target explicitly, so they work even when the address bar already holds that #hash.
+(function(){
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a.nav-arrow[href^="#"],.snav a[href^="#"]');
+    if(!a||e.defaultPrevented||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||e.button) return;
+    var t=document.getElementById(a.getAttribute('href').slice(1));
+    if(!t) return;
+    e.preventDefault();
+    t.scrollIntoView({behavior:'smooth',block:'start'});
+    try{ history.replaceState(null,'',a.getAttribute('href')); }catch(x){}
+  });
+})();
