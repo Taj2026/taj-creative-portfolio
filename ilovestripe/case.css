@@ -1251,6 +1251,18 @@
   .dcc-svg .ar{fill:none;stroke:var(--accent);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
   .dcc-svg .mg{font-family:var(--mono);font-size:15px;letter-spacing:.2em;fill:var(--accent);text-anchor:middle;text-transform:uppercase}
 
+  /* ---- a11y: key workflows audited — real Jira create-issue screens ---- */
+  .wfs2{grid-template-columns:.5fr 1.9fr;gap:44px;align-items:center}
+  .wfs2 .wfc-n{margin-top:18px}
+  .wfx-g{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 20px}
+  .wfx{margin:0}
+  .wfx-i{border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 14px 34px rgba(0,0,0,.38)}
+  .wfx-i img{display:block;width:100%;height:auto}
+  .wfx figcaption{display:flex;gap:10px;align-items:baseline;margin-top:10px;font-size:14px;line-height:1.35;color:#d4d4d4}
+  .wfx figcaption b{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;color:var(--accent,#ff6b5a);font-weight:500}
+  @media(min-width:1200px){.band:has(.wfs2)>.wrap{max-width:1560px}}
+  @media(max-width:900px){.wfs2{grid-template-columns:1fr}.wfx-g{grid-template-columns:1fr 1fr}}
+
   /* ---- long scrolling page ---- */
   .band{padding-bottom:0}
   .band.cont{padding-top:0}
