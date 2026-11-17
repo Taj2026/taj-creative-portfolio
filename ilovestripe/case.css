@@ -1322,6 +1322,12 @@
     .ps-h:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *),.ps-h.tight:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *),.next .t:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *),.band-title.longtitle:not(.fig *):not(.fpanel *):not(.embed *):not(.pv *):not(.pc *):not(.tn *):not(.ms *):not(.mfw *):not(.panelwf *):not(.wfx *){font-size:clamp(40px,4.6vw,64px)!important}
   }
 
+  /* ---- a11y: mission + why-accessibility images share one slide ---- */
+  .dual{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+  .dual .ctx-shot{width:100%;max-width:none;margin:0;border-radius:12px;box-shadow:0 18px 44px rgba(0,0,0,.4)}
+  @media(min-width:1200px){.band:has(.dual)>.wrap{max-width:1560px}}
+  @media(max-width:900px){.dual{grid-template-columns:1fr}}
+
   /* ---- long scrolling page ---- */
   .band{padding-bottom:0}
   .band.cont{padding-top:0}
