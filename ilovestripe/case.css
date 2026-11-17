@@ -1335,6 +1335,10 @@
   .pv .mf-col>.mf-card:first-child{flex:none}
   .pv .mf-col>.mf-card:last-child{flex:1}
 
+  /* ---- prototype overview: Instance health numbers sit at the foot of the card and run to its right edge ---- */
+  .pv .mf-g[style*="1.7fr 1fr"] .mf-card>div[style*="gap:22px"]{flex:1 1 auto;align-items:center!important}
+  .pv .mf-g[style*="1.7fr 1fr"] .mf-card>div[style*="repeat(6,1fr)"]{margin-top:auto!important;margin-right:-6px;padding-bottom:2px}
+
   /* ---- long scrolling page ---- */
   .band{padding-bottom:0}
   .band.cont{padding-top:0}
